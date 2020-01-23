@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AutoSavePdf" xml:space="preserve">
+    <value>try {
+	//收集字体
+	 var fontArray=new Array();
+	for ( i = 0; i&lt; app.textFonts.length; i++) 	
+	{
+		fontArray[i]=app.textFonts[i].family;
+	}
+		var doc=app.open(new File('*文件名*'));
+		//判断字体
+		for ( i = 0; i&lt; doc.textFrames.length; i++) 
+		{
+			var avFont=app.activeDocument.textFrames[i].textRange.characterAttributes.textFont.family;
+			var isExist=0;
+			for ( j = 0; j&lt; fontArray.length; j++) 
+			{
+				if(avFont==fontArray[j])
+				{
+					isExist=1;
+					break;
+				}
+			}
+			if(isExist==0)
+			{
+				var mess=doc.name+'\n这个文件少字体';
+				//关闭文档
+				doc.close( SaveOptions.DONOTSAVECHANGES );
+				throw new Error(mess);
+			}
+		}
+		/* //嵌入链接
+		for(j=doc.placedItems.length-1;j&gt;=0;j--)
+		{
+			doc.placedItems[j].embed();
+		} */
+		var options = new PDFSaveOptions();
+		options.pDFPreset="CTP";
+		var targetFile = this.getTargetFile(doc.name, '.pdf', '*AI导出PDF目录*');
+		doc.saveAs( targetFile, options );
+		//关闭文档
+		doc.close( SaveOptions.DONOTSAVECHANGES );
+		}
+catch(e) {
+	alert( e.message, "*脚本警告*", true);
+}
+	
+function getTargetFile(docName, ext, destFolder) {
+	var newName = "";
+
+	// if name has no dot (and hence no extension),
+	// just append the extension
+	if (docName.indexOf('.') &lt; 0) {
+		newName = docName + ext;
+	} else {
+		var dot = docName.lastIndexOf('.');
+		newName += docName.substring(0, dot);
+		newName += ext;
+	}
+	
+	// Create the file object to save to
+	var myFile = new File( destFolder + '/' + newName );
+	
+	// Preflight access rights
+	if (myFile.open("w")) {
+		myFile.close();
+	}
+	else {
+		throw new Error('拒绝访问');
+	}
+	return myFile;
+}</value>
+  </data>
+  <data name="IllustratorTest" xml:space="preserve">
+    <value>var doc=app.documents.add();
+	var tf=doc.textFrames.add();
+	tf.contents="测试成功! *当前时间*";
+	tf.left=0;
+	tf.top=doc.height/2;
+	newCMYKColor = new CMYKColor();
+	newCMYKColor.black = 0;
+	newCMYKColor.cyan = 0;
+	newCMYKColor.magenta = 100;
+	newCMYKColor.yellow = 100;
+	for(i=0;i&lt;tf.characters.length;i++)
+	{
+		tf.characters[i].characterAttributes.size=40;
+		tf.characters[i].fillColor = newCMYKColor;
+	}</value>
+  </data>
+  <data name="JdfTemplate" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" standalone="no" ?&gt;
+&lt;JDF xmlns="http://www.CIP4.org/JDFSchema_1_1" ID="*GUID_000*" JobID="*文件名称*" JobPartID="*文件名称*" xmlns:SSi="http://www.creo.com/SSI/JDFExtensions.xsd" SSi:PrepsGenerated="1" Status="Ready" Type="ProcessGroup" Version="1.2"&gt;
+
+  &lt;JDF ID="*GUID_001*" JobPartID="*文件名称*" Status="Waiting" Type="Imposition"&gt;
+    &lt;ResourceLinkPool&gt;
+      &lt;LayoutLink Usage="Input" rRef="*GUID_002*"/&gt;
+      &lt;RunListLink ProcessUsage="Document" Usage="Input" rRef="*GUID_003*"/&gt;
+      &lt;RunListLink ProcessUsage="Marks" Usage="Input" rRef="*GUID_004*"/&gt;
+      &lt;RunListLink Usage="Output" rRef="*GUID_005*"/&gt;
+	  
+    &lt;/ResourceLinkPool&gt;
+  &lt;/JDF&gt;
+
+  &lt;JDF ID="*GUID_006*" JobPartID="*文件名称*" Status="Waiting" Type="Combined" Types="Interpreting Separation Screening Rendering"&gt;
+    &lt;ResourceLinkPool&gt;
+      &lt;RunListLink CombinedProcessIndex="0" Usage="Input" rRef="*GUID_005*"/&gt;
+      &lt;InterpretingParamsLink CombinedProcessIndex="0" Usage="Input" rRef="*GUID_007*"/&gt;
+      &lt;SeparationControlParamsLink CombinedProcessIndex="1" Usage="Input" rRef="*GUID_008*"/&gt;
+      &lt;ColorantControlLink CombinedProcessIndex="1" Usage="Input" rRef="*GUID_009*"/&gt;
+      &lt;ScreeningParamsLink CombinedProcessIndex="2" Usage="Input" rRef="*GUID_010*"/&gt;
+      &lt;RenderingParamsLink CombinedProcessIndex="3" Usage="Input" rRef="*GUID_011*"/&gt;
+      &lt;RunListLink CombinedProcessIndex="3" Usage="Output" rRef="*GUID_012*"/&gt;
+    &lt;/ResourceLinkPool&gt;
+  &lt;/JDF&gt;
+
+  &lt;AuditPool&gt;
+    &lt;Created AgentName="Kodak Preps" AgentVersion="5.3.2  (589)" ID="*GUID_013*" TimeStamp="*时间_000*"/&gt;
+  &lt;/AuditPool&gt;
+
+  &lt;ResourcePool&gt;
+    &lt;SeparationControlParams Class="Parameter" ID="*GUID_008*" Status="Available"/&gt;
+    &lt;RenderingParams Class="Parameter" ID="*GUID_011*" Status="Available"/&gt;
+    &lt;ColorPool Class="Parameter" ID="*GUID_014*" Status="Available"&gt;
+      &lt;Color MappingSelection="UsePDLValues" Name="Cyan" SSi:ForceKnockout="0" SSi:ForceOverprint="0" SSi:UserAddedColor="0"/&gt;
+      &lt;Color MappingSelection="UsePDLValues" Name="Magenta" SSi:ForceKnockout="0" SSi:ForceOverprint="0" SSi:UserAddedColor="0"/&gt;
+      &lt;Color MappingSelection="UsePDLValues" Name="Yellow" SSi:ForceKnockout="0" SSi:ForceOverprint="0" SSi:UserAddedColor="0"/&gt;
+      &lt;Color MappingSelection="UsePDLValues" Name="Black" SSi:ForceKnockout="0" SSi:ForceOverprint="0" SSi:UserAddedColor="0"/&gt;
+    &lt;/ColorPool&gt;
+    &lt;ColorantControl Class="Parameter" ID="*GUID_009*" ProcessColorModel="DeviceCMYK" Status="Available"&gt;
+      &lt;ColorPoolRef rRef="*GUID_014*"/&gt;
+      &lt;ColorantParams/&gt;
+      &lt;ColorantOrder&gt;
+        &lt;SeparationSpec Name="Cyan"/&gt;
+        &lt;SeparationSpec Name="Magenta"/&gt;
+        &lt;SeparationSpec Name="Yellow"/&gt;
+        &lt;SeparationSpec Name="Black"/&gt;
+      &lt;/ColorantOrder&gt;
+    &lt;/ColorantControl&gt;
+    &lt;ScreeningParams Class="Parameter" ID="*GUID_010*" Status="Available"&gt;
+      &lt;ScreenSelector Angle="105" Frequency="150" SSi:MFGAngle="105" SSi:MFGFrequency="150" Separation="Cyan"/&gt;
+      &lt;ScreenSelector Angle="75" Frequency="150" SSi:MFGAngle="75" SSi:MFGFrequency="150" Separation="Magenta"/&gt;
+      &lt;ScreenSelector Angle="90" Frequency="150" SSi:MFGAngle="90" SSi:MFGFrequency="150" Separation="Yellow"/&gt;
+      &lt;ScreenSelector Angle="45" Frequency="150" SSi:MFGAngle="45" SSi:MFGFrequency="150" Separation="Black"/&gt;
+    &lt;/ScreeningParams&gt;
+    &lt;Layout Class="Parameter" ID="*GUID_002*" SSi:JobDefaultBleedMargin="*出血页边空白*" SSi:JobPageAdjustments="0 0 0 0" SSi:JobPlateScaling="1 1" SSi:JobShingling="0 0" Status="Available"&gt;
+      &lt;Signature Name="1" SSi:PressRunNo="1"&gt;
+        
+        &lt;Sheet Name="Sheet-1" SSi:WorkStyle="SS" SurfaceContentsBox="0 0 *印张宽度* *印张高度*"&gt;
+          &lt;Surface SSi:Dimension="*印张宽度* *印张高度*" SSi:MediaOrigin="0 0" Side="Front" SurfaceContentsBox="0 0 *印张宽度* *印张高度*"&gt;
+            &lt;MarkObject CTM="1 0 0 1 0 0" ClipBox="0 0 *印张宽度* *印张高度*" Ord="0"/&gt;
+            &lt;ContentObject CTM="1 0 0 1 *左边空余* *下面空余*" ClipBox="*内容显示框_左* *内容显示框_下* *内容显示框_右* *内容显示框_上*" Ord="0" SSi:TrimBox="0 0 *成品宽度* *成品高度*" SSi:TrimBox1="*成品左边界限* *成品下边界限* *成品右边界限* *成品上边界限*" TrimCTM="1 0 0 1 *成品左边界限* *成品下边界限*" TrimSize="*成品宽度* *成品高度*"/&gt;
+            &lt;MarkObject CTM="1 0 0 1 0 0" ClipBox="0 0 *印张宽度* *印张高度*" Ord="1"/&gt;
+          &lt;/Surface&gt;
+        &lt;/Sheet&gt;
+      &lt;/Signature&gt;
+    &lt;/Layout&gt;
+    &lt;InterpretingParams Class="Parameter" ID="*GUID_007*" Scaling="1.0000 1.0000" ScalingOrigin="36.0000 0.0000" Status="Available"/&gt;
+    &lt;RunList Class="Parameter" ID="*GUID_003*" PartIDKeys="Run" Status="Available"&gt;
+      &lt;RunList Pages="0 ~ 0" Run="0"&gt;
+        &lt;LayoutElement&gt;
+          &lt;FileSpec MimeType="application/pdf" SSi:FilePageAdjustments="0 0 0 0" SSi:IgnoreBoundingBox="0" URL="file:*出版PDF全路径*"/&gt;
+          &lt;CPC:PageInfo xmlns:CPC="http://www.creo.com/CPC/JDFExtensions.xsd" PageGeometryCTM="1 0 0 1 0 0" PageTrim="*成品宽度* *成品高度*"/&gt;
+        &lt;/LayoutElement&gt;
+        &lt;SSi:PageCell SSi:RunListCenterOffset="0" SSi:RunListCentered="1" SSi:RunListOffsets="0 0" SSi:RunListOrientation="3" SSi:RunListScaleToFit="0" SSi:RunListScaling="1 1"/&gt;
+      &lt;/RunList&gt;
+    &lt;/RunList&gt;
+    &lt;RunList Class="Parameter" ID="*GUID_004*" PartIDKeys="Run" Status="Available"&gt;
+      &lt;RunList Pages="2 ~ 3" Run="0"&gt;
+        &lt;LayoutElement&gt;
+          &lt;FileSpec MimeType="application/pdf" URL="file:*标记PDF全路径*"/&gt;
+          &lt;SeparationSpec Name="Cyan"/&gt;
+          &lt;SeparationSpec Name="Magenta"/&gt;
+          &lt;SeparationSpec Name="Yellow"/&gt;
+          &lt;SeparationSpec Name="Black"/&gt;
+        &lt;/LayoutElement&gt;
+      &lt;/RunList&gt;
+    &lt;/RunList&gt;
+    &lt;RunList Class="Parameter" ID="*GUID_005*" Status="Unavailable"&gt;
+      &lt;LayoutElement&gt;
+        &lt;FileSpec URL="file:///ImpositionOutputFile"/&gt;
+      &lt;/LayoutElement&gt;
+    &lt;/RunList&gt;
+    &lt;RunList Class="Parameter" ID="*GUID_012*" Status="Unavailable"&gt;
+      &lt;LayoutElement&gt;
+        &lt;FileSpec URL="file:///RenderingOutputFile"/&gt;
+      &lt;/LayoutElement&gt;
+    &lt;/RunList&gt;
+  &lt;/ResourcePool&gt;
+
+&lt;/JDF&gt;</value>
+  </data>
+</root>

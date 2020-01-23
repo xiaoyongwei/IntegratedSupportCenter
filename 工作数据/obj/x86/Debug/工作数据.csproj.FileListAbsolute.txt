@@ -1,0 +1,28 @@
+C:\Users\Administrator\documents\visual studio 2010\Projects\TEST\工作数据\bin\Debug\工作数据.exe
+C:\Users\Administrator\documents\visual studio 2010\Projects\TEST\工作数据\bin\Debug\工作数据.pdb
+C:\Users\Administrator\documents\visual studio 2010\Projects\TEST\工作数据\obj\x86\Debug\工作数据.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\documents\visual studio 2010\Projects\TEST\工作数据\obj\x86\Debug\工作数据.FormMain.resources
+C:\Users\Administrator\documents\visual studio 2010\Projects\TEST\工作数据\obj\x86\Debug\工作数据.Form每日数据.resources
+C:\Users\Administrator\documents\visual studio 2010\Projects\TEST\工作数据\obj\x86\Debug\工作数据.Properties.Resources.resources
+C:\Users\Administrator\documents\visual studio 2010\Projects\TEST\工作数据\obj\x86\Debug\工作数据.csproj.GenerateResource.Cache
+C:\Users\Administrator\documents\visual studio 2010\Projects\TEST\工作数据\obj\x86\Debug\工作数据.exe
+C:\Users\Administrator\documents\visual studio 2010\Projects\TEST\工作数据\obj\x86\Debug\工作数据.pdb
+C:\Users\Administrator\documents\visual studio 2010\Projects\TEST\工作数据\bin\Debug\MySql.Data.dll
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.exe
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.pdb
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\bin\Debug\工作数据.exe
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\bin\Debug\工作数据.pdb
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\bin\Debug\MySql.Data.dll
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.csprojResolveAssemblyReference.cache
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.FormMain.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.Form每日数据.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.Properties.Resources.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.csproj.GenerateResource.Cache
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.winForm.Form物料管理.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.winForm.每日数据.Form每日数据汇总.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.winForm.每日数据.Form每日数据汇总_图表.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.winForm.物料管理.Form物料价格更新.resources
+C:\Users\Administrator\Desktop\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.exe
+C:\Users\Administrator\Desktop\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.pdb
+D:\Visual Studio 2010\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.exe
+D:\Visual Studio 2010\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.pdb

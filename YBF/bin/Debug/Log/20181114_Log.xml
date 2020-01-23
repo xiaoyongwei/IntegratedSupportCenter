@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Errors>
+  <error DateTime="2018-11-14 11:03:10" Description="System.Exception: 机台错误,提交失败!&#xD;&#xA;   在 YBF.WinForm.FormJobManager.tsmiSubmitToPrinergyEvo_Click(Object sender, EventArgs e) 位置 C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\WinForm\Job\FormJobManager.cs:行号 737" />
+  <error DateTime="2018-11-14 15:11:07" Description="System.IndexOutOfRangeException: 在位置 0 处没有任何行。&#xD;&#xA;   在 System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)&#xD;&#xA;   在 System.Data.DataRowCollection.get_Item(Int32 index)&#xD;&#xA;   在 YBF.WinForm.FormJobManager.tsmiSubmitToPrinergyEvo_Click(Object sender, EventArgs e) 位置 C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\WinForm\Job\FormJobManager.cs:行号 772" />
+</Errors>

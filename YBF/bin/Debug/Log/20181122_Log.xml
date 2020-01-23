@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Errors>
+  <error DateTime="2018-11-22 16:23:39" Description="System.UnauthorizedAccessException: 对路径“\\192.168.110.18\Kodak\PrintConsole5”的访问被拒绝。&#xD;&#xA;   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)&#xD;&#xA;   在 System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)&#xD;&#xA;   在 System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)&#xD;&#xA;   在 YBF.WinForm.ChuBan.FormEvoProcesses.GetPrintConsoleTif() 位置 C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\WinForm\ChuBan\FormEvoProcesses.cs:行号 153" />
+</Errors>

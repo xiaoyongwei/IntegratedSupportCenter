@@ -1,0 +1,78 @@
+﻿*TlbImp路径* "aip路径" /out:"*目标dll路径*"
+
+
+
+检索 COM 类工厂中 CLSID 为 {63755935-C25A-42DF-87A1-51F144A0C216} 的组件失败，原因是出现以下错误: 80040154 没有注册类 (异常来自 HRESULT:0x80040154 (REGDB_E_CLASSNOTREG))。
+
+*************************************
+
+  //加载程序集(dll文件地址)，使用Assembly类   
+            Assembly assembly = Assembly.LoadFile("D:/Bin/myTest.dll");
+
+            //获取类型，参数（名称空间+类）   
+            Type type = assembly.GetType("myTest.ApplicationClass");
+
+            //创建该对象的实例，object类型，参数（名称空间+类）   
+            object instance = assembly.CreateInstance("myTest.ApplicationClass");
+
+
+            ////设置Show_Str方法中的参数类型，Type[]类型；如有多个参数可以追加多个   
+            //Type[] params_type = new Type[1];
+            //params_type[0] = Type.GetType("System.String");
+            ////设置Show_Str方法中的参数值；如有多个参数可以追加多个   
+            //Object[] params_obj = new Object[1];
+            //params_obj[0] = "alert('测试');";
+
+            ////执行Show_Str方法   
+            // type.GetMethod("DoJavaScript", params_type).Invoke(instance, params_obj);
+
+            //js代码
+            string js = "app.documents.add();";
+            //方法名称
+            string strMethod = "DoJavaScript";
+            // 获取方法信息
+            // 注意获取重载方法，需要指定参数类型
+            MethodInfo method = type.GetMethod(strMethod);
+            object[] parameters = new object[] { js, null, null };
+            // 调用方法，有参数
+            Console.WriteLine(method.Invoke(instance, parameters));   
+
+
+
+***********************************
+
+
+//获取系统使用的typelib
+            RegistryKey RegKeyCR = Registry.ClassesRoot.OpenSubKey("TypeLib");
+            string[] subKeys = RegKeyCR.GetSubKeyNames();
+            foreach (string subKey in subKeys)//guid
+            {
+                Match match = Regex.Match(subKey, @"^\{[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}\}$", RegexOptions.IgnoreCase);
+                if (match.Success)
+                {
+                    RegistryKey RegKey = RegKeyCR.OpenSubKey(subKey);
+
+                    //判断guid下的子项是否存在
+                    if (RegKey.SubKeyCount > 0)
+                    {
+                        subKeys = RegKey.GetSubKeyNames();//读取guid下面的子项
+                        //打开第一项子项
+                        RegKey = RegKey.OpenSubKey(subKeys[0]);
+                        // 遍历所有的键名
+                        //判断是否存在建
+                        if (RegKey.ValueCount > 0)
+                        {
+                            String[] keyNameArray = RegKey.GetValueNames();
+                            foreach (string keyName in keyNameArray)
+                            {
+                                string value = (string)RegKey.GetValue(keyName);
+                                if (value.IndexOf("Illustrator", StringComparison.OrdinalIgnoreCase) >= 0)
+                                {
+                                    Console.WriteLine(value.Replace("Type Library",""));
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }

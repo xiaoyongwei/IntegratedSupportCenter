@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AFB15FD5-2384-4560-AA90-717E3AEE355F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YBF</RootNamespace>
+    <AssemblyName>YBF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>mushroom_128px_1214952_easyicon.net.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>7143044E6F00974FBBA99DCE2908BC4D662B24B9</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>YBF_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>YBF.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.PDF">
+      <HintPath>E:\下载\Aspose.PDF(DLLs only)_18.8\Bin\net4.0_ClientProfile\Aspose.PDF.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\ConsoleApplication1\WindowsFormsApplication1\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\ConsoleApplication1\WindowsFormsApplication1\bin\Debug\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NPOI">
+      <HintPath>..\..\ConsoleApplication1\WindowsFormsApplication1\bin\Debug\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\..\ConsoleApplication1\WindowsFormsApplication1\bin\Debug\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\..\ConsoleApplication1\WindowsFormsApplication1\bin\Debug\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\..\ConsoleApplication1\WindowsFormsApplication1\bin\Debug\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.105.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\BestString\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class\BestString\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\BestString\QueryHelper.cs" />
+    <Compile Include="Class\BestString\SearchHelper.cs" />
+    <Compile Include="Class\AppConfig\AppConfig.cs" />
+    <Compile Include="HanDe_ClassLibrary\Common\BaseHandle.cs" />
+    <Compile Include="Class\Comm\Comm_Method.cs" />
+    <Compile Include="HanDe_ClassLibrary\Common\ComputerComm.cs" />
+    <Compile Include="Class\Comm\ExcelHelper.cs" />
+    <Compile Include="Class\Comm\GetSystemIcon.cs" />
+    <Compile Include="Class\Comm\PinYinConverter.cs" />
+    <Compile Include="Class\AppConfig\SerializableConfig.cs" />
+    <Compile Include="Class\Model\ExcelFileInfo.cs" />
+    <Compile Include="Class\Model\JobInfo.cs" />
+    <Compile Include="Class\Model\Ywj.cs" />
+    <Compile Include="Class\SQLiteDbHelper.cs" />
+    <Compile Include="Class\SQLiteList.cs" />
+    <Compile Include="HanDe_ClassLibrary\Adobe\Acrobat\Acrobat8.cs" />
+    <Compile Include="HanDe_ClassLibrary\Adobe\Acrobat\AcrobatEnum.cs" />
+    <Compile Include="HanDe_ClassLibrary\Adobe\Acrobat\PDFFile.cs" />
+    <Compile Include="HanDe_ClassLibrary\Adobe\Acrobat\PDFFileEx.cs" />
+    <Compile Include="HanDe_ClassLibrary\Adobe\Illustrate.cs" />
+    <Compile Include="HanDe_ClassLibrary\Adobe\PostScriptFile.cs" />
+    <Compile Include="HanDe_ClassLibrary\Corel\CorelDraw.cs" />
+    <Compile Include="HanDe_ClassLibrary\DataProcess\PrintingToDeviceOutJtk.cs" />
+    <Compile Include="HanDe_ClassLibrary\DataProcess\ProcessCreationInfo.cs" />
+    <Compile Include="HanDe_ClassLibrary\JDF\JobDefinitionFormat.cs" />
+    <Compile Include="HanDe_ClassLibrary\job\ProcessInfo.cs" />
+    <Compile Include="HanDe_ClassLibrary\LogCommon\Log.cs" />
+    <Compile Include="HanDe_ClassLibrary\LogCommon\XmlHelper.cs" />
+    <Compile Include="HanDe_ClassLibrary\Path\GradingPath.cs" />
+    <Compile Include="HanDe_ClassLibrary\Preps\JobFile.cs" />
+    <Compile Include="HanDe_ClassLibrary\Preps\JobFileMakeUp.cs" />
+    <Compile Include="HanDe_ClassLibrary\Preps\PjtfFile.cs" />
+    <Compile Include="HanDe_ClassLibrary\Preps\PrepsConfig.cs" />
+    <Compile Include="HanDe_ClassLibrary\Preps\TplFileInfo.cs" />
+    <Compile Include="HanDe_ClassLibrary\PrinergyEvo\EvoPrintingToDeviceProcessInfo.cs" />
+    <Compile Include="HanDe_ClassLibrary\PrinergyEvo\EvoProcess.cs" />
+    <Compile Include="HanDe_ClassLibrary\PrinergyEvo\EvoProcessInfo.cs" />
+    <Compile Include="HanDe_ClassLibrary\PrinergyEvo\ProcessInfo.cs" />
+    <Compile Include="HanDe_ClassLibrary\Process\ProcessCommon.cs" />
+    <Compile Include="HanDe_ClassLibrary\Rule\PathAndFileNameRule.cs" />
+    <Compile Include="HanDe_ClassLibrary\Rule\PlantInfo.cs" />
+    <Compile Include="HanDe_ClassLibrary\Rule\PrintToDeviceRule.cs" />
+    <Compile Include="HanDe_ClassLibrary\Rule\RefineRule.cs" />
+    <Compile Include="HanDe_ClassLibrary\SizeBox\CREO_TrimBox_MilliMetre.cs" />
+    <Compile Include="HanDe_ClassLibrary\SizeBox\CREO_TrimBox_Point.cs" />
+    <Compile Include="HanDe_ClassLibrary\Unit\ConversionConstant.cs" />
+    <Compile Include="HanDe_ClassLibrary\Unit\MilliMetre_Unit.cs" />
+    <Compile Include="HanDe_ClassLibrary\Unit\Point_Unit.cs" />
+    <Compile Include="HanDe_ClassLibrary\Unit\Unit.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\1BitTiff\Form1BitTiff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\1BitTiff\Form1BitTiff.Designer.cs">
+      <DependentUpon>Form1BitTiff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Abnormal\FormAbnormalManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Abnormal\FormAbnormalManager.Designer.cs">
+      <DependentUpon>FormAbnormalManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Abnormal\FormAbnormalInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Abnormal\FormAbnormalInfo.Designer.cs">
+      <DependentUpon>FormAbnormalInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormAccessoriesInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormAccessoriesInfo.Designer.cs">
+      <DependentUpon>FormAccessoriesInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormAccessoriesManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormAccessoriesManager.Designer.cs">
+      <DependentUpon>FormAccessoriesManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormBancaiSunhao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormBancaiSunhao.Designer.cs">
+      <DependentUpon>FormBancaiSunhao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormBancaiSunhaoInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormBancaiSunhaoInformation.Designer.cs">
+      <DependentUpon>FormBancaiSunhaoInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormFuliaoKucunJilu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormFuliaoKucunJilu.Designer.cs">
+      <DependentUpon>FormFuliaoKucunJilu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormFuliaoLeixing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormFuliaoLeixing.Designer.cs">
+      <DependentUpon>FormFuliaoLeixing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormFuliaoLingLiao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormFuliaoLingLiao.Designer.cs">
+      <DependentUpon>FormFuliaoLingLiao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormFuliaoPandian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Accessories\FormFuliaoPandian.Designer.cs">
+      <DependentUpon>FormFuliaoPandian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\ChuBan\FormBaoBiao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\ChuBan\FormBaoBiao.Designer.cs">
+      <DependentUpon>FormBaoBiao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\ChuBan\FormChuBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\ChuBan\FormChuBan.Designer.cs">
+      <DependentUpon>FormChuBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\ChuBan\FormEvoProcesses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\ChuBan\FormEvoProcesses.Designer.cs">
+      <DependentUpon>FormEvoProcesses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\ChuBan\FormFindOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\ChuBan\FormFindOld.Designer.cs">
+      <DependentUpon>FormFindOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\ChuBan\FormConversionPdf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\ChuBan\FormConversionPdf.Designer.cs">
+      <DependentUpon>FormConversionPdf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\FormAppSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\FormAppSetting.Designer.cs">
+      <DependentUpon>FormAppSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\FormBackupAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\FormBackupAccess.designer.cs">
+      <DependentUpon>FormBackupAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Illustrator\FormSelectIllustrator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Illustrator\FormSelectIllustrator.Designer.cs">
+      <DependentUpon>FormSelectIllustrator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Job\FormSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Job\FormSearch.Designer.cs">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Job\FormYijie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Job\FormYijie.Designer.cs">
+      <DependentUpon>FormYijie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Maintain\FormMaintainInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Maintain\FormMaintainInfo.Designer.cs">
+      <DependentUpon>FormMaintainInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Maintain\FormMaintainManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Maintain\FormMaintainManager.Designer.cs">
+      <DependentUpon>FormMaintainManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Printer\FormPrintingMachine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Printer\FormPrintingMachine.Designer.cs">
+      <DependentUpon>FormPrintingMachine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Printer\FormPrintingMachineInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Printer\FormPrintingMachineInformation.Designer.cs">
+      <DependentUpon>FormPrintingMachineInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\YBF.File\FormAllPdfFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\YBF.File\FormAllPdfFile.Designer.cs">
+      <DependentUpon>FormAllPdfFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Job\FormHuibao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Job\FormHuibao.Designer.cs">
+      <DependentUpon>FormHuibao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Job\FormJobInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Job\FormJobInformation.Designer.cs">
+      <DependentUpon>FormJobInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Job\FormJobManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Job\FormJobManager.Designer.cs">
+      <DependentUpon>FormJobManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\FormPublishProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\FormPublishProcess.designer.cs">
+      <DependentUpon>FormPublishProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Tool\FormToolAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Tool\FormToolAll.Designer.cs">
+      <DependentUpon>FormToolAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormQQFileRecv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormQQFileRecv.Designer.cs">
+      <DependentUpon>FormQQFileRecv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormSavePdf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormSavePdf.Designer.cs">
+      <DependentUpon>FormSavePdf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormYwj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormYwj.Designer.cs">
+      <DependentUpon>FormYwj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormYwjInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormYwjInformation.Designer.cs">
+      <DependentUpon>FormYwjInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormYwjPaichu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormYwjPaichu.Designer.cs">
+      <DependentUpon>FormYwjPaichu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormYwjSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormYwjSetting.Designer.cs">
+      <DependentUpon>FormYwjSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinForm\Ywj\FormYwj_NoMove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Ywj\FormYwj_NoMove.Designer.cs">
+      <DependentUpon>FormYwj_NoMove.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Class\BestString\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\1BitTiff\Form1BitTiff.resx">
+      <DependentUpon>Form1BitTiff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Abnormal\FormAbnormalInfo.resx">
+      <DependentUpon>FormAbnormalInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Abnormal\FormAbnormalManager.resx">
+      <DependentUpon>FormAbnormalManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Accessories\FormAccessoriesInfo.resx">
+      <DependentUpon>FormAccessoriesInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Accessories\FormAccessoriesManager.resx">
+      <DependentUpon>FormAccessoriesManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Accessories\FormBancaiSunhao.resx">
+      <DependentUpon>FormBancaiSunhao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Accessories\FormBancaiSunhaoInformation.resx">
+      <DependentUpon>FormBancaiSunhaoInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Accessories\FormFuliaoKucunJilu.resx">
+      <DependentUpon>FormFuliaoKucunJilu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Accessories\FormFuliaoLeixing.resx">
+      <DependentUpon>FormFuliaoLeixing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Accessories\FormFuliaoLingLiao.resx">
+      <DependentUpon>FormFuliaoLingLiao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Accessories\FormFuliaoPandian.resx">
+      <DependentUpon>FormFuliaoPandian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\ChuBan\FormBaoBiao.resx">
+      <DependentUpon>FormBaoBiao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\ChuBan\FormChuBan.resx">
+      <DependentUpon>FormChuBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\ChuBan\FormEvoProcesses.resx">
+      <DependentUpon>FormEvoProcesses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\ChuBan\FormFindOld.resx">
+      <DependentUpon>FormFindOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\ChuBan\FormConversionPdf.resx">
+      <DependentUpon>FormConversionPdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\FormAppSetting.resx">
+      <DependentUpon>FormAppSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\FormBackupAccess.resx">
+      <DependentUpon>FormBackupAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Illustrator\FormSelectIllustrator.resx">
+      <DependentUpon>FormSelectIllustrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Job\FormSearch.resx">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Job\FormYijie.resx">
+      <DependentUpon>FormYijie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Maintain\FormMaintainInfo.resx">
+      <DependentUpon>FormMaintainInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Maintain\FormMaintainManager.resx">
+      <DependentUpon>FormMaintainManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Printer\FormPrintingMachine.resx">
+      <DependentUpon>FormPrintingMachine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Printer\FormPrintingMachineInformation.resx">
+      <DependentUpon>FormPrintingMachineInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\YBF.File\FormAllPdfFile.resx">
+      <DependentUpon>FormAllPdfFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Job\FormHuibao.resx">
+      <DependentUpon>FormHuibao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Job\FormJobInformation.resx">
+      <DependentUpon>FormJobInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Job\FormJobManager.resx">
+      <DependentUpon>FormJobManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\FormPublishProcess.resx">
+      <DependentUpon>FormPublishProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Tool\FormToolAll.resx">
+      <DependentUpon>FormToolAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Ywj\FormQQFileRecv.resx">
+      <DependentUpon>FormQQFileRecv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Ywj\FormSavePdf.resx">
+      <DependentUpon>FormSavePdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Ywj\FormYwj.resx">
+      <DependentUpon>FormYwj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Ywj\FormYwjInformation.resx">
+      <DependentUpon>FormYwjInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Ywj\FormYwjPaichu.resx">
+      <DependentUpon>FormYwjPaichu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Ywj\FormYwjSetting.resx">
+      <DependentUpon>FormYwjSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Ywj\FormYwj_NoMove.resx">
+      <DependentUpon>FormYwj_NoMove.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="YBF_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="11.ico" />
+    <Content Include="mushroom_128px_1214952_easyicon.net.ico" />
+    <Content Include="笔记.txt" />
+    <None Include="Resources\exeInco.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WinForm\Jdf\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

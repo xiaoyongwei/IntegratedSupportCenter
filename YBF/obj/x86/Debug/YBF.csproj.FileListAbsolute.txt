@@ -1,0 +1,412 @@
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.MainForm.resources
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.Properties.Resources.resources
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.csproj.GenerateResource.Cache
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.pdb
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.exe
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.pdb
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj.resources
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjInformation.resources
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormYwjSetting.resources
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormChuBan.resources
+D:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjPaichu.resources
+D:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormFindOld.resources
+D:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormBaoBiao.resources
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\ICSharpCode.SharpZipLib.dll
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\Ionic.Zip.dll
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.dll
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.OOXML.dll
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.OpenXml4Net.dll
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.OpenXmlFormats.dll
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe.config
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\HanDe_ToolBox_Form.FormPublishProcess.resources
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\Interop.Illustrator.dll
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.csproj.ResolveComReference.cache
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormSavePdf.resources
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\Interop.Illustrator.dll
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\System.Data.SQLite.dll
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Tool.FormToolAll.resources
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormQQFileRecv.resources
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.csprojResolveAssemblyReference.cache
+d:\Users\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormConversionPdf.resources
+d:\users\documents\visual studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\BestString.Form1.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe.config
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.exe
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.pdb
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.pdb
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\Ionic.Zip.dll
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.dll
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.OOXML.dll
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.OpenXml4Net.dll
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.OpenXmlFormats.dll
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.csprojResolveAssemblyReference.cache
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\BestString.Form1.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormBaoBiao.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormChuBan.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormFindOld.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormConversionPdf.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\HanDe_ToolBox_Form.FormPublishProcess.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Tool.FormToolAll.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormQQFileRecv.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormSavePdf.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjInformation.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjPaichu.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormYwjSetting.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.MainForm.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.Properties.Resources.resources
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.csproj.GenerateResource.Cache
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\Interop.Illustrator.dll
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\Interop.Illustrator.dll
+E:\BaiduNetdiskDownload\xiao\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.csproj.ResolveComReference.cache
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe.config
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.exe
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.pdb
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.csprojResolveAssemblyReference.cache
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\BestString.Form1.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormBaoBiao.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormChuBan.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormFindOld.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormConversionPdf.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\HanDe_ToolBox_Form.FormPublishProcess.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Tool.FormToolAll.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormQQFileRecv.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormSavePdf.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjInformation.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjPaichu.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormYwjSetting.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.MainForm.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.Properties.Resources.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj_NoMove.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.csproj.GenerateResource.Cache
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.pdb
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe.config
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.exe
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.pdb
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.pdb
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\BestString.Form1.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormBaoBiao.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormChuBan.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormFindOld.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormConversionPdf.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\HanDe_ToolBox_Form.FormPublishProcess.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Tool.FormToolAll.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormQQFileRecv.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormSavePdf.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjInformation.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjPaichu.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormYwjSetting.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.MainForm.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.Properties.Resources.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj_NoMove.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.csproj.GenerateResource.Cache
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe.manifest
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.application
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.exe.manifest
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.application
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesManager.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesInfo.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe.manifest
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.application
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesInfo.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesManager.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.exe.manifest
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.application
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoPandian.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoPandian.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm._1BitTiff.Form1BitTiff.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLeixing.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm._1BitTiff.Form1BitTiff.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLeixing.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormJobManager.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormJobInformation.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormHuibao.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhao.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhaoInformation.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.YBFFile.FormAllPdfFile.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhao.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhaoInformation.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.YBFFile.FormAllPdfFile.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormHuibao.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormJobInformation.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormJobManager.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\bin\Debug\YBF.exe.config
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\bin\Debug\YBF.exe.manifest
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\bin\Debug\YBF.application
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\bin\Debug\YBF.exe
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\bin\Debug\YBF.pdb
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\ResolveAssemblyReference.cache
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\BestString.Form1.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm._1BitTiff.Form1BitTiff.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesInfo.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesManager.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhao.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhaoInformation.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLeixing.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoPandian.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormBaoBiao.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormChuBan.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormFindOld.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormConversionPdf.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.YBFFile.FormAllPdfFile.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormHuibao.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormJobInformation.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormJobManager.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\HanDe_ToolBox_Form.FormPublishProcess.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Tool.FormToolAll.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormQQFileRecv.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormSavePdf.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjInformation.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjPaichu.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormYwjSetting.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.MainForm.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.Properties.Resources.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj_NoMove.resources
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\GenerateResource.read.1.tlog
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\GenerateResource.write.1.tlog
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.exe.manifest
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.application
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.exe
+\\192.168.110.17\d\软件\YBF\SLBZ\YBF\obj\x86\Debug\YBF.pdb
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormSearch.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormSearch.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLingLiao.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLingLiao.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoKucunJilu.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\HandeJobManager.FormBackupAccess.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoKucunJilu.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\HandeJobManager.FormBackupAccess.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormEvoProcesses.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormEvoProcesses.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Printer.FormPrintingMachine.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Printer.FormPrintingMachineInformation.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Printer.FormPrintingMachine.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Printer.FormPrintingMachineInformation.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalInfo.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalManager.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Maintain.FormMaintainManager.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Maintain.FormMaintainInfo.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.csprojResolveAssemblyReference.cache
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Jdf.FormSelectIllustrator.resources
+C:\Users\pc888888\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormAppSetting.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalInfo.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalManager.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormAppSetting.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Jdf.FormSelectIllustrator.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Maintain.FormMaintainInfo.resources
+D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Maintain.FormMaintainManager.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe.config
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe.manifest
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.application
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.pdb
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\ResolveAssemblyReference.cache
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\BestString.Form1.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm._1BitTiff.Form1BitTiff.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalInfo.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalManager.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesInfo.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesManager.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhao.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhaoInformation.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoKucunJilu.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLeixing.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLingLiao.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoPandian.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormBaoBiao.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormChuBan.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormEvoProcesses.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormFindOld.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormConversionPdf.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormAppSetting.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\HandeJobManager.FormBackupAccess.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Jdf.FormSelectIllustrator.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormSearch.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Maintain.FormMaintainInfo.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Maintain.FormMaintainManager.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Printer.FormPrintingMachine.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Printer.FormPrintingMachineInformation.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.YBFFile.FormAllPdfFile.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormHuibao.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormJobInformation.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormJobManager.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\HanDe_ToolBox_Form.FormPublishProcess.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Tool.FormToolAll.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormQQFileRecv.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormSavePdf.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjInformation.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjPaichu.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormYwjSetting.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.MainForm.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.Properties.Resources.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj_NoMove.resources
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\GenerateResource.read.1.tlog
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\GenerateResource.write.1.tlog
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.exe.manifest
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.application
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.exe
+\\192.168.110.17\Documents\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.pdb
+D:\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe.config
+D:\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe.manifest
+D:\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.application
+D:\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.exe
+D:\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\YBF.pdb
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\BestString.Form1.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm._1BitTiff.Form1BitTiff.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalInfo.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalManager.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesInfo.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesManager.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhao.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhaoInformation.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoKucunJilu.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLeixing.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLingLiao.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoPandian.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormBaoBiao.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormChuBan.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormEvoProcesses.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormFindOld.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormConversionPdf.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormAppSetting.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\HandeJobManager.FormBackupAccess.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Jdf.FormSelectIllustrator.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormSearch.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormYijie.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Maintain.FormMaintainInfo.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Maintain.FormMaintainManager.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Printer.FormPrintingMachine.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Printer.FormPrintingMachineInformation.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.YBFFile.FormAllPdfFile.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormHuibao.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Job.FormJobInformation.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormJobManager.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\HanDe_ToolBox_Form.FormPublishProcess.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Tool.FormToolAll.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormQQFileRecv.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormSavePdf.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjInformation.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjPaichu.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.FormYwjSetting.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.MainForm.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.Properties.Resources.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj_NoMove.resources
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.csproj.GenerateResource.Cache
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.exe.manifest
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.application
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.exe
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.pdb
+D:\Visual Studio 2010\Projects\SLBZ\YBF\obj\x86\Debug\YBF.csprojResolveAssemblyReference.cache
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\bin\Debug\YBF.exe.config
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\bin\Debug\YBF.exe.manifest
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\bin\Debug\YBF.application
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\bin\Debug\YBF.exe
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\bin\Debug\YBF.pdb
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.csprojResolveAssemblyReference.cache
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\BestString.Form1.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm._1BitTiff.Form1BitTiff.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalInfo.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalManager.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesInfo.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesManager.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhao.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhaoInformation.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoKucunJilu.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLeixing.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLingLiao.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoPandian.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormBaoBiao.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormChuBan.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormEvoProcesses.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormFindOld.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormConversionPdf.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.FormAppSetting.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\HandeJobManager.FormBackupAccess.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Jdf.FormSelectIllustrator.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Job.FormSearch.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Job.FormYijie.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Maintain.FormMaintainInfo.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Maintain.FormMaintainManager.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Printer.FormPrintingMachine.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Printer.FormPrintingMachineInformation.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.YBFFile.FormAllPdfFile.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Job.FormHuibao.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Job.FormJobInformation.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.FormJobManager.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\HanDe_ToolBox_Form.FormPublishProcess.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Tool.FormToolAll.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormQQFileRecv.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormSavePdf.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjInformation.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjPaichu.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.FormYwjSetting.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.MainForm.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.Properties.Resources.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj_NoMove.resources
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.csproj.GenerateResource.Cache
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.exe.manifest
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.application
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.exe
+D:\Visual Studio 2010\Projects\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\bin\Debug\YBF.exe.config
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\bin\Debug\YBF.exe.manifest
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\bin\Debug\YBF.application
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\bin\Debug\YBF.exe
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\bin\Debug\YBF.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\BestString.Form1.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm._1BitTiff.Form1BitTiff.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalInfo.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalManager.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesInfo.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormAccessoriesManager.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhao.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormBancaiSunhaoInformation.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoKucunJilu.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLeixing.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoLingLiao.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Accessories.FormFuliaoPandian.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormBaoBiao.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormChuBan.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormEvoProcesses.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormFindOld.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.ChuBan.FormConversionPdf.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.FormAppSetting.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\HandeJobManager.FormBackupAccess.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Jdf.FormSelectIllustrator.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Job.FormSearch.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Job.FormYijie.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Maintain.FormMaintainInfo.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Maintain.FormMaintainManager.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Printer.FormPrintingMachine.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Printer.FormPrintingMachineInformation.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.YBFFile.FormAllPdfFile.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Job.FormHuibao.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Job.FormJobInformation.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.FormJobManager.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\HanDe_ToolBox_Form.FormPublishProcess.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Tool.FormToolAll.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormQQFileRecv.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormSavePdf.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjInformation.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwjPaichu.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.FormYwjSetting.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.MainForm.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.Properties.Resources.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Ywj.FormYwj_NoMove.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.exe.manifest
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.application
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.exe
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.pdb

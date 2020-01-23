@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E50B4FC7-E223-4986-A833-639830034FF8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>工作数据分析</RootNamespace>
+    <AssemblyName>工作数据分析</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>g3.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>甩纸数据.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>C:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\Web_Publish\Bin\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>E:\任意存放区-共享\xiao\0000\Backup_Evo28204\bin\Debug\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\ExcelHelper.cs" />
+    <Compile Include="Data\DAL\DataBaseList.cs" />
+    <Compile Include="Data\DAL\SqlServer\SqlHelper.cs" />
+    <Compile Include="Data\DAL\SqlServer\SqlHelper_2500.cs" />
+    <Compile Include="Data\DAL\SqlServer\SqlHelper_财务.cs" />
+    <Compile Include="Data\DAL\SqlServer\SqlHelper_2200.cs" />
+    <Compile Include="Data\DAL\SqlServer\SqlHelper_1800.cs" />
+    <Compile Include="Data\DataBaseMethod.cs" />
+    <Compile Include="Data\DAL\SQLite\SQLiteDbHelper.cs" />
+    <Compile Include="WinForm\FormShowData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\FormShowData.Designer.cs">
+      <DependentUpon>FormShowData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormYijie_自动获取.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormYijie_自动获取.Designer.cs">
+      <DependentUpon>FormYijie_自动获取.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form制版线查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form制版线查询.Designer.cs">
+      <DependentUpon>Form制版线查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form各工序订单情况.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form各工序订单情况.Designer.cs">
+      <DependentUpon>Form各工序订单情况.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form弹窗.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form弹窗.Designer.cs">
+      <DependentUpon>Form弹窗.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form成品仓库数据.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form成品仓库数据.Designer.cs">
+      <DependentUpon>Form成品仓库数据.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form排程查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form排程查询.Designer.cs">
+      <DependentUpon>Form排程查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form用纸情况.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form用纸情况.Designer.cs">
+      <DependentUpon>Form用纸情况.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form甩纸覆膜所需原纸.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form甩纸覆膜所需原纸.Designer.cs">
+      <DependentUpon>Form甩纸覆膜所需原纸.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form筛选二期订单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form筛选二期订单.Designer.cs">
+      <DependentUpon>Form筛选二期订单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form筛选弹窗.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form筛选弹窗.Designer.cs">
+      <DependentUpon>Form筛选弹窗.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form筛选数据.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form筛选数据.Designer.cs">
+      <DependentUpon>Form筛选数据.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\My.cs" />
+    <Compile Include="Data\DAL\MySQl\MySqlDbHelper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinForm\Form计划交期订单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form计划交期订单.Designer.cs">
+      <DependentUpon>Form计划交期订单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form辅料领料分析.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form辅料领料分析.Designer.cs">
+      <DependentUpon>Form辅料领料分析.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form进纸需求.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form进纸需求.Designer.cs">
+      <DependentUpon>Form进纸需求.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormYijie_数据.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormYijie_数据.Designer.cs">
+      <DependentUpon>FormYijie_数据.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form选择日期.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form选择日期.Designer.cs">
+      <DependentUpon>Form选择日期.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\Form添加报货.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\Form添加报货.Designer.cs">
+      <DependentUpon>Form添加报货.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\Form物流Mian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\Form物流Mian.Designer.cs">
+      <DependentUpon>Form物流Mian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\Form物流当日分析.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\Form物流当日分析.Designer.cs">
+      <DependentUpon>Form物流当日分析.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="WinForm\FormShowData.resx">
+      <DependentUpon>FormShowData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormYijie_自动获取.resx">
+      <DependentUpon>FormYijie_自动获取.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form制版线查询.resx">
+      <DependentUpon>Form制版线查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form各工序订单情况.resx">
+      <DependentUpon>Form各工序订单情况.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form弹窗.resx">
+      <DependentUpon>Form弹窗.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form成品仓库数据.resx">
+      <DependentUpon>Form成品仓库数据.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form排程查询.resx">
+      <DependentUpon>Form排程查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form用纸情况.resx">
+      <DependentUpon>Form用纸情况.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form甩纸覆膜所需原纸.resx">
+      <DependentUpon>Form甩纸覆膜所需原纸.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form筛选二期订单.resx">
+      <DependentUpon>Form筛选二期订单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form筛选弹窗.resx">
+      <DependentUpon>Form筛选弹窗.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form筛选数据.resx">
+      <DependentUpon>Form筛选数据.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="WinForm\Form计划交期订单.resx">
+      <DependentUpon>Form计划交期订单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form辅料领料分析.resx">
+      <DependentUpon>Form辅料领料分析.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form进纸需求.resx">
+      <DependentUpon>Form进纸需求.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormYijie_数据.resx">
+      <DependentUpon>FormYijie_数据.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form选择日期.resx">
+      <DependentUpon>Form选择日期.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WuLiu\Form添加报货.resx">
+      <DependentUpon>Form添加报货.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WuLiu\Form物流Mian.resx">
+      <DependentUpon>Form物流Mian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WuLiu\Form物流当日分析.resx">
+      <DependentUpon>Form物流当日分析.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserControls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="g3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
