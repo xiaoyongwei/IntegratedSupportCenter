@@ -34,4 +34,5 @@
     <br />
     <asp:GridView ID="GridView1" runat="server" Caption="辅料领料分析" CaptionAlign="Top">
     </asp:GridView>
+    
     </asp:Content>

@@ -65,6 +65,9 @@
                         <asp:MenuItem NavigateUrl="~/WebPage/PlannedDeliveryOrder.aspx" Text="计划交期订单" 
                             Value="计划交期订单"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=12" Text="未完工订单" Value="未完工订单"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/WebPage/WuliuShujuFenxi.aspx" Text="物流数据分析" Value="物流数据分析"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/WebPage/YuanZhiYidingWeidao.aspx" Text="原纸已订未到" Value="原纸已订未到"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/WebPage/YuanzhiBeiliaoJihua.aspx" Text="原纸备料计划" Value="原纸备料计划"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="关于" />
                     </Items>
                 </asp:Menu>
