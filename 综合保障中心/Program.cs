@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using HandeJobManager.DAL;
+using 综合保障中心.其它;
 
 namespace 综合保障中心
 {
@@ -18,7 +19,7 @@ namespace 综合保障中心
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            Application.Run(new FormYijie());
         }
     }
 }

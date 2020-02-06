@@ -98,6 +98,18 @@
     <Compile Include="Comm\MySqlDbHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="其它\FormSelectDateTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其它\FormSelectDateTime.Designer.cs">
+      <DependentUpon>FormSelectDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其它\FormShowData1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其它\FormShowData1.Designer.cs">
+      <DependentUpon>FormShowData1.cs</DependentUpon>
+    </Compile>
     <Compile Include="其它\FormWebSourceCode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +197,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="其它\FormSelectDateTime.resx">
+      <DependentUpon>FormSelectDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其它\FormShowData1.resx">
+      <DependentUpon>FormShowData1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="其它\FormWebSourceCode.resx">
       <DependentUpon>FormWebSourceCode.cs</DependentUpon>
     </EmbeddedResource>

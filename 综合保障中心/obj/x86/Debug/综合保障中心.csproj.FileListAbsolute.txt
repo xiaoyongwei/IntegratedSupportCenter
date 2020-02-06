@@ -72,3 +72,5 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\综合保障中�
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\综合保障中心\bin\Debug\综合保障中心-信息管理系统.exe
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\综合保障中心\bin\Debug\综合保障中心-信息管理系统.pdb
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\综合保障中心\obj\x86\Debug\综合保障中心.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\综合保障中心\obj\x86\Debug\综合保障中心.其它.FormSelectDateTime.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\综合保障中心\obj\x86\Debug\综合保障中心.其它.FormShowData1.resources

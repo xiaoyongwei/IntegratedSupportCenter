@@ -11,20 +11,7 @@ public partial class WebPage_YuanzhiBeiliaoJihua : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         DataSet ds = MySqlDbHelper.ExecuteDataSet("CALL `slbz`.`原纸备料计划`('A');");
-        foreach (DataTable  dt in ds.Tables)
-        {
-            foreach (DataRow dr in dt.Rows)
-            {
-                foreach (DataColumn dc in dt.Columns)
-                {
-                    string value = dr[dc].ToString();
-                    if (value.Trim()=="0")
-                    {
-                        dr[dc]="";
-                    }
-                }
-            }
-        }
+        ds = My.Dst_zero(ds);
 
         GridView1.DataSource = ds.Tables[1];
         GridView1.Caption = ds.Tables[0].Rows[0][0].ToString();
@@ -43,20 +30,8 @@ public partial class WebPage_YuanzhiBeiliaoJihua : System.Web.UI.Page
         GridView4.DataBind();
 
         ds = MySqlDbHelper.ExecuteDataSet("CALL `slbz`.`原纸备料计划`('B');");
-        foreach (DataTable dt in ds.Tables)
-        {
-            foreach (DataRow dr in dt.Rows)
-            {
-                foreach (DataColumn dc in dt.Columns)
-                {
-                    string value = dr[dc].ToString();
-                    if (value.Trim() == "0")
-                    {
-                        dr[dc] = "";
-                    }
-                }
-            }
-        }
+        ds = My.Dst_zero(ds);
+
         GridView5.DataSource = ds.Tables[1];
         GridView5.Caption = ds.Tables[0].Rows[0][0].ToString();
         GridView5.DataBind();

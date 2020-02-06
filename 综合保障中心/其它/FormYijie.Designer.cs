@@ -37,12 +37,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.获取二期库位表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.获取送货单时间ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.获取二期3个司机运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.郑二毛ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.霍红海ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.郑荷伟ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设置入库日期ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.获取入库单IDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -126,59 +122,27 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.获取二期库位表ToolStripMenuItem,
-            this.获取送货单时间ToolStripMenuItem,
-            this.获取二期3个司机运费ToolStripMenuItem});
+            this.设置入库日期ToolStripMenuItem,
+            this.获取入库单IDToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(778, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(778, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // 获取二期库位表ToolStripMenuItem
+            // 设置入库日期ToolStripMenuItem
             // 
-            this.获取二期库位表ToolStripMenuItem.Name = "获取二期库位表ToolStripMenuItem";
-            this.获取二期库位表ToolStripMenuItem.Size = new System.Drawing.Size(104, 21);
-            this.获取二期库位表ToolStripMenuItem.Text = "获取二期库位表";
-            this.获取二期库位表ToolStripMenuItem.Click += new System.EventHandler(this.获取二期库位表ToolStripMenuItem_Click);
+            this.设置入库日期ToolStripMenuItem.Name = "设置入库日期ToolStripMenuItem";
+            this.设置入库日期ToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.设置入库日期ToolStripMenuItem.Text = "设置入库日期";
+            this.设置入库日期ToolStripMenuItem.Click += new System.EventHandler(this.设置入库日期ToolStripMenuItem_Click);
             // 
-            // 获取送货单时间ToolStripMenuItem
+            // 获取入库单IDToolStripMenuItem
             // 
-            this.获取送货单时间ToolStripMenuItem.Name = "获取送货单时间ToolStripMenuItem";
-            this.获取送货单时间ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
-            this.获取送货单时间ToolStripMenuItem.Text = "下载送货清单";
-            this.获取送货单时间ToolStripMenuItem.Click += new System.EventHandler(this.下载送货清单ToolStripMenuItem_Click);
-            // 
-            // 获取二期3个司机运费ToolStripMenuItem
-            // 
-            this.获取二期3个司机运费ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.郑二毛ToolStripMenuItem,
-            this.霍红海ToolStripMenuItem,
-            this.郑荷伟ToolStripMenuItem});
-            this.获取二期3个司机运费ToolStripMenuItem.Name = "获取二期3个司机运费ToolStripMenuItem";
-            this.获取二期3个司机运费ToolStripMenuItem.Size = new System.Drawing.Size(135, 21);
-            this.获取二期3个司机运费ToolStripMenuItem.Text = "获取二期3个司机运费";
-            // 
-            // 郑二毛ToolStripMenuItem
-            // 
-            this.郑二毛ToolStripMenuItem.Name = "郑二毛ToolStripMenuItem";
-            this.郑二毛ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.郑二毛ToolStripMenuItem.Text = "郑二毛";
-            this.郑二毛ToolStripMenuItem.Click += new System.EventHandler(this.郑二毛ToolStripMenuItem_Click);
-            // 
-            // 霍红海ToolStripMenuItem
-            // 
-            this.霍红海ToolStripMenuItem.Name = "霍红海ToolStripMenuItem";
-            this.霍红海ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.霍红海ToolStripMenuItem.Text = "霍红海";
-            this.霍红海ToolStripMenuItem.Click += new System.EventHandler(this.郑二毛ToolStripMenuItem_Click);
-            // 
-            // 郑荷伟ToolStripMenuItem
-            // 
-            this.郑荷伟ToolStripMenuItem.Name = "郑荷伟ToolStripMenuItem";
-            this.郑荷伟ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.郑荷伟ToolStripMenuItem.Text = "郑荷伟";
-            this.郑荷伟ToolStripMenuItem.Click += new System.EventHandler(this.郑二毛ToolStripMenuItem_Click);
+            this.获取入库单IDToolStripMenuItem.Name = "获取入库单IDToolStripMenuItem";
+            this.获取入库单IDToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.获取入库单IDToolStripMenuItem.Text = "获取入库单ID";
+            this.获取入库单IDToolStripMenuItem.Click += new System.EventHandler(this.获取入库单IDToolStripMenuItem_Click);
             // 
             // FormYijie
             // 
@@ -218,11 +182,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 获取二期库位表ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 获取送货单时间ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 获取二期3个司机运费ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 郑二毛ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 霍红海ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 郑荷伟ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 设置入库日期ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 获取入库单IDToolStripMenuItem;
     }
 }

@@ -148,9 +148,9 @@ namespace 综合保障中心.其它
                     MySqlDbHelper.ExecuteNonQuery("UPDATE `slbz`.`settingall`	SET Value='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' 	WHERE `Key` = 'LastGetTime';");
                     this.toolStripStatusLabel1.Text = "易捷数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `Value`	FROM `slbz`.`settingall`	where `Key`='LastGetTime'").ToString()
                 + " , 制版线数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `结束时间`FROM `slbz`.`瓦片完成情况`ORDER BY `结束时间` DESC LIMIT 1").ToString();
-                    dic.Clear();   
-                GotoWebUrlByDic();    
-                break;
+                    dic.Clear();
+                    GotoWebUrlByDic();
+                    break;
                 case WebAfter.获取工序:
                     GotoGongxu();
                     break;
@@ -1427,30 +1427,46 @@ namespace 综合保障中心.其它
                 DataBaseList.InitSqlhelper();
                 Get二期原纸仓库即时库存();
                 Get二期胶印纸箱仓库即时库存();
+                Get二期辅料仓库即时库存();
                 Get二期辅料仓库入库明细();
                 Get二期辅料仓库领料明细();
                 Get1800制版线完成信息();
                 Get2200制版线完成信息();
                 Get2500制版线完成信息();
             }
-                //完成提示;
-                dic.Add("http://21.ej-sh.net:9191", WebAfter.完成);
+            //完成提示;
+            dic.Add("http://21.ej-sh.net:9191", WebAfter.完成);
             //开始逐步获取并备份数据
             GotoWebUrlByDic();
         }
-        private void Get待入库的订单()
+
+        private void Get二期辅料仓库即时库存()
         {
             
+        }
+        private void Get待入库的订单()
+        {
+
 
         }
         private void Get二期辅料仓库安全库存分析()
         {
+            ////1.读取需要备安全库存的物料明细(物料名称,安全库存,备料天数)
+            //DataTable dt_aqkc = MySqlDbHelper.ExecuteDataTable("SELECT*FROM `slbz`.`辅料_安全库存`");
+            ////2.读取并分析每个物料近6个月的领料明细
+            //DataTable dt_llmx = MySqlDbHelper.ExecuteDataTable("SELECT 物料名称 ,sum(实发数量)'实发数量'FROM `slbz`.`金蝶_生产领料`group by 物料名称");
+            ////3.根据领料明细生成每日消耗情况
+            //DataTable dt_rjllsl = MySqlDbHelper.ExecuteDataTable("SELECT 物料名称,sum(实发数量)/180 '日均领料数量'FROM `slbz`.`金蝶_生产领料`"
+            //    + "where 日期 between date_format(date_add(now(), interval -6 month),'%Y-%m-%d') and date_format(now(), '%Y-%m-%d')"
+            //    + "group by 物料名称;");
+            ////4.按每个物料的采购周期为期限备安全库存(安全库存=日均消耗*备料天数)
+            ////5.读取当前辅料仓库即时库存
+            ////6.如果安全库存少于即时库存,则备料
+
+            //-----------------------------
             //1.读取需要备安全库存的物料明细(物料名称,安全库存,备料天数)
-            //2.读取并分析每个物料近6个月的领料明细
-            //3.根据领料明细生成每日消耗情况
-            //4.按每个物料的采购周期为期限备安全库存(安全库存=日均消耗*备料天数)
-            //5.读取当前辅料仓库即时库存
-            //6.如果安全库存少于即时库存,则备料
+            DataTable dt_aqkc = MySqlDbHelper.ExecuteDataTable("SELECT*FROM `slbz`.`辅料_安全库存`");
+            //2.读取即时库存
         }
         private void Get二期辅料仓库领料明细()
         {
@@ -1598,14 +1614,14 @@ namespace 综合保障中心.其它
 
         }
 
-       
+
 
         private void 备份送货数据ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OneKeyGet(true, true);
         }
 
-       
+
 
 
     }

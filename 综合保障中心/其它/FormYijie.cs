@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using 综合保障中心.Comm;
 
 namespace 综合保障中心.其它
 {
@@ -412,7 +413,7 @@ namespace 综合保障中心.其它
                             em.SetAttribute("value", "WL0254");//账号，保存在序列化的student类中 
                             break; //填表 
                         case "passwd":
-                            em.SetAttribute("value", "123456");//密码，保存在序列化的student类中 
+                            em.SetAttribute("value", "123");//密码，保存在序列化的student类中 
                             break; //填表 
                         //case "sublogin":
                         //    btn = em;
@@ -461,6 +462,56 @@ namespace 综合保障中心.其它
                 ,Uri.EscapeDataString(((ToolStripMenuItem)sender).Text),DateTime.Now.AddMonths(-1).ToString("yyyy-MM-dd")
                 ,DateTime.Now.ToString("yyyy-MM-dd")), WebAfter.运费管理);
        
+        }
+
+        private void 设置入库日期ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSelectDateTime select=new FormSelectDateTime();
+            if (select.ShowDialog()==DialogResult.OK)
+            {
+                webBrowser.Document.GetElementById("edat.ptdate").SetAttribute("Value", 
+                    select.monthCalendar1.SelectionStart.ToString("yyyy-MM-dd")+" 22:22:22");
+            }
+        }
+
+        private void 获取入库单IDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Regex regex1 = new Regex("INPUT class=cbox value=\\d+ type=checkbox name=ids");
+            Regex regex2 = new Regex("<TD>RA\\d+</TD>");
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("入库单");
+            HtmlElement ele_table = webBrowser.Document.GetElementsByTagName("table")[3];
+            foreach (HtmlElement ele in ele_table.GetElementsByTagName("tr"))
+            {
+                string regexInputString = ele.InnerHtml;
+                if (!string.IsNullOrWhiteSpace(regexInputString) &&
+                    regex1.IsMatch(regexInputString) && regex2.IsMatch(regexInputString))
+                    {
+                        string id = Regex.Match(regex1.Match(regexInputString).Value, "\\d+").Value;
+                        string ra = Regex.Match(regex2.Match(regexInputString).Value, "RA\\d+").Value;
+                        DataRow dr = dt.NewRow();
+                        dr["ID"] = id;
+                        dr["入库单"] = ra;
+                        dt.Rows.Add(dr);
+                    
+                }
+                
+            }
+            if (dt.Rows.Count>0)
+            {
+                FormShowData1 showdata = new FormShowData1(dt);
+                if (showdata.ShowDialog()==DialogResult.OK)
+                {
+                    string url = "http://21.ej-sh.net:9191/ctBcdr/ra.shtml?method:raform=&actype=D&id=" 
+                        + showdata.selectRaId;
+                    GotoWebUrl(url, WebAfter.无);
+                }
+            }
+            else
+            {
+                My.ShowErrorMessage("无数据!");
+            }
         }
 
        

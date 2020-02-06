@@ -26,3 +26,5 @@ C:\Users\Administrator\Desktop\IntegratedSupportCenter\工作数据\obj\x86\Debu
 C:\Users\Administrator\Desktop\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.pdb
 D:\Visual Studio 2010\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.exe
 D:\Visual Studio 2010\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.exe
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据\obj\x86\Debug\工作数据.pdb

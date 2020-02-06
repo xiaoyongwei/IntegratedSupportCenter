@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.IO;
 
 public partial class WebPage_ShowResult : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string code =Request.QueryString.Count>0? Request.QueryString["sqlcode"].ToString().Trim():""
-            ;
+        string code = Request.QueryString.Count > 0 ? Request.QueryString["sqlcode"].ToString().Trim() : "";
         string sqlStr = "";
         string gridTitle = "";
         switch (code)
@@ -48,9 +48,25 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr = "CALL `slbz`.`二期原纸仓库各类占比`;";
                 gridTitle = "二期原纸仓库各类占比";
                 break;
- case "12":
+            case "12":
                 sqlStr = "CALL `slbz`.`二期未完工订单`;";
                 gridTitle = "二期未完工订单";
+                break;
+            case "13":
+                sqlStr = "select * from `slbz`.`二期辅料仓库即时库存一览`;";
+                gridTitle = "二期辅料仓库即时库存一览";
+                break;
+            case "14":
+                sqlStr = "select * from `slbz`.`二期辅料库存补库明细`;";
+                gridTitle = "二期辅料库存补库明细";
+                break;
+            case "15":
+                sqlStr = "select * from `slbz`.`二期成品仓库近30天入库平方`;";
+                gridTitle = "二期成品仓库近30天入库平方";
+                break;
+            case "16":
+                sqlStr = "CALL `slbz`.`二期成品仓库超期一览`();";
+                gridTitle = "二期成品仓库超期一览";
                 break;
             default:
                 break;
@@ -85,7 +101,7 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                                 continue;
                             }
                         }
-                        catch 
+                        catch
                         {
                             continue;
                         }
@@ -95,7 +111,7 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                         dt.Columns.RemoveAt(i);
                     }
                 }
-                this.GridView1.DataSource = dt;
+                this.GridView1.DataSource = My.Table_zero(dt);
                 this.GridView1.DataBind();
             }
             else if (gridTitle.Contains("二期原纸仓库各类占比"))
@@ -111,10 +127,10 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                     DataRow dr_new = dt_temp.NewRow();
                     foreach (DataColumn dc in dt.Columns)
                     {
-                        if (dt.Rows[i][dc.ColumnName].ToString() == "0" 
+                        if (dt.Rows[i][dc.ColumnName].ToString() == "0"
                             || dt.Rows[i][dc.ColumnName].ToString() == "0.00%")
                         {
-                            dr_new[dc.ColumnName]="";
+                            dr_new[dc.ColumnName] = "";
                         }
                         else
                         {
@@ -127,10 +143,10 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 this.GridView1.DataSource = dt_temp;
                 this.GridView1.DataBind();
             }
-            else if (gridTitle=="二期未完工订单")
+            else if (gridTitle == "二期未完工订单")
             {
                 DataTable dt = MySqlDbHelper.ExecuteDataTable(sqlStr);
-                dt.DefaultView.Sort="所处工序";
+                dt.DefaultView.Sort = "所处工序";
                 this.GridView1.DataSource = dt;
                 this.GridView1.DataBind();
             }
@@ -145,4 +161,23 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
 
 
 
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+        string fileName = "ce2.rar";//客户端保存的文件名
+        string filePath = Server.MapPath("keji.rar");//路径
+
+        //以字符流的形式下载文件
+        FileStream fs = new FileStream(filePath, FileMode.Open);
+        byte[] bytes = new byte[(int)fs.Length];
+        fs.Read(bytes, 0, bytes.Length);
+        fs.Close();
+        Response.ContentType = "application/octet-stream";
+        //通知浏览器下载文件而不是打开
+        Response.AddHeader("Content-Disposition", "attachment;   filename=" + HttpUtility.UrlEncode(fileName, System.Text.Encoding.UTF8));
+        Response.BinaryWrite(bytes);
+        Response.Flush();
+        Response.End();
+
+    }
 }
