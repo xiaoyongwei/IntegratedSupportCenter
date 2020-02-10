@@ -57,9 +57,9 @@
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=13" Text="辅料即时库存" Value="辅料即时库存" />
                         <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=14" Text="辅料补库明细" Value="辅料补库明细" />
-                        <%-- <asp:MenuItem Text="二期辅料数据" Value="二期辅料数据">                 
+                         <asp:MenuItem Text="二期辅料数据" Value="二期辅料数据">                 
                                 <asp:MenuItem NavigateUrl="~/WebPage/ErqiFuliao.aspx" Text="辅料领料分析" Value="辅料领料分析"></asp:MenuItem>
-                           </asp:MenuItem>--%>
+                           </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/WebPage/WuliuShujuFenxi.aspx" Text="物流数据分析" Value="物流数据分析">
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=15" Text="成品近30天入库" Value="成品近30天入库" />

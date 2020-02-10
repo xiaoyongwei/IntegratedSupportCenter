@@ -14,10 +14,16 @@
         </tr>
         <tr>
             <td>
-                <asp:Calendar ID="Calendar_S" runat="server"></asp:Calendar>
+                <asp:Calendar ID="Calendar_S" runat="server">
+                    <SelectedDayStyle BackColor="#99FFCC" />
+                    <TodayDayStyle BackColor="Silver" />
+                </asp:Calendar>
             </td>
             <td>
-                <asp:Calendar ID="Calendar_E" runat="server"></asp:Calendar>
+                <asp:Calendar ID="Calendar_E" runat="server">
+                    <SelectedDayStyle BackColor="#99FFCC" />
+                    <TodayDayStyle BackColor="Silver" />
+                </asp:Calendar>
             </td>
             
         </tr>
@@ -32,7 +38,11 @@
         </tr>
     </table>
     <br />
-    <asp:GridView ID="GridView1" runat="server" Caption="辅料领料分析" CaptionAlign="Top">
+    <asp:GridView ID="GridView1" runat="server" Caption="辅料领料明细" CaptionAlign="Top">
     </asp:GridView>
+    
+        <br />
+        <asp:GridView ID="GridView2" runat="server" Caption="各部门领料概况">
+        </asp:GridView>
     
     </asp:Content>
