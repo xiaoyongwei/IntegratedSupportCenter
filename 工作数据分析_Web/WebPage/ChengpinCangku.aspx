@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ChengpinCangku.aspx.cs" Inherits="WebPage_ChengpinCangku" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="../Master/Site.master" AutoEventWireup="true" CodeFile="ChengpinCangku.aspx.cs" Inherits="WebPage_ChengpinCangku" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>

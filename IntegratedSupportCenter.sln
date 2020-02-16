@@ -15,27 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "工作数据分析", "工�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "综合保障中心", "综合保障中心\综合保障中心.csproj", "{CFD7E23F-51B1-49C8-BF75-0FAC72B15E6F}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "工作数据分析_Web", "工作数据分析_Web\", "{DF903A2B-86AE-4D42-8923-25CD070D8071}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/工作数据分析_Web"
-		Debug.AspNetCompiler.PhysicalPath = "工作数据分析_Web\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\工作数据分析_Web\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/工作数据分析_Web"
-		Release.AspNetCompiler.PhysicalPath = "工作数据分析_Web\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\工作数据分析_Web\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "31184"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,16 +85,6 @@ Global
 		{CFD7E23F-51B1-49C8-BF75-0FAC72B15E6F}.Release|Mixed Platforms.Build.0 = Release|x86
 		{CFD7E23F-51B1-49C8-BF75-0FAC72B15E6F}.Release|x86.ActiveCfg = Release|x86
 		{CFD7E23F-51B1-49C8-BF75-0FAC72B15E6F}.Release|x86.Build.0 = Release|x86
-		{DF903A2B-86AE-4D42-8923-25CD070D8071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF903A2B-86AE-4D42-8923-25CD070D8071}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF903A2B-86AE-4D42-8923-25CD070D8071}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{DF903A2B-86AE-4D42-8923-25CD070D8071}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{DF903A2B-86AE-4D42-8923-25CD070D8071}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{DF903A2B-86AE-4D42-8923-25CD070D8071}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF903A2B-86AE-4D42-8923-25CD070D8071}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{DF903A2B-86AE-4D42-8923-25CD070D8071}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{DF903A2B-86AE-4D42-8923-25CD070D8071}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
-		{DF903A2B-86AE-4D42-8923-25CD070D8071}.Release|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

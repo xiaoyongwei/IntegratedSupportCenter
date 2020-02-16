@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"MasterPageFile="~/Site.master"  AutoEventWireup="true" CodeFile="ErqiFuliao.aspx.cs" Inherits="WebPage_ErqiFuliao" %>
+﻿<%@ Page Language="C#"MasterPageFile="../Master/Site.master"  AutoEventWireup="true" CodeFile="ErqiFuliao.aspx.cs" Inherits="WebPage_ErqiFuliao" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>

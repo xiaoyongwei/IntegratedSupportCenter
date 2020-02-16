@@ -32,22 +32,26 @@ namespace 工作数据分析.Data.DAL
             sql制版线1800 = null;
             sql制版线2200 = null;
             sql制版线2500 = null;
-            if (My.Ping(IP_财务))
+
+
+            if (SqlHelper.IsConnection(ConnString_财务))
             {
                 sql财务 = new SqlHelper(ConnString_财务);
             }
-            if (My.Ping(IP_制版线1800))
+            if (SqlHelper.IsConnection(ConnString_制版线1800))
             {
                 sql制版线1800 = new SqlHelper(ConnString_制版线1800);
             }
-            if (My.Ping(IP_制版线2200))
+            if (SqlHelper.IsConnection(ConnString_制版线2200))
             {
                 sql制版线2200 = new SqlHelper(ConnString_制版线2200);
             }
-            if (My.Ping(IP_制版线2500))
+            if (SqlHelper.IsConnection(ConnString_制版线2500))
             {
                 sql制版线2500 = new SqlHelper(ConnString_制版线2500);
             }
         }
+
+       
     }
 }

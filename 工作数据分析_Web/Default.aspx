@@ -1,4 +1,4 @@
-﻿<%@ Page Title="工作数据分析系统" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="工作数据分析系统" Language="C#" masterpagefile="~/Master/Site.master" AutoEventWireup="true"
     CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">

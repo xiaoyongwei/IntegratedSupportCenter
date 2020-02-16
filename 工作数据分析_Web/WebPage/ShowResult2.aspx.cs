@@ -28,6 +28,14 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr2 = "SELECT *FROM `slbz`.`未覆膜_预涂膜需求`";
                 gridTitle2 = "未覆膜需求";
                 break;
+            case "17":
+                sqlStr = "SELECT *FROM `slbz`.`甩纸确认近180天原纸需求汇总`;";
+                gridTitle = "甩纸确认近180天白板纸需求汇总_月均白板纸需求"
+                    +MySqlDbHelper.ExecuteScalar(
+                    "select sum(每月卷数*原纸门幅*0.001)FROM `slbz`.`甩纸确认近180天原纸需求汇总`;").ToString();
+                sqlStr2 = "SELECT *FROM `slbz`.`甩纸确认近180天原纸需求`";
+                gridTitle2 = "甩纸确认近180天白板纸需求明细`";
+                break;
             default:
                 break;
         }

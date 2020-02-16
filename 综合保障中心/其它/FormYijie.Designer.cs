@@ -39,6 +39,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.设置入库日期ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.获取入库单IDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.模拟ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -123,7 +124,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.设置入库日期ToolStripMenuItem,
-            this.获取入库单IDToolStripMenuItem});
+            this.获取入库单IDToolStripMenuItem,
+            this.模拟ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(778, 24);
@@ -143,6 +145,13 @@
             this.获取入库单IDToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.获取入库单IDToolStripMenuItem.Text = "获取入库单ID";
             this.获取入库单IDToolStripMenuItem.Click += new System.EventHandler(this.获取入库单IDToolStripMenuItem_Click);
+            // 
+            // 模拟ToolStripMenuItem
+            // 
+            this.模拟ToolStripMenuItem.Name = "模拟ToolStripMenuItem";
+            this.模拟ToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.模拟ToolStripMenuItem.Text = "模拟";
+            this.模拟ToolStripMenuItem.Click += new System.EventHandler(this.模拟ToolStripMenuItem_Click);
             // 
             // FormYijie
             // 
@@ -184,5 +193,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 设置入库日期ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 获取入库单IDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 模拟ToolStripMenuItem;
     }
 }

@@ -16,6 +16,49 @@ namespace DBUtility
 
         #region 公用方法
 
+        /// <summary>
+        /// 测试连接字符串是否正确
+        /// </summary>
+        /// <returns></returns>
+        public bool IsConnection()
+        {
+
+            bool bl = true;
+
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+            }
+            catch 
+            {
+                bl = false;
+            }
+
+            return bl;
+        }
+        /// <summary>
+        /// 测试连接字符串是否正确
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsConnection(string connString)
+        {
+
+            bool bl = true;
+
+            try
+            {
+                SqlConnection conn = new SqlConnection(connString);
+                conn.Open();
+            }
+            catch
+            {
+                bl = false;
+            }
+
+            return bl;
+        }
+
         public  int GetMaxID(string FieldName, string TableName)
         {
             string strsql = "select max(" + FieldName + ")+1 from " + TableName;

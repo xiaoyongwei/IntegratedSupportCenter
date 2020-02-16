@@ -68,6 +68,10 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr = "CALL `slbz`.`二期成品仓库超期一览`();";
                 gridTitle = "二期成品仓库超期一览";
                 break;
+            case "18":
+                sqlStr = "CALL `slbz`.`二期送货运费明细近90天`();";
+                gridTitle = "二期送货运费明细近90天";
+                break;
             default:
                 break;
         }
@@ -111,50 +115,53 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                         dt.Columns.RemoveAt(i);
                     }
                 }
-                this.GridView1.DataSource = My.Table_zero(dt);
+                this.GridView1.DataSource = My.Table_deletezero(dt);
                 this.GridView1.DataBind();
-            }
-            else if (gridTitle.Contains("二期原纸仓库各类占比"))
-            {
-                DataTable dt = MySqlDbHelper.ExecuteDataTable(sqlStr);
-                DataTable dt_temp = dt.Clone();
-                foreach (DataColumn dc in dt_temp.Columns)
-                {
-                    dc.DataType = Type.GetType("System.String");
-                }
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    DataRow dr_new = dt_temp.NewRow();
-                    foreach (DataColumn dc in dt.Columns)
-                    {
-                        if (dt.Rows[i][dc.ColumnName].ToString() == "0"
-                            || dt.Rows[i][dc.ColumnName].ToString() == "0.00%")
-                        {
-                            dr_new[dc.ColumnName] = "";
-                        }
-                        else
-                        {
-                            dr_new[dc.ColumnName] = dt.Rows[i][dc.ColumnName].ToString();
-                        }
-                    }
-                    dt_temp.Rows.Add(dr_new);
-                }
 
-                this.GridView1.DataSource = dt_temp;
-                this.GridView1.DataBind();
-            }
-            else if (gridTitle == "二期未完工订单")
-            {
-                DataTable dt = MySqlDbHelper.ExecuteDataTable(sqlStr);
-                dt.DefaultView.Sort = "所处工序";
-                this.GridView1.DataSource = dt;
-                this.GridView1.DataBind();
+
             }
             else
-            {
-                this.GridView1.DataSource = MySqlDbHelper.ExecuteDataTable(sqlStr);
-                this.GridView1.DataBind();
-            }
+                if (gridTitle.Contains("二期原纸仓库各类占比"))
+                {
+                    DataTable dt = MySqlDbHelper.ExecuteDataTable(sqlStr);
+                    DataTable dt_temp = dt.Clone();
+                    foreach (DataColumn dc in dt_temp.Columns)
+                    {
+                        dc.DataType = Type.GetType("System.String");
+                    }
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        DataRow dr_new = dt_temp.NewRow();
+                        foreach (DataColumn dc in dt.Columns)
+                        {
+                            if (dt.Rows[i][dc.ColumnName].ToString() == "0"
+                                || dt.Rows[i][dc.ColumnName].ToString() == "0.00%")
+                            {
+                                dr_new[dc.ColumnName] = "";
+                            }
+                            else
+                            {
+                                dr_new[dc.ColumnName] = dt.Rows[i][dc.ColumnName].ToString();
+                            }
+                        }
+                        dt_temp.Rows.Add(dr_new);
+                    }
+
+                    this.GridView1.DataSource = dt_temp;
+                    this.GridView1.DataBind();
+                }
+                else if (gridTitle == "二期未完工订单")
+                {
+                    DataTable dt = MySqlDbHelper.ExecuteDataTable(sqlStr);
+                    dt.DefaultView.Sort = "所处工序";
+                    this.GridView1.DataSource = dt;
+                    this.GridView1.DataBind();
+                }
+                else
+                {
+                    this.GridView1.DataSource = MySqlDbHelper.ExecuteDataTable(sqlStr);
+                    this.GridView1.DataBind();
+                }
 
         }
     }

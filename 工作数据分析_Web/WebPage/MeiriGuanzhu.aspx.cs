@@ -9,15 +9,14 @@ public partial class WebPage_WebPageSpace : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string code = Request.QueryString.Count > 0 ? Request.QueryString["c"].ToString().Trim() : "";
-
-        switch (code)
-        {
-            case "0":
-
-                break;
-            default:
-                break;
-        }
+       
     }
+    protected void buttonComplete_Click(object sender, EventArgs e)
+    {
+        Button button = sender as Button;
+        string sqlstr = 
+            "UPDATE `slbz`.`订单_生产单`	SET `完工` = 1	WHERE 生产单号='"+ button.ID + "';";
+        
+    }
+    
 }

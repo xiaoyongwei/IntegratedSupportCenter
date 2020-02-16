@@ -514,6 +514,12 @@ namespace 综合保障中心.其它
             }
         }
 
+        private void 模拟ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          object obj=  webBrowser.Document.InvokeScript("serial.change");
+
+        }
+
        
         
     }
