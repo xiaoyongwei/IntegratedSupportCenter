@@ -1742,7 +1742,7 @@ namespace 综合保障中心.其它
             dic.Add("http://21.ej-sh.net:9191", WebAfter.完成);
             //开始逐步获取并备份数据
             GotoWebUrlByDic();
-            //this.timer1.Start();
+            this.timer1.Start();
         }
 
         private void Get二期辅料仓库即时库存()
