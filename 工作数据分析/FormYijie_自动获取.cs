@@ -1630,7 +1630,7 @@ namespace 综合保障中心.其它
         {
             this.timer1.Stop();
             dic.Clear();
-            AddtbShow("开始{一键获取} "+dic.Count);
+            AddtbShow("开始{一键获取}");
 
 
             List<string> erqiSiji = new List<string>();

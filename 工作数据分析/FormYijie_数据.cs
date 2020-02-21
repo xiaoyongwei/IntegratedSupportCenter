@@ -38,7 +38,7 @@ namespace 综合保障中心.其它
         {
             this.toolStripStatusLabel1.Text = "易捷数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `Value`	FROM `slbz`.`settingall`	where `Key`='LastGetTime'").ToString()
                 +" , 制版线数据更新时间:"+MySqlDbHelper.ExecuteScalar("SELECT `结束时间`FROM `slbz`.`瓦片完成情况`ORDER BY `结束时间` DESC LIMIT 1").ToString();
-            DataBaseList.InitSqlhelper();
+           // DataBaseList.InitSqlhelper();
         }
 
 
@@ -107,7 +107,7 @@ namespace 综合保障中心.其它
 
         private void 特殊工艺订单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormShowData f = new FormShowData("二期特殊工艺订单", "SELECT *FROM `slbz`.`二期特殊工艺订单`");
+            FormShowData f = new FormShowData("二期特殊工艺订单", "CALL `slbz`.`二期特殊工艺订单`('0');");
             f.MdiParent = this;
             f.Show();
         }
@@ -200,7 +200,7 @@ namespace 综合保障中心.其它
 
         private void 未完工订单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormShowData f = new FormShowData("二期未完工订单", "CALL `slbz`.`二期未完工订单`;");
+            FormShowData f = new FormShowData("二期未完工订单", "CALL `slbz`.`二期未完工订单`('0');");
             f.MdiParent = this;
             f.Show();
         }

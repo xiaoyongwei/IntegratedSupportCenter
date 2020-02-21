@@ -10,7 +10,8 @@ public partial class WebPage_WuliuShujuFenxi : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+        this.Calendar1.SelectedDate = DateTime.Now;
+        this.Calendar2.SelectedDate = DateTime.Now;
     }
 
     private void Search()
@@ -19,7 +20,9 @@ public partial class WebPage_WuliuShujuFenxi : System.Web.UI.Page
             "CALL `slbz`.`物流数据分析`('{0}','{1}');"
             ,this.Calendar1.SelectedDate.ToString("yyyy-MM-dd")
             ,this.Calendar2.SelectedDate.ToString("yyyy-MM-dd")));
-        GridView1.Caption = "物流数据汇总";
+        GridView1.Caption = "物流数据汇总"
+            + this.Calendar1.SelectedDate.ToString("yyyy-MM-dd到")
+            + this.Calendar2.SelectedDate.ToString("yyyy-MM-dd");
         GridView2.Caption = "物流数据明细";
         GridView1.DataSource = ds.Tables[0];
         GridView1.DataBind();

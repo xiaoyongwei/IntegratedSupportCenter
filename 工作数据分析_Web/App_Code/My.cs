@@ -99,7 +99,16 @@ public class My
     {
         StringBuilder sb = new StringBuilder();        
         sb.Append("<table cellspacing='1' cellpadding='1' rules='all' border='1'>");
-        sb.Append("<tr><td><b><span>选择</span></b></td>");
+        if (string.IsNullOrWhiteSpace(idName))
+        {
+            sb.Append("<tr>");
+        }
+        else
+        {
+            sb.Append("<tr><td><b><span>选择</span></b></td>");
+        }
+        
+        
         foreach (DataColumn column in dt.Columns)
         {
             sb.Append("<td><b><span>" + column.ColumnName + "</span></b></td>");
@@ -109,8 +118,15 @@ public class My
         int rowsCount = dt.Rows.Count - 1;
         for (int j = 0; j <= rowsCount; j++)
         {
-            sb.Append("<tr><td><input type='checkbox' "
-                + (string.IsNullOrWhiteSpace(idName) ? "" : ("id=" + dt.Rows[j][idName])) + " ></td>");
+            if (string.IsNullOrWhiteSpace(idName))
+            {
+                sb.Append("<tr>");
+            }
+            else
+            {
+                sb.Append("<tr><td><input type='checkbox'  id=" + dt.Rows[j][idName] + " ></td>"); 
+            }            
+           
             for (int k = 0; k <= iColsCount - 1; k++)
             {
                 sb.Append("<td>");

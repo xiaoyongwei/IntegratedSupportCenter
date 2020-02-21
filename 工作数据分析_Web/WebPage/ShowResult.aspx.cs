@@ -32,10 +32,7 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr = "SELECT * FROM `slbz`.`二期原纸仓库库存明细(uv合并)_分类`";
                 gridTitle = "二期原纸仓库库存明细_按UV合并分类";
                 break;
-            case "8":
-                sqlStr = "SELECT *FROM `slbz`.`二期特殊工艺订单`";
-                gridTitle = "特殊工艺订单";
-                break;
+            
             case "9":
                 sqlStr = "CALL `slbz`.`二期原纸仓库库存明细分类汇总`('A')";
                 gridTitle = "分类汇总(A类纸)";
@@ -48,10 +45,7 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr = "CALL `slbz`.`二期原纸仓库各类占比`;";
                 gridTitle = "二期原纸仓库各类占比";
                 break;
-            case "12":
-                sqlStr = "CALL `slbz`.`二期未完工订单`;";
-                gridTitle = "二期未完工订单";
-                break;
+           
             case "13":
                 sqlStr = "select * from `slbz`.`二期辅料仓库即时库存一览`;";
                 gridTitle = "二期辅料仓库即时库存一览";
@@ -148,13 +142,6 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                     }
 
                     this.GridView1.DataSource = dt_temp;
-                    this.GridView1.DataBind();
-                }
-                else if (gridTitle == "二期未完工订单")
-                {
-                    DataTable dt = MySqlDbHelper.ExecuteDataTable(sqlStr);
-                    dt.DefaultView.Sort = "所处工序";
-                    this.GridView1.DataSource = dt;
                     this.GridView1.DataBind();
                 }
                 else
