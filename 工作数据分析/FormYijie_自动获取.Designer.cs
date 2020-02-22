@@ -110,7 +110,7 @@
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.ScriptErrorsSuppressed = true;
-            this.webBrowser.Size = new System.Drawing.Size(875, 519);
+            this.webBrowser.Size = new System.Drawing.Size(875, 514);
             this.webBrowser.TabIndex = 8;
             this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
             // 
@@ -124,14 +124,14 @@
             this.toolStripComboBox1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1167, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1167, 29);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 登陆ToolStripMenuItem
             // 
             this.登陆ToolStripMenuItem.Name = "登陆ToolStripMenuItem";
-            this.登陆ToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.登陆ToolStripMenuItem.Size = new System.Drawing.Size(44, 25);
             this.登陆ToolStripMenuItem.Text = "登陆";
             this.登陆ToolStripMenuItem.Click += new System.EventHandler(this.登陆ToolStripMenuItem_Click);
             // 
@@ -139,7 +139,7 @@
             // 
             this.toolStripMenuItem4.Enabled = false;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(29, 20);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(34, 25);
             this.toolStripMenuItem4.Text = "->";
             // 
             // 获取数据ToolStripMenuItem
@@ -168,7 +168,7 @@
             this.获取订单报工ToolStripMenuItem,
             this.获取工序ToolStripMenuItem});
             this.获取数据ToolStripMenuItem.Name = "获取数据ToolStripMenuItem";
-            this.获取数据ToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.获取数据ToolStripMenuItem.Size = new System.Drawing.Size(68, 25);
             this.获取数据ToolStripMenuItem.Text = "获取数据";
             // 
             // toolStripMenuItem一键获取
@@ -198,26 +198,26 @@
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem6.Text = "自动导入(近7天)";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(160, 6);
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem8.Text = "跳转";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem12.Text = "手动导入";
             this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
@@ -236,26 +236,26 @@
             // toolStripMenuItem13
             // 
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem13.Text = "自动导入(近7天)";
             this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(160, 6);
             // 
             // toolStripMenuItem15
             // 
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem15.Text = "跳转";
             this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
             // 
             // toolStripMenuItem16
             // 
             this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem16.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem16.Text = "手动导入";
             this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click);
             // 
@@ -274,26 +274,26 @@
             // toolStripMenuItem17
             // 
             this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            this.toolStripMenuItem17.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem17.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem17.Text = "自动导入(近7天)";
             this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripMenuItem17_Click);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(160, 6);
             // 
             // toolStripMenuItem19
             // 
             this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-            this.toolStripMenuItem19.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem19.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem19.Text = "跳转";
             this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
             // 
             // toolStripMenuItem20
             // 
             this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-            this.toolStripMenuItem20.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem20.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem20.Text = "手动导入";
             this.toolStripMenuItem20.Click += new System.EventHandler(this.toolStripMenuItem20_Click);
             // 
@@ -317,26 +317,26 @@
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem9.Text = "自动导入(近7天)";
             this.toolStripMenuItem9.Click += new System.EventHandler(this.甩纸作业ToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(160, 6);
             // 
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem10.Text = "跳转";
             this.toolStripMenuItem10.Click += new System.EventHandler(this.跳转ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem11
             // 
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem11.Text = "手动导入";
             this.toolStripMenuItem11.Click += new System.EventHandler(this.手动导入ToolStripMenuItem_Click);
             // 
@@ -356,26 +356,26 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem1.Text = "自动导入(近7天)";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.甩纸报工ToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(160, 6);
             // 
             // 跳转ToolStripMenuItem1
             // 
             this.跳转ToolStripMenuItem1.Name = "跳转ToolStripMenuItem1";
-            this.跳转ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.跳转ToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
             this.跳转ToolStripMenuItem1.Text = "跳转";
             this.跳转ToolStripMenuItem1.Click += new System.EventHandler(this.跳转ToolStripMenuItem1_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem5.Text = "手动导入";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
@@ -399,26 +399,26 @@
             // 自动导入近3天ToolStripMenuItem
             // 
             this.自动导入近3天ToolStripMenuItem.Name = "自动导入近3天ToolStripMenuItem";
-            this.自动导入近3天ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.自动导入近3天ToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.自动导入近3天ToolStripMenuItem.Text = "自动导入(近3天)";
             this.自动导入近3天ToolStripMenuItem.Click += new System.EventHandler(this.自动导入近3天ToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(160, 6);
             // 
             // 跳转ToolStripMenuItem
             // 
             this.跳转ToolStripMenuItem.Name = "跳转ToolStripMenuItem";
-            this.跳转ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.跳转ToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.跳转ToolStripMenuItem.Text = "跳转";
             this.跳转ToolStripMenuItem.Click += new System.EventHandler(this.跳转ToolStripMenuItem_Click_1);
             // 
             // 手动导入ToolStripMenuItem
             // 
             this.手动导入ToolStripMenuItem.Name = "手动导入ToolStripMenuItem";
-            this.手动导入ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.手动导入ToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.手动导入ToolStripMenuItem.Text = "手动导入";
             this.手动导入ToolStripMenuItem.Click += new System.EventHandler(this.手动导入ToolStripMenuItem_Click_1);
             // 
@@ -437,26 +437,26 @@
             // 自动导入3天ToolStripMenuItem
             // 
             this.自动导入3天ToolStripMenuItem.Name = "自动导入3天ToolStripMenuItem";
-            this.自动导入3天ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.自动导入3天ToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.自动导入3天ToolStripMenuItem.Text = "自动导入(近3天)";
             this.自动导入3天ToolStripMenuItem.Click += new System.EventHandler(this.自动导入3天ToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(160, 6);
             // 
             // 跳转ToolStripMenuItem2
             // 
             this.跳转ToolStripMenuItem2.Name = "跳转ToolStripMenuItem2";
-            this.跳转ToolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
+            this.跳转ToolStripMenuItem2.Size = new System.Drawing.Size(163, 22);
             this.跳转ToolStripMenuItem2.Text = "跳转";
             this.跳转ToolStripMenuItem2.Click += new System.EventHandler(this.跳转ToolStripMenuItem2_Click);
             // 
             // 手动导入ToolStripMenuItem1
             // 
             this.手动导入ToolStripMenuItem1.Name = "手动导入ToolStripMenuItem1";
-            this.手动导入ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.手动导入ToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
             this.手动导入ToolStripMenuItem1.Text = "手动导入";
             this.手动导入ToolStripMenuItem1.Click += new System.EventHandler(this.手动导入ToolStripMenuItem1_Click);
             // 
@@ -483,26 +483,26 @@
             // 自动导入近3天ToolStripMenuItem1
             // 
             this.自动导入近3天ToolStripMenuItem1.Name = "自动导入近3天ToolStripMenuItem1";
-            this.自动导入近3天ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.自动导入近3天ToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
             this.自动导入近3天ToolStripMenuItem1.Text = "自动导入(近3天)";
             this.自动导入近3天ToolStripMenuItem1.Click += new System.EventHandler(this.自动导入近3天ToolStripMenuItem1_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(160, 6);
             // 
             // 跳转ToolStripMenuItem3
             // 
             this.跳转ToolStripMenuItem3.Name = "跳转ToolStripMenuItem3";
-            this.跳转ToolStripMenuItem3.Size = new System.Drawing.Size(160, 22);
+            this.跳转ToolStripMenuItem3.Size = new System.Drawing.Size(163, 22);
             this.跳转ToolStripMenuItem3.Text = "跳转";
             this.跳转ToolStripMenuItem3.Click += new System.EventHandler(this.跳转ToolStripMenuItem3_Click);
             // 
             // 手动导入ToolStripMenuItem2
             // 
             this.手动导入ToolStripMenuItem2.Name = "手动导入ToolStripMenuItem2";
-            this.手动导入ToolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
+            this.手动导入ToolStripMenuItem2.Size = new System.Drawing.Size(163, 22);
             this.手动导入ToolStripMenuItem2.Text = "手动导入";
             this.手动导入ToolStripMenuItem2.Click += new System.EventHandler(this.手动导入ToolStripMenuItem2_Click);
             // 
@@ -571,7 +571,7 @@
             // 备份送货数据ToolStripMenuItem
             // 
             this.备份送货数据ToolStripMenuItem.Name = "备份送货数据ToolStripMenuItem";
-            this.备份送货数据ToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.备份送货数据ToolStripMenuItem.Size = new System.Drawing.Size(92, 25);
             this.备份送货数据ToolStripMenuItem.Text = "备份送货数据";
             this.备份送货数据ToolStripMenuItem.Click += new System.EventHandler(this.备份送货数据ToolStripMenuItem_Click);
             // 
@@ -584,7 +584,7 @@
             "只获取易捷数据",
             "只获取其它数据"});
             this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 20);
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
             this.toolStripComboBox1.Visible = false;
             // 
             // statusStrip1
@@ -612,7 +612,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 24);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 29);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -622,7 +622,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tbShow);
-            this.splitContainer1.Size = new System.Drawing.Size(1167, 519);
+            this.splitContainer1.Size = new System.Drawing.Size(1167, 514);
             this.splitContainer1.SplitterDistance = 875;
             this.splitContainer1.TabIndex = 11;
             // 
@@ -635,7 +635,7 @@
             this.tbShow.Name = "tbShow";
             this.tbShow.ReadOnly = true;
             this.tbShow.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbShow.Size = new System.Drawing.Size(288, 519);
+            this.tbShow.Size = new System.Drawing.Size(288, 514);
             this.tbShow.TabIndex = 0;
             // 
             // FormYijie_自动获取

@@ -1684,7 +1684,7 @@ namespace 综合保障中心.其它
                     dic.Add("http://21.ej-sh.net:9191/ordSchRead.shtml?strdats=" + i.ToString("yyyy-MM-dd")
                    + "&endates=" + i.ToString("yyyy-MM-dd") + "&objtyp=CL&daytyp=P&rowsPerPage=5000", WebAfter.排程查询);
                 }
-                //排程查询-数码
+            //    //排程查询-数码
                 for (DateTime i = DateTime.Now.AddDays(-5); i <= DateTime.Now; i = i.AddDays(1))
                 {
                     dic.Add("http://21.ej-sh.net:9191/ordSchRead.shtml?strdats=" + i.ToString("yyyy-MM-dd")
