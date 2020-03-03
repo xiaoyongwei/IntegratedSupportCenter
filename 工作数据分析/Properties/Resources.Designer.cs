@@ -61,6 +61,42 @@ namespace 工作数据分析.Properties {
         }
         
         /// <summary>
+        ///   查找类似 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+        ///
+        ///select v1.Fdate AS &apos;日期&apos;
+        ///	,case 
+        ///		when v1.FCheckerID &gt; 0
+        ///			then &apos;Y&apos;
+        ///		when v1.FCheckerID &lt; 0
+        ///			then &apos;Y&apos;
+        ///		else &apos;&apos;
+        ///		end AS &apos;审核&apos;
+        ///	
+        ///	,v1.FBillNo AS &apos;单据编号&apos;
+        ///	,t4.FName AS &apos;供应商&apos;
+        ///	,t7.FName AS &apos;收料仓库&apos;
+        ///	,t13.FNumber AS &apos;物料长代码&apos;
+        ///	,t13.Fname AS &apos;物料名称&apos;
+        ///	,t13.Fmodel AS&apos;规格型号&apos;
+        ///	,(
+        ///		CASE t101.FName
+        ///			WHEN &apos;*&apos;
+        ///				THEN &apos;&apos;
+        ///			ELSE t101.FName
+        ///			END
+        ///		) AS &apos;辅助属性&apos;
+        ///	,u1.FBatchNo&apos;批号&apos;
+        ///	,t30.FName AS &apos;基本单位&apos;
+        ///	,u1.Fauxqty AS &apos;实收数量&apos;
+        ///	,t552.FName AS &apos;辅助单位 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string 二期仓库入库 {
+            get {
+                return ResourceManager.GetString("二期仓库入库", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Set Nocount on
         ///
         ///Create Table #TempInventory (
@@ -82,6 +118,43 @@ namespace 工作数据分析.Properties {
         internal static string 二期原纸仓库即时库存 {
             get {
                 return ResourceManager.GetString("二期原纸仓库即时库存", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 select llfx.*
+        ///,case when llfx.金额 !=0 then llfx.金额 
+        ///when llfx.估算单价!=0 then llfx.估算单价*llfx.实发数量
+        ///else 0 end  as &apos;估算金额&apos;
+        ///
+        ///	from	
+        ///	(
+        ///	SELECT v1.Fdate as &apos;日期&apos;
+        ///	,case 
+        ///		when v1.FCheckerID &gt; 0
+        ///			then &apos;Y&apos;
+        ///		when v1.FCheckerID &lt; 0
+        ///			then &apos;Y&apos;
+        ///		else &apos;&apos;
+        ///		end as &apos;审核&apos;
+        ///	,v1.FBillNo as &apos;单据编号&apos;
+        ///	,vw.FNumber &apos;物料长代码&apos;
+        ///	,vw.FItemID &apos;物料名称&apos;
+        ///	,t13.Fmodel AS &apos;规格型号&apos;
+        ///	,(
+        ///		CASE t34.FName
+        ///			WHEN &apos;*&apos;
+        ///				THEN &apos;&apos;
+        ///			ELSE t34.FName
+        ///			END
+        ///		) AS &apos;辅助属性&apos;
+        ///	,u1.FBatchNo AS &apos;批号&apos;
+        ///	,t23.Fname &apos;基本单位&apos;
+        ///	,vw.Fauxqty &apos; [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string 二期原纸辅料领料明细 {
+            get {
+                return ResourceManager.GetString("二期原纸辅料领料明细", resourceCulture);
             }
         }
         
@@ -114,6 +187,24 @@ namespace 工作数据分析.Properties {
         internal static string 二期胶印纸箱仓库即时库存 {
             get {
                 return ResourceManager.GetString("二期胶印纸箱仓库即时库存", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Set Nocount on
+        ///Create Table #TempInventory( 
+        ///                            [FBrNo] [varchar] (10)  NOT NULL ,
+        ///                            [FItemID] [int] NOT NULL ,
+        ///                            [FBatchNo] [varchar] (200)  NOT NULL ,
+        ///                            [FMTONo] [varchar] (200)  NOT NULL ,
+        ///                            [FSupplyID] [int] NOT NULL ,
+        ///                            [FStockID] [int] NOT NULL ,
+        ///                            [FQty] [decimal](28, 10) NOT NULL ,
+        ///                            [FB [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string 二期辅料仓库即时库存 {
+            get {
+                return ResourceManager.GetString("二期辅料仓库即时库存", resourceCulture);
             }
         }
         

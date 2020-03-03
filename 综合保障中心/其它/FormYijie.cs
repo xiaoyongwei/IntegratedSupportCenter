@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using 综合保障中心.Comm;
+using System.IO;
 
 namespace 综合保障中心.其它
 {
@@ -476,7 +477,7 @@ namespace 综合保障中心.其它
 
         private void 获取入库单IDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Regex regex1 = new Regex("INPUT class=cbox value=\\d+ type=checkbox name=ids");
+            Regex regex1 = new Regex("INPUT class=cbox type=checkbox value=\\d+ name=ids");
             Regex regex2 = new Regex("<TD>RA\\d+</TD>");
             DataTable dt = new DataTable();
             dt.Columns.Add("ID");
@@ -485,6 +486,7 @@ namespace 综合保障中心.其它
             foreach (HtmlElement ele in ele_table.GetElementsByTagName("tr"))
             {
                 string regexInputString = ele.InnerHtml;
+                //File.AppendText(regexInputString + Environment.NewLine);
                 if (!string.IsNullOrWhiteSpace(regexInputString) &&
                     regex1.IsMatch(regexInputString) && regex2.IsMatch(regexInputString))
                     {

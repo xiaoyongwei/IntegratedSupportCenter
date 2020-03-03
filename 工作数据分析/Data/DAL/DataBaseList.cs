@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using DBUtility;
 using 综合保障中心.Comm;
+using System.Reflection;
 
 namespace 工作数据分析.Data.DAL
 {
     public static class DataBaseList
     {
         public static string IP_财务 = "128.1.50.25";
-        public static string ConnString_财务 = "Data Source=" + IP_财务 + ";Initial Catalog=AIS20190130220801;User ID=sa;Password=sql2008;";
+        //public static string ConnString_财务2019 = "Data Source=" + IP_财务 + ";Initial Catalog=AIS20190130220801;User ID=sa;Password=sql2008;";
+        public static string ConnString_财务 = "Data Source=" + IP_财务 + ";Initial Catalog=AIS20200126172154;User ID=sa;Password=sql2008;";
       
         public static string IP_制版线1800 = "128.1.50.67";
         public static string ConnString_制版线1800 = "Data Source="+IP_制版线1800+";Initial Catalog=cimnc2;User ID=sa;Password=sa;";
@@ -33,7 +35,7 @@ namespace 工作数据分析.Data.DAL
             sql制版线2200 = null;
             sql制版线2500 = null;
 
-
+            
             if (SqlHelper.IsConnection(ConnString_财务))
             {
                 sql财务 = new SqlHelper(ConnString_财务);

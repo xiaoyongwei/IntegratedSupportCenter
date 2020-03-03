@@ -37,8 +37,8 @@ namespace 综合保障中心.其它
         private void FormYijiePojie_Load(object sender, EventArgs e)
         {
             this.toolStripStatusLabel1.Text = "易捷数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `Value`	FROM `slbz`.`settingall`	where `Key`='LastGetTime'").ToString()
-                +" , 制版线数据更新时间:"+MySqlDbHelper.ExecuteScalar("SELECT `结束时间`FROM `slbz`.`瓦片完成情况`ORDER BY `结束时间` DESC LIMIT 1").ToString();
-           // DataBaseList.InitSqlhelper();
+                + " , 制版线数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT max(`结束时间`)FROM `slbz`.`瓦片完成情况`").ToString();
+            DataBaseList.InitSqlhelper();
         }
 
 

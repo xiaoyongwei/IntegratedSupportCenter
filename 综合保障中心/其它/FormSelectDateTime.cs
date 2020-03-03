@@ -16,7 +16,8 @@ namespace 综合保障中心.其它
             InitializeComponent();
         }
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+
+        private void buttonSubmit_Click(object sender, EventArgs e)
         {
             this.Text = monthCalendar1.SelectionStart.ToString("yyyy-MM-dd");
             this.DialogResult = DialogResult.OK;

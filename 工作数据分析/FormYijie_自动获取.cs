@@ -181,7 +181,7 @@ namespace 综合保障中心.其它
         {
             if (!webBrowser.Url.OriginalString.Contains("ctBcdx/xl.shtml?method:form="))
             {
-                AddtbShow("当前页面非[销售退货_明细]页面 "+dic.Count);
+                AddtbShow("当前页面非[销售退货_明细]页面 " + dic.Count);
 
                 dic.Clear();
                 GotoWebUrlByDic();
@@ -196,7 +196,7 @@ namespace 综合保障中心.其它
                 DataTable dt = new DataTable();
                 foreach (HtmlElement item in hec[1].GetElementsByTagName("td"))
                 {
-                    if (item.OuterText == "订单" && dt.Columns.Count<3)
+                    if (item.OuterText == "订单" && dt.Columns.Count < 3)
                     {
                         dt.Columns.Add("生产单号");
                     }
@@ -250,14 +250,14 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[销售退货_明细]失败! "+dic.Count);
+                    AddtbShow("获取[销售退货_明细]失败×××××! " + dic.Count);
                 }
                 else
                 {
-                    AddtbShow("获取[销售退货_明细]成功! "+dic.Count);
+                    AddtbShow("获取[销售退货_明细]成功! " + dic.Count);
                 }
             }
-            
+
             wAfter = WebAfter.下个明细;
         }
 
@@ -265,7 +265,7 @@ namespace 综合保障中心.其它
         {
             if (!webBrowser.Url.OriginalString.Contains("/ctBcdx/xl.shtml"))
             {
-                AddtbShow("当前页面非[销售退货]页面 "+dic.Count);
+                AddtbShow("当前页面非[销售退货]页面 " + dic.Count);
 
                 dic.Clear();
                 GotoWebUrlByDic();
@@ -327,14 +327,14 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[销售退货]失败! "+dic.Count);
+                    AddtbShow("获取[销售退货]失败×××××! " + dic.Count);
                 }
                 else
                 {
                     AddtbShow("获取[销售退货]成功! " + dic.Count);
                 }
             }
-            
+
             wAfter = WebAfter.下个明细;
         }
 
@@ -342,7 +342,7 @@ namespace 综合保障中心.其它
         {
             if (!webBrowser.Url.OriginalString.Contains("/ordInquiry/sl.shtml"))
             {
-                AddtbShow("当前页面非[排程查询]页面 "+dic.Count);
+                AddtbShow("当前页面非[排程查询]页面 " + dic.Count);
 
                 dic.Clear();
                 GotoWebUrlByDic();
@@ -394,14 +394,14 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[计划物流综合查询]失败! "+dic.Count);
+                    AddtbShow("获取[计划物流综合查询]失败×××××! " + dic.Count);
                 }
                 else
                 {
                     AddtbShow("获取[计划物流综合查询]成功! " + dic.Count);
                 }
             }
-            
+
             wAfter = WebAfter.下个明细;
         }
 
@@ -410,7 +410,7 @@ namespace 综合保障中心.其它
             //INSERT IGNORE INTO `slbz`.`物料_报价运费`(`工单号`,`报价运费`)VALUES(<工单号, VARCHAR(15)>,<报价运费, DOUBLE>)
             if (!(webBrowser.DocumentText.Contains("装车理货")))
             {
-                AddtbShow("当前页面非[装车理货]页面 "+dic.Count);
+                AddtbShow("当前页面非[装车理货]页面 " + dic.Count);
 
                 dic.Clear();
                 GotoWebUrlByDic();
@@ -470,13 +470,13 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[报价运费]失败! "+dic.Count);
+                    AddtbShow("获取[报价运费]失败×××××! " + dic.Count);
                 }
                 else
                 {
                     AddtbShow("获取[报价运费]成功! " + dic.Count);
                 }
-                
+
             }
             wAfter = WebAfter.下个明细;
         }
@@ -485,7 +485,7 @@ namespace 综合保障中心.其它
         {
             if (!(webBrowser.DocumentText.Contains("理货查询")))
             {
-                AddtbShow("当前页面非[理货查询]页面 "+dic.Count);
+                AddtbShow("当前页面非[理货查询]页面 " + dic.Count);
 
                 dic.Clear();
                 GotoWebUrlByDic();
@@ -518,7 +518,7 @@ namespace 综合保障中心.其它
         {
             if (!webBrowser.DocumentText.Contains("<td><a href=\"/pbProcesses.shtml?method:list=\"><span style=\"color: #ff0000;\">工序管理</span></a>"))
             {
-                AddtbShow("当前页面非[工序管理]页面 "+dic.Count);
+                AddtbShow("当前页面非[工序管理]页面 " + dic.Count);
 
                 dic.Clear();
                 GotoWebUrlByDic();
@@ -571,14 +571,14 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[工序管理]失败! "+dic.Count);
+                    AddtbShow("获取[工序管理]失败×××××! " + dic.Count);
                 }
                 else
                 {
                     AddtbShow("获取[工序管理]成功! " + dic.Count);
                 }
             }
-           
+
             wAfter = WebAfter.下个明细;
         }
 
@@ -589,7 +589,7 @@ namespace 综合保障中心.其它
         {
             if (!webBrowser.DocumentText.Contains("<td><a href=\"/ordSchRead.shtml\"><span style=\"color: #ff0000;\">排程查询</span></a></td>"))
             {
-                AddtbShow("当前页面非[排程查询]页面 "+dic.Count);
+                AddtbShow("当前页面非[排程查询]页面 " + dic.Count);
 
                 dic.Clear();
                 GotoWebUrlByDic();
@@ -642,14 +642,14 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[排程查询]失败! "+dic.Count);
+                    AddtbShow("获取[排程查询]失败×××××! " + dic.Count);
                 }
                 else
                 {
                     AddtbShow("获取[排程查询]成功! " + dic.Count);
                 }
             }
-           
+
             wAfter = WebAfter.下个明细;
         }
 
@@ -657,7 +657,7 @@ namespace 综合保障中心.其它
         {
             if (!(webBrowser.DocumentText.Contains("水印订单维护") || webBrowser.DocumentText.Contains("彩印订单维护") || webBrowser.DocumentText.Contains("数码订单维护")))
             {
-                AddtbShow("当前页面非[彩印,数码,水印 订单]页面 "+dic.Count);
+                AddtbShow("当前页面非[彩印,数码,水印 订单]页面 " + dic.Count);
 
                 dic.Clear();
                 GotoWebUrlByDic();
@@ -718,14 +718,14 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[订单明细]失败! "+dic.Count);
+                    AddtbShow("获取[订单明细]失败×××××! " + dic.Count);
                 }
                 else
                 {
                     AddtbShow("获取[订单明细]成功! " + dic.Count);
                 }
             }
-            
+
             wAfter = WebAfter.下个明细;
         }
 
@@ -736,7 +736,7 @@ namespace 综合保障中心.其它
         {
             if (!(webBrowser.DocumentText.Contains("<td><a href=\"/ctInquiry.shtml?method:bcdt=\"><span style=\"color: #ff0000;\">库存明细</span></a></td>")))
             {
-                AddtbShow("当前页面非[库存明细]页面 "+dic.Count);
+                AddtbShow("当前页面非[库存明细]页面 " + dic.Count);
 
                 dic.Clear();
                 GotoWebUrlByDic();
@@ -802,7 +802,7 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[库存明细]失败! "+dic.Count);
+                    AddtbShow("获取[库存明细]失败×××××! " + dic.Count);
                 }
                 else
                 {
@@ -821,7 +821,7 @@ namespace 综合保障中心.其它
             if (!(webBrowser.DocumentText.Contains("<td><a href=\"/ctInquiry.shtml?method:bcdr=\"><span style=\"color: #ff0000;\">入库明细</span></a></td>") &&
                 webBrowser.DocumentText.Contains("入库单号类型")))
             {
-                AddtbShow("当前页面非[入库明细]页面 "+dic.Count);
+                AddtbShow("当前页面非[入库明细]页面 " + dic.Count);
 
                 dic.Clear();
                 GotoWebUrlByDic();
@@ -900,14 +900,14 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[入库明细]失败! "+dic.Count);
+                    AddtbShow("获取[入库明细]失败×××××! " + dic.Count);
                 }
                 else
                 {
                     AddtbShow("获取[入库明细]成功! " + dic.Count);
                 }
             }
-           
+
             wAfter = WebAfter.下个明细;
         }
         /// <summary>
@@ -917,7 +917,7 @@ namespace 综合保障中心.其它
         {
             if (!(webBrowser.DocumentText.Contains("<td><span style=\"color: #ff0000;\">报工情况查询</span></td>")))
             {
-                AddtbShow("当前页面非[报工查询]页面 "+dic.Count);
+                AddtbShow("当前页面非[报工查询]页面 " + dic.Count);
                 dic.Clear();
                 GotoWebUrlByDic();
                 return;
@@ -967,14 +967,14 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[报工查询]失败! "+dic.Count);
+                    AddtbShow("获取[报工查询]失败×××××! " + dic.Count);
                 }
                 else
                 {
                     AddtbShow("获取[报工查询]成功! " + dic.Count);
                 }
             }
-            
+
             wAfter = WebAfter.下个明细;
         }
 
@@ -983,7 +983,7 @@ namespace 综合保障中心.其它
         {
             if (!webBrowser.DocumentText.Contains("<td><a href=\"/ordSchCt/bcp.shtml\"><span style=\"color: #ff0000;\">甩纸作业</span></a></td>"))
             {
-                AddtbShow("当前页面非[甩纸作业]页面 "+dic.Count);
+                AddtbShow("当前页面非[甩纸作业]页面 " + dic.Count);
 
                 dic.Clear();
                 GotoWebUrlByDic();
@@ -1034,14 +1034,14 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[甩纸作业]失败! "+dic.Count);
+                    AddtbShow("获取[甩纸作业]失败×××××! " + dic.Count);
                 }
                 else
                 {
                     AddtbShow("获取[甩纸作业]成功! " + dic.Count);
                 }
             }
-            
+
             wAfter = WebAfter.下个明细;
         }
 
@@ -1050,7 +1050,7 @@ namespace 综合保障中心.其它
             if (!(webBrowser.DocumentText.Contains("<span style=\"color: #ff0000;\">运费结算</span></a>") &&
              webBrowser.DocumentText.Contains("运费结算")))
             {
-                AddtbShow("当前页面非[运费结算]页面 "+dic.Count);
+                AddtbShow("当前页面非[运费结算]页面 " + dic.Count);
                 dic.Clear();
                 GotoWebUrlByDic();
                 return;
@@ -1106,14 +1106,14 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[运费管理]失败! "+dic.Count);
+                    AddtbShow("获取[运费管理]失败×××××! " + dic.Count);
                 }
                 else
                 {
                     AddtbShow("获取[运费管理]成功! " + dic.Count);
                 }
             }
-           
+
             wAfter = WebAfter.下个明细;
         }
 
@@ -1160,14 +1160,10 @@ namespace 综合保障中心.其它
                     return;
                 }
             }
-
-
-
         }
 
         private void FormYijiePojie_Load(object sender, EventArgs e)
         {
-            this.toolStripComboBox1.SelectedIndex = 0;
             this.toolStripStatusLabel1.Text = "易捷数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `Value`	FROM `slbz`.`settingall`	where `Key`='LastGetTime'").ToString()
                    + " , 制版线数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `结束时间`FROM `slbz`.`瓦片完成情况`ORDER BY `结束时间` DESC LIMIT 1").ToString();
             GotoWebUrl("http://21.ej-sh.net:9191/login.shtml?method:exit", WebAfter.登录);
@@ -1358,7 +1354,7 @@ namespace 综合保障中心.其它
             if (!(webBrowser.DocumentText.Contains("<td><a href=\"/ctInquiry.shtml?method:bcdx=\"><span style=\"color: #ff0000;\">出库明细</span></a></td>") &&
              webBrowser.DocumentText.Contains("出库单号类型")))
             {
-                AddtbShow("当前页面非[出库明细]页面 "+dic.Count);
+                AddtbShow("当前页面非[出库明细]页面 " + dic.Count);
                 dic.Clear();
                 GotoWebUrlByDic();
                 return;
@@ -1418,10 +1414,10 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[出库明细]失败! "+dic.Count);
+                    AddtbShow("获取[出库明细]失败×××××! " + dic.Count);
                 }
             }
-            AddtbShow("获取[出库明细]成功! "+dic.Count);
+            AddtbShow("获取[出库明细]成功! " + dic.Count);
             wAfter = WebAfter.下个明细;
         }
 
@@ -1454,7 +1450,7 @@ namespace 综合保障中心.其它
         {
             if (!(webBrowser.Url.ToString().Contains("21.ej-sh.net:9191/ctBcdx/dlv.shtml")))
             {
-                AddtbShow("当前页面非[送货查询]页面 "+dic.Count);
+                AddtbShow("当前页面非[送货查询]页面 " + dic.Count);
                 dic.Clear();
                 GotoWebUrlByDic();
                 return;
@@ -1520,7 +1516,7 @@ namespace 综合保障中心.其它
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
                     dic.Clear();
-                    AddtbShow("获取[送货记录]失败! "+dic.Count);
+                    AddtbShow("获取[送货记录]失败×××××! " + dic.Count);
                 }
                 else
                 {
@@ -1561,13 +1557,13 @@ namespace 综合保障中心.其它
                 && !MySqlDbHelper.ExecuteSqlTran(sqlList))
             {
                 dic.Clear();
-                AddtbShow("[计算入库面积]失败! "+dic.Count);
+                AddtbShow("[计算入库面积]失败×××××! " + dic.Count);
             }
             else
             {
-                AddtbShow("计算入库面积]成功! "+dic.Count);
+                AddtbShow("计算入库面积]成功! " + dic.Count);
             }
-            
+
             wAfter = WebAfter.下个明细;
         }
 
@@ -1629,131 +1625,187 @@ namespace 综合保障中心.其它
         private void OneKeyGet(bool IsReturnResult, bool YunfeiOnly)
         {
             this.timer1.Stop();
-            dic.Clear();
+            AddtbShow("关闭计数器");
+           
+
+            //dic.Clear();
             AddtbShow("开始{一键获取}");
 
+            bool yijieBool = this.易捷ToolStripMenuItem.Checked;
+            bool jindieBool = this.金蝶ToolStripMenuItem.Checked;
+            AddtbShow("易捷-获取状态:" + (yijieBool ? "开启" : "关闭"));
+            AddtbShow("金蝶,制版线-获取状态:" + (jindieBool ? "开启" : "关闭"));
 
-            List<string> erqiSiji = new List<string>();
-            foreach (DataRow row in MySqlDbHelper.ExecuteDataTable("SELECT `司机`FROM `slbz`.`物流_司机信息`").Rows)
+
+
+            if (yijieBool)
             {
-                erqiSiji.Add(row[0].ToString());
+                List<string> erqiSiji = new List<string>();
+                foreach (DataRow row in MySqlDbHelper.ExecuteDataTable("SELECT `司机`FROM `slbz`.`物流_司机信息`").Rows)
+                {
+                    erqiSiji.Add(row[0].ToString());
+                }
+
+                ////纸箱排车
+                //dic.Add("http://21.ej-sh.net:9191/dlvAuto.shtml?status=&rowsPerPage=1&strdats="
+                //    + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")+"&endates=" + DateTime.Now.ToString("yyyy-MM-dd")
+                //    , WebAfter.纸箱排车);
+
+                //成品入库
+                dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdr=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
+                   + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.入库明细);
+                //发货记录
+                dic.Add("http://21.ej-sh.net:9191/ctBcdx/dlv.shtml?strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
+                  + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000&pageSize=1", WebAfter.送货明细);
+                //运费管理
+                foreach (string siji in erqiSiji)
+                {
+                    dic.Add("http://21.ej-sh.net:9191/dlvFare/sl.shtml?strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
+                  + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&driver=" + Uri.EscapeUriString(siji) + "&rowsPerPage=5000", WebAfter.运费管理);
+                }
+                //其他司机的运费(仅限有打单记录的送货运费)
+                dic.Add("http://21.ej-sh.net:9191/dlvFare/sl.shtml?pono=ZX&strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
+                  + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&driver=&rowsPerPage=5000", WebAfter.运费管理);
+
             }
-
-            ////纸箱排车
-            //dic.Add("http://21.ej-sh.net:9191/dlvAuto.shtml?status=&rowsPerPage=1&strdats="
-            //    + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")+"&endates=" + DateTime.Now.ToString("yyyy-MM-dd")
-            //    , WebAfter.纸箱排车);
-
-            //成品入库
-            dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdr=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
-               + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.入库明细);
-            //发货记录
-            dic.Add("http://21.ej-sh.net:9191/ctBcdx/dlv.shtml?strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
-              + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000&pageSize=1", WebAfter.送货明细);
-            //运费管理
-            foreach (string siji in erqiSiji)
-            {
-                dic.Add("http://21.ej-sh.net:9191/dlvFare/sl.shtml?strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
-              + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&driver=" + Uri.EscapeUriString(siji) + "&rowsPerPage=5000", WebAfter.运费管理);
-            }
-            //其他司机的运费(仅限有打单记录的送货运费)
-            dic.Add("http://21.ej-sh.net:9191/dlvFare/sl.shtml?pono=ZX&strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
-              + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&driver=&rowsPerPage=5000", WebAfter.运费管理);
-
 
             if (!YunfeiOnly)
             {
-                //彩印
-                dic.Add("http://21.ej-sh.net:9191/clOrd/mt.shtml?status=Y&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
-                  + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_彩印);
-                //数码
-                dic.Add("http://21.ej-sh.net:9191/cdOrd/mt.shtml?status=Y&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
-                + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_数码);
-                //水印
-                dic.Add("http://21.ej-sh.net:9191/ctOrd/mt.shtml?status=Y&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
-                + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_水印);
-                //甩纸作业
-                dic.Add("http://21.ej-sh.net:9191/ordSchCt/bcp.shtml?strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
-                    + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&status=&rowsPerPage=1000", WebAfter.甩纸作业);
-                //报工查询
-                dic.Add("http://21.ej-sh.net:9191/ordSchCt/overlist.shtml?strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
-                    + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.报工查询);
-                //排程查询-彩盒
-                for (DateTime i = DateTime.Now.AddDays(-5); i <= DateTime.Now; i = i.AddDays(1))
+                if (yijieBool)
                 {
-                    dic.Add("http://21.ej-sh.net:9191/ordSchRead.shtml?strdats=" + i.ToString("yyyy-MM-dd")
-                   + "&endates=" + i.ToString("yyyy-MM-dd") + "&objtyp=CL&daytyp=P&rowsPerPage=5000", WebAfter.排程查询);
+                    //彩印
+                    dic.Add("http://21.ej-sh.net:9191/clOrd/mt.shtml?status=Y&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
+                      + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_彩印);
+                    //数码
+                    dic.Add("http://21.ej-sh.net:9191/cdOrd/mt.shtml?status=Y&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
+                    + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_数码);
+                    //水印
+                    dic.Add("http://21.ej-sh.net:9191/ctOrd/mt.shtml?status=Y&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
+                    + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_水印);
+                    //甩纸作业
+                    dic.Add("http://21.ej-sh.net:9191/ordSchCt/bcp.shtml?strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
+                        + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&status=&rowsPerPage=1000", WebAfter.甩纸作业);
+                    //报工查询
+                    dic.Add("http://21.ej-sh.net:9191/ordSchCt/overlist.shtml?strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
+                        + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.报工查询);
+                    //排程查询-彩盒
+                    for (DateTime i = DateTime.Now.AddDays(-5); i <= DateTime.Now; i = i.AddDays(1))
+                    {
+                        dic.Add("http://21.ej-sh.net:9191/ordSchRead.shtml?strdats=" + i.ToString("yyyy-MM-dd")
+                       + "&endates=" + i.ToString("yyyy-MM-dd") + "&objtyp=CL&daytyp=P&rowsPerPage=5000", WebAfter.排程查询);
+                    }
+                    //排程查询-数码
+                    for (DateTime i = DateTime.Now.AddDays(-5); i <= DateTime.Now; i = i.AddDays(1))
+                    {
+                        dic.Add("http://21.ej-sh.net:9191/ordSchRead.shtml?strdats=" + i.ToString("yyyy-MM-dd")
+                       + "&endates=" + i.ToString("yyyy-MM-dd") + "&objtyp=CD&daytyp=P&rowsPerPage=5000", WebAfter.排程查询);
+                    }
+                    //成品出库
+                    dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdx=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
+                       + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.出库明细);
+                    //成品库存
+                    dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdt=&rowsPerPage=5000", WebAfter.库存明细);
+                    //获取工序
+                    dic.Add("http://21.ej-sh.net:9191/pbProcesses.shtml?rowsPerPage=2000", WebAfter.获取工序);
+                    //计划物流综合查询-彩盒
+                    dic.Add("http://21.ej-sh.net:9191/ordInquiry/sl.shtml?strdats=" + DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd")
+                       + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&objtyp=CL&rowsPerPage=5000"
+                       , WebAfter.计划物流综合查询);
+                    //计划物流综合查询-数码
+                    dic.Add("http://21.ej-sh.net:9191/ordInquiry/sl.shtml?strdats=" + DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd")
+                       + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&objtyp=CD&rowsPerPage=5000"
+                       , WebAfter.计划物流综合查询);
+                    //计划物流综合查询-纸箱
+                    dic.Add("http://21.ej-sh.net:9191/ordInquiry/sl.shtml?strdats=" + DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd")
+                       + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&objtyp=CT&rowsPerPage=5000"
+                       , WebAfter.计划物流综合查询);
+                    //销售退货
+                    dic.Add("http://21.ej-sh.net:9191/ctBcdx/xl.shtml?strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
+                       + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&status=Y&rowsPerPage=5000"
+                       , WebAfter.销售退货);
+                    //插入销售退货的明细
+                    //根据操作时间的近60天的ID
+                    List<string> idList = new List<string>();
+                    string sqlStr = "select ID from (SELECT `ID`"
+                    + ",(case when `操作日期`=(select left(`操作日期`,16)from`slbz`.`销售退货_明细`where 退货单号=单号 limit 1) then '否'else'是'end)'更新'"
+                    + "FROM `slbz`.`销售退货_概况`"
+                    + "where (`slbz`.`销售退货_概况`.`操作日期` between date_format(date_add(now(), interval -60 day), '%Y-%m-%d 00:00') "
+                    + "and date_format(now(), '%Y-%m-%d 99:99'))and (`数量`!=''))aa      where aa.更新='是';";
+                    foreach (DataRow dr in MySqlDbHelper.ExecuteDataTable(sqlStr).Rows)
+                    {
+                        dic.Add("http://21.ej-sh.net:9191/ctBcdx/xl.shtml?method:form=&id=" + dr[0] + "&actype=D", WebAfter.销售退货_明细);
+                    }
+                    //返回
+                    dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml", WebAfter.计算入库面积);
                 }
-            //    //排程查询-数码
-                for (DateTime i = DateTime.Now.AddDays(-5); i <= DateTime.Now; i = i.AddDays(1))
+                if (jindieBool)
                 {
-                    dic.Add("http://21.ej-sh.net:9191/ordSchRead.shtml?strdats=" + i.ToString("yyyy-MM-dd")
-                   + "&endates=" + i.ToString("yyyy-MM-dd") + "&objtyp=CD&daytyp=P&rowsPerPage=5000", WebAfter.排程查询);
+                    DataBaseList.InitSqlhelper();
+                    Get二期辅料仓库领料明细();
+                    Get二期原纸仓库即时库存();
+                    Get二期胶印纸箱仓库即时库存();
+                    Get二期辅料仓库即时库存();
+                    Get二期仓库入库明细();                    
+                    Get1800制版线完成信息();
+                    Get2200制版线完成信息();
+                    Get2500制版线完成信息();
                 }
-                //成品出库
-                dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdx=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
-                   + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.出库明细);
-                //成品库存
-                dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdt=&rowsPerPage=5000", WebAfter.库存明细);
-                //获取工序
-                dic.Add("http://21.ej-sh.net:9191/pbProcesses.shtml?rowsPerPage=2000", WebAfter.获取工序);
-                //计划物流综合查询-彩盒
-                dic.Add("http://21.ej-sh.net:9191/ordInquiry/sl.shtml?strdats=" + DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd")
-                   + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&objtyp=CL&rowsPerPage=5000"
-                   , WebAfter.计划物流综合查询);
-                //计划物流综合查询-数码
-                dic.Add("http://21.ej-sh.net:9191/ordInquiry/sl.shtml?strdats=" + DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd")
-                   + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&objtyp=CD&rowsPerPage=5000"
-                   , WebAfter.计划物流综合查询);
-                //计划物流综合查询-纸箱
-                dic.Add("http://21.ej-sh.net:9191/ordInquiry/sl.shtml?strdats=" + DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd")
-                   + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&objtyp=CT&rowsPerPage=5000"
-                   , WebAfter.计划物流综合查询);
-                //销售退货
-                dic.Add("http://21.ej-sh.net:9191/ctBcdx/xl.shtml?strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
-                   + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&status=Y&rowsPerPage=5000"
-                   , WebAfter.销售退货);
-                //插入销售退货的明细
-                //根据操作时间的近60天的ID
-                List<string> idList = new List<string>();
-                string sqlStr = "select ID from (SELECT `ID`"
-                + ",(case when `操作日期`=(select left(`操作日期`,16)from`slbz`.`销售退货_明细`where 退货单号=单号 limit 1) then '否'else'是'end)'更新'"
-                + "FROM `slbz`.`销售退货_概况`"
-                + "where (`slbz`.`销售退货_概况`.`操作日期` between date_format(date_add(now(), interval -60 day), '%Y-%m-%d 00:00') "
-                + "and date_format(now(), '%Y-%m-%d 99:99'))and (`数量`!=''))aa      where aa.更新='是';";
-                foreach (DataRow dr in MySqlDbHelper.ExecuteDataTable(sqlStr).Rows)
-                {
-                    dic.Add("http://21.ej-sh.net:9191/ctBcdx/xl.shtml?method:form=&id=" + dr[0] + "&actype=D", WebAfter.销售退货_明细);
-                }
-                //返回
-                dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml", WebAfter.计算入库面积);
-                DataBaseList.InitSqlhelper();
-                Get二期原纸仓库即时库存();
-                Get二期胶印纸箱仓库即时库存();
-                Get二期辅料仓库即时库存();
-                Get二期辅料仓库入库明细();
-                Get二期辅料仓库领料明细();
-                Get1800制版线完成信息();
-                Get2200制版线完成信息();
-                Get2500制版线完成信息();
             }
 
-            //完成提示;
-            dic.Add("http://21.ej-sh.net:9191", WebAfter.完成);
-            //开始逐步获取并备份数据
-            GotoWebUrlByDic();
+            if (yijieBool)
+            {
+                //完成提示;
+                dic.Add("http://21.ej-sh.net:9191", WebAfter.完成);
+                //开始逐步获取并备份数据
+                GotoWebUrlByDic();
+            }
             this.timer1.Start();
+            AddtbShow("开启计数器");
         }
 
         private void Get二期辅料仓库即时库存()
         {
             if (DataBaseList.sql财务 != null)
             {
+                DataTable dt = DataBaseList.sql财务.Querytable(Resources.二期辅料仓库即时库存);
+                List<string> sqlList = new List<string>();
 
+                StringBuilder sb_Insert = new StringBuilder("INSERT INTO `slbz`.`金蝶_二期辅料仓库即时库存`(");
+                foreach (DataColumn dc in dt.Columns)//添加列
+                {
+                    sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
+                }
+                sb_Insert.Remove(sb_Insert.Length - 1, 1);
+                sb_Insert.AppendLine(")VALUES");
+                StringBuilder sb_values = new StringBuilder("(");
+                foreach (DataRow dr in dt.Rows)
+                {
+                    sb_values = new StringBuilder("(");
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        sb_values.AppendFormat("'{0}',", dr[dc].ToString());
+                    }
+                    sb_values.Remove(sb_values.Length - 1, 1);
+                    sb_values.AppendLine(");");
+                    sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
+                }
+                if (sqlList.Count > 0)
+                {
+                    sqlList.Insert(0, "truncate table `slbz`.`金蝶_二期辅料仓库即时库存`;");
+                }
+                if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
+                {
+                    dic.Clear();
+                    AddtbShow("获取[二期辅料仓库即时库存]失败×××××! " + dic.Count);
+                }
+                else
+                {
+                    AddtbShow("获取[二期辅料仓库即时库存]成功! " + dic.Count);
+                }
             }
             else
             {
-                AddtbShow("财务系统没有连接!"+dic.Count);
+                AddtbShow("财务系统没有连接!" + dic.Count);
 
             }
         }
@@ -1790,15 +1842,54 @@ namespace 综合保障中心.其它
                 //2.删除mysql中这个时间段内的所有数据(防止有删除或较大的变动)
                 //3.删除读取过来的明细里面的所领料单号(防止有改动)
                 //4.插入到mysql中
+                //开始添加到sql中
+                DataTable dt = DataBaseList.sql财务.Querytable(Resources.二期原纸辅料领料明细);
+                List<string> sqlList = new List<string>();
+
+               
+
+                StringBuilder sb_Insert = new StringBuilder("INSERT INTO `slbz`.`金蝶_生产领料`(");
+                foreach (DataColumn dc in dt.Columns)//添加列
+                {
+                    sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
+                }
+                sb_Insert.Remove(sb_Insert.Length - 1, 1);
+                sb_Insert.AppendLine(")VALUES");
+                StringBuilder sb_values = new StringBuilder("(");
+                foreach (DataRow dr in dt.Rows)
+                {
+                    sb_values = new StringBuilder("(");
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        sb_values.AppendFormat("'{0}',", dr[dc].ToString());
+                    }
+                    sb_values.Remove(sb_values.Length - 1, 1);
+                    sb_values.AppendLine(");");
+                    sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
+                }
+                if (sqlList.Count > 0)
+                {
+                    sqlList.Insert(0, "DELETE FROM `slbz`.`金蝶_生产领料`	WHERE `日期`  "
+                    + "BETWEEN date_format(date_add(now(), interval -60 day), '%Y-%m-%d') AND  date_format(now(), '%Y-%m-%d');");
+                }
+                if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
+                {
+                    dic.Clear();
+                    AddtbShow("获取[二期辅料仓库领料明细]失败×××××! " + dic.Count);
+                }
+                else
+                {
+                    AddtbShow("获取[二期辅料仓库领料明细]成功! " + dic.Count);
+                }
             }
             else
             {
-                AddtbShow("财务系统没有连接!"+dic.Count);
+                AddtbShow("财务系统没有连接!" + dic.Count);
 
             }
         }
 
-        private void Get二期辅料仓库入库明细()
+        private void Get二期仓库入库明细()
         {
             if (DataBaseList.sql财务 != null)
             {
@@ -1806,10 +1897,46 @@ namespace 综合保障中心.其它
                 //2.删除mysql中这个时间段内的所有数据(防止有删除或较大的变动)
                 //3.删除读取过来的明细里面的所有入库单号(防止有改动)
                 //4.插入到mysql中
+                DataTable dt = DataBaseList.sql财务.Querytable(Resources.二期仓库入库);
+                List<string> sqlList = new List<string>();
+
+                StringBuilder sb_Insert = new StringBuilder("INSERT INTO `slbz`.`金蝶_外购入库`(");
+                foreach (DataColumn dc in dt.Columns)//添加列
+                {
+                    sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
+                }
+                sb_Insert.Remove(sb_Insert.Length - 1, 1);
+                sb_Insert.AppendLine(")VALUES");
+                StringBuilder sb_values = new StringBuilder("(");
+                foreach (DataRow dr in dt.Rows)
+                {
+                    sb_values = new StringBuilder("(");
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        sb_values.AppendFormat("'{0}',", dr[dc].ToString());
+                    }
+                    sb_values.Remove(sb_values.Length - 1, 1);
+                    sb_values.AppendLine(");");
+                    sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
+                }
+                if (sqlList.Count > 0)
+                {
+                    sqlList.Insert(0, "DELETE FROM `slbz`.`金蝶_外购入库`	WHERE `日期`  "
+                    + "BETWEEN   date_format(date_add(now(), interval -60 day), '%Y-%m-%d')AND   date_format(now(), '%Y-%m-%d') ");
+                }
+                if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
+                {
+                    dic.Clear();
+                    AddtbShow("获取[二期仓库入库明细]失败×××××! " + dic.Count);
+                }
+                else
+                {
+                    AddtbShow("获取[二期仓库入库明细]成功! " + dic.Count);
+                }
             }
             else
             {
-                AddtbShow("财务系统没有连接!"+dic.Count);
+                AddtbShow("财务系统没有连接!" + dic.Count);
 
             }
 
@@ -1831,12 +1958,12 @@ namespace 综合保障中心.其它
 
                 }
                 MySqlDbHelper.ExecuteSqlTran(sqlList);
-                AddtbShow("获取[二期胶印纸箱仓库即时库存]成功! "+dic.Count);
+                AddtbShow("获取[二期胶印纸箱仓库即时库存]成功! " + dic.Count);
 
             }
             else
             {
-                AddtbShow("财务系统没有连接!"+dic.Count);
+                AddtbShow("财务系统没有连接!" + dic.Count);
             }
 
         }
@@ -1847,11 +1974,11 @@ namespace 综合保障中心.其它
             {
                 DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工_2500);
                 SubmitZhiBanXian(dt);
-                AddtbShow("获取[2500制版线完成信息]成功! "+dic.Count);
+                AddtbShow("获取[2500制版线完成信息]成功! " + dic.Count);
             }
             else
             {
-                AddtbShow("2500制版线系统没有连接!"+dic.Count);
+                AddtbShow("2500制版线系统没有连接!" + dic.Count);
             }
 
         }
@@ -1862,11 +1989,11 @@ namespace 综合保障中心.其它
             {
                 DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工_2200);
                 SubmitZhiBanXian(dt);
-                AddtbShow("获取[2200制版线完成信息]成功! "+dic.Count);
+                AddtbShow("获取[2200制版线完成信息]成功! " + dic.Count);
             }
             else
             {
-                AddtbShow("2200制版线系统没有连接!"+dic.Count);
+                AddtbShow("2200制版线系统没有连接!" + dic.Count);
             }
         }
 
@@ -1876,11 +2003,11 @@ namespace 综合保障中心.其它
             {
                 DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800);
                 SubmitZhiBanXian(dt);
-                AddtbShow("获取[1800制版线完成信息]成功! "+dic.Count);
+                AddtbShow("获取[1800制版线完成信息]成功! " + dic.Count);
             }
             else
             {
-                AddtbShow("1800制版线系统没有连接!"+dic.Count);
+                AddtbShow("1800制版线系统没有连接!" + dic.Count);
             }
 
         }
@@ -1915,11 +2042,11 @@ namespace 综合保障中心.其它
 
                 }
                 MySqlDbHelper.ExecuteSqlTran(sqlList);
-                AddtbShow("获取[二期原纸仓库即时库存]成功! "+dic.Count);
+                AddtbShow("获取[二期原纸仓库即时库存]成功! " + dic.Count);
             }
             else
             {
-                AddtbShow("财务系统没有连接!"+dic.Count);
+                AddtbShow("财务系统没有连接!" + dic.Count);
 
             }
         }
@@ -1964,7 +2091,6 @@ namespace 综合保障中心.其它
             {
                 this.timer1.Start();
             }
-
         }
 
 
@@ -1972,6 +2098,13 @@ namespace 综合保障中心.其它
         private void 备份送货数据ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OneKeyGet(true, true);
+        }
+
+        private void 易捷ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
+            tsmi.Checked = !tsmi.Checked;
+            this.splitContainer1.Panel1Collapsed = !this.易捷ToolStripMenuItem.Checked;
         }
 
 

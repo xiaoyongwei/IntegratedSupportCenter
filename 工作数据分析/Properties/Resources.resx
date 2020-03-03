@@ -117,6 +117,77 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="二期仓库入库" xml:space="preserve">
+    <value>SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+
+select v1.Fdate AS '日期'
+	,case 
+		when v1.FCheckerID &gt; 0
+			then 'Y'
+		when v1.FCheckerID &lt; 0
+			then 'Y'
+		else ''
+		end AS '审核'
+	
+	,v1.FBillNo AS '单据编号'
+	,t4.FName AS '供应商'
+	,t7.FName AS '收料仓库'
+	,t13.FNumber AS '物料长代码'
+	,t13.Fname AS '物料名称'
+	,t13.Fmodel AS'规格型号'
+	,(
+		CASE t101.FName
+			WHEN '*'
+				THEN ''
+			ELSE t101.FName
+			END
+		) AS '辅助属性'
+	,u1.FBatchNo'批号'
+	,t30.FName AS '基本单位'
+	,u1.Fauxqty AS '实收数量'
+	,t552.FName AS '辅助单位'
+	,u1.FSecQty AS'辅助数量'
+	
+	,u1.FEntrySelfA0156 AS '含税单价'
+	,u1.FEntrySelfA0159 AS '含税金额'
+
+	,u1.Fauxprice AS '单位成本'
+	
+	,u1.Famount AS '单位金额'
+	,u1.FNote AS '备注'
+	
+from ICStockBill v1
+INNER JOIN ICStockBillEntry u1 ON v1.FInterID = u1.FInterID
+	AND u1.FInterID &lt;&gt; 0
+INNER JOIN t_Supplier t4 ON v1.FSupplyID = t4.FItemID
+	AND t4.FItemID &lt;&gt; 0
+INNER JOIN t_Stock t7 ON u1.FDCStockID = t7.FItemID
+	AND t7.FItemID &lt;&gt; 0
+INNER JOIN t_User t10 ON v1.FBillerID = t10.FUserID
+	AND t10.FUserID &lt;&gt; 0
+INNER JOIN t_ICItem t13 ON u1.FItemID = t13.FItemID
+	AND t13.FItemID &lt;&gt; 0
+INNER JOIN t_MeasureUnit t17 ON u1.FUnitID = t17.FItemID
+	AND t17.FItemID &lt;&gt; 0
+INNER JOIN t_MeasureUnit t30 ON t13.FUnitID = t30.FItemID
+	AND t30.FItemID &lt;&gt; 0
+LEFT OUTER JOIN t_AuxItem t101 ON u1.FAuxPropID = t101.FItemid
+	AND t101.FItemid &lt;&gt; 0
+LEFT OUTER JOIN ICVoucherTpl t23 ON v1.FPlanVchTplID = t23.FInterID
+	AND t23.FInterID &lt;&gt; 0
+LEFT OUTER JOIN ICVoucherTpl t25 ON v1.FActualVchTplID = t25.FInterID
+	AND t25.FInterID &lt;&gt; 0
+LEFT OUTER JOIN t_MeasureUnit t500 ON t13.FStoreUnitID = t500.FItemID
+	AND t500.FItemID &lt;&gt; 0
+LEFT OUTER JOIN t_Currency t503 ON v1.FCurrencyID = t503.FCurrencyID
+	AND t503.FCurrencyID &lt;&gt; 0
+LEFT OUTER JOIN ZPStockBill t523 ON v1.FInterID = t523.FRelateBillInterID
+	AND t523.FRelateBillInterID &lt;&gt; 0
+LEFT OUTER JOIN t_MeasureUnit t552 ON t13.FSecUnitID = t552.FItemID
+	AND t552.FItemID &lt;&gt; 0
+
+where( t7.FNumber between 13 and 16 )and (v1.fdate between cast(dateadd(dd,-60,getdate()) as date) and cast(dateadd(dd,0,getdate()) as date))</value>
+  </data>
   <data name="二期原纸仓库即时库存" xml:space="preserve">
     <value>Set Nocount on
 
@@ -328,6 +399,107 @@ Order By t1.FNumber
 Drop Table #TempInventory</value>
     <comment>获取二期原纸仓库即时库存</comment>
   </data>
+  <data name="二期原纸辅料领料明细" xml:space="preserve">
+    <value>select llfx.*
+,case when llfx.金额 !=0 then llfx.金额 
+when llfx.估算单价!=0 then llfx.估算单价*llfx.实发数量
+else 0 end  as '估算金额'
+
+	from	
+	(
+	SELECT v1.Fdate as '日期'
+	,case 
+		when v1.FCheckerID &gt; 0
+			then 'Y'
+		when v1.FCheckerID &lt; 0
+			then 'Y'
+		else ''
+		end as '审核'
+	,v1.FBillNo as '单据编号'
+	,vw.FNumber '物料长代码'
+	,vw.FItemID '物料名称'
+	,t13.Fmodel AS '规格型号'
+	,(
+		CASE t34.FName
+			WHEN '*'
+				THEN ''
+			ELSE t34.FName
+			END
+		) AS '辅助属性'
+	,u1.FBatchNo AS '批号'
+	,t23.Fname '基本单位'
+	,vw.Fauxqty '实发数量'
+	,t512.FName AS '辅助单位'
+	,u1.FSecQty AS '辅助数量'
+	,vw.Fauxprice '单价'	
+	,vw.Famount '金额'
+	,vw.FDeptID '领料部门'
+	,t9.FName AS '领料人'
+	,t8.FName '发料仓库'
+	,t11.FName AS '发料人'
+	,v1.Fnote'备注'
+	,ISNULL(case 
+			when vw.Fauxprice = 0
+				then isnull((
+							SELECT TOP 1 Fauxprice * 1.13
+							FROM [dbo].[vwICBill_11]
+							WHERE FNumber = vw.FNumber
+								AND Fauxprice != 0
+							ORDER BY fdate DESC
+							), (
+							SELECT TOP 1 Fauxprice * 1.13 AS '单价'
+							FROM [dbo].[vwICBill_1]
+							WHERE [Fauxprice] &gt; 0
+								and FNumber = vw.FNumber
+							ORDER by fdate desc
+							))
+			else vw.Fauxprice
+			end, 0) AS '估算单价'
+			
+from ICStockBill v1
+INNER JOIN ICStockBillEntry u1 ON v1.FInterID = u1.FInterID
+	AND u1.FInterID &lt;&gt; 0
+LEFT OUTER JOIN t_Department t4 ON v1.FDeptID = t4.FItemID
+	AND t4.FItemID &lt;&gt; 0
+INNER JOIN t_Stock t8 ON u1.FSCStockID = t8.FItemID
+	AND t8.FItemID &lt;&gt; 0
+LEFT OUTER JOIN t_Emp t9 ON v1.FSManagerID = t9.FItemID
+	AND t9.FItemID &lt;&gt; 0
+LEFT OUTER JOIN t_Emp t10 ON v1.FFManagerID = t10.FItemID
+	AND t10.FItemID &lt;&gt; 0
+INNER JOIN t_User t11 ON v1.FBillerID = t11.FUserID
+	AND t11.FUserID &lt;&gt; 0
+INNER JOIN t_ICItem t13 ON u1.FItemID = t13.FItemID
+	AND t13.FItemID &lt;&gt; 0
+INNER JOIN t_MeasureUnit t16 ON u1.FUnitID = t16.FItemID
+	AND t16.FItemID &lt;&gt; 0
+INNER JOIN t_MeasureUnit t23 ON t13.FUnitID = t23.FItemID
+	AND t23.FItemID &lt;&gt; 0
+LEFT OUTER JOIN t_User t24 ON v1.Fcheckerid = t24.FUserID
+	AND t24.FUserID &lt;&gt; 0
+LEFT OUTER JOIN t_MeasureUnit t30 ON t13.FUnitID = t30.FMeasureUnitID
+	AND t30.FMeasureUnitID &lt;&gt; 0
+LEFT OUTER JOIN t_AuxItem t34 ON u1.FAuxPropID = t34.FItemid
+	AND t34.FItemid &lt;&gt; 0
+LEFT OUTER JOIN ICMO tic ON u1.FICMOInterID = tic.FInterID
+	AND tic.FInterID &lt;&gt; 0
+LEFT OUTER JOIN ICVoucherTpl t14 ON v1.FPlanVchTplID = t14.FInterID
+	AND t14.FInterID &lt;&gt; 0
+LEFT OUTER JOIN ICVoucherTpl t15 ON v1.FActualVchTplID = t15.FInterID
+	AND t15.FInterID &lt;&gt; 0
+LEFT OUTER JOIN t_MeasureUnit t500 ON t13.FStoreUnitID = t500.FItemID
+	AND t500.FItemID &lt;&gt; 0
+LEFT OUTER JOIN t_Currency t503 ON v1.FCurrencyID = t503.FCurrencyID
+	AND t503.FCurrencyID &lt;&gt; 0
+LEFT OUTER JOIN t_MeasureUnit t512 ON t13.FSecUnitID = t512.FItemID
+	AND t512.FItemID &lt;&gt; 0
+INNER JOIN [dbo].[vwICBill_11] vw ON u1.FInterID = vw.FInterID
+	AND u1.FEntryID = vw.FEntryID
+where (ISNULL(t8.FName, '') in ('二期辅料仓库','二期原纸仓库'))
+	AND (v1.FTranType = 24)
+	AND(v1.fdate between cast(dateadd(dd,-60,getdate()) as date) and cast(dateadd(dd,0,getdate()) as date))
+	)llfx</value>
+  </data>
   <data name="二期未完工订单" xml:space="preserve">
     <value>select * from (
 SELECT *
@@ -410,6 +582,58 @@ where (Round(u1.FQty,t1.FQtyDecimal)&lt;&gt;0 OR Round(u1.FQty/t4.FCoefficient,t
 and t1.FDeleted=0  AND t2.FItemID=133062
 Order By t1.FNumber,u1.FBatchNo,u1.FMTONo 
 Drop Table #TempInventory</value>
+  </data>
+  <data name="二期辅料仓库即时库存" xml:space="preserve">
+    <value>Set Nocount on
+Create Table #TempInventory( 
+                            [FBrNo] [varchar] (10)  NOT NULL ,
+                            [FItemID] [int] NOT NULL ,
+                            [FBatchNo] [varchar] (200)  NOT NULL ,
+                            [FMTONo] [varchar] (200)  NOT NULL ,
+                            [FSupplyID] [int] NOT NULL ,
+                            [FStockID] [int] NOT NULL ,
+                            [FQty] [decimal](28, 10) NOT NULL ,
+                            [FBal] [decimal](20, 2) NOT NULL ,
+                            [FStockPlaceID] [int] NULL ,
+                            [FKFPeriod] [int] NOT NULL Default(0),
+                            [FKFDate] [varchar] (255)  NOT NULL ,
+                            [FMyKFDate] [varchar] (255), 
+                            [FStockTypeID] [Int] NOT NULL,
+                            [FQtyLock] [decimal](28, 10) NOT NULL,
+                            [FAuxPropID] [int] NOT NULL,
+                            [FSecQty] [decimal](28, 10) NOT NULL,
+                            [FHelpCode] [varchar](200) NOT NULL,
+                            [FProperty] [int] NOT NULL Default(0),
+                            [FChartNumber] [varchar](255) NOT NULL,
+                            [FBatchNo2] [VarChar] (200) NOT NULL Default(''),
+                            [FStockID2] [int]  NOT NULL Default(0)
+                             )
+Insert Into #TempInventory Select u1.FBrNo,u1.FItemID,u1.FBatchNo,u1.FMTONo,u1.FSupplyID,u1.FStockID,u1.FQty,u1.FBal,u1.FStockPlaceID,
+u1.FKFPeriod,ISNULL(u1.FKFDate,''),ISNULL(u1.FKFDate,''),500,u1.FQtyLock,u1.FAuxPropID,u1.FSecQty,'',s.FProperty ,'','',0 From ICInventory u1 left join t_stock s on u1.FStockID=s.FItemID  where u1.FQty&lt;&gt;0 
+
+Insert Into #TempInventory Select u1.FBrNo,u1.FItemID,u1.FBatchNo,u1.FMTONo,u1.FSupplyID,u1.FStockID,u1.FQty,u1.FBal,u1.FStockPlaceID,
+u1.FKFPeriod,ISNULL(u1.FKFDate,''),ISNULL(u1.FKFDate,''),u1.FStockTypeID,0,u1.FAuxPropID,u1.FSecQty,'',s.FProperty,'' ,'',0 From POInventory u1 left join t_stock s on u1.FStockID=s.FItemID  where u1.FQty&lt;&gt;0 
+
+DECLARE @CalculateType AS INT 
+SELECT @CalculateType=FValue FROM t_SystemProfile WHERE FCategory='IC' AND FKey='CalculateType'
+UPDATE t1 SET FBatchNo2=(SELECT CASE t2.FTrack WHEN 80 THEN t1.FBatchNo WHEN 20309 THEN t1.FBatchNo ELSE '' END ), 
+FStockID2=(SELECT CASE @CalculateType 
+WHEN 0 THEN 0 WHEN 1 THEN t1.FStockID ELSE t3.FGroupID END)
+FROM  #TempInventory t1 
+INNER JOIN t_ICItem t2 ON t1.FItemID=t2.FItemID 
+INNER JOIN t_Stock  t3 ON t1.FStockID=t3.FItemID 
+Select t1.FNumber AS '物料长代码',t1.FName as '物料名称', t3.FName as '单位',ROUND(u1.FQty,t1.FQtydecimal) as '数量'
+From #TempInventory u1 left join t_ICItem t1 on u1.FItemID = t1.FItemID
+left join t_Stock t2 on u1.FStockID=t2.FItemID
+left join t_Supplier t_8 on u1.FSupplyID=t_8.FItemID
+left join t_MeasureUnit t3 on t1.FUnitID=t3.FMeasureUnitID
+left join t_MeasureUnit t4 on t1.FStoreUnitID=t4.FMeasureUnitID
+left join t_StockPlace t5 on u1.FStockPlaceID=t5.FSPID
+ left join t_AuxItem t9 on u1.FAuxPropID=t9.FItemID left join t_Measureunit t19 on t1.FSecUnitID=t19.FMeasureunitID   Left Join ICRealtimeCost t20 ON u1.FItemID=t20.FItemID AND u1.FBatchNo2=t20.FBatchNo AND u1.FStockID2=t20.FStockID  where (Round(u1.FQty,t1.FQtyDecimal)&lt;&gt;0 OR Round(u1.FQty/t4.FCoefficient,t1.FQtyDecimal)&lt;&gt;0) 
+ and t1.FDeleted=0 
+ AND t2.FItemID=133773
+ Order By t1.FNumber,u1.FBatchNo
+,u1.FMTONo Drop Table #TempInventory</value>
   </data>
   <data name="制版线完工_1800" xml:space="preserve">
     <value>SELECT

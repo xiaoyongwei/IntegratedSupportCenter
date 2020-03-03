@@ -18,10 +18,14 @@ public partial class WebPage_Kaidan : System.Web.UI.Page
 
     private void Search()
     {
-        DataSet ds = MySqlDbHelper.ExecuteDataSet(string.Format(
+        string sql = string.Format(
            "CALL `slbz`.`开单情况`('{0}','{1}');"
            , this.Calendar1.SelectedDate.ToString("yy/MM/dd")
-           , this.Calendar2.SelectedDate.ToString("yy/MM/dd")));
+           , this.Calendar2.SelectedDate.ToString("yy/MM/dd"));
+        DataSet ds = MySqlDbHelper.ExecuteDataSet(sql);
+
+        
+
         GridView1.Caption = "开单数据汇总" 
             + this.Calendar1.SelectedDate.ToString("(yyyy-MM-dd到")
             + this.Calendar2.SelectedDate.ToString("yyyy-MM-dd)");

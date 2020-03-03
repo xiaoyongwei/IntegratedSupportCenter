@@ -37,26 +37,27 @@
             this.monthCalendar1.Location = new System.Drawing.Point(0, 1);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // buttonSubmit
             // 
-            this.buttonSubmit.Location = new System.Drawing.Point(131, 162);
+            this.buttonSubmit.Location = new System.Drawing.Point(135, 187);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(75, 23);
             this.buttonSubmit.TabIndex = 1;
             this.buttonSubmit.Text = "提  交";
             this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
             // FormSelectDateTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(207, 193);
+            this.ClientSize = new System.Drawing.Size(222, 214);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.monthCalendar1);
             this.Name = "FormSelectDateTime";
-            this.Text = "FormSelectDateTime";
+            this.ShowIcon = false;
+            this.Text = "选择日期";
             this.ResumeLayout(false);
 
         }

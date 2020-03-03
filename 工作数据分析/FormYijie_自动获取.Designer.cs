@@ -89,12 +89,14 @@
             this.获取订单报工ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.获取工序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.备份送货数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tbShow = new System.Windows.Forms.TextBox();
+            this.选择备份数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.金蝶ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.易捷ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -110,7 +112,7 @@
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.ScriptErrorsSuppressed = true;
-            this.webBrowser.Size = new System.Drawing.Size(875, 514);
+            this.webBrowser.Size = new System.Drawing.Size(875, 518);
             this.webBrowser.TabIndex = 8;
             this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
             // 
@@ -121,17 +123,17 @@
             this.toolStripMenuItem4,
             this.获取数据ToolStripMenuItem,
             this.备份送货数据ToolStripMenuItem,
-            this.toolStripComboBox1});
+            this.选择备份数据ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1167, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(1167, 25);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 登陆ToolStripMenuItem
             // 
             this.登陆ToolStripMenuItem.Name = "登陆ToolStripMenuItem";
-            this.登陆ToolStripMenuItem.Size = new System.Drawing.Size(44, 25);
+            this.登陆ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.登陆ToolStripMenuItem.Text = "登陆";
             this.登陆ToolStripMenuItem.Click += new System.EventHandler(this.登陆ToolStripMenuItem_Click);
             // 
@@ -139,7 +141,7 @@
             // 
             this.toolStripMenuItem4.Enabled = false;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(34, 25);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(34, 21);
             this.toolStripMenuItem4.Text = "->";
             // 
             // 获取数据ToolStripMenuItem
@@ -168,7 +170,7 @@
             this.获取订单报工ToolStripMenuItem,
             this.获取工序ToolStripMenuItem});
             this.获取数据ToolStripMenuItem.Name = "获取数据ToolStripMenuItem";
-            this.获取数据ToolStripMenuItem.Size = new System.Drawing.Size(68, 25);
+            this.获取数据ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.获取数据ToolStripMenuItem.Text = "获取数据";
             // 
             // toolStripMenuItem一键获取
@@ -571,21 +573,9 @@
             // 备份送货数据ToolStripMenuItem
             // 
             this.备份送货数据ToolStripMenuItem.Name = "备份送货数据ToolStripMenuItem";
-            this.备份送货数据ToolStripMenuItem.Size = new System.Drawing.Size(92, 25);
+            this.备份送货数据ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
             this.备份送货数据ToolStripMenuItem.Text = "备份送货数据";
             this.备份送货数据ToolStripMenuItem.Click += new System.EventHandler(this.备份送货数据ToolStripMenuItem_Click);
-            // 
-            // toolStripComboBox1
-            // 
-            this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBox1.Enabled = false;
-            this.toolStripComboBox1.Items.AddRange(new object[] {
-            "全部获取",
-            "只获取易捷数据",
-            "只获取其它数据"});
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
-            this.toolStripComboBox1.Visible = false;
             // 
             // statusStrip1
             // 
@@ -612,7 +602,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 29);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 25);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -622,7 +612,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tbShow);
-            this.splitContainer1.Size = new System.Drawing.Size(1167, 514);
+            this.splitContainer1.Size = new System.Drawing.Size(1167, 518);
             this.splitContainer1.SplitterDistance = 875;
             this.splitContainer1.TabIndex = 11;
             // 
@@ -635,8 +625,35 @@
             this.tbShow.Name = "tbShow";
             this.tbShow.ReadOnly = true;
             this.tbShow.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbShow.Size = new System.Drawing.Size(288, 514);
+            this.tbShow.Size = new System.Drawing.Size(288, 518);
             this.tbShow.TabIndex = 0;
+            // 
+            // 选择备份数据ToolStripMenuItem
+            // 
+            this.选择备份数据ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.易捷ToolStripMenuItem,
+            this.金蝶ToolStripMenuItem});
+            this.选择备份数据ToolStripMenuItem.Name = "选择备份数据ToolStripMenuItem";
+            this.选择备份数据ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.选择备份数据ToolStripMenuItem.Text = "选择备份数据";
+            // 
+            // 金蝶ToolStripMenuItem
+            // 
+            this.金蝶ToolStripMenuItem.Checked = true;
+            this.金蝶ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.金蝶ToolStripMenuItem.Name = "金蝶ToolStripMenuItem";
+            this.金蝶ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.金蝶ToolStripMenuItem.Text = "金蝶,制版线";
+            this.金蝶ToolStripMenuItem.Click += new System.EventHandler(this.易捷ToolStripMenuItem_Click);
+            // 
+            // 易捷ToolStripMenuItem
+            // 
+            this.易捷ToolStripMenuItem.Checked = true;
+            this.易捷ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.易捷ToolStripMenuItem.Name = "易捷ToolStripMenuItem";
+            this.易捷ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.易捷ToolStripMenuItem.Text = "易捷";
+            this.易捷ToolStripMenuItem.Click += new System.EventHandler(this.易捷ToolStripMenuItem_Click);
             // 
             // FormYijie_自动获取
             // 
@@ -733,6 +750,8 @@
         private System.Windows.Forms.ToolStripMenuItem 备份送货数据ToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox tbShow;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripMenuItem 选择备份数据ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 易捷ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 金蝶ToolStripMenuItem;
     }
 }
