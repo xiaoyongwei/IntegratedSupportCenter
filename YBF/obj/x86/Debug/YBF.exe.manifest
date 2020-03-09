@@ -139,14 +139,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YBF.exe" size="604160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YBF.exe" size="596976">
       <assemblyIdentity name="YBF" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Iqbxm06DzuCWBH2fJCY46exBVnU=</dsig:DigestValue>
+        <dsig:DigestValue>Wlc0D9TK1/j5Fh25KKLfVc9Lhcs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -168,22 +168,22 @@
       <dsig:DigestValue>Pq2pvFtO5ZVpA3JGmSXwIPLt/UQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="YBF.exe.config" size="391">
+  <file name="YBF.exe.config" size="402">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>g/QkcSV2Hwe+RsmH2eE/QXad7+U=</dsig:DigestValue>
+      <dsig:DigestValue>I/K6TQcztGmL6iu5mL7EjdBn3CM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="笔记.txt" size="603">
+  <file name="笔记.txt" size="616">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>JzPxv2FbWJz8AtJhpmiODnRgAvA=</dsig:DigestValue>
+      <dsig:DigestValue>QXsoKVWZD6Yv0LViFf8HGKsHzFM=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

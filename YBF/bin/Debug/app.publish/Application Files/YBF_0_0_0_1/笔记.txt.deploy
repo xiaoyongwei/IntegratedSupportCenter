@@ -1,0 +1,13 @@
+﻿	UPDATE [作业]
+	SET [机台ID] =( select ID from [印刷机]where[机台]='高宝145')
+	WHERE [机台]='高宝145';
+	UPDATE [作业]
+	SET [机台ID] =( select ID from [印刷机]where[机台]='罗兰700')
+	WHERE [机台]='罗兰700';
+	-------------------------------------------------------
+	SELECT  date(时间)'时间',[机台],sum([印版数量])'印版数量'  FROM [作业扩展]
+group by [机台],时间 order by 时间;
+
+
+SELECT  strftime('%Y-%m',[时间])'时间',[机台],sum([印版数量])'印版数量'  FROM [作业扩展]
+group by [机台],strftime('%Y-%m',[时间]) order by 时间;

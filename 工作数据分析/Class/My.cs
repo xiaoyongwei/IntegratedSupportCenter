@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using 工作数据分析.WinForm;
 using excelToTable_NPOI;
 using System.Net.NetworkInformation;
+using 工作数据分析.Class;
 //using excelToTable_NPOI;
 
 namespace 综合保障中心.Comm
@@ -15,6 +16,10 @@ namespace 综合保障中心.Comm
     public static class My
     {
         public static Form筛选弹窗 筛选弹窗;
+
+        public static string macAddress = GetSystemInfo.GetMacAddress();
+
+
 
         /// <summary>
         /// 显示错误弹窗

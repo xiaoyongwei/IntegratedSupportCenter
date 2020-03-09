@@ -363,7 +363,6 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\bin\Debug\YB
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\bin\Debug\YBF.application
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\bin\Debug\YBF.exe
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\bin\Debug\YBF.pdb
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\BestString.Form1.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm._1BitTiff.Form1BitTiff.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Abnormal.FormAbnormalInfo.resources
@@ -410,3 +409,5 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debu
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.application
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.exe
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.csproj.CopyComplete
