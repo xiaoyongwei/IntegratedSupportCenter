@@ -66,6 +66,10 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr = "CALL `slbz`.`二期送货运费明细近90天`();";
                 gridTitle = "二期送货运费明细近90天";
                 break;
+            case "19":
+                sqlStr = "CALL `slbz`.`二期库存情况`();";
+                gridTitle = "二期库存情况";
+                break;
             default:
                 break;
         }
