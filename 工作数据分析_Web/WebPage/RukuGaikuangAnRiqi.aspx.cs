@@ -15,19 +15,20 @@ public partial class WebPage_RukuGaikuangAnRiqi : System.Web.UI.Page
 
     private void Search()
     {
-        if (string.IsNullOrWhiteSpace(this.TextBoxSearch.Text))
+        if (string.IsNullOrWhiteSpace(this.TextBoxDateS.Text))
         {
-            this.TextBoxSearch.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            this.TextBoxDateS.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            this.TextBoxDateE.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
-        DataSet ds = MySqlDbHelper.ExecuteDataSet("CALL `slbz`.`入库概况按日期`('"
-            + this.TextBoxSearch.Text.Trim() + "');");
+        DataSet ds = MySqlDbHelper.ExecuteDataSet(string.Format("CALL `slbz`.`入库概况按日期`('{0}','{1}');"
+            ,this.TextBoxDateS.Text.Trim(), this.TextBoxDateE.Text.Trim()));
 
         GridView1.DataSource = ds.Tables[0];
-        GridView1.Caption = this.TextBoxSearch.Text.Trim() + "_入库概况";
+        GridView1.Caption = this.TextBoxDateS.Text.Trim() + "_入库概况";
         GridView1.DataBind();
 
         GridView2.DataSource = ds.Tables[1];
-        GridView2.Caption = this.TextBoxSearch.Text.Trim() + "_入库明细";
+        GridView2.Caption = this.TextBoxDateS.Text.Trim() + "_入库明细";
         GridView2.DataBind();
     }
 
