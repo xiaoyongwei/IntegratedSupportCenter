@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using 综合保障中心.Comm;
@@ -15,7 +11,7 @@ namespace 工作数据分析.WinForm
         /// <summary>
         /// 当前页
         /// </summary>
-        private int  PositionPage=1;
+        private int PositionPage = 1;
         /// <summary>
         /// 总页数
         /// </summary>
@@ -41,7 +37,7 @@ namespace 工作数据分析.WinForm
         private void Form筛选二期订单_Load(object sender, EventArgs e)
         {
             bindingNavigatorPositionItem.Text = PositionPage.ToString();
-            bindingNavigatorCountPage.Text = CountPage.ToString() ;
+            bindingNavigatorCountPage.Text = CountPage.ToString();
             tscbPerPage.SelectedItem = PerPageItem;
             //if (string.IsNullOrWhiteSpace(WhereString))
             //{
@@ -59,7 +55,7 @@ namespace 工作数据分析.WinForm
             ShowData();
         }
         private void ShowData()
-        {         
+        {
             //1.通过没有多少获取一共有多少页
             PerPageItem = Convert.ToInt32(this.tscbPerPage.Text);
             if (string.IsNullOrWhiteSpace(WhereString))
@@ -68,7 +64,7 @@ namespace 工作数据分析.WinForm
             }
             CountItem = Convert.ToInt32(MySqlDbHelper.ExecuteScalar("select count(*) from 订单_生产单 where "
                 + WhereString));
-           
+
             if (PositionPage > CountPage)
             {
                 PositionPage = CountPage;
@@ -81,13 +77,13 @@ namespace 工作数据分析.WinForm
             dgv.DataSource = MySqlDbHelper.ExecuteDataTable(string.Format(
                 "select * from 订单_生产单 where {0} limit {1} offset {2} "
                 , WhereString, PerPageItem, PerPageItem * (PositionPage - 1)));
-            
-            CountPage =Convert.ToInt32( Math.Ceiling(1.0*CountItem / PerPageItem));
-           
-            
+
+            CountPage = Convert.ToInt32(Math.Ceiling(1.0 * CountItem / PerPageItem));
+
+
             this.bindingNavigatorPositionItem.Text = PositionPage.ToString();
-            
-            
+
+
             dgv.AutoResizeColumns();
         }
 
@@ -130,7 +126,7 @@ namespace 工作数据分析.WinForm
             {
                 ziduanList.Add(col.DataPropertyName);
             }
-            if (My.筛选弹窗==null||My.筛选弹窗.IsDisposed)
+            if (My.筛选弹窗 == null || My.筛选弹窗.IsDisposed)
             {
                 My.筛选弹窗 = new Form筛选弹窗(ziduanList);
             }
@@ -138,8 +134,8 @@ namespace 工作数据分析.WinForm
             {
                 My.筛选弹窗.SetZiduanList(ziduanList);
             }
-          
-           if (My.筛选弹窗.ShowDialog() == DialogResult.OK)
+
+            if (My.筛选弹窗.ShowDialog() == DialogResult.OK)
             {
                 WhereString = My.筛选弹窗.WhereStr;
                 ShowData();
@@ -164,7 +160,7 @@ namespace 工作数据分析.WinForm
             StringBuilder sb = new StringBuilder();
             if (listRowIndex.Count > 0)
             {
-               
+
                 sb = new StringBuilder();
                 sb.Append("UPDATE `slbz`.`订单_生产单` SET `类型`='面纸加工' WHERE `生产单号` IN( ");
                 foreach (int ri in listRowIndex)
@@ -205,17 +201,17 @@ namespace 工作数据分析.WinForm
             ShowData();
         }
 
-     
 
-      
+
+
 
         private void bindingNavigatorPositionItem_TextChanged(object sender, EventArgs e)
         {
             ShowData();
         }
 
-       
-       
+
+
 
         private void tscbPerPage_TextChanged(object sender, EventArgs e)
         {
@@ -278,9 +274,9 @@ namespace 工作数据分析.WinForm
             ShowData();
         }
 
-       
-        
 
-        
+
+
+
     }
 }

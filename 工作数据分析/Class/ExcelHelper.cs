@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
-using NPOI.XSSF.UserModel;
-using NPOI.HSSF.UserModel;
-using System.IO;
-using System.Data;
 using NPOI.SS.Util;
+using NPOI.XSSF.UserModel;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Linq;
 using 综合保障中心.Comm;
 
 namespace excelToTable_NPOI
@@ -65,7 +64,7 @@ namespace excelToTable_NPOI
                     {
                         sheet = workbook.CreateSheet(sheetName);
                     }
-                    
+
                 }
                 else
                 {
@@ -322,7 +321,7 @@ namespace excelToTable_NPOI
         public int DataTableToExcel_排车(DataTable data, string sheetName, bool isColumnWritten)
         {
             //先剔除不要的行和列
-            if (data.Columns.Count>0)
+            if (data.Columns.Count > 0)
             {
                 data.Columns.Remove("估算运费");
             }

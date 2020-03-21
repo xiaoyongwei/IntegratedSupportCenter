@@ -1,16 +1,12 @@
-﻿using System;
+﻿using excelToTable_NPOI;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DBUtility;
-using 综合保障中心.Comm;
-using excelToTable_NPOI;
 using System.Diagnostics;
+using System.Linq;
+using System.Windows.Forms;
 using 工作数据分析.Data.DAL;
+using 综合保障中心.Comm;
 
 namespace 工作数据分析.WinForm
 {
@@ -70,12 +66,12 @@ namespace 工作数据分析.WinForm
                         + " where (ISNULL(t8.FName, '') = '二期辅料仓库')"
                         + "	AND (v1.FTranType = 24)"
                         + "	AND ("
-                        + "		v1.FDate BETWEEN '" + dtp_start.Value.ToString("yyyy-MM-dd")+"'"
-                        + "			AND '" + dtp_end.Value.AddDays(1).ToString("yyyy-MM-dd")+ "'"
+                        + "		v1.FDate BETWEEN '" + dtp_start.Value.ToString("yyyy-MM-dd") + "'"
+                        + "			AND '" + dtp_end.Value.AddDays(1).ToString("yyyy-MM-dd") + "'"
                         + "		)"
                         + "order BY v1.fdate desc"
                         + "	,v1.FInterID desc");
-                          
+
             dgv1.DataSource = dt1;
 
             foreach (DataGridViewColumn col in dgv1.Columns)
@@ -112,7 +108,7 @@ namespace 工作数据分析.WinForm
                 double amount = Convert.ToDouble(row.Cells["金额"].Value);//金额
                 if (dic.Keys.Contains(department))
                 {
-                    dic[department]+=amount;
+                    dic[department] += amount;
                 }
                 else
                 {
@@ -120,22 +116,22 @@ namespace 工作数据分析.WinForm
                 }
             }
             dgv2.Rows.Clear();
-            double sum=0;
+            double sum = 0;
             foreach (string depart in dic.Keys)
             {
-                dgv2.Rows.Add(new object[]{depart,dic[depart]});
-                sum+=dic[depart];
+                dgv2.Rows.Add(new object[] { depart, dic[depart] });
+                sum += dic[depart];
             }
-            dgv2.Rows.Add("总计:",sum);
-            foreach (DataGridViewRow  row in dgv2.Rows)
+            dgv2.Rows.Add("总计:", sum);
+            foreach (DataGridViewRow row in dgv2.Rows)
             {
-                row.Cells["ColumnRatio"].Value = Math.Round(Convert.ToDouble(row.Cells["ColumnAmount"].Value) / sum*100,2) + "%";
+                row.Cells["ColumnRatio"].Value = Math.Round(Convert.ToDouble(row.Cells["ColumnAmount"].Value) / sum * 100, 2) + "%";
             }
         }
 
         private void dgv1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgv1.Columns[e.ColumnIndex].Name=="估算单价")
+            if (dgv1.Columns[e.ColumnIndex].Name == "估算单价")
             {
                 dgv1["金额", e.RowIndex].Value = Convert.ToDouble(dgv1["数量", e.RowIndex].Value) * Convert.ToDouble(dgv1["估算单价", e.RowIndex].Value);
             }
@@ -166,6 +162,6 @@ namespace 工作数据分析.WinForm
             }
         }
 
-        
+
     }
 }

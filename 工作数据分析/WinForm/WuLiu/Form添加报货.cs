@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using 综合保障中心.Comm;
 
@@ -27,7 +22,7 @@ namespace 工作数据分析.WinForm.WuLiu
                 {
                     continue;
                 }
-                if (string.IsNullOrWhiteSpace( My.GetCellDefault(row.Cells[ColumnKehu.Index]))
+                if (string.IsNullOrWhiteSpace(My.GetCellDefault(row.Cells[ColumnKehu.Index]))
                     || string.IsNullOrWhiteSpace(My.GetCellDefault(row.Cells[ColumnGongdanhao.Index]))
                     || string.IsNullOrWhiteSpace(My.GetCellDefault(row.Cells[ColumnSonghuoshuliang.Index])))
                 {

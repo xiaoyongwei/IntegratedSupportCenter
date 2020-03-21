@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using excelToTable_NPOI;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using excelToTable_NPOI;
 using System.Diagnostics;
+using System.Windows.Forms;
 using 综合保障中心.Comm;
 
 namespace 工作数据分析.WinForm
@@ -23,7 +18,7 @@ namespace 工作数据分析.WinForm
 
         private void Form进纸需求_Load(object sender, EventArgs e)
         {
-            dgv.DataSource = MySqlDbHelper.ExecuteDataTable(SQLString1);            
+            dgv.DataSource = MySqlDbHelper.ExecuteDataTable(SQLString1);
         }
 
         private void 刷新ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,7 +36,7 @@ namespace 工作数据分析.WinForm
             save.FileName = this.Text + "_" + DateTime.Now.ToString("yyyyMMdd");
             if (save.ShowDialog() == DialogResult.OK)
             {
-                if (new ExcelHelper(save.FileName).DataTableToExcel(dt1,dt1.TableName,true) > 1
+                if (new ExcelHelper(save.FileName).DataTableToExcel(dt1, dt1.TableName, true) > 1
                 && MessageBox.Show("导出完成\n是否打开?", "打开?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     Process.Start(save.FileName);

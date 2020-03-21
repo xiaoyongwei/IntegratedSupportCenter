@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Specialized;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 
 namespace DBUtility
 {
     public class SqlHelper
     {
         //数据库连接字符串(web.config来配置)，可以动态更改SQLString支持多数据库.        
-        public  string connectionString = "Data Source=128.1.50.67;Initial Catalog=cimnc2;User ID=sa;Password=sa;";
+        public string connectionString = "Data Source=128.1.50.67;Initial Catalog=cimnc2;User ID=sa;Password=sa;";
 
         public SqlHelper(string connStr) { this.connectionString = connStr; }
 
@@ -30,7 +28,7 @@ namespace DBUtility
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
             }
-            catch 
+            catch
             {
                 bl = false;
             }
@@ -59,7 +57,7 @@ namespace DBUtility
             return bl;
         }
 
-        public  int GetMaxID(string FieldName, string TableName)
+        public int GetMaxID(string FieldName, string TableName)
         {
             string strsql = "select max(" + FieldName + ")+1 from " + TableName;
             object obj = GetSingle(strsql);
@@ -73,7 +71,7 @@ namespace DBUtility
             }
         }
 
-        public  bool Exists(string strSql)
+        public bool Exists(string strSql)
         {
             object obj = GetSingle(strSql);
             int cmdresult;
@@ -95,7 +93,7 @@ namespace DBUtility
             }
         }
 
-        public  bool Exists(string strSql, params SqlParameter[] cmdParms)
+        public bool Exists(string strSql, params SqlParameter[] cmdParms)
         {
             object obj = GetSingle(strSql, cmdParms);
             int cmdresult;
@@ -126,7 +124,7 @@ namespace DBUtility
         /// </summary>
         /// <param name="SQLString">SQL语句</param>
         /// <returns>影响的记录数</returns>
-        public  int ExecuteSql(string SQLString)
+        public int ExecuteSql(string SQLString)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -153,7 +151,7 @@ namespace DBUtility
         /// <param name="SQLString"></param>
         /// <param name="Times"></param>
         /// <returns></returns>
-        public  int ExecuteSqlByTime(string SQLString, int Times)
+        public int ExecuteSqlByTime(string SQLString, int Times)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -179,7 +177,7 @@ namespace DBUtility
         /// 执行多条SQL语句，实现数据库事务。
         /// </summary>
         /// <param name="SQLStringList">多条SQL语句</param>        
-        public  bool ExecuteSqlTran(ArrayList SQLStringList)
+        public bool ExecuteSqlTran(ArrayList SQLStringList)
         {
             bool returnBool = true;
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -220,7 +218,7 @@ namespace DBUtility
         /// <param name="SQLString">SQL语句</param>
         /// <param name="content">参数内容,比如一个字段是格式复杂的文章，有特殊符号，可以通过这个方式添加</param>
         /// <returns>影响的记录数</returns>
-        public  int ExecuteSql(string SQLString, string content)
+        public int ExecuteSql(string SQLString, string content)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -252,7 +250,7 @@ namespace DBUtility
         /// <param name="SQLString">SQL语句</param>
         /// <param name="content">参数内容,比如一个字段是格式复杂的文章，有特殊符号，可以通过这个方式添加</param>
         /// <returns>影响的记录数</returns>
-        public  object ExecuteSqlGet(string SQLString, string content)
+        public object ExecuteSqlGet(string SQLString, string content)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -291,7 +289,7 @@ namespace DBUtility
         /// <param name="strSQL">SQL语句</param>
         /// <param name="fs">图像字节,数据库的字段类型为image的情况</param>
         /// <returns>影响的记录数</returns>
-        public  int ExecuteSqlInsertImg(string strSQL, byte[] fs)
+        public int ExecuteSqlInsertImg(string strSQL, byte[] fs)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -322,7 +320,7 @@ namespace DBUtility
         /// </summary>
         /// <param name="SQLString">计算查询结果语句</param>
         /// <returns>查询结果（object）</returns>
-        public  object GetSingle(string SQLString)
+        public object GetSingle(string SQLString)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -355,7 +353,7 @@ namespace DBUtility
         /// </summary>
         /// <param name="strSQL">查询语句</param>
         /// <returns>SqlDataReader</returns>
-        public  SqlDataReader ExecuteReader(string strSQL)
+        public SqlDataReader ExecuteReader(string strSQL)
         {
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(strSQL, connection);
@@ -381,7 +379,7 @@ namespace DBUtility
         /// </summary>
         /// <param name="SQLString">查询语句</param>
         /// <returns>DataSet</returns>
-        public  DataSet Query(string SQLString)
+        public DataSet Query(string SQLString)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -400,7 +398,7 @@ namespace DBUtility
             }
         }
 
-        public  DataSet Query(string SQLString, string TableName)
+        public DataSet Query(string SQLString, string TableName)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -419,7 +417,7 @@ namespace DBUtility
             }
         }
 
-        public  DataSet Query(string SQLString, string TableName, string TableName1)
+        public DataSet Query(string SQLString, string TableName, string TableName1)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -445,7 +443,7 @@ namespace DBUtility
         /// <param name="SQLString"></param>
         /// <param name="Times"></param>
         /// <returns></returns>
-        public  DataSet Query(string SQLString, int Times)
+        public DataSet Query(string SQLString, int Times)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -465,7 +463,7 @@ namespace DBUtility
             }
         }
 
-        public  DataTable Querytable(string SQLString)
+        public DataTable Querytable(string SQLString)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -497,7 +495,7 @@ namespace DBUtility
         /// </summary>
         /// <param name="SQLString">SQL语句</param>
         /// <returns>影响的记录数</returns>
-        public  int ExecuteSql(string SQLString, params SqlParameter[] cmdParms)
+        public int ExecuteSql(string SQLString, params SqlParameter[] cmdParms)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -522,7 +520,7 @@ namespace DBUtility
         /// 执行多条SQL语句，实现数据库事务。
         /// </summary>
         /// <param name="SQLStringList">SQL语句的哈希表（key为sql语句，value是该语句的SqlParameter[]）</param>
-        public  void ExecuteSqlTran(Hashtable SQLStringList)
+        public void ExecuteSqlTran(Hashtable SQLStringList)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -559,7 +557,7 @@ namespace DBUtility
         /// </summary>
         /// <param name="SQLString">计算查询结果语句</param>
         /// <returns>查询结果（object）</returns>
-        public  object GetSingle(string SQLString, params SqlParameter[] cmdParms)
+        public object GetSingle(string SQLString, params SqlParameter[] cmdParms)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -592,7 +590,7 @@ namespace DBUtility
         /// </summary>
         /// <param name="strSQL">查询语句</param>
         /// <returns>SqlDataReader</returns>
-        public  SqlDataReader ExecuteReader(string SQLString, params SqlParameter[] cmdParms)
+        public SqlDataReader ExecuteReader(string SQLString, params SqlParameter[] cmdParms)
         {
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand();
@@ -620,7 +618,7 @@ namespace DBUtility
         /// </summary>
         /// <param name="SQLString">查询语句</param>
         /// <returns>DataSet</returns>
-        public  DataSet Query(string SQLString, params SqlParameter[] cmdParms)
+        public DataSet Query(string SQLString, params SqlParameter[] cmdParms)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -643,7 +641,7 @@ namespace DBUtility
             }
         }
 
-        public  void PrepareCommand(SqlCommand cmd, SqlConnection conn, SqlTransaction trans, string cmdText, SqlParameter[] cmdParms)
+        public void PrepareCommand(SqlCommand cmd, SqlConnection conn, SqlTransaction trans, string cmdText, SqlParameter[] cmdParms)
         {
             if (conn.State != ConnectionState.Open)
                 conn.Open();
@@ -678,7 +676,7 @@ namespace DBUtility
         /// <param name="storedProcName">存储过程名</param>
         /// <param name="parameters">存储过程参数</param>
         /// <returns>SqlDataReader</returns>
-        public  SqlDataReader RunProcedure(string storedProcName, IDataParameter[] parameters)
+        public SqlDataReader RunProcedure(string storedProcName, IDataParameter[] parameters)
         {
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataReader returnReader;
@@ -697,7 +695,7 @@ namespace DBUtility
         /// <param name="storedProcName">存储过程名</param>
         /// <param name="parameters">存储过程参数</param>
         /// <returns>结果中第一行第一列</returns>
-        public  string RunProc(string storedProcName, IDataParameter[] parameters)
+        public string RunProc(string storedProcName, IDataParameter[] parameters)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -718,7 +716,7 @@ namespace DBUtility
         /// <param name="parameters">存储过程参数</param>
         /// <param name="tableName">DataSet结果中的表名</param>
         /// <returns>DataSet</returns>
-        public  DataSet RunProcedure(string storedProcName, IDataParameter[] parameters, string tableName)
+        public DataSet RunProcedure(string storedProcName, IDataParameter[] parameters, string tableName)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -732,7 +730,7 @@ namespace DBUtility
             }
         }
 
-        public  DataSet RunProcedure(string storedProcName, IDataParameter[] parameters, string tableName, int Times)
+        public DataSet RunProcedure(string storedProcName, IDataParameter[] parameters, string tableName, int Times)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -754,7 +752,7 @@ namespace DBUtility
         /// <param name="storedProcName">存储过程名</param>
         /// <param name="parameters">存储过程参数</param>
         /// <returns>SqlCommand</returns>
-        public  SqlCommand BuildQueryCommand(SqlConnection connection, string storedProcName, IDataParameter[] parameters)
+        public SqlCommand BuildQueryCommand(SqlConnection connection, string storedProcName, IDataParameter[] parameters)
         {
             SqlCommand command = new SqlCommand(storedProcName, connection);
             command.CommandType = CommandType.StoredProcedure;
@@ -782,7 +780,7 @@ namespace DBUtility
         /// <param name="parameters">存储过程参数</param>
         /// <param name="rowsAffected">影响的行数</param>
         /// <returns></returns>
-        public  int RunProcedure(string storedProcName, IDataParameter[] parameters, out int rowsAffected)
+        public int RunProcedure(string storedProcName, IDataParameter[] parameters, out int rowsAffected)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -802,7 +800,7 @@ namespace DBUtility
         /// <param name="storedProcName">存储过程名</param>
         /// <param name="parameters">存储过程参数</param>
         /// <returns>SqlCommand 对象实例</returns>
-        public  SqlCommand BuildIntCommand(SqlConnection connection, string storedProcName, IDataParameter[] parameters)
+        public SqlCommand BuildIntCommand(SqlConnection connection, string storedProcName, IDataParameter[] parameters)
         {
             SqlCommand command = BuildQueryCommand(connection, storedProcName, parameters);
             command.Parameters.Add(new SqlParameter("ReturnValue",
@@ -817,7 +815,7 @@ namespace DBUtility
         /// <param name="storedProcName">存储过程名</param>
         /// <param name="parameters">存储过程参数</param>
         /// <returns>结果中第一行第一列</returns>
-        public  string RunSql(string query)
+        public string RunSql(string query)
         {
             string str;
             using (SqlConnection connection = new SqlConnection(connectionString))

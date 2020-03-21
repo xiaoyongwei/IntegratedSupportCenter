@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace 工作数据分析.WinForm
@@ -23,7 +17,7 @@ namespace 工作数据分析.WinForm
         /// true表示开始日期和结束日期始终保持一致
         /// false表示开始日期和结束日期不一致
         /// </summary>
-        private bool isEndIsStart=true;
+        private bool isEndIsStart = true;
 
         /// <summary>
         /// 实例化选择日期窗口
@@ -41,7 +35,7 @@ namespace 工作数据分析.WinForm
 
         private void 关闭ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.No; 
+            this.DialogResult = DialogResult.No;
         }
 
         private void 确定ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,14 +56,14 @@ namespace 工作数据分析.WinForm
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            monthCalendar1.SelectionEnd = isEndIsStart? monthCalendar1.SelectionStart:monthCalendar1.SelectionEnd ;
+            monthCalendar1.SelectionEnd = isEndIsStart ? monthCalendar1.SelectionStart : monthCalendar1.SelectionEnd;
             textBox_S.Text = monthCalendar1.SelectionStart.ToString("yyyy-MM-dd");
             textBox_E.Text = monthCalendar1.SelectionEnd.ToString("yyyy-MM-dd");
         }
 
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
-            monthCalendar1.SelectionEnd = isEndIsStart? monthCalendar1.SelectionStart:monthCalendar1.SelectionEnd ;
+            monthCalendar1.SelectionEnd = isEndIsStart ? monthCalendar1.SelectionStart : monthCalendar1.SelectionEnd;
             textBox_S.Text = monthCalendar1.SelectionStart.ToString("yyyy-MM-dd");
             textBox_E.Text = monthCalendar1.SelectionEnd.ToString("yyyy-MM-dd");
         }
