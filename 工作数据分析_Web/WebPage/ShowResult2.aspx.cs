@@ -34,7 +34,19 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                     +MySqlDbHelper.ExecuteScalar(
                     "select sum(每月卷数*原纸门幅*0.001)FROM `slbz`.`甩纸确认近180天原纸需求汇总`;").ToString();
                 sqlStr2 = "SELECT *FROM `slbz`.`甩纸确认近180天原纸需求`";
-                gridTitle2 = "甩纸确认近180天白板纸需求明细`";
+                gridTitle2 = "甩纸确认近180天白板纸需求明细";
+                break;
+            case "20":
+                sqlStr = "SELECT `仓库`,`日期`,`生产单号`	,`客户`,`名称`,`规格`,`坑型`,`入库数量`,`面积`,`单价`,`金额`,`操作人`"
+	+",`审核人`,`入库单号`,`备注`FROM `slbz`.`成品_入库明细`"
++ "WHERE 日期 BETWEEN date_format(date_add(now(), interval -30 day), '%Y-%m-%d 00') and date_format(now(), '%Y-%m-%d 99')"
++ "and 入库单号 not like 'RA%' and 入库单号 not like 'RO%'AND 操作人 in (select 姓名 from slbz.二期入库名单)order by 日期 desc; ";
+                gridTitle = "异常入库明细";
+                sqlStr2 = "SELECT `仓库`,`生产单号`,`单据号`,`日期`,`客户`,`名称`,`规格`,`坑型`,`数量`,`单价`,`金额`,`操作`"
+	+",`面积`,`交期`,`备注`FROM `slbz`.`成品_出库明细`"
++ "WHERE 日期 BETWEEN date_format(date_add(now(), interval -30 day), '%Y-%m-%d 00') and date_format(now(), '%Y-%m-%d 99')"
++ "and 单据号 not like 'XA%' AND 操作 in (select 姓名 from slbz.二期入库名单)order by 日期 desc; ";
+                gridTitle2 = "异常出库明细";
                 break;
             default:
                 break;

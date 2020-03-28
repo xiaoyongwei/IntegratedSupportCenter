@@ -1,14 +1,10 @@
-﻿using System;
+﻿using excelToTable_NPOI;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using System.Windows.Forms;
 using 综合保障中心.Comm;
-using excelToTable_NPOI;
-using System.Diagnostics;
 
 namespace 工作数据分析.WinForm
 {
@@ -36,7 +32,7 @@ namespace 工作数据分析.WinForm
             {
                 dgv1.DataSource = MySqlDbHelper.ExecuteDataTable(SQLString1);
                 dgv2.DataSource = MySqlDbHelper.ExecuteDataTable(SQLString2);
-                if (dgv1.Rows.Count>0)
+                if (dgv1.Rows.Count > 0)
                 {
                     this.toolStripTextBox1.Text = "总数量:" + MySqlDbHelper.ExecuteScalar("select sum(`数量`) from (" + SQLString1 + ")a")
                     + ",需求卷数:" + MySqlDbHelper.ExecuteScalar("select sum(`整卷数`) from (" + SQLString2 + ")a");

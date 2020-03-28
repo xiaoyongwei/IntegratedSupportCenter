@@ -1,31 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
 using System.Data.Common;
 using System.Data.SQLite;
-using System.Collections;
 using System.Threading;
 using System.Windows.Forms;
-using System.IO;
 
 namespace HandeJobManager.DAL
 {
     /// <summary>
     /// 本类为SQLite数据库帮助静态类,使用时只需直接调用即可,无需实例化
     /// </summary>
-    public static  class SQLiteDbHelper
+    public static class SQLiteDbHelper
     {
 
 
         /// <summary>
         /// 连接字符串
         /// </summary>
-        public readonly static string ConnectionString = @"Data Source="+Application.StartupPath+"\\Data\\数据.db;Version=3;";
-     
-      
-      
+        public readonly static string ConnectionString = @"Data Source=" + Application.StartupPath + "\\Data\\数据.db;Version=3;";
+
+
+
         #region ExecuteNonQuery
         /// <summary>
         /// 执行数据库操作(新增、更新或删除)
@@ -154,7 +150,7 @@ namespace HandeJobManager.DAL
                     throw ex;
                 }
             }
-            if (result==null)
+            if (result == null)
             {
                 result = "";
             }
@@ -633,7 +629,7 @@ namespace HandeJobManager.DAL
             }
             return true;
         }
-        
+
 
         /// <summary>    
         /// 执行多条SQL语句，实现数据库事务。    

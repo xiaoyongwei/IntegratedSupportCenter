@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using 综合保障中心.Comm;
@@ -152,11 +148,11 @@ namespace 工作数据分析.WinForm
 
         private void 清空ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("清空后无法恢复\n确定要清空吗?","清空?",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+            if (MessageBox.Show("清空后无法恢复\n确定要清空吗?", "清空?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 dgv.Rows.Clear();
             }
-            
+
         }
 
 

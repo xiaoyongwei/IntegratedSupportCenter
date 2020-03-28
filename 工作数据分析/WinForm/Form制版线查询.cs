@@ -1,31 +1,27 @@
-﻿using System;
+﻿using DBUtility;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using 综合保障中心.Comm;
-using DBUtility;
-using 工作数据分析.Properties;
 using 工作数据分析.Data.DAL;
+using 工作数据分析.Properties;
+using 综合保障中心.Comm;
 
 namespace 工作数据分析.WinForm
 {
     public partial class Form制版线查询 : Form
     {
-      
+
 
         public Form制版线查询()
         {
             InitializeComponent();
         }
 
-       
+
         private void 从瓦片线载入数据ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("此过程需要5-10分钟,确定要加载吗?","加载?",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+            if (MessageBox.Show("此过程需要5-10分钟,确定要加载吗?", "加载?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Get1800制版线完成信息();
                 Get2200制版线完成信息();
@@ -80,10 +76,10 @@ namespace 工作数据分析.WinForm
         {
             this.dtPicker_s.Value = this.dtPicker_s.Value.Date;
             this.dtPicker_e.Value = this.dtPicker_e.Value.Date.AddDays(1).AddSeconds(-1);
-            
+
             dgv_wg.DataSource = MySqlDbHelper.ExecuteDataTable(string.Format("select * from `slbz`.`瓦片完成情况` where "
              + "`工单号`like'%{0}%' and `客户名`like'%{1}%' and `开始时间` between str_to_date('{2}','%Y-%m-%d %H:%i:%s') "
-            +" and str_to_date('{3}','%Y-%m-%d %H:%i:%s') limit 1000;", textBox工单.Text.Trim(), textBox客户.Text.Trim()
+            + " and str_to_date('{3}','%Y-%m-%d %H:%i:%s') limit 1000;", textBox工单.Text.Trim(), textBox客户.Text.Trim()
             , dtPicker_s.Value.ToString("yyyy-MM-dd HH:mm:ss"), dtPicker_e.Value.ToString("yyyy-MM-dd HH:mm:ss")));
             dgv_wg.AutoResizeColumns();
         }
@@ -109,7 +105,7 @@ namespace 工作数据分析.WinForm
                         My.ShowErrorMessage("制版线没有开机!\n" + DateTime.Now.ToString());
                     }
                     break;
-                case "2.2米制版线":                    
+                case "2.2米制版线":
                     if (My.Ping(DataBaseList.IP_制版线2200))
                     {
                         DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
@@ -120,7 +116,7 @@ namespace 工作数据分析.WinForm
                         My.ShowErrorMessage("2.2米制版线没有开机!\n" + DateTime.Now.ToString());
                     }
                     break;
-                case "2.5米制版线":                    
+                case "2.5米制版线":
                     if (My.Ping(DataBaseList.IP_制版线2500))
                     {
                         DataBaseList.sql制版线2500 = new SqlHelper(DataBaseList.ConnString_制版线2500);
@@ -141,8 +137,8 @@ namespace 工作数据分析.WinForm
 
         }
 
-      
-        
-       
+
+
+
     }
 }

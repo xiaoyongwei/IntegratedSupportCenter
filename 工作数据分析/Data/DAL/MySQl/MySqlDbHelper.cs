@@ -1,12 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
 using System.Data.Common;
-using System.Collections;
 using System.Threading;
-using MySql.Data.MySqlClient;
 
 /// <summary>
 /// 本类为MySql数据库帮助静态类,使用时只需直接调用即可,无需实例化

@@ -33,14 +33,14 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 gridTitle = "二期原纸仓库库存明细_按UV合并分类";
                 break;
             
-            case "9":
-                sqlStr = "CALL `slbz`.`二期原纸仓库库存明细分类汇总`('A')";
-                gridTitle = "分类汇总(A类纸)";
-                break;
-            case "10":
-                sqlStr = "CALL `slbz`.`二期原纸仓库库存明细分类汇总`('B')";
-                gridTitle = "分类汇总(B类纸)";
-                break;
+            //case "9":
+            //    sqlStr = "CALL `slbz`.`二期原纸仓库库存明细分类汇总`('A')";
+            //    gridTitle = "分类汇总(A类纸)";
+            //    break;
+            //case "10":
+            //    sqlStr = "CALL `slbz`.`二期原纸仓库库存明细分类汇总`('B')";
+            //    gridTitle = "分类汇总(B类纸)";
+            //    break;
             case "11":
                 sqlStr = "CALL `slbz`.`二期原纸仓库各类占比`;";
                 gridTitle = "二期原纸仓库各类占比";
@@ -66,6 +66,10 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr = "CALL `slbz`.`二期送货运费明细近90天`();";
                 gridTitle = "二期送货运费明细近90天";
                 break;
+            case "19":
+                sqlStr = "CALL `slbz`.`二期库存情况`();";
+                gridTitle = "二期库存情况";
+                break;
             default:
                 break;
         }
@@ -78,43 +82,43 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
         this.GridView1.Caption = gridTitle;
         if (!string.IsNullOrWhiteSpace(sqlStr))
         {
-            if (gridTitle.Contains("分类汇总("))
-            {
-                DataTable dt = new DataTable();
-                dt = MySqlDbHelper.ExecuteDataTable(sqlStr);
-                for (int i = dt.Columns.Count - 1; i >= 0; i--)
-                {
-                    if (dt.Columns[i].ColumnName == "代码" || dt.Columns[i].ColumnName == "门幅")
-                    {
-                        continue;
-                    }
-                    int sum = 0;
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        try
-                        {
-                            sum += Convert.ToInt32(dr[i]);
-                            if (sum > 0)
-                            {
-                                continue;
-                            }
-                        }
-                        catch
-                        {
-                            continue;
-                        }
-                    }
-                    if (sum == 0)
-                    {
-                        dt.Columns.RemoveAt(i);
-                    }
-                }
-                this.GridView1.DataSource = My.Table_deletezero(dt);
-                this.GridView1.DataBind();
+            //if (gridTitle.Contains("分类汇总("))
+            //{
+            //    DataTable dt = new DataTable();
+            //    dt = MySqlDbHelper.ExecuteDataTable(sqlStr);
+            //    for (int i = dt.Columns.Count - 1; i >= 0; i--)
+            //    {
+            //        if (dt.Columns[i].ColumnName == "代码" || dt.Columns[i].ColumnName == "门幅")
+            //        {
+            //            continue;
+            //        }
+            //        int sum = 0;
+            //        foreach (DataRow dr in dt.Rows)
+            //        {
+            //            try
+            //            {
+            //                sum += Convert.ToInt32(dr[i]);
+            //                if (sum > 0)
+            //                {
+            //                    continue;
+            //                }
+            //            }
+            //            catch
+            //            {
+            //                continue;
+            //            }
+            //        }
+            //        if (sum == 0)
+            //        {
+            //            dt.Columns.RemoveAt(i);
+            //        }
+            //    }
+            //    this.GridView1.DataSource = My.Table_deletezero(dt);
+            //    this.GridView1.DataBind();
 
 
-            }
-            else
+            //}
+            //else
                 if (gridTitle.Contains("二期原纸仓库各类占比"))
                 {
                     DataTable dt = MySqlDbHelper.ExecuteDataTable(sqlStr);

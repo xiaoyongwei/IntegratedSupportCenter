@@ -1,14 +1,10 @@
-﻿using System;
+﻿using excelToTable_NPOI;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using System.Windows.Forms;
 using 综合保障中心.Comm;
-using System.Diagnostics;
-using excelToTable_NPOI;
 
 namespace 工作数据分析.WinForm
 {

@@ -1,25 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
-using System.IO;
-using 综合保障中心.Comm;
-using 甩纸数据;
-using System.Reflection;
-using 工作数据分析.WinForm;
-using DBUtility;
-using 工作数据分析.Properties;
-using System.Collections;
-using System.Data.SqlClient;
 using System.Diagnostics;
+using System.IO;
+using System.Windows.Forms;
 using 工作数据分析.Data.DAL;
-using excelToTable_NPOI;
+using 工作数据分析.WinForm;
 using 工作数据分析.WinForm.WuLiu;
+using 甩纸数据;
+using 综合保障中心.Comm;
 
 namespace 综合保障中心.其它
 {
@@ -33,7 +20,7 @@ namespace 综合保障中心.其它
         }
 
 
-        
+
         private void FormYijiePojie_Load(object sender, EventArgs e)
         {
             this.toolStripStatusLabel1.Text = "易捷数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `Value`	FROM `slbz`.`settingall`	where `Key`='LastGetTime'").ToString()
@@ -43,7 +30,7 @@ namespace 综合保障中心.其它
 
 
 
-      
+
 
         private void 筛选数据ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -52,7 +39,7 @@ namespace 综合保障中心.其它
             f.Show();
         }
 
-      
+
 
         private void 输入用纸清空ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -61,7 +48,7 @@ namespace 综合保障中心.其它
             f.Show();
         }
 
-       
+
 
 
         private void 筛选二期订单ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,7 +101,7 @@ namespace 综合保障中心.其它
 
         private void 排程查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form排程查询 f = new Form排程查询("","");
+            Form排程查询 f = new Form排程查询("", "");
             f.MdiParent = this;
             f.Show();
         }
@@ -148,7 +135,8 @@ namespace 综合保障中心.其它
         }
 
         private void 各工序订单情况ToolStripMenuItem_Click(object sender, EventArgs e)
-        { Form各工序订单情况 f = new Form各工序订单情况();
+        {
+            Form各工序订单情况 f = new Form各工序订单情况();
             f.MdiParent = this;
             f.Show();
         }
@@ -170,7 +158,7 @@ namespace 综合保障中心.其它
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.toolStripStatusLabel1.Text = "易捷数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `Value`	FROM `slbz`.`settingall`	where `Key`='LastGetTime'").ToString()
-                    + " , 制版线数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `结束时间`FROM `slbz`.`瓦片完成情况`ORDER BY `结束时间` DESC LIMIT 1").ToString();    
+                    + " , 制版线数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `结束时间`FROM `slbz`.`瓦片完成情况`ORDER BY `结束时间` DESC LIMIT 1").ToString();
         }
 
         private void 打开自动备份程序ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -190,7 +178,7 @@ namespace 综合保障中心.其它
                 }
                 else
                 {
-                   My.ShowErrorMessage("相关程序不存在!");
+                    My.ShowErrorMessage("相关程序不存在!");
                 }
             }
             catch
@@ -228,14 +216,14 @@ namespace 综合保障中心.其它
         {
             Form选择日期 selectDate = new Form选择日期(false);
             string sqlStr = "CALL `slbz`.`送货日报表`('" + DateTime.Now.ToString("yyyy-MM-dd") + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "',2);";
-            if (selectDate.ShowDialog()==DialogResult.OK)
+            if (selectDate.ShowDialog() == DialogResult.OK)
             {
                 sqlStr = "CALL `slbz`.`送货日报表`('" + selectDate.GetDateTime_S().ToString("yyyy-MM-dd") + "','" + selectDate.GetDateTime_E().ToString("yyyy-MM-dd") + "',2);";
                 FormShowData f = new FormShowData("排车日报表", sqlStr);
                 f.MdiParent = this;
-                f.Show();           
+                f.Show();
             }
-            
+
         }
 
         private void 物流数据ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -245,7 +233,7 @@ namespace 综合保障中心.其它
             f.Show();
         }
 
-       
+
 
     }
 }

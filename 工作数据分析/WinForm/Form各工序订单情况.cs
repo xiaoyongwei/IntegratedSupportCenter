@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace 工作数据分析.WinForm
 {
     public partial class Form各工序订单情况 : Form
     {
-        private string[] gongxus = { "总览","甩纸", "胶印", "表处", "裱胶", "压痕", "钉箱", "粘箱" };
+        private string[] gongxus = { "总览", "甩纸", "胶印", "表处", "裱胶", "压痕", "钉箱", "粘箱" };
         public Form各工序订单情况()
         {
             InitializeComponent();
@@ -30,7 +24,7 @@ namespace 工作数据分析.WinForm
             switch (e.Node.Text)
             {
                 case "总览":
-                    
+
                 default:
                     break;
             }

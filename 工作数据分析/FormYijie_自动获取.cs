@@ -1,23 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using System.IO;
-using 综合保障中心.Comm;
-using 甩纸数据;
-using System.Reflection;
-using 工作数据分析.WinForm;
-using DBUtility;
-using 工作数据分析.Properties;
-using System.Collections;
-using System.Data.SqlClient;
-using System.Diagnostics;
+using System.Windows.Forms;
 using 工作数据分析.Data.DAL;
+using 工作数据分析.Properties;
+using 甩纸数据;
 
 namespace 综合保障中心.其它
 {
@@ -1626,9 +1617,9 @@ namespace 综合保障中心.其它
         {
             this.timer1.Stop();
             AddtbShow("关闭计数器");
-           
 
-            //dic.Clear();
+
+            dic.Clear();
             AddtbShow("开始{一键获取}");
 
             bool yijieBool = this.易捷ToolStripMenuItem.Checked;
@@ -1745,7 +1736,7 @@ namespace 综合保障中心.其它
                     Get二期原纸仓库即时库存();
                     Get二期胶印纸箱仓库即时库存();
                     Get二期辅料仓库即时库存();
-                    Get二期仓库入库明细();                    
+                    Get二期仓库入库明细();
                     Get1800制版线完成信息();
                     Get2200制版线完成信息();
                     Get2500制版线完成信息();
@@ -1846,7 +1837,7 @@ namespace 综合保障中心.其它
                 DataTable dt = DataBaseList.sql财务.Querytable(Resources.二期原纸辅料领料明细);
                 List<string> sqlList = new List<string>();
 
-               
+
 
                 StringBuilder sb_Insert = new StringBuilder("INSERT INTO `slbz`.`金蝶_生产领料`(");
                 foreach (DataColumn dc in dt.Columns)//添加列

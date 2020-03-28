@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using 综合保障中心.Comm;
 
@@ -42,7 +38,7 @@ namespace 工作数据分析.WinForm
             dgv.DataSource = MySqlDbHelper.ExecuteDataTable(string.Format("SELECT `完工`,`工序`,`排单`,`工单`,`客户`,`产品`,`规格`,`数量`,`设备`,`开单/交期/排期`,`备注`FROM `slbz`.`排程查询`"
                     + "where `工单` like'%{0}%' and `工序` like '%{1}%' and `客户`like '%{2}%' and `产品`like'%{3}%'"
                     + " limit 1000;", this.textBoxGongdan.Text.Trim(), this.comboBoxGongxu.Text.Trim()
-                    ,this.textBoxKuhu.Text.Trim(),this.textBoxChanpin.Text.Trim()));
+                    , this.textBoxKuhu.Text.Trim(), this.textBoxChanpin.Text.Trim()));
             dgv.AutoResizeColumns();
         }
 
@@ -142,6 +138,6 @@ namespace 工作数据分析.WinForm
             return rowIndexList;
         }
 
-       
+
     }
 }

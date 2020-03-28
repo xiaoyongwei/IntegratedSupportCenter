@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using 综合保障中心.Comm;
 
 namespace 甩纸数据
@@ -29,7 +25,7 @@ namespace 甩纸数据
         private void Form用纸情况_Load(object sender, EventArgs e)
         {
             dateTimePicker_s.Value = DateTime.Now.AddDays(-5);
-            dateTimePicker_e.Value = DateTime.Now;            
+            dateTimePicker_e.Value = DateTime.Now;
         }
         /// <summary>
         /// 保存
@@ -73,7 +69,7 @@ namespace 甩纸数据
             Da.Fill(Ds);
             myConn.Close();
             this.dgv.DataSource = Ds.Tables[0];
-            Dt = Ds.Tables[0]; 
+            Dt = Ds.Tables[0];
 
 
             dgv.AutoResizeColumns();
@@ -90,18 +86,18 @@ namespace 甩纸数据
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (dgv.Rows.Count>0)
+            if (dgv.Rows.Count > 0)
             {
                 dgv.CommitEdit((DataGridViewDataErrorContexts)123);
                 dgv.BindingContext[dgv.DataSource].EndCurrentEdit();
                 Save();
             }
-           
+
         }
 
         //true表示无效.false表示有效.
         //此函数为全局更改(慎用!!!)
-        protected override bool ProcessCmdKey(ref　Message msg, Keys keyData)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             //this.Text = keyData.GetHashCode().ToString();
 

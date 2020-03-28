@@ -46,10 +46,12 @@
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=4" Text="原纸按UV合并_分类"
                             Value="原纸按UV合并_分类"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=9" Text="原纸分类汇总(A类纸)"
+<asp:MenuItem NavigateUrl="~/WebPage/YuanzhiFenleiHuizong.aspx" Text="原纸分类汇总"
+                            Value="分类汇总"></asp:MenuItem>
+                       <%-- <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=9" Text="原纸分类汇总(A类纸)"
                             Value="分类汇总(A类纸)"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=10" Text="原纸分类汇总(B类纸)"
-                            Value="分类汇总(B类纸)"></asp:MenuItem>
+                            Value="分类汇总(B类纸)"></asp:MenuItem>--%>
                         <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=11" Text="二期原纸仓库各类占比"
                             Value="分类汇总(B类纸)"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/WebPage/YuanZhiYidingWeidao.aspx" Text="原纸已订未到" Value="原纸已订未到">
@@ -69,10 +71,13 @@
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=15" Text="成品近30天入库"
                                 Value="成品近30天入库" />
-                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResultChart.aspx" Text="成品近7天入库" Value="成品近7天入库" />
+                            <%--<asp:MenuItem NavigateUrl="~/WebPage/ShowResultChart.aspx" Text="成品近7天入库" Value="成品近7天入库" />--%>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=16" Text="二期成品仓库超期一览"
                                 Value="二期成品仓库超期一览" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ChengpinCangku.aspx" Text="二期成品仓库超期明细" Value="二期成品仓库超期明细" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/RukuGaikuangAnRiqi.aspx" Text="入库情况(按日期)" Value="入库情况(按日期)" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=19" Text="二期库存情况" Value="二期库存情况" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=20" Text="出入库异常记录" Value="出入库异常记录" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=5" Text="未甩纸明细" Value="未甩纸明细">
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=6" Text="未覆膜明细" Value="未覆膜明细">

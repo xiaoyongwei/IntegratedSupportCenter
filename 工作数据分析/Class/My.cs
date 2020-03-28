@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using excelToTable_NPOI;
+using System;
 using System.Data;
-using System.Text.RegularExpressions;
-using 工作数据分析.WinForm;
-using excelToTable_NPOI;
 using System.Net.NetworkInformation;
+using System.Windows.Forms;
 using 工作数据分析.Class;
+using 工作数据分析.WinForm;
 //using excelToTable_NPOI;
 
 namespace 综合保障中心.Comm
@@ -90,7 +86,7 @@ namespace 综合保障中心.Comm
             //{
             //    online = true;
             //}
-            
+
             //return online;
         }
 
@@ -122,6 +118,6 @@ namespace 综合保障中心.Comm
             return dt;
         }
 
-        
+
     }
 }
