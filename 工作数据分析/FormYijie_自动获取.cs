@@ -757,7 +757,7 @@ namespace 综合保障中心.其它
                 dt.Columns.RemoveAt(0);
                 //删除S和W开头的工单
                 //删除仓库不包含二期的工单
-                foreach (DataRow row in dt.Select("(生产单号 like 'W%') OR (生产单号 like 'S%') OR (仓库 not like '%二期%')and(生产单号 not like 'C%')"))
+                foreach (DataRow row in dt.Select("(生产单号 like 'W%') OR (生产单号 like 'S%')"))
                 {
                     dt.Rows.Remove(row);
                 }
@@ -787,6 +787,8 @@ namespace 综合保障中心.其它
                 if (sqlList.Count > 0)
                 {
                     sqlList.Insert(0, "truncate table `slbz`.`成品_库存明细`;");
+                    sqlList.Add("DELETE FROM `slbz`.`成品_库存明细`"
+                        +"WHERE `生产单号` NOT like'C%' AND 入库员 NOT in(SELECT `姓名`FROM `slbz`.`二期入库名单`)");
                 }
 
 
