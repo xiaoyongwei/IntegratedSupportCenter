@@ -765,7 +765,7 @@ namespace 综合保障中心.其它
                 //    开始添加到sql中
                 List<string> sqlList = new List<string>();
 
-                StringBuilder sb_Insert = new StringBuilder(" INSERT IGNORE  INTO `slbz`.`成品_库存明细`(");
+                StringBuilder sb_Insert = new StringBuilder(" INSERT  INTO `slbz`.`成品_库存明细`(");
                 foreach (DataColumn dc in dt.Columns)//添加列
                 {
                     sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
@@ -1687,13 +1687,13 @@ namespace 综合保障中心.其它
                         dic.Add("http://21.ej-sh.net:9191/ordSchRead.shtml?strdats=" + i.ToString("yyyy-MM-dd")
                        + "&endates=" + i.ToString("yyyy-MM-dd") + "&objtyp=CL&daytyp=P&rowsPerPage=5000", WebAfter.排程查询);
                     }
-                    //排程查询-数码
+                    //排程查询 - 数码
                     for (DateTime i = DateTime.Now.AddDays(-5); i <= DateTime.Now; i = i.AddDays(1))
                     {
                         dic.Add("http://21.ej-sh.net:9191/ordSchRead.shtml?strdats=" + i.ToString("yyyy-MM-dd")
                        + "&endates=" + i.ToString("yyyy-MM-dd") + "&objtyp=CD&daytyp=P&rowsPerPage=5000", WebAfter.排程查询);
                     }
-                    //成品出库
+                    // 成品出库
                     dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdx=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
                        + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.出库明细);
                     //成品库存
