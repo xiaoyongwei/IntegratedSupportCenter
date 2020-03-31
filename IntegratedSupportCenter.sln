@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "工作数据分析", "工�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "综合保障中心", "综合保障中心\综合保障中心.csproj", "{CFD7E23F-51B1-49C8-BF75-0FAC72B15E6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erweima", "Erweima\Erweima.csproj", "{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,18 @@ Global
 		{CFD7E23F-51B1-49C8-BF75-0FAC72B15E6F}.Release|Mixed Platforms.Build.0 = Release|x86
 		{CFD7E23F-51B1-49C8-BF75-0FAC72B15E6F}.Release|x86.ActiveCfg = Release|x86
 		{CFD7E23F-51B1-49C8-BF75-0FAC72B15E6F}.Release|x86.Build.0 = Release|x86
+		{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}.Debug|x86.Build.0 = Debug|Any CPU
+		{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}.Release|x86.ActiveCfg = Release|Any CPU
+		{C088A4E6-8E67-4772-BF5A-EA81CCE4344D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
