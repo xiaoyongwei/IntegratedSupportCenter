@@ -1,0 +1,12 @@
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Erweima\obj\Debug\Erweima.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Erweima\obj\Debug\Erweima.Form1.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Erweima\obj\Debug\Erweima.Properties.Resources.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Erweima\obj\Debug\Erweima.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Erweima\bin\Debug\Erweima.exe.config
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Erweima\bin\Debug\Erweima.exe
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Erweima\bin\Debug\Erweima.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Erweima\bin\Debug\zxing.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Erweima\bin\Debug\zxing.xml
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Erweima\obj\Debug\Erweima.csproj.CopyComplete
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Erweima\obj\Debug\Erweima.exe
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Erweima\obj\Debug\Erweima.pdb
