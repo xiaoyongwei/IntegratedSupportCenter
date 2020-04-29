@@ -730,7 +730,7 @@ namespace YBF.Class.Comm
 
          public static string GetFirstAndFull(string str)
          {
-             return Get(str) + GetFirst(str);
+             return GetFirst(str) + Get(str);
          }
     }
 }

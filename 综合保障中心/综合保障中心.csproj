@@ -89,11 +89,23 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormYunfei.cs">
+    <Compile Include="运费\FormSelectMdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormYunfei.Designer.cs">
-      <DependentUpon>FormYunfei.cs</DependentUpon>
+    <Compile Include="运费\FormSelectMdd.Designer.cs">
+      <DependentUpon>FormSelectMdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="运费\FormYunfei20200501.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="运费\FormYunfei20200501.Designer.cs">
+      <DependentUpon>FormYunfei20200501.cs</DependentUpon>
+    </Compile>
+    <Compile Include="运费\FormYunfei2019.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="运费\FormYunfei2019.Designer.cs">
+      <DependentUpon>FormYunfei2019.cs</DependentUpon>
     </Compile>
     <Compile Include="Comm\MySqlDbHelper.cs" />
     <Compile Include="Program.cs" />
@@ -180,12 +192,20 @@
     <Compile Include="稿袋\FormHistory.Designer.cs">
       <DependentUpon>FormHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="运费\YunfeiMdd.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormYunfei.resx">
-      <DependentUpon>FormYunfei.cs</DependentUpon>
+    <EmbeddedResource Include="运费\FormSelectMdd.resx">
+      <DependentUpon>FormSelectMdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="运费\FormYunfei20200501.resx">
+      <DependentUpon>FormYunfei20200501.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="运费\FormYunfei2019.resx">
+      <DependentUpon>FormYunfei2019.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
