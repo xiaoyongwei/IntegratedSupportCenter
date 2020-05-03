@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using 工作数据分析.Class;
 using 工作数据分析.Data.DAL;
 using 工作数据分析.Properties;
 using 甩纸数据;
@@ -14,7 +15,8 @@ namespace 综合保障中心.其它
 {
     public partial class FormYijie_自动获取 : Form
     {
-
+        private string macAddress = GetSystemInfo.GetMacAddress();
+        private string userName = SystemInformation.ComputerName;
         Dictionary<string, WebAfter> dic = new Dictionary<string, WebAfter>();
 
         private enum WebAfter
@@ -1647,6 +1649,7 @@ namespace 综合保障中心.其它
                 //成品入库
                 dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdr=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
                    + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.入库明细);
+
                 //发货记录
                 dic.Add("http://21.ej-sh.net:9191/ctBcdx/dlv.shtml?strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
                   + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000&pageSize=1", WebAfter.送货明细);

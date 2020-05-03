@@ -45,6 +45,7 @@
             this.ColumnZyf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2ciCbc = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column2ciduima = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnShangtiao = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -69,9 +70,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.dgv);
             this.groupBox1.Location = new System.Drawing.Point(4, 71);
             this.groupBox1.Name = "groupBox1";
@@ -92,7 +93,8 @@
             this.ColumnZxf,
             this.ColumnZyf,
             this.Column2ciCbc,
-            this.Column2ciduima});
+            this.Column2ciduima,
+            this.ColumnShangtiao});
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(3, 17);
             this.dgv.Name = "dgv";
@@ -151,18 +153,21 @@
             // 
             // ColumnKm
             // 
+            this.ColumnKm.Frozen = true;
             this.ColumnKm.HeaderText = "公里";
             this.ColumnKm.Name = "ColumnKm";
             this.ColumnKm.Width = 54;
             // 
             // ColumnArea
             // 
+            this.ColumnArea.Frozen = true;
             this.ColumnArea.HeaderText = "面积";
             this.ColumnArea.Name = "ColumnArea";
             this.ColumnArea.Width = 54;
             // 
             // ColumnYunfei
             // 
+            this.ColumnYunfei.Frozen = true;
             this.ColumnYunfei.HeaderText = "运费";
             this.ColumnYunfei.Name = "ColumnYunfei";
             this.ColumnYunfei.ReadOnly = true;
@@ -170,6 +175,7 @@
             // 
             // ColumnZxf
             // 
+            this.ColumnZxf.Frozen = true;
             this.ColumnZxf.HeaderText = "装卸费";
             this.ColumnZxf.Name = "ColumnZxf";
             this.ColumnZxf.ReadOnly = true;
@@ -179,6 +185,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ColumnZyf.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnZyf.Frozen = true;
             this.ColumnZyf.HeaderText = "总运费";
             this.ColumnZyf.Name = "ColumnZyf";
             this.ColumnZyf.ReadOnly = true;
@@ -186,18 +193,30 @@
             // 
             // Column2ciCbc
             // 
+            this.Column2ciCbc.Frozen = true;
             this.Column2ciCbc.HeaderText = "2次";
             this.Column2ciCbc.Name = "Column2ciCbc";
             this.Column2ciCbc.Width = 29;
             // 
             // Column2ciduima
             // 
+            this.Column2ciduima.Frozen = true;
             this.Column2ciduima.HeaderText = "2次费";
             this.Column2ciduima.Name = "Column2ciduima";
             this.Column2ciduima.ReadOnly = true;
             this.Column2ciduima.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column2ciduima.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column2ciduima.Width = 41;
+            // 
+            // ColumnShangtiao
+            // 
+            this.ColumnShangtiao.HeaderText = "上调";
+            this.ColumnShangtiao.Items.AddRange(new object[] {
+            "0",
+            "0.1",
+            "0.2"});
+            this.ColumnShangtiao.Name = "ColumnShangtiao";
+            this.ColumnShangtiao.Width = 38;
             // 
             // FormYunfei
             // 
@@ -243,5 +262,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnZyf;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column2ciCbc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2ciduima;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnShangtiao;
     }
 }

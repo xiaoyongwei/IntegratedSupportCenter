@@ -8,7 +8,7 @@
      <asp:Button ID="Button1" runat="server" Text="整单完工" onclick="Button1_Click" />
      &nbsp;<asp:Button ID="Button2" runat="server" Text="取消整单完工" 
          onclick="Button2_Click" />
-    <%
+     <%
         
             string gdh = Request.QueryString.Count > 0 ? Request.QueryString["gdh"].ToString().Trim() : "";
             

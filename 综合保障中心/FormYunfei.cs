@@ -87,8 +87,10 @@ namespace 综合保障中心
             {
                 this.dgv.EndEdit();
                 double areaSum = 0;
+
                 int bottomSquare = Convert.ToInt32(textBoxBottomSquare.Text);
                 int customerCount = Convert.ToInt32(textBoxCustomerCount.Text);
+
                 List<int> kmList = new List<int>();
                 List<double> areaList = new List<double>();
                 if (customerCount > dgv.Rows.Count - 1)
@@ -112,19 +114,24 @@ namespace 综合保障中心
                     }
                     int km = 0;
                     double area = 0;
-
+                    double shangtiao = 0;
                     if (!int.TryParse(row.Cells[ColumnKm.Index].Value.ToString(), out km)
                         || km <= 0)
                     {
-                        throw new Exception(string.Format("第{0}行的[公里数]输入错误!"));
+                        throw new Exception(string.Format("第{0}行的[公里数]输入错误!",row.Index+1));
                     }
                     if (!double.TryParse(row.Cells[ColumnArea.Index].Value.ToString(), out area)
                         || area <= 0)
                     {
-                        throw new Exception(string.Format("第{0}行的[公里数]输入错误!"));
+                        throw new Exception(string.Format("第{0}行的[公里数]输入错误!",row.Index+1));
+                    }
+                    if (row.Cells[ColumnShangtiao.Index].Value==null
+                        ||!double.TryParse(row.Cells[ColumnShangtiao.Index].Value.ToString(), out shangtiao))
+                    {
+                        shangtiao = 0;
                     }
                     kmList.Add(km);
-                    areaList.Add(area);
+                    areaList.Add(area*(1+shangtiao));
                 }
 
                 areaSum = areaList.Sum();
@@ -136,6 +143,14 @@ namespace 综合保障中心
                     {
                         continue;
                     }
+                    double shangtiao = 0;
+                    if (row.Cells[ColumnShangtiao.Index].Value == null
+                       || !double.TryParse(row.Cells[ColumnShangtiao.Index].Value.ToString(), out shangtiao))
+                    {
+                        shangtiao = 0;
+                    }
+
+
                     int km = 0;
                     double area = 0;
                     int.TryParse(row.Cells[ColumnKm.Index].Value.ToString(), out km);
@@ -143,11 +158,11 @@ namespace 综合保障中心
                     //总面积大于保底
                     if (areaSum > bottomSquare)
                     {
-                        row.Cells[ColumnYunfei.Index].Value = GetFreight(km, area);
+                        row.Cells[ColumnYunfei.Index].Value = GetFreight(km, area*(1+ shangtiao));
                     }
                     else //总面积小于保底
                     {
-                        row.Cells[ColumnYunfei.Index].Value = GetFreight(km, area / areaSum * bottomSquare);
+                        row.Cells[ColumnYunfei.Index].Value = GetFreight(km, area * (1 + shangtiao) / areaSum * bottomSquare);
                     }
                     row.Cells[ColumnZxf.Index].Value =Math.Round(area*ZXF*2,3);//装卸费
                     if (Convert.ToBoolean(row.Cells[Column2ciCbc.Index].Value))
