@@ -9,14 +9,14 @@ using System.Windows.Forms;
 
 namespace 综合保障中心
 {
-    public partial class FormYunfei : Form
+    public partial class FormYunfei2019 : Form
     {
         /// <summary>
         /// 装卸费:指的是装一次和卸一次的费用(0.011元/平方)
         /// </summary>
         private double ZXF = 0.011;
 
-        public FormYunfei()
+        public FormYunfei2019()
         {
             InitializeComponent();
         }

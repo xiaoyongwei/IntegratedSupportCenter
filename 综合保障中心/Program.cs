@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using HandeJobManager.DAL;
 using 综合保障中心.其它;
+using 综合保障中心.运费;
 
 namespace 综合保障中心
 {

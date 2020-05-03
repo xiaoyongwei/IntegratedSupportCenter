@@ -51,7 +51,7 @@ namespace 综合保障中心
 
         private void 运费计算ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormYunfei().ShowDialog();
+            new FormYunfei2019().ShowDialog();
         }
     }
 }
