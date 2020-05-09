@@ -1005,7 +1005,8 @@ namespace 综合保障中心.其它
                 dt.Columns.RemoveAt(0);
                 //开始添加到sql中
                 List<string> sqlList = new List<string>();
-                StringBuilder sb_Insert = new StringBuilder("replace   INTO `slbz`.`甩纸_作业`(");
+                sqlList.Add("truncate table `slbz`.`甩纸_作业`;");
+                StringBuilder sb_Insert = new StringBuilder("INTO `slbz`.`甩纸_作业`(");
                 foreach (DataColumn dc in dt.Columns)//添加列
                 {
                     sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
@@ -1945,9 +1946,9 @@ namespace 综合保障中心.其它
                 sqlList.Add("TRUNCATE `slbz`.`二期胶印纸箱仓库即时库存`;");
                 foreach (DataRow row in dt.Rows)
                 {
-                    sqlList.Add("INSERT INTO `slbz`.`二期胶印纸箱仓库即时库存` (`物料长代码`,`物料名称`,`基本单位`,`库存`,`换算率`,`辅助单位`,`辅助数量`,`仓库名称`,`仓库代码`) VALUES"
+                    sqlList.Add("INSERT INTO `slbz`.`二期胶印纸箱仓库即时库存` (`物料长代码`,`物料名称`,`批号`,`基本单位`,`库存`,`换算率`,`辅助单位`,`辅助数量`,`仓库名称`,`仓库代码`) VALUES"
             + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}');"
-            , row["物料长代码"], row["物料名称"], row["基本单位"], row["库存"], row["换算率"], row["辅助单位"], row["辅助数量"], row["仓库名称"], row["仓库代码"]));
+            , row["物料长代码"], row["物料名称"], row["批号"], row["基本单位"], row["库存"], row["换算率"], row["辅助单位"], row["辅助数量"], row["仓库名称"], row["仓库代码"]));
 
                 }
                 MySqlDbHelper.ExecuteSqlTran(sqlList);

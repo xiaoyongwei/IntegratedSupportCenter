@@ -34,6 +34,7 @@ namespace 甩纸数据
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new FormYijie_数据());
             Application.Run(new FormYijie_自动获取());
         }
     }
