@@ -78,6 +78,7 @@
                             <asp:MenuItem NavigateUrl="~/WebPage/RukuGaikuangAnRiqi.aspx" Text="入库情况(按日期)" Value="入库情况(按日期)" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ErqiChenpinKucun.aspx" Text="二期库存情况" Value="二期库存情况" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=20" Text="出入库异常记录" Value="出入库异常记录" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=21" Text="交货超期" Value="交货超期" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=5" Text="未甩纸明细" Value="未甩纸明细">
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=6" Text="未覆膜明细" Value="未覆膜明细">
