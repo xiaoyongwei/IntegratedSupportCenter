@@ -1,4 +1,3 @@
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析_自动获取.exe.config
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析_自动获取.exe
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析_自动获取.pdb
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\QRCoder.dll
@@ -26,6 +25,13 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分�
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.WuLiu.Form物流当日分析.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.GenerateResource.cache
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.CopyComplete
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析.exe.config
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析.exe
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.exe
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析_自动获取.exe.config
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析_自动获取.exe
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析_自动获取.pdb
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csprojAssemblyReference.cache

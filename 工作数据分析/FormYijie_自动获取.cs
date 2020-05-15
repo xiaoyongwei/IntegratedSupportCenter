@@ -10,6 +10,7 @@ using 工作数据分析.Class;
 using 工作数据分析.Data.DAL;
 using 工作数据分析.Properties;
 using 甩纸数据;
+using 综合保障中心.Comm;
 
 namespace 综合保障中心.其它
 {
@@ -18,7 +19,6 @@ namespace 综合保障中心.其它
         private string macAddress = GetSystemInfo.GetMacAddress();
         private string userName = SystemInformation.ComputerName;
         Dictionary<string, WebAfter> dic = new Dictionary<string, WebAfter>();
-
         private enum WebAfter
         {
             None,
@@ -1223,7 +1223,7 @@ namespace 综合保障中心.其它
         {
             string addtext = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ":" + text + Environment.NewLine;
             this.tbShow.AppendText(addtext);
-            File.AppendAllText("Log\\log_" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt", addtext);
+            My.InsertMysqlBackupLog(text);
         }
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -2104,9 +2104,10 @@ namespace 综合保障中心.其它
             this.splitContainer1.Panel1Collapsed = !this.易捷ToolStripMenuItem.Checked;
         }
 
-
-
-
+        private void timerClr_Tick(object sender, EventArgs e)
+        {
+            this.tbShow.Clear();
+        }
     }
 }
 

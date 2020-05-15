@@ -90,6 +90,7 @@
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResultWrite.aspx?sqlcode=12" Text="未完工订单"
                                 Value="未完工订单"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/Kaidan.aspx" Text="开单数据" Value="开单数据"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=22" Text="日志" Value="日志" />
                             <asp:MenuItem NavigateUrl="~/About.aspx" Text="关于" />
                     </Items>
                 </asp:Menu>
