@@ -74,6 +74,7 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr = "SELECT cast(`时间`as char)'时间',`Mac地址`,`计算机名称`,`描述`FROM `slbz`.`备份日志` order by 时间 desc LIMIT 500;";
                 gridTitle = "数据备份日志";
                 break;
+           
             default:
                 break;
         }

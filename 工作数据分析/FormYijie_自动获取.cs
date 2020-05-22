@@ -870,7 +870,7 @@ namespace 综合保障中心.其它
                 }
 
 
-                StringBuilder sb_Insert = new StringBuilder("INSERT IGNORE  INTO `slbz`.`成品_入库明细`(");
+                StringBuilder sb_Insert = new StringBuilder("INSERT   INTO `slbz`.`成品_入库明细`(");
                 foreach (DataColumn dc in dt.Columns)//添加列
                 {
                     sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
@@ -1007,8 +1007,8 @@ namespace 综合保障中心.其它
                 dt.Columns.RemoveAt(0);
                 //开始添加到sql中
                 List<string> sqlList = new List<string>();
-                sqlList.Add("truncate table `slbz`.`甩纸_作业`;");
-                StringBuilder sb_Insert = new StringBuilder("INSERT INTO `slbz`.`甩纸_作业`(");
+                //sqlList.Add("truncate table `slbz`.`甩纸_作业`;");
+                StringBuilder sb_Insert = new StringBuilder("replace  INTO `slbz`.`甩纸_作业`(");
                 foreach (DataColumn dc in dt.Columns)//添加列
                 {
                     sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
@@ -1620,7 +1620,7 @@ namespace 综合保障中心.其它
         /// <param name="YunfeiOnly">true表示只备份送货方面的数据</param>
         private void OneKeyGet(bool IsReturnResult, bool YunfeiOnly)
         {
-            this.timer1.Stop();
+            this.timerBackup.Stop();
             AddtbShow("关闭计数器");
 
 
@@ -1681,7 +1681,7 @@ namespace 综合保障中心.其它
                     + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_水印);
                     //甩纸作业
                     dic.Add("http://21.ej-sh.net:9191/ordSchCt/bcp.shtml?strdats=" + DateTime.Now.AddDays(-30).ToString("yyyy-MM-dd")
-                        + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&status=N&rowsPerPage=1000", WebAfter.甩纸作业);
+                        + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&status=&rowsPerPage=1000", WebAfter.甩纸作业);
                     //报工查询
                     dic.Add("http://21.ej-sh.net:9191/ordSchCt/overlist.shtml?strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
                         + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.报工查询);
@@ -1738,8 +1738,8 @@ namespace 综合保障中心.其它
                 if (jindieBool)
                 {
                     DataBaseList.InitSqlhelper();
-                    //Get二期辅料仓库领料明细();
-                    //Get二期原纸仓库即时库存();
+                    Get二期辅料仓库领料明细();
+                    Get二期原纸仓库即时库存();
                     Get二期胶印纸箱仓库即时库存();
                     Get二期辅料仓库即时库存();
                     Get二期仓库入库明细();
@@ -1756,7 +1756,7 @@ namespace 综合保障中心.其它
                 //开始逐步获取并备份数据
                 GotoWebUrlByDic();
             }
-            this.timer1.Start();
+            this.timerBackup.Start();
             AddtbShow("开启计数器");
         }
 
@@ -2079,14 +2079,14 @@ namespace 综合保障中心.其它
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.timer1.Stop();
+            this.timerBackup.Stop();
             try
             {
                 OneKeyGet(true, false);
             }
             finally
             {
-                this.timer1.Start();
+                this.timerBackup.Start();
             }
         }
 

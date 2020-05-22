@@ -94,7 +94,7 @@
             this.金蝶ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerBackup = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tbShow = new System.Windows.Forms.TextBox();
             this.timerClr = new System.Windows.Forms.Timer(this.components);
@@ -621,11 +621,12 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(131, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // timer1
+            // timerBackup
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1800000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerBackup.Enabled = true;
+            this.timerBackup.Interval = 1800000;
+            this.timerBackup.Tag = "自动备份";
+            this.timerBackup.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // splitContainer1
             // 
@@ -658,7 +659,9 @@
             // 
             // timerClr
             // 
+            this.timerClr.Enabled = true;
             this.timerClr.Interval = 172800000;
+            this.timerClr.Tag = "清除文本框";
             this.timerClr.Tick += new System.EventHandler(this.timerClr_Tick);
             // 
             // FormYijie_自动获取
@@ -750,7 +753,7 @@
         private System.Windows.Forms.ToolStripMenuItem 获取订单工序ToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerBackup;
         private System.Windows.Forms.ToolStripMenuItem 获取订单报工ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 获取工序ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 备份送货数据ToolStripMenuItem;

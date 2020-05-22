@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class WebPage_K3Waigou : System.Web.UI.Page
+public partial class WebPage_K3Lingliao : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {

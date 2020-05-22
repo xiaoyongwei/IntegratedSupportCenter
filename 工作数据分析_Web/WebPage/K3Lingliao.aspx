@@ -1,4 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="K3Waigou.aspx.cs" Inherits="WebPage_K3Waigou" masterpagefile="~/Master/Site.master"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="K3Lingliao.aspx.cs" Inherits="WebPage_K3Lingliao" masterpagefile="~/Master/Site.master"%>
+
+<script runat="server">
+
+    protected void ButtonSearch_Click(object sender, EventArgs e)
+    {
+
+    }
+</script>
+
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <style type="text/css">
