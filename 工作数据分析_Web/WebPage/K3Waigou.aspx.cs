@@ -29,7 +29,7 @@ public partial class WebPage_K3Waigou : System.Web.UI.Page
     protected void ButtonSearch_Click(object sender, EventArgs e)
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append("SELECT cast(`日期`as char)'日期',`审核`,`单据编号`,`供应商`,`物料长代码`,`物料名称`,`规格型号`,`辅助属性`");
+        sb.Append("SELECT cast(`日期`as char)'日期',`单据编号`,`供应商`,`物料长代码`,`物料名称`,`规格型号`,`辅助属性`");
         sb.Append(",`批号`,`基本单位`,`实收数量`,`辅助单位`,`辅助数量`,`含税单价`,`含税金额`,`收料仓库`,`备注`");
         sb.Append(" FROM `slbz`.`金蝶_外购入库`where ");
         sb.AppendFormat("日期 like'%{0}%' and ", this.TextBoxRiqi.Text.Trim());

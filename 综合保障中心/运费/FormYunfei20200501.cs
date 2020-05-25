@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPOI.SS.Formula.Functions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,39 +26,20 @@ namespace 综合保障中心
         //此函数为全局更改(慎用!!!)
         protected override bool ProcessCmdKey(ref　Message msg, Keys keyData)
         {
-            if ( keyData == Keys.F12)//计算
-            {
-                Submit();
-            }
-            else if (keyData == Keys.F11)
-            {
-                List<int> rowIndexList = new List<int>();
-                foreach (DataGridViewCell cell in dgv.SelectedCells)
-                {
-                    int rowIndex = cell.RowIndex;
-                    if (!rowIndexList.Contains(rowIndex))
-                    {
-                        rowIndexList.Add(rowIndex);
-                    }
-                }
-                foreach (int item in rowIndexList)
-                {
-                    dgv[Column2ciCbc.Index, item].Value = !Convert.ToBoolean(dgv[Column2ciCbc.Index, item].Value);
-                }
-            }
-
+            
             return false;
 
         }
         private void FormYunfei_Load(object sender, EventArgs e)
         {
             this.checkBox1.Checked = true;
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
         }
 
         private void dgv_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            e.Row.Cells[ColumnArea.Index].Value = 0; 
-            e.Row.Cells[Column2ciduima.Index].Value = 0;
+           
         }
 
         private void textBoxCustomerCount_KeyPress(object sender, KeyPressEventArgs e)
@@ -73,116 +55,116 @@ namespace 综合保障中心
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-            Submit();
+            
            
         }
 
-        private void Submit()
-        {
-            //先判断总公里数是否超过保底公里数
-            //如果没有超过,则计算最长距离*系数
-            //如果超过,则每个数据分别计算
-            try
-            {
-                this.dgv.EndEdit();
-                double areaSum = 0;
-                int bottomSquare = Convert.ToInt32(textBoxBottomSquare.Text);
-                int customerCount =0;
-                List<int> kmList = new List<int>();
-                List<double> areaList = new List<double>();
-                if (customerCount > dgv.Rows.Count - 1)
-                {
-                    throw new Exception("客户数超过送货记录");
-                }
+        //private void Submit()
+        //{
+        //    //先判断总公里数是否超过保底公里数
+        //    //如果没有超过,则计算最长距离*系数
+        //    //如果超过,则每个数据分别计算
+        //    try
+        //    {
+        //        this.dgv.EndEdit();
+        //        double areaSum = 0;
+        //        int bottomSquare = Convert.ToInt32(textBoxBottomSquare.Text);
+        //        int customerCount =0;
+        //        List<int> kmList = new List<int>();
+        //        List<double> areaList = new List<double>();
+        //        if (customerCount > dgv.Rows.Count - 1)
+        //        {
+        //            throw new Exception("客户数超过送货记录");
+        //        }
 
-                if (bottomSquare <= 0)
-                {
-                    throw new Exception("[保底平方]的数据输入错误!");
-                }
-                else if (customerCount <= 0)
-                {
-                    throw new Exception("[客户数]的数据输入错误!");
-                }
-                foreach (DataGridViewRow row in dgv.Rows)
-                {
-                    if (row.IsNewRow)
-                    {
-                        continue;
-                    }
-                    int km = 0;
-                    double area = 0;
+        //        if (bottomSquare <= 0)
+        //        {
+        //            throw new Exception("[保底平方]的数据输入错误!");
+        //        }
+        //        else if (customerCount <= 0)
+        //        {
+        //            throw new Exception("[客户数]的数据输入错误!");
+        //        }
+        //        foreach (DataGridViewRow row in dgv.Rows)
+        //        {
+        //            if (row.IsNewRow)
+        //            {
+        //                continue;
+        //            }
+        //            int km = 0;
+        //            double area = 0;
 
-                    //if (!int.TryParse(row.Cells[ColumnKm.Index].Value.ToString(), out km)
-                    //    || km <= 0)
-                    //{
-                    //    throw new Exception(string.Format("第{0}行的[公里数]输入错误!"));
-                    //}
-                    //if (!double.TryParse(row.Cells[ColumnArea.Index].Value.ToString(), out area)
-                    //    || area <= 0)
-                    //{
-                    //    throw new Exception(string.Format("第{0}行的[公里数]输入错误!"));
-                    //}
-                    kmList.Add(km);
-                    areaList.Add(area);
-                }
+        //            //if (!int.TryParse(row.Cells[ColumnKm.Index].Value.ToString(), out km)
+        //            //    || km <= 0)
+        //            //{
+        //            //    throw new Exception(string.Format("第{0}行的[公里数]输入错误!"));
+        //            //}
+        //            //if (!double.TryParse(row.Cells[ColumnArea.Index].Value.ToString(), out area)
+        //            //    || area <= 0)
+        //            //{
+        //            //    throw new Exception(string.Format("第{0}行的[公里数]输入错误!"));
+        //            //}
+        //            kmList.Add(km);
+        //            areaList.Add(area);
+        //        }
 
-                areaSum = areaList.Sum();
+        //        areaSum = areaList.Sum();
 
 
-                foreach (DataGridViewRow row in dgv.Rows)
-                {
-                    if (row.IsNewRow)
-                    {
-                        continue;
-                    }
-                    int km = 0;
-                    double area = 0;
-                    double.TryParse(row.Cells[ColumnArea.Index].Value.ToString(), out area);
-                    //总面积大于保底
-                    if (areaSum > bottomSquare)
-                    {
-                        row.Cells[ColumnYunfei.Index].Value = GetFreight(km, area);
-                    }
-                    else //总面积小于保底
-                    {
-                        row.Cells[ColumnYunfei.Index].Value = GetFreight(km, area / areaSum * bottomSquare);
-                    }
-                    row.Cells[ColumnZxf.Index].Value =Math.Round(area*ZXF*2,3);//装卸费
-                    if (Convert.ToBoolean(row.Cells[Column2ciCbc.Index].Value))
-                    {
-                        row.Cells[Column2ciduima.Index].Value = Math.Round(area * ZXF);//二次堆码费
-                    }
-                    else
-                    {
-                        row.Cells[Column2ciduima.Index].Value = 0;
-                    }
-                    row.Cells[ColumnZyf.Index].Value = Math.Round(Convert.ToDouble(row.Cells[ColumnYunfei.Index].Value) 
-                        + Convert.ToDouble(row.Cells[ColumnZxf.Index].Value)
-                        //+ Convert.ToDouble(row.Cells[Column2ciduima.Index].Value)
-                        ,3);
-                }
+        //        foreach (DataGridViewRow row in dgv.Rows)
+        //        {
+        //            if (row.IsNewRow)
+        //            {
+        //                continue;
+        //            }
+        //            int km = 0;
+        //            double area = 0;
+        //            double.TryParse(row.Cells[ColumnArea.Index].Value.ToString(), out area);
+        //            //总面积大于保底
+        //            if (areaSum > bottomSquare)
+        //            {
+        //                row.Cells[ColumnYunfei.Index].Value = GetFreight(km, area);
+        //            }
+        //            else //总面积小于保底
+        //            {
+        //                row.Cells[ColumnYunfei.Index].Value = GetFreight(km, area / areaSum * bottomSquare);
+        //            }
+        //            row.Cells[ColumnZxf.Index].Value =Math.Round(area*ZXF*2,3);//装卸费
+        //            if (Convert.ToBoolean(row.Cells[Column2ciCbc.Index].Value))
+        //            {
+        //                row.Cells[Column2ciduima.Index].Value = Math.Round(area * ZXF);//二次堆码费
+        //            }
+        //            else
+        //            {
+        //                row.Cells[Column2ciduima.Index].Value = 0;
+        //            }
+        //            row.Cells[ColumnZyf.Index].Value = Math.Round(Convert.ToDouble(row.Cells[ColumnYunfei.Index].Value) 
+        //                + Convert.ToDouble(row.Cells[ColumnZxf.Index].Value)
+        //                //+ Convert.ToDouble(row.Cells[Column2ciduima.Index].Value)
+        //                ,3);
+        //        }
 
-                if (dgv.Rows.Count > 1)
-                {
-                    double yunfeiGongji = 0;
-                    foreach (DataGridViewRow row in dgv.Rows)
-                    {
-                        if (row.IsNewRow)
-                        {
-                            continue;
-                        }
-                        yunfeiGongji += Convert.ToDouble(row.Cells[ColumnZyf.Index].Value) + Convert.ToDouble(row.Cells[Column2ciduima.Index].Value);
-                    }
-                    yunfeiGongji += (customerCount - 1) * 10;
+        //        if (dgv.Rows.Count > 1)
+        //        {
+        //            double yunfeiGongji = 0;
+        //            foreach (DataGridViewRow row in dgv.Rows)
+        //            {
+        //                if (row.IsNewRow)
+        //                {
+        //                    continue;
+        //                }
+        //                yunfeiGongji += Convert.ToDouble(row.Cells[ColumnZyf.Index].Value) + Convert.ToDouble(row.Cells[Column2ciduima.Index].Value);
+        //            }
+        //            yunfeiGongji += (customerCount - 1) * 10;
 
-                    this.textBoxgongji.Text = "运费:" + Math.Round(yunfeiGongji, 2).ToString() + " 面积:" + Math.Round(areaSum,2) + " 平方价:" + Math.Round(Math.Round(yunfeiGongji, 2) / areaSum, 2);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "错误!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //            this.textBoxgongji.Text = "运费:" + Math.Round(yunfeiGongji, 2).ToString() + " 面积:" + Math.Round(areaSum,2) + " 平方价:" + Math.Round(Math.Round(yunfeiGongji, 2) / areaSum, 2);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "错误!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
 
 
@@ -269,6 +251,126 @@ namespace 综合保障中心
         private void FormYunfei_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Dispose();
+        }
+
+        private void buttonClearAll_Click(object sender, EventArgs e)
+        {
+            this.dgvYunfei.Rows.Clear();
+            this.dgvPinche.Rows.Clear();
+            this.dgv2ci.Rows.Clear();
+            this.textBoxHuizong.Clear();
+        }
+
+        private void ToolStripMenuItemSonghuo_Click(object sender, EventArgs e)
+        {
+            dgvYunfei.Rows.Clear();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            this.dgvPinche.Rows.Clear();
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            this.dgv2ci.Rows.Clear();
+        }
+
+        private void dgvYunfei_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dgvYunfei.Rows[e.RowIndex];
+            double baodi = Convert.ToDouble(row.Cells[ColumnBaodi.Index].Value);
+            double shijimianji= Convert.ToDouble(row.Cells[ColumnSjmj.Index].Value);
+            double diquyunfei= Convert.ToDouble(row.Cells[ColumnDqyf.Index].Value);
+
+            double yunfei = 0;
+            if (shijimianji>baodi)
+            {
+                yunfei = diquyunfei / baodi * shijimianji + shijimianji * 0.03;
+            }
+            else
+            {
+                yunfei = diquyunfei + shijimianji * 0.03;
+            }
+            row.Cells[ColumnShyf.Index].Value = Math.Round(yunfei, 2);
+            TongjiYunfei();
+        }
+
+        private void dgvPinche_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dgvPinche.Rows[e.RowIndex];
+
+            double juli = Convert.ToDouble(row.Cells[ColumnPcjl.Index].Value);
+            double pcf = 0;
+            if (juli<=5)
+            {
+                pcf = 20;
+            }
+            else
+            {
+                pcf = 20 + (juli - 5) * 2;
+            }
+            row.Cells[ColumnPcyf.Index].Value = Math.Round(pcf, 0);
+            TongjiYunfei();
+        }
+
+        private void dgc2ci_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dgv2ci.Rows[e.RowIndex];
+            double dmpf= Convert.ToDouble(row.Cells[ColumnDmpf.Index].Value);
+            row.Cells[ColumnDmf.Index].Value = dmpf * 0.011;
+            TongjiYunfei();
+        }
+
+
+        private void TongjiYunfei()
+        {
+            //总面积
+            //总送货运费
+            double zongmianji = 0;
+            double zongsonghuoyunfei = 0;
+            foreach (DataGridViewRow row in dgvYunfei.Rows)
+            {
+                if (row.IsNewRow)
+                {
+                    continue;
+                }
+                zongmianji += Convert.ToDouble(row.Cells[ColumnSjmj.Index].Value);
+                zongsonghuoyunfei+= Convert.ToDouble(row.Cells[ColumnShyf.Index].Value);
+            }
+            //总拼车费
+            double zongpinchefei = 0;
+            foreach (DataGridViewRow row in dgvPinche.Rows)
+            {
+                if (row.IsNewRow)
+                {
+                    continue;
+                }
+                zongpinchefei += Convert.ToDouble(row.Cells[ColumnPcyf.Index].Value);
+            }
+            //总二次堆码费
+            double zong2ciduimafei = 0;
+            foreach (DataGridViewRow row in dgv2ci.Rows)
+            {
+                if (row.IsNewRow)
+                {
+                    continue;
+                }
+                zong2ciduimafei += Convert.ToDouble(row.Cells[ColumnDmf.Index].Value);
+            }
+            //汇总总结
+            StringBuilder sb = new StringBuilder("平方:" + zongmianji);
+            if (zongpinchefei>0)
+            {
+                sb.Append(",拼车:" + zongpinchefei);
+            }
+            if (zong2ciduimafei>0)
+            {
+                sb.Append(",二次:" + zong2ciduimafei);
+            }
+            sb.Append(",总运费:" + (zongsonghuoyunfei + zongpinchefei + zong2ciduimafei));
+            sb.Append(",平方价:" + Math.Round((zongsonghuoyunfei + zongpinchefei + zong2ciduimafei)/zongmianji,3));
+            this.textBoxHuizong.Text = sb.ToString();
         }
     }
 }
