@@ -11,96 +11,82 @@
 </head>
 <body>
     <form runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    工作数据分析
-                </h1>
-            </div>
-            <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a id="HeadLoginStatus" runat="server">登录</a> ]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        欢迎您，<span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" />
-                        </span>! [
-                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="注销"
-                            LogoutPageUrl="~/" />
-                        ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
-            </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
-                    IncludeStyleBlock="false" Orientation="Horizontal" OnMenuItemClick="NavigationMenu_MenuItemClick">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="主页" />
-                        <%--<asp:MenuItem NavigateUrl="~/WebPage/MeiriGuanzhu.aspx" Text="每日关注" />--%>
-                        <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=1" Text="原纸库存明细_详情"
-                            Value="原纸库存明细_详情"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=2" Text="原纸库存明细_分类"
-                            Value="原纸库存明细_分类"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=3" Text="原纸按品牌_分类" Value="原纸按品牌_分类">
-                        </asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=4" Text="原纸按UV合并_分类"
-                            Value="原纸按UV合并_分类"></asp:MenuItem>
-<asp:MenuItem NavigateUrl="~/WebPage/YuanzhiFenleiHuizong.aspx" Text="原纸分类汇总"
-                            Value="分类汇总"></asp:MenuItem>
-                       <%-- <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=9" Text="原纸分类汇总(A类纸)"
-                            Value="分类汇总(A类纸)"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=10" Text="原纸分类汇总(B类纸)"
-                            Value="分类汇总(B类纸)"></asp:MenuItem>--%>
-                        <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=11" Text="二期原纸仓库各类占比"
-                            Value="分类汇总(B类纸)"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/WebPage/YuanZhiYidingWeidao.aspx" Text="原纸已订未到" Value="原纸已订未到">
-                        </asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/WebPage/YuanzhiBeiliaoJihua.aspx" Text="原纸备料计划" Value="原纸备料计划">
-                        </asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=17" Text="白板纸需求" Value="白板纸需求">
-                        </asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=13" Text="辅料即时库存" Value="辅料即时库存" />
-                        <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=14" Text="辅料补库明细" Value="辅料补库明细" />
-                        <asp:MenuItem Text="二期辅料数据" Value="二期辅料数据"/>
-                            <asp:MenuItem NavigateUrl="~/WebPage/ErqiFuliao.aspx" Text="辅料领料分析" Value="辅料领料分析">
-                            </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/WebPage/WuliuShujuFenxi.aspx" Text="物流数据分析" Value="物流数据分析">
-                            </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=18" Text="近90天运费" Value="近90天运费">
-                            </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=15" Text="成品近30天入库"
-                                Value="成品近30天入库" />
-                            <%--<asp:MenuItem NavigateUrl="~/WebPage/ShowResultChart.aspx" Text="成品近7天入库" Value="成品近7天入库" />--%>
-                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=16" Text="二期成品仓库超期一览"
-                                Value="二期成品仓库超期一览" />
-                            <asp:MenuItem NavigateUrl="~/WebPage/ChengpinCangku.aspx" Text="二期成品仓库超期明细" Value="二期成品仓库超期明细" />
+        <div class="page">
+            <div class="header">
+                <div class="title">
+                    <h1>工作数据分析
+                    </h1>
+                </div>
+                <div class="loginDisplay">
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                        <AnonymousTemplate>
+                            [ <a id="HeadLoginStatus" runat="server">登录</a> ]
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            欢迎您，<span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" />
+                            </span>! [
+                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="RedirectToLoginPage" LogoutText="注销"
+                            LogoutPageUrl="~/Login.aspx" />
+                            ]
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+                <div class="clear hideSkiplink">
+                    <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
+                        IncludeStyleBlock="false" Orientation="Horizontal">
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="主页" />
+                            <%--<asp:MenuItem NavigateUrl="~/WebPage/MeiriGuanzhu.aspx" Text="每日关注" />--%>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=1" Text="原纸库存明细_详情"
+                                Value="原纸库存明细_详情"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=2" Text="原纸库存明细_分类"
+                                Value="原纸库存明细_分类"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=3" Text="原纸按品牌_分类" Value="原纸按品牌_分类"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=4" Text="原纸按UV合并_分类"
+                                Value="原纸按UV合并_分类"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/YuanzhiFenleiHuizong.aspx" Text="原纸分类汇总"
+                                Value="分类汇总"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=11" Text="二期原纸仓库各类占比"
+                                Value="分类汇总(B类纸)"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/YuanZhiYidingWeidao.aspx" Text="原纸已订未到" Value="原纸已订未到"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/YuanzhiBeiliaoJihua.aspx" Text="原纸备料计划" Value="原纸备料计划"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=17" Text="白板纸需求" Value="白板纸需求"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=13" Text="辅料即时库存" Value="辅料即时库存" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ErqiFuliao.aspx" Text="辅料领料分析" Value="辅料领料分析"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/K3Waigou.aspx" Text="外购入库" Value="外购入库"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/K3Lingliao.aspx" Text="辅料领料" Value="辅料领料"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/WuliuShujuFenxi.aspx" Text="物流数据分析" Value="物流数据分析"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=18" Text="近90天运费" Value="近90天运费" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=15" Text="成品近30天入库" Value="成品近30天入库" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=16" Text="二期成品仓库超期一览" Value="二期成品仓库超期一览" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ChengpinCangku.aspx" Text="成品库存超期明细" Value="成品库存超期明细" />
                             <asp:MenuItem NavigateUrl="~/WebPage/RukuGaikuangAnRiqi.aspx" Text="入库情况(按日期)" Value="入库情况(按日期)" />
-                            <asp:MenuItem NavigateUrl="~/WebPage/ErqiChenpinKucun.aspx" Text="二期库存情况" Value="二期库存情况" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ErqiChenpinKucun.aspx" Text="成品库存情况" Value="成品库存情况" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=20" Text="出入库异常记录" Value="出入库异常记录" />
-                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=5" Text="未甩纸明细" Value="未甩纸明细">
-                            </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=6" Text="未覆膜明细" Value="未覆膜明细">
-                            </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResultWrite.aspx?sqlcode=8" Text="特殊工艺订单"
-                                Value="特殊工艺订单"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/WebPage/PlannedDeliveryOrder.aspx" Text="计划交期订单" Value="计划交期订单">
-                            </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResultWrite.aspx?sqlcode=12" Text="未完工订单"
-                                Value="未完工订单"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=21" Text="交货超期" Value="交货超期" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=23" Text="报工但未入库" Value="报工但未入库" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=24" Text="超订单入库" Value="超订单入库" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=25" Text="送完货多余库存" Value="送完货多余库存" />
+<asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=26" Text="销售退货和退货入库不符" Value="销售退货和退货入库不符" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=5" Text="未甩纸明细" Value="未甩纸明细"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=6" Text="未覆膜明细" Value="未覆膜明细"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResultWrite.aspx?sqlcode=8" Text="特殊工艺订单" Value="特殊工艺订单"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/PlannedDeliveryOrder.aspx" Text="计划交期订单" Value="计划交期订单"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResultWrite.aspx?sqlcode=12" Text="未完工订单" Value="未完工订单"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/Kaidan.aspx" Text="开单数据" Value="开单数据"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=22" Text="日志" Value="日志" />
                             <asp:MenuItem NavigateUrl="~/About.aspx" Text="关于" />
-                    </Items>
-                </asp:Menu>
+                        </Items>
+                    </asp:Menu>
+                </div>
+            </div>
+            <div class="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             </div>
         </div>
-        <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        <div style="width: 100%; text-align: center;">
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
-    </div>
-    <div style="width: 100%; text-align: center;">
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-    </div>
     </form>
 </body>
 </html>

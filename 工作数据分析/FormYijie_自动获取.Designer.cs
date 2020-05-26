@@ -89,14 +89,15 @@
             this.获取订单报工ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.获取工序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.备份送货数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.选择备份数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.易捷ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.金蝶ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerBackup = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tbShow = new System.Windows.Forms.TextBox();
-            this.选择备份数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.金蝶ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.易捷ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerClr = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -176,14 +177,14 @@
             // toolStripMenuItem一键获取
             // 
             this.toolStripMenuItem一键获取.Name = "toolStripMenuItem一键获取";
-            this.toolStripMenuItem一键获取.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem一键获取.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItem一键获取.Text = "一键获取";
             this.toolStripMenuItem一键获取.Click += new System.EventHandler(this.toolStripMenuItem一键获取_Click);
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(145, 6);
             // 
             // 获取彩印工单ToolStripMenuItem
             // 
@@ -194,7 +195,7 @@
             this.toolStripMenuItem12});
             this.获取彩印工单ToolStripMenuItem.Enabled = false;
             this.获取彩印工单ToolStripMenuItem.Name = "获取彩印工单ToolStripMenuItem";
-            this.获取彩印工单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.获取彩印工单ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.获取彩印工单ToolStripMenuItem.Text = "获取彩印工单";
             // 
             // toolStripMenuItem6
@@ -232,7 +233,7 @@
             this.toolStripMenuItem16});
             this.获取数码工单ToolStripMenuItem.Enabled = false;
             this.获取数码工单ToolStripMenuItem.Name = "获取数码工单ToolStripMenuItem";
-            this.获取数码工单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.获取数码工单ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.获取数码工单ToolStripMenuItem.Text = "获取数码工单";
             // 
             // toolStripMenuItem13
@@ -270,7 +271,7 @@
             this.toolStripMenuItem20});
             this.获取水印工单ToolStripMenuItem.Enabled = false;
             this.获取水印工单ToolStripMenuItem.Name = "获取水印工单ToolStripMenuItem";
-            this.获取水印工单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.获取水印工单ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.获取水印工单ToolStripMenuItem.Text = "获取水印工单";
             // 
             // toolStripMenuItem17
@@ -302,7 +303,7 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(145, 6);
             // 
             // 甩纸作业toolStripMenuItem
             // 
@@ -313,7 +314,7 @@
             this.toolStripMenuItem11});
             this.甩纸作业toolStripMenuItem.Enabled = false;
             this.甩纸作业toolStripMenuItem.Name = "甩纸作业toolStripMenuItem";
-            this.甩纸作业toolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.甩纸作业toolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.甩纸作业toolStripMenuItem.Text = "获取甩纸作业";
             // 
             // toolStripMenuItem9
@@ -351,7 +352,7 @@
             this.toolStripMenuItem5});
             this.甩纸报工ToolStripMenuItem.Enabled = false;
             this.甩纸报工ToolStripMenuItem.Name = "甩纸报工ToolStripMenuItem";
-            this.甩纸报工ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.甩纸报工ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.甩纸报工ToolStripMenuItem.Text = "获取甩纸报工";
             this.甩纸报工ToolStripMenuItem.Click += new System.EventHandler(this.甩纸报工ToolStripMenuItem_Click);
             // 
@@ -384,7 +385,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
             // 
             // 获取成品入库ToolStripMenuItem
             // 
@@ -395,7 +396,7 @@
             this.手动导入ToolStripMenuItem});
             this.获取成品入库ToolStripMenuItem.Enabled = false;
             this.获取成品入库ToolStripMenuItem.Name = "获取成品入库ToolStripMenuItem";
-            this.获取成品入库ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.获取成品入库ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.获取成品入库ToolStripMenuItem.Text = "获取成品入库";
             // 
             // 自动导入近3天ToolStripMenuItem
@@ -433,7 +434,7 @@
             this.手动导入ToolStripMenuItem1});
             this.获取成品出库ToolStripMenuItem.Enabled = false;
             this.获取成品出库ToolStripMenuItem.Name = "获取成品出库ToolStripMenuItem";
-            this.获取成品出库ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.获取成品出库ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.获取成品出库ToolStripMenuItem.Text = "获取成品出库";
             // 
             // 自动导入3天ToolStripMenuItem
@@ -466,7 +467,7 @@
             // 
             this.获取成品库存ToolStripMenuItem.Enabled = false;
             this.获取成品库存ToolStripMenuItem.Name = "获取成品库存ToolStripMenuItem";
-            this.获取成品库存ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.获取成品库存ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.获取成品库存ToolStripMenuItem.Text = "获取成品库存";
             this.获取成品库存ToolStripMenuItem.Click += new System.EventHandler(this.获取成品库存ToolStripMenuItem_Click);
             // 
@@ -479,7 +480,7 @@
             this.手动导入ToolStripMenuItem2});
             this.获取发货记录toolStripMenuItem7.Enabled = false;
             this.获取发货记录toolStripMenuItem7.Name = "获取发货记录toolStripMenuItem7";
-            this.获取发货记录toolStripMenuItem7.Size = new System.Drawing.Size(152, 22);
+            this.获取发货记录toolStripMenuItem7.Size = new System.Drawing.Size(148, 22);
             this.获取发货记录toolStripMenuItem7.Text = "获取发货记录";
             // 
             // 自动导入近3天ToolStripMenuItem1
@@ -512,7 +513,7 @@
             // 
             this.计算入库面积ToolStripMenuItem.Enabled = false;
             this.计算入库面积ToolStripMenuItem.Name = "计算入库面积ToolStripMenuItem";
-            this.计算入库面积ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.计算入库面积ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.计算入库面积ToolStripMenuItem.Text = "计算入库面积";
             this.计算入库面积ToolStripMenuItem.Click += new System.EventHandler(this.计算入库面积ToolStripMenuItem_Click);
             // 
@@ -520,19 +521,19 @@
             // 
             this.toolStripMenuItem7.Enabled = false;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItem7.Text = "获取退货记录";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(145, 6);
             // 
             // 引入外购入库ToolStripMenuItem
             // 
             this.引入外购入库ToolStripMenuItem.Enabled = false;
             this.引入外购入库ToolStripMenuItem.Name = "引入外购入库ToolStripMenuItem";
-            this.引入外购入库ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.引入外购入库ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.引入外购入库ToolStripMenuItem.Text = "引入外购入库";
             this.引入外购入库ToolStripMenuItem.Click += new System.EventHandler(this.引入外购入库ToolStripMenuItem_Click);
             // 
@@ -540,34 +541,34 @@
             // 
             this.引入生产领料ToolStripMenuItem.Enabled = false;
             this.引入生产领料ToolStripMenuItem.Name = "引入生产领料ToolStripMenuItem";
-            this.引入生产领料ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.引入生产领料ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.引入生产领料ToolStripMenuItem.Text = "引入生产领料";
             this.引入生产领料ToolStripMenuItem.Click += new System.EventHandler(this.引入生产领料ToolStripMenuItem_Click);
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(145, 6);
             // 
             // 获取订单工序ToolStripMenuItem
             // 
             this.获取订单工序ToolStripMenuItem.Enabled = false;
             this.获取订单工序ToolStripMenuItem.Name = "获取订单工序ToolStripMenuItem";
-            this.获取订单工序ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.获取订单工序ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.获取订单工序ToolStripMenuItem.Text = "获取订单工序";
             // 
             // 获取订单报工ToolStripMenuItem
             // 
             this.获取订单报工ToolStripMenuItem.Enabled = false;
             this.获取订单报工ToolStripMenuItem.Name = "获取订单报工ToolStripMenuItem";
-            this.获取订单报工ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.获取订单报工ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.获取订单报工ToolStripMenuItem.Text = "获取订单报工";
             // 
             // 获取工序ToolStripMenuItem
             // 
             this.获取工序ToolStripMenuItem.Enabled = false;
             this.获取工序ToolStripMenuItem.Name = "获取工序ToolStripMenuItem";
-            this.获取工序ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.获取工序ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.获取工序ToolStripMenuItem.Text = "获取工序";
             // 
             // 备份送货数据ToolStripMenuItem
@@ -576,6 +577,33 @@
             this.备份送货数据ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
             this.备份送货数据ToolStripMenuItem.Text = "备份送货数据";
             this.备份送货数据ToolStripMenuItem.Click += new System.EventHandler(this.备份送货数据ToolStripMenuItem_Click);
+            // 
+            // 选择备份数据ToolStripMenuItem
+            // 
+            this.选择备份数据ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.易捷ToolStripMenuItem,
+            this.金蝶ToolStripMenuItem});
+            this.选择备份数据ToolStripMenuItem.Name = "选择备份数据ToolStripMenuItem";
+            this.选择备份数据ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.选择备份数据ToolStripMenuItem.Text = "选择备份数据";
+            // 
+            // 易捷ToolStripMenuItem
+            // 
+            this.易捷ToolStripMenuItem.Checked = true;
+            this.易捷ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.易捷ToolStripMenuItem.Name = "易捷ToolStripMenuItem";
+            this.易捷ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.易捷ToolStripMenuItem.Text = "易捷";
+            this.易捷ToolStripMenuItem.Click += new System.EventHandler(this.易捷ToolStripMenuItem_Click);
+            // 
+            // 金蝶ToolStripMenuItem
+            // 
+            this.金蝶ToolStripMenuItem.Checked = true;
+            this.金蝶ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.金蝶ToolStripMenuItem.Name = "金蝶ToolStripMenuItem";
+            this.金蝶ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.金蝶ToolStripMenuItem.Text = "金蝶,制版线";
+            this.金蝶ToolStripMenuItem.Click += new System.EventHandler(this.易捷ToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -593,11 +621,12 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(131, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // timer1
+            // timerBackup
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1800000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerBackup.Enabled = true;
+            this.timerBackup.Interval = 1800000;
+            this.timerBackup.Tag = "自动备份";
+            this.timerBackup.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // splitContainer1
             // 
@@ -628,32 +657,12 @@
             this.tbShow.Size = new System.Drawing.Size(288, 518);
             this.tbShow.TabIndex = 0;
             // 
-            // 选择备份数据ToolStripMenuItem
+            // timerClr
             // 
-            this.选择备份数据ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.易捷ToolStripMenuItem,
-            this.金蝶ToolStripMenuItem});
-            this.选择备份数据ToolStripMenuItem.Name = "选择备份数据ToolStripMenuItem";
-            this.选择备份数据ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
-            this.选择备份数据ToolStripMenuItem.Text = "选择备份数据";
-            // 
-            // 金蝶ToolStripMenuItem
-            // 
-            this.金蝶ToolStripMenuItem.Checked = true;
-            this.金蝶ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.金蝶ToolStripMenuItem.Name = "金蝶ToolStripMenuItem";
-            this.金蝶ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.金蝶ToolStripMenuItem.Text = "金蝶,制版线";
-            this.金蝶ToolStripMenuItem.Click += new System.EventHandler(this.易捷ToolStripMenuItem_Click);
-            // 
-            // 易捷ToolStripMenuItem
-            // 
-            this.易捷ToolStripMenuItem.Checked = true;
-            this.易捷ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.易捷ToolStripMenuItem.Name = "易捷ToolStripMenuItem";
-            this.易捷ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.易捷ToolStripMenuItem.Text = "易捷";
-            this.易捷ToolStripMenuItem.Click += new System.EventHandler(this.易捷ToolStripMenuItem_Click);
+            this.timerClr.Enabled = true;
+            this.timerClr.Interval = 172800000;
+            this.timerClr.Tag = "清除文本框";
+            this.timerClr.Tick += new System.EventHandler(this.timerClr_Tick);
             // 
             // FormYijie_自动获取
             // 
@@ -744,7 +753,7 @@
         private System.Windows.Forms.ToolStripMenuItem 获取订单工序ToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerBackup;
         private System.Windows.Forms.ToolStripMenuItem 获取订单报工ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 获取工序ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 备份送货数据ToolStripMenuItem;
@@ -753,5 +762,6 @@
         private System.Windows.Forms.ToolStripMenuItem 选择备份数据ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 易捷ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 金蝶ToolStripMenuItem;
+        private System.Windows.Forms.Timer timerClr;
     }
 }

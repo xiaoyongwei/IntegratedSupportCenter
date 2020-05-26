@@ -15,7 +15,7 @@ namespace 综合保障中心.Comm
 
         public static string macAddress = GetSystemInfo.GetMacAddress();
 
-
+        public static string computerName = Environment.MachineName;
 
         /// <summary>
         /// 显示错误弹窗
@@ -118,6 +118,12 @@ namespace 综合保障中心.Comm
             return dt;
         }
 
+        public static void InsertMysqlBackupLog(string logtxt)
+        {
+            string sql = string.Format("INSERT INTO `slbz`.`备份日志`(`时间`,`Mac地址`,`计算机名称`,`描述`)	VALUES('{0}','{1}','{2}','{3}');"
+                , DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), My.macAddress, My.computerName, logtxt);
+            MySqlDbHelper.ExecuteSqlTran(sql);
+        }
 
     }
 }

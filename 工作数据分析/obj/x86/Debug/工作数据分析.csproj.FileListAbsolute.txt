@@ -1,29 +1,7 @@
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\甩纸数据\obj\x86\Debug\工作数据分析.csprojResolveAssemblyReference.cache
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\甩纸数据\obj\x86\Debug\综合保障中心.其它.FormYijie.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\甩纸数据\obj\x86\Debug\甩纸数据.Form弹窗.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\甩纸数据\obj\x86\Debug\甩纸数据.Form用纸情况.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\甩纸数据\obj\x86\Debug\甩纸数据.Form筛选数据.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\甩纸数据\obj\x86\Debug\工作数据分析.Properties.Resources.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\甩纸数据\obj\x86\Debug\工作数据分析.csproj.GenerateResource.Cache
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\甩纸数据\bin\Debug\工作数据分析.exe
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\甩纸数据\bin\Debug\工作数据分析.pdb
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\甩纸数据\bin\Debug\System.Data.SQLite.dll
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\甩纸数据\obj\x86\Debug\工作数据分析.exe
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\甩纸数据\obj\x86\Debug\工作数据分析.pdb
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.exe
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.pdb
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析.exe
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析.pdb
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\bin\Debug\System.Data.SQLite.dll
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csprojResolveAssemblyReference.cache
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\综合保障中心.其它.FormYijie.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\甩纸数据.Form弹窗.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\甩纸数据.Form用纸情况.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\甩纸数据.Form筛选数据.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.Properties.Resources.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.GenerateResource.Cache
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.UserControls.DateTimePacker_UC.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.Form成品仓库数据.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析_自动获取.exe
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析_自动获取.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\QRCoder.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\System.Data.SQLite.dll
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.FormShowData.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\综合保障中心.其它.FormYijie_自动获取.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.Form制版线查询.resources
@@ -42,31 +20,12 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分�
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.Form进纸需求.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\综合保障中心.其它.FormYijie_数据.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.Form选择日期.resources
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.WuLiu.Form添加报货.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.WuLiu.Form物流Mian.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.WuLiu.Form物流当日分析.resources
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\System.Data.SQLite.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.GenerateResource.cache
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.CopyComplete
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\QRCoder.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析_自动获取.exe.config
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析_自动获取.exe
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析_自动获取.pdb
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析_自动获取.exe
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析_自动获取.pdb
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\zxing.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\zxing.presentation.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\zxing.pdb
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\zxing.xml
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\zxing.presentation.pdb
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\zxing.presentation.xml
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\Ionic.Zip.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\MySql.Data.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\NPOI.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\NPOI.OOXML.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\NPOI.OpenXml4Net.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\NPOI.OpenXmlFormats.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\System.Data.SQLite.pdb
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.CoreCompileInputs.cache

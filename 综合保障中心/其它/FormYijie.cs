@@ -165,7 +165,7 @@ namespace 综合保障中心.其它
 
             InitTreeNode();
 
-            GotoWebUrl("http://21.ej-sh.net:9191/login.shtml?method:exit", WebAfter.登录);
+            GotoWebUrl("http://21.ej-sh.net:9191/login.shtml?method:exit", WebAfter.无);
         }
 
         private void InitTreeNode()
@@ -303,6 +303,7 @@ namespace 综合保障中心.其它
             tnList.Add("综合查询,http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdt=");
             tnList.Add("销售出货,http://21.ej-sh.net:9191/ctBcdx/xa.shtml");
             tnList.Add("销售中心查询,http://21.ej-sh.net:9191/ctBcdx/dl.shtml");
+            tnList.Add("销售中心查询,http://21.ej-sh.net:9191/ctBcdx/xr.shtml");
             tnList.Add("送货回签,http://21.ej-sh.net:9191/ctBcdx/sl.shtml");
             tnList.Add("销售中心退货,http://21.ej-sh.net:9191ctBcdx/xl.shtml");
             tnList.Add("销售查询,http://21.ej-sh.net:9191/ctBcdx/gl.shtml");

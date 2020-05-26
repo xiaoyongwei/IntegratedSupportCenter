@@ -49,10 +49,7 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
             case "13":
                 sqlStr = "select * from `slbz`.`二期辅料仓库即时库存一览`;";
                 gridTitle = "二期辅料仓库即时库存一览";
-                break;
-            case "14":
-                sqlStr = "select * from `slbz`.`二期辅料库存补库明细`;";
-                gridTitle = "二期辅料库存补库明细";
+                           
                 break;
             case "15":
                 sqlStr = "select * from `slbz`.`二期成品仓库近30天入库平方`;";
@@ -69,6 +66,26 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
             case "19":
                 sqlStr = "CALL `slbz`.`二期库存情况`();";
                 gridTitle = "二期库存情况";
+                break;
+            case "22":
+                sqlStr = "SELECT cast(`时间`as char)'时间',`Mac地址`,`计算机名称`,`描述`FROM `slbz`.`备份日志` order by 时间 desc LIMIT 500;";
+                gridTitle = "数据备份日志";
+                break;
+            case "23":
+                sqlStr = "SELECT *FROM `slbz`.`报工但未入库近10天`; ";
+                gridTitle = "报工但未入库(近10天)";
+                break;
+            case "24":
+                sqlStr = "CALL `slbz`.`超订单入库近30天`();";
+                gridTitle = "超订单入库(近30天)";
+                break;
+            case "25":
+                sqlStr = "CALL `slbz`.`送完货多余库存`();";
+                gridTitle = "送完货多余库存";
+                break;
+ case "26":
+                sqlStr = "CALL `slbz`.`销售退货和退货入库不符`();";
+                gridTitle = "销售退货和退货入库不符";
                 break;
             default:
                 break;
