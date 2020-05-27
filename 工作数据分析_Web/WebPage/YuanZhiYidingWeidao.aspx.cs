@@ -65,7 +65,7 @@ public partial class WebPage_YuanZhiYidingWeidao : System.Web.UI.Page
 
                 sqlList.Add(
                     string.Format(
-                    "UPDATE`slbz`.`二期原纸已订未到`SET`件数`='{0}'WHERE`纸类`='{1}',`代码`='{2}',`门幅`='{3}'"
+                    "UPDATE`slbz`.`二期原纸已订未到`SET`件数`='{0}' WHERE `纸类`='{1}' and `代码`='{2}' and `门幅`='{3}'"
                     , jianshu, zhilei, daima, menfu));
             }
         }
@@ -77,5 +77,12 @@ public partial class WebPage_YuanZhiYidingWeidao : System.Web.UI.Page
         {
             Response.Write("<script>alert('错误: 保存失败!');</script>");
         }
+    }
+
+
+
+    protected void TextBox_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }

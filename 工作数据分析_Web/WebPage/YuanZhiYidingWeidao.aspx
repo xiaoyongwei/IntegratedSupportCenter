@@ -20,7 +20,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
     原纸已订未到明细
-    <asp:Panel ID="Panel1" runat="server" ScrollBars="Horizontal">
+    <asp:Panel ID="Panel1" runat="server" ScrollBars="Horizontal" EnableViewState="False">
     
     <table style="width: 100%;" border="1" cellspacing="0" dir="ltr" frame="above" >
      <tr>
@@ -91,55 +91,55 @@
                 T
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_900" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_900" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_950" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_950" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1000" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1000" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1050" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1050" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1100" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1100" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1150" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1150" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1200" runat="server" Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1200" runat="server" Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1250" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1250" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1300" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1300" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1350" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1350" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1400" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1400" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1450" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1450" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1500" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1500" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1550" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1550" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1600" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1600" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1650" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1650" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td class="style3">
-                <asp:TextBox ID="TextBox_T_1700" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_T_1700" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -147,55 +147,55 @@
                 UV
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_900" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_900" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_950" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_950" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1000" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1000" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1050" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1050" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1100" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1100" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1150" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1150" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1200" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1200" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1250" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1250" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1300" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1300" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1350" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1350" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1400" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1400" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1450" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1450" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1500" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1500" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1550" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1550" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1600" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1600" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1650" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1650" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_UV_1700" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_UV_1700" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -203,55 +203,55 @@
                 V1
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_900" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_900" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_950" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_950" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1000" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1000" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1050" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1050" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1100" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1100" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1150" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1150" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1200" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1200" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1250" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1250" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1300" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1300" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1350" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1350" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1400" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1400" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1450" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1450" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1500" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1500" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1550" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1550" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1600" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1600" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1650" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1650" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
             <td>
-                <asp:TextBox ID="TextBox_V1_1700" runat="server"  Width="100%" BorderStyle="None"></asp:TextBox>
+                <asp:TextBox ID="TextBox_V1_1700" runat="server"  Width="100%" BorderStyle="None"  EnableViewState="False" Wrap="False"></asp:TextBox>
             </td>
         </tr>
     </table>

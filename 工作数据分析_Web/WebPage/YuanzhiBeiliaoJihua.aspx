@@ -7,7 +7,7 @@
     <table style="width: 100%;">
         <tr>
             <td>
-                <asp:Label ID="Label1"  runat="server" Text="Label" ForeColor="#FF3300">A类纸</asp:Label>
+                <%--<asp:Label ID="Label1"  runat="server" Text="Label" ForeColor="#FF3300">A类纸</asp:Label>--%>
             </td>
         </tr>
         <tr>
@@ -34,7 +34,7 @@
                 </asp:GridView>
             </td>
         </tr>
-        <tr>
+        <%--<tr>
             <td>
                 <asp:Label ID="Label2" runat="server" Text="Label" ForeColor="#FF3300">B类纸</asp:Label>
             </td>
@@ -62,6 +62,6 @@
                 <asp:GridView ID="GridView8" runat="server">
                 </asp:GridView>
             </td>
-        </tr>
+        </tr>--%>
     </table>
 </asp:Content>
