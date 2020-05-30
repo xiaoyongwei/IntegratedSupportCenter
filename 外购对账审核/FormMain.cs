@@ -43,7 +43,7 @@ namespace 外购对账审核
 
         private void 金蝶未入库明细ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormWeihu("SELECT *FROM [外购记录_扩展]WHERE [金蝶入账]=0", "金蝶未入库明细",true).ShowDialog();
+            new FormWeihu("SELECT *FROM [未入库明细top500]ORDER BY [送货日期]desc LIMIT 500", "金蝶未入库明细",true).ShowDialog();
         }
     }
 }

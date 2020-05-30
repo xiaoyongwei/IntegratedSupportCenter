@@ -38,3 +38,6 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\外购对账审�
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\外购对账审核\bin\Debug\MySql.Data.dll
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.FormInputText.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.csproj.CopyComplete
