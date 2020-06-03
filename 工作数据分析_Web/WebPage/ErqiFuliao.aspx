@@ -14,16 +14,10 @@
         </tr>
         <tr>
             <td>
-                <asp:Calendar ID="Calendar_S" runat="server">
-                    <SelectedDayStyle BackColor="#99FFCC" />
-                    <TodayDayStyle BackColor="Silver" />
-                </asp:Calendar>
+                <asp:TextBox ID="TextBox_S" runat="server"></asp:TextBox>
             </td>
             <td>
-                <asp:Calendar ID="Calendar_E" runat="server">
-                    <SelectedDayStyle BackColor="#99FFCC" />
-                    <TodayDayStyle BackColor="Silver" />
-                </asp:Calendar>
+                <asp:TextBox ID="TextBox_E" runat="server"></asp:TextBox>
             </td>
             
         </tr>

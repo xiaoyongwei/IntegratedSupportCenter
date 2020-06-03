@@ -83,9 +83,13 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr = "CALL `slbz`.`送完货多余库存`();";
                 gridTitle = "送完货多余库存";
                 break;
- case "26":
+            case "26":
                 sqlStr = "CALL `slbz`.`销售退货和退货入库不符`();";
                 gridTitle = "销售退货和退货入库不符";
+                break;
+            case "27":
+                sqlStr = "CALL `slbz`.`辅料备料技术分析`();";
+                gridTitle = "辅料备料技术分析(10天安全库存)";
                 break;
             default:
                 break;
