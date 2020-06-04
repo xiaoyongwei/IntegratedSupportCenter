@@ -56,6 +56,7 @@
                             <asp:MenuItem NavigateUrl="~/WebPage/K3Waigou.aspx" Text="外购入库" Value="外购入库"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/K3Lingliao.aspx" Text="辅料领料" Value="辅料领料"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=27" Text="辅料备料" Value="辅料备料" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/wuliaorukujinezoushi.aspx" Text="物料金额走势" Value="物料金额走势" />
                             <asp:MenuItem NavigateUrl="~/WebPage/WuliuShujuFenxi.aspx" Text="物流数据分析" Value="物流数据分析"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=18" Text="近90天运费" Value="近90天运费" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=15" Text="成品近30天入库" Value="成品近30天入库" />
