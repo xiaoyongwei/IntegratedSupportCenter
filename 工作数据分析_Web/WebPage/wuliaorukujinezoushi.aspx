@@ -11,7 +11,7 @@
     <table style="width:100%;">
         <tr>
             <td class="auto-style1">
-                <asp:Panel ID="Panel1" runat="server" Height="650px" ScrollBars="Both" Width="162px">
+                <asp:Panel ID="Panel1" runat="server" Height="650px" ScrollBars="Both" Width="179px">
                     <asp:TextBox ID="TextBoxSearch" runat="server" Width="100%"> </asp:TextBox>
                     <asp:Button ID="ButtonSearch" runat="server" OnClick="ButtonH_Click" Text="&lt;&lt;查询&gt;&gt;" />
                     <asp:TreeView ID="TreeView1" runat="server" OnSelectedNodeChanged="TreeView1_SelectedNodeChanged">
@@ -19,7 +19,7 @@
                 </asp:Panel>
             </td>
             <td>
-                <asp:Panel ID="Panel2" runat="server" Height="650px" ScrollBars="Both">
+                <asp:Panel ID="Panel2" runat="server" Height="650px" ScrollBars="Both" Width="750px">
                     <asp:GridView ID="GridView1" runat="server">
                     </asp:GridView>
                     <br />

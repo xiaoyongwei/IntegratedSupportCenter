@@ -35,7 +35,7 @@ public partial class WebPage_wuliaorukujinezoushi : System.Web.UI.Page
         {
             if (listY[i]==listY[i-1])
             {
-                listDelIndex.Add(i);
+                listDelIndex.Add(i-1);
             }
         }
         listDelIndex.Reverse();
