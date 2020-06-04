@@ -92,7 +92,7 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 gridTitle = "辅料备料技术分析(10天安全库存)";
                 break;
             case "28":
-                sqlStr = "SELECT *FROM `slbz`.`瓦片完成情况`WHERE 工单号 like'C%' ORDER BY  `结束时间` DESC LIMIT 500;";
+                sqlStr = "SELECT *FROM `slbz`.`瓦片完成情况近500单`;";
                 gridTitle = "瓦片完成情况(近500单)";
                 break;
             default:

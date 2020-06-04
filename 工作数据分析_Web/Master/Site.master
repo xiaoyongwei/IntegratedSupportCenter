@@ -69,13 +69,13 @@
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=23" Text="报工但未入库" Value="报工但未入库" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=24" Text="超订单入库" Value="超订单入库" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=25" Text="送完货多余库存" Value="送完货多余库存" />
-<asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=26" Text="销售退货和退货入库不符" Value="销售退货和退货入库不符" />
-<asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=28" Text="瓦片完成" Value="瓦片完成" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=26" Text="销售退货和退货入库不符" Value="销售退货和退货入库不符" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=5" Text="未甩纸明细" Value="未甩纸明细"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=6" Text="未覆膜明细" Value="未覆膜明细"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResultWrite.aspx?sqlcode=8" Text="特殊工艺订单" Value="特殊工艺订单"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/PlannedDeliveryOrder.aspx" Text="计划交期订单" Value="计划交期订单"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResultWrite.aspx?sqlcode=12" Text="未完工订单" Value="未完工订单"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=28" Text="瓦片完成" Value="瓦片完成" />
                             <asp:MenuItem NavigateUrl="~/WebPage/Kaidan.aspx" Text="开单数据" Value="开单数据"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=22" Text="日志" Value="日志" />
                             <asp:MenuItem NavigateUrl="~/About.aspx" Text="关于" />
