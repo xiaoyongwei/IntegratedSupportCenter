@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Net;
 using System.Windows.Forms;
 using 综合保障中心.Comm;
 using 综合保障中心.其它;

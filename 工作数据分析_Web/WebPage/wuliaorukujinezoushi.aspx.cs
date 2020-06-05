@@ -44,6 +44,8 @@ public partial class WebPage_wuliaorukujinezoushi : System.Web.UI.Page
             listX.RemoveAt(item);
             listY.RemoveAt(item);
         }
+        listX.Reverse();
+        listY.Reverse();
 
         //title属性说明
         //边框样式设置
