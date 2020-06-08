@@ -54,7 +54,8 @@ namespace 综合保障中心.其它
             计算入库面积,
             计划物流综合查询,
             销售退货,
-            销售退货_明细
+            销售退货_明细,
+            送货单号匹配日期
         }
         /// <summary>
         /// 浏览器加载后执行的动作
@@ -165,9 +166,91 @@ namespace 综合保障中心.其它
                 case WebAfter.销售退货_明细:
                     Get销售退货_明细();
                     break;
+                case WebAfter.送货单号匹配日期:
+                    //Get送货单号匹配日期();
+                    break;
                 default:
                     break;
             }
+        }
+
+        private void Get送货单号匹配日期()
+        {
+            if (!(webBrowser.DocumentText.Contains("<span style=\"color: #ff0000;\">运费录入</span></a>") &&
+             webBrowser.DocumentText.Contains("运费录入")))
+            {
+                AddtbShow("当前页面非[运费录入]页面 " + dic.Count);
+                dic.Clear();
+                GotoWebUrlByDic();
+                return;
+            }
+
+            HtmlElementCollection hec = webBrowser.Document.GetElementsByTagName("table")[3].GetElementsByTagName("tr");
+
+            if (hec.Count > 2)
+            {
+                DataTable dt = new DataTable();
+                foreach (HtmlElement item in hec[1].GetElementsByTagName("td"))
+                {
+                    dt.Columns.Add(item.OuterText);
+                }
+                for (int trI = 2; trI < hec.Count; trI++)
+                {
+                    List<object> listObj = new List<object>();
+                    foreach (HtmlElement item in hec[trI].GetElementsByTagName("td"))
+                    {
+                        listObj.Add(item.OuterText);
+                    }
+                    dt.Rows.Add(listObj.ToArray());
+                }
+
+
+                //    添加到datatable中完成
+                dt.Columns.RemoveAt(0);
+                //只保留日期和单号列
+                for (int i = dt.Columns.Count-1; i >=0; i--)
+                {
+                    if (!(dt.Columns[i].Namespace.Contains("日期")|| dt.Columns[i].Namespace.Contains("单号")))
+                    {
+                        dt.Columns.RemoveAt(i);
+                    }
+                }
+
+                //    开始添加到sql中
+                List<string> sqlList = new List<string>();
+
+                StringBuilder sb_Insert = new StringBuilder("insert ignore into `slbz`.`运费管理附表`(");
+                foreach (DataColumn dc in dt.Columns)//添加列
+                {
+                    sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
+                }
+                sb_Insert.Remove(sb_Insert.Length - 1, 1);
+                sb_Insert.AppendLine(")VALUES");
+                StringBuilder sb_values = new StringBuilder("(");
+                foreach (DataRow dr in dt.Rows)
+                {
+                    sb_values = new StringBuilder("(");
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        sb_values.AppendFormat("'{0}',", dr[dc].ToString());
+                    }
+                    sb_values.Remove(sb_values.Length - 1, 1);
+                    sb_values.AppendLine(");");
+                    sb_values.Replace("\\", "\\\\");
+                    sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
+                }
+                if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
+                {
+                    dic.Clear();
+                    AddtbShow("获取[运费录入]失败×××××! " + dic.Count);
+                }
+                else
+                {
+                    AddtbShow("获取[运费录入]成功! " + dic.Count);
+                }
+            }
+
+            wAfter = WebAfter.下个明细;
         }
 
         private void Get销售退货_明细()
@@ -1663,6 +1746,8 @@ namespace 综合保障中心.其它
                 //其他司机的运费(仅限有打单记录的送货运费)
                 dic.Add("http://21.ej-sh.net:9191/dlvFare/sl.shtml?pono=ZX&strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
                   + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&driver=&rowsPerPage=5000", WebAfter.运费管理);
+                //送货单号匹配日期
+                dic.Add("http://21.ej-sh.net:9191/dlvFare.shtml?method:form=&id=&pono=", WebAfter.送货单号匹配日期);
 
             }
 
