@@ -209,7 +209,7 @@ namespace 综合保障中心.其它
                 //只保留日期和单号列
                 for (int i = dt.Columns.Count-1; i >=0; i--)
                 {
-                    if (!(dt.Columns[i].Namespace.Contains("日期")|| dt.Columns[i].Namespace.Contains("单号")))
+                    if (!(dt.Columns[i].ColumnName.Contains("日期")|| dt.Columns[i].ColumnName.Contains("单号")))
                     {
                         dt.Columns.RemoveAt(i);
                     }
@@ -218,7 +218,7 @@ namespace 综合保障中心.其它
                 //    开始添加到sql中
                 List<string> sqlList = new List<string>();
 
-                StringBuilder sb_Insert = new StringBuilder("insert ignore into `slbz`.`运费管理附表`(");
+                StringBuilder sb_Insert = new StringBuilder("replace  INTO `slbz`.`运费管理附表`(");
                 foreach (DataColumn dc in dt.Columns)//添加列
                 {
                     sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
@@ -1716,124 +1716,122 @@ namespace 综合保障中心.其它
 
 
 
-            //if (yijieBool)
-            //{
-            //    List<string> erqiSiji = new List<string>();
-            //    foreach (DataRow row in MySqlDbHelper.ExecuteDataTable("SELECT `司机`FROM `slbz`.`物流_司机信息`").Rows)
-            //    {
-            //        erqiSiji.Add(row[0].ToString());
-            //    }
+            if (yijieBool)
+            {
+                List<string> erqiSiji = new List<string>();
+                foreach (DataRow row in MySqlDbHelper.ExecuteDataTable("SELECT `司机`FROM `slbz`.`物流_司机信息`").Rows)
+                {
+                    erqiSiji.Add(row[0].ToString());
+                }
 
-            //    ////纸箱排车
-            //    //dic.Add("http://21.ej-sh.net:9191/dlvAuto.shtml?status=&rowsPerPage=1&strdats="
-            //    //    + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")+"&endates=" + DateTime.Now.ToString("yyyy-MM-dd")
-            //    //    , WebAfter.纸箱排车);
+                ////纸箱排车
+                //dic.Add("http://21.ej-sh.net:9191/dlvAuto.shtml?status=&rowsPerPage=1&strdats="
+                //    + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")+"&endates=" + DateTime.Now.ToString("yyyy-MM-dd")
+                //    , WebAfter.纸箱排车);
 
-            //    //成品入库
-            //    dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdr=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
-            //       + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.入库明细);
+                //成品入库
+                dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdr=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
+                   + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.入库明细);
 
-            //    //发货记录
-            //    dic.Add("http://21.ej-sh.net:9191/ctBcdx/dlv.shtml?strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
-            //      + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000&pageSize=1", WebAfter.送货明细);
-            //    //运费管理
-            //    foreach (string siji in erqiSiji)
-            //    {
-            //        dic.Add("http://21.ej-sh.net:9191/dlvFare/sl.shtml?strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
-            //      + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&driver=" + Uri.EscapeUriString(siji) + "&rowsPerPage=5000", WebAfter.运费管理);
-            //    }
-            //其他司机的运费(仅限有打单记录的送货运费)
-            //dic.Add("http://21.ej-sh.net:9191/dlvFare/sl.shtml?pono=ZX&strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
-            //  + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&driver=&rowsPerPage=5000", WebAfter.运费管理);
-            dic.Add("http://21.ej-sh.net:9191/dlvFare/sl.shtml?pono=&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
-              + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&driver=&rowsPerPage=5000", WebAfter.下个明细);
+                //发货记录
+                dic.Add("http://21.ej-sh.net:9191/ctBcdx/dlv.shtml?strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
+                  + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000&pageSize=1", WebAfter.送货明细);
+                //运费管理
+                foreach (string siji in erqiSiji)
+                {
+                    dic.Add("http://21.ej-sh.net:9191/dlvFare/sl.shtml?strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
+                  + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&driver=" + Uri.EscapeUriString(siji) + "&rowsPerPage=5000", WebAfter.运费管理);
+                }
+                //其他司机的运费(仅限有打单记录的送货运费)
+                dic.Add("http://21.ej-sh.net:9191/dlvFare/sl.shtml?pono=ZX&strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
+              + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&driver=&rowsPerPage=5000", WebAfter.运费管理);
             //送货单号匹配日期
             dic.Add("http://21.ej-sh.net:9191/dlvFare.shtml?method:form=&id=&pono=", WebAfter.送货单号匹配日期);
 
-            //}
+            }
 
-            //if (!YunfeiOnly)
-            //{
-            //    if (yijieBool)
-            //    {
-            //        //彩印
-            //        dic.Add("http://21.ej-sh.net:9191/clOrd/mt.shtml?status=Y&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
-            //          + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_彩印);
-            //        //数码
-            //        dic.Add("http://21.ej-sh.net:9191/cdOrd/mt.shtml?status=Y&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
-            //        + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_数码);
-            //        //水印
-            //        dic.Add("http://21.ej-sh.net:9191/ctOrd/mt.shtml?status=Y&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
-            //        + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_水印);
-            //        //甩纸作业
-            //        dic.Add("http://21.ej-sh.net:9191/ordSchCt/bcp.shtml?strdats=" + DateTime.Now.AddDays(-30).ToString("yyyy-MM-dd")
-            //            + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&status=&rowsPerPage=1000", WebAfter.甩纸作业);
-            //        //报工查询
-            //        dic.Add("http://21.ej-sh.net:9191/ordSchCt/overlist.shtml?strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
-            //            + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.报工查询);
-            //        //排程查询-彩盒
-            //        for (DateTime i = DateTime.Now.AddDays(-5); i <= DateTime.Now; i = i.AddDays(1))
-            //        {
-            //            dic.Add("http://21.ej-sh.net:9191/ordSchRead.shtml?strdats=" + i.ToString("yyyy-MM-dd")
-            //           + "&endates=" + i.ToString("yyyy-MM-dd") + "&objtyp=CL&daytyp=P&rowsPerPage=5000", WebAfter.排程查询);
-            //        }
-            //        //排程查询 - 数码
-            //        for (DateTime i = DateTime.Now.AddDays(-5); i <= DateTime.Now; i = i.AddDays(1))
-            //        {
-            //            dic.Add("http://21.ej-sh.net:9191/ordSchRead.shtml?strdats=" + i.ToString("yyyy-MM-dd")
-            //           + "&endates=" + i.ToString("yyyy-MM-dd") + "&objtyp=CD&daytyp=P&rowsPerPage=5000", WebAfter.排程查询);
-            //        }
-            //        // 成品出库
-            //        dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdx=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
-            //           + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.出库明细);
-            //        //成品库存
-            //        dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdt=&rowsPerPage=5000", WebAfter.库存明细);
-            //        //获取工序
-            //        dic.Add("http://21.ej-sh.net:9191/pbProcesses.shtml?rowsPerPage=2000", WebAfter.获取工序);
-            //        //计划物流综合查询-彩盒
-            //        dic.Add("http://21.ej-sh.net:9191/ordInquiry/sl.shtml?strdats=" + DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd")
-            //           + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&objtyp=CL&rowsPerPage=5000"
-            //           , WebAfter.计划物流综合查询);
-            //        //计划物流综合查询-数码
-            //        dic.Add("http://21.ej-sh.net:9191/ordInquiry/sl.shtml?strdats=" + DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd")
-            //           + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&objtyp=CD&rowsPerPage=5000"
-            //           , WebAfter.计划物流综合查询);
-            //        //计划物流综合查询-纸箱
-            //        dic.Add("http://21.ej-sh.net:9191/ordInquiry/sl.shtml?strdats=" + DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd")
-            //           + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&objtyp=CT&rowsPerPage=5000"
-            //           , WebAfter.计划物流综合查询);
-            //        //销售退货
-            //        dic.Add("http://21.ej-sh.net:9191/ctBcdx/xl.shtml?strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
-            //           + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&status=Y&rowsPerPage=5000"
-            //           , WebAfter.销售退货);
-            //        //插入销售退货的明细
-            //        //根据操作时间的近60天的ID
-            //        List<string> idList = new List<string>();
-            //        string sqlStr = "select ID from (SELECT `ID`"
-            //        + ",(case when `操作日期`=(select left(`操作日期`,16)from`slbz`.`销售退货_明细`where 退货单号=单号 limit 1) then '否'else'是'end)'更新'"
-            //        + "FROM `slbz`.`销售退货_概况`"
-            //        + "where (`slbz`.`销售退货_概况`.`操作日期` between date_format(date_add(now(), interval -60 day), '%Y-%m-%d 00:00') "
-            //        + "and date_format(now(), '%Y-%m-%d 99:99'))and (`数量`!=''))aa      where aa.更新='是';";
-            //        foreach (DataRow dr in MySqlDbHelper.ExecuteDataTable(sqlStr).Rows)
-            //        {
-            //            dic.Add("http://21.ej-sh.net:9191/ctBcdx/xl.shtml?method:form=&id=" + dr[0] + "&actype=D", WebAfter.销售退货_明细);
-            //        }
-            //        //返回
-            //        dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml", WebAfter.计算入库面积);
-            //    }
-            //    if (jindieBool)
-            //    {
-            //        DataBaseList.InitSqlhelper();
-            //        Get二期辅料仓库领料明细();
-            //        Get二期原纸仓库即时库存();
-            //        Get二期胶印纸箱仓库即时库存();
-            //        Get二期辅料仓库即时库存();
-            //        Get二期仓库入库明细();
-            //        Get1800制版线完成信息();
-            //        Get2200制版线完成信息();
-            //        Get2500制版线完成信息();
-            //    }
-        //}
+            if (!YunfeiOnly)
+            {
+                if (yijieBool)
+                {
+                    //彩印
+                    dic.Add("http://21.ej-sh.net:9191/clOrd/mt.shtml?status=Y&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
+                      + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_彩印);
+                    //数码
+                    dic.Add("http://21.ej-sh.net:9191/cdOrd/mt.shtml?status=Y&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
+                    + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_数码);
+                    //水印
+                    dic.Add("http://21.ej-sh.net:9191/ctOrd/mt.shtml?status=Y&strdats=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")
+                    + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.导入生产单_水印);
+                    //甩纸作业
+                    dic.Add("http://21.ej-sh.net:9191/ordSchCt/bcp.shtml?strdats=" + DateTime.Now.AddDays(-30).ToString("yyyy-MM-dd")
+                        + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&status=&rowsPerPage=1000", WebAfter.甩纸作业);
+                    //报工查询
+                    dic.Add("http://21.ej-sh.net:9191/ordSchCt/overlist.shtml?strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
+                        + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.报工查询);
+                    //排程查询-彩盒
+                    for (DateTime i = DateTime.Now.AddDays(-5); i <= DateTime.Now; i = i.AddDays(1))
+                    {
+                        dic.Add("http://21.ej-sh.net:9191/ordSchRead.shtml?strdats=" + i.ToString("yyyy-MM-dd")
+                       + "&endates=" + i.ToString("yyyy-MM-dd") + "&objtyp=CL&daytyp=P&rowsPerPage=5000", WebAfter.排程查询);
+                    }
+                    //排程查询 - 数码
+                    for (DateTime i = DateTime.Now.AddDays(-5); i <= DateTime.Now; i = i.AddDays(1))
+                    {
+                        dic.Add("http://21.ej-sh.net:9191/ordSchRead.shtml?strdats=" + i.ToString("yyyy-MM-dd")
+                       + "&endates=" + i.ToString("yyyy-MM-dd") + "&objtyp=CD&daytyp=P&rowsPerPage=5000", WebAfter.排程查询);
+                    }
+                    // 成品出库
+                    dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdx=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
+                       + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.出库明细);
+                    //成品库存
+                    dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdt=&rowsPerPage=5000", WebAfter.库存明细);
+                    //获取工序
+                    dic.Add("http://21.ej-sh.net:9191/pbProcesses.shtml?rowsPerPage=2000", WebAfter.获取工序);
+                    //计划物流综合查询-彩盒
+                    dic.Add("http://21.ej-sh.net:9191/ordInquiry/sl.shtml?strdats=" + DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd")
+                       + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&objtyp=CL&rowsPerPage=5000"
+                       , WebAfter.计划物流综合查询);
+                    //计划物流综合查询-数码
+                    dic.Add("http://21.ej-sh.net:9191/ordInquiry/sl.shtml?strdats=" + DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd")
+                       + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&objtyp=CD&rowsPerPage=5000"
+                       , WebAfter.计划物流综合查询);
+                    //计划物流综合查询-纸箱
+                    dic.Add("http://21.ej-sh.net:9191/ordInquiry/sl.shtml?strdats=" + DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd")
+                       + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&objtyp=CT&rowsPerPage=5000"
+                       , WebAfter.计划物流综合查询);
+                    //销售退货
+                    dic.Add("http://21.ej-sh.net:9191/ctBcdx/xl.shtml?strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
+                       + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&status=Y&rowsPerPage=5000"
+                       , WebAfter.销售退货);
+                    //插入销售退货的明细
+                    //根据操作时间的近60天的ID
+                    List<string> idList = new List<string>();
+                    string sqlStr = "select ID from (SELECT `ID`"
+                    + ",(case when `操作日期`=(select left(`操作日期`,16)from`slbz`.`销售退货_明细`where 退货单号=单号 limit 1) then '否'else'是'end)'更新'"
+                    + "FROM `slbz`.`销售退货_概况`"
+                    + "where (`slbz`.`销售退货_概况`.`操作日期` between date_format(date_add(now(), interval -60 day), '%Y-%m-%d 00:00') "
+                    + "and date_format(now(), '%Y-%m-%d 99:99'))and (`数量`!=''))aa      where aa.更新='是';";
+                    foreach (DataRow dr in MySqlDbHelper.ExecuteDataTable(sqlStr).Rows)
+                    {
+                        dic.Add("http://21.ej-sh.net:9191/ctBcdx/xl.shtml?method:form=&id=" + dr[0] + "&actype=D", WebAfter.销售退货_明细);
+                    }
+                    //返回
+                    dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml", WebAfter.计算入库面积);
+                }
+                if (jindieBool)
+                {
+                    DataBaseList.InitSqlhelper();
+                    Get二期辅料仓库领料明细();
+                    Get二期原纸仓库即时库存();
+                    Get二期胶印纸箱仓库即时库存();
+                    Get二期辅料仓库即时库存();
+                    Get二期仓库入库明细();
+                    Get1800制版线完成信息();
+                    Get2200制版线完成信息();
+                    Get2500制版线完成信息();
+                }
+            }
 
             if (yijieBool)
             {
