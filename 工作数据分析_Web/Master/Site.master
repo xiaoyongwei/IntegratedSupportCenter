@@ -64,6 +64,7 @@
                             <asp:MenuItem NavigateUrl="~/WebPage/ChengpinCangku.aspx" Text="成品库存超期明细" Value="成品库存超期明细" />
                             <asp:MenuItem NavigateUrl="~/WebPage/RukuGaikuangAnRiqi.aspx" Text="入库情况(按日期)" Value="入库情况(按日期)" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ErqiChenpinKucun.aspx" Text="成品库存情况" Value="成品库存情况" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=29" Text="发货检查预警" Value="发货检查预警" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=20" Text="出入库异常记录" Value="出入库异常记录" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=21" Text="交货超期" Value="交货超期" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=23" Text="报工但未入库" Value="报工但未入库" />

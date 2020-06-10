@@ -95,6 +95,10 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr = "SELECT *FROM `slbz`.`瓦片完成情况近500单`;";
                 gridTitle = "瓦片完成情况(近500单)";
                 break;
+            case "29":
+                sqlStr = "CALL `slbz`.`发货检查预警`();";
+                gridTitle = "发货检查预警";
+                break;
             default:
                 break;
         }
