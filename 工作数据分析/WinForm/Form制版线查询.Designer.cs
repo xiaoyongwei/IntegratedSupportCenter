@@ -40,6 +40,7 @@
             this.treeView = new System.Windows.Forms.TreeView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.dgv1 = new System.Windows.Forms.DataGridView();
             this.tabPage完工查询 = new System.Windows.Forms.TabPage();
             this.button查询 = new System.Windows.Forms.Button();
             this.textBox客户 = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@
             this.dtPicker_e = new System.Windows.Forms.DateTimePicker();
             this.dtPicker_s = new System.Windows.Forms.DateTimePicker();
             this.dgv_wg = new System.Windows.Forms.DataGridView();
-            this.dgv1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage当前排程.SuspendLayout();
@@ -64,9 +64,9 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.tabPage完工查询.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_wg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -179,6 +179,8 @@
             this.dgv.AllowUserToAddRows = false;
             this.dgv.AllowUserToDeleteRows = false;
             this.dgv.AllowUserToOrderColumns = true;
+            this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(0, 0);
@@ -187,6 +189,22 @@
             this.dgv.RowTemplate.Height = 23;
             this.dgv.Size = new System.Drawing.Size(755, 442);
             this.dgv.TabIndex = 0;
+            // 
+            // dgv1
+            // 
+            this.dgv1.AllowUserToAddRows = false;
+            this.dgv1.AllowUserToDeleteRows = false;
+            this.dgv1.AllowUserToOrderColumns = true;
+            this.dgv1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv1.Location = new System.Drawing.Point(0, 0);
+            this.dgv1.Name = "dgv1";
+            this.dgv1.ReadOnly = true;
+            this.dgv1.RowTemplate.Height = 23;
+            this.dgv1.Size = new System.Drawing.Size(755, 179);
+            this.dgv1.TabIndex = 1;
             // 
             // tabPage完工查询
             // 
@@ -298,20 +316,6 @@
             this.dgv_wg.Size = new System.Drawing.Size(910, 595);
             this.dgv_wg.TabIndex = 0;
             // 
-            // dgv1
-            // 
-            this.dgv1.AllowUserToAddRows = false;
-            this.dgv1.AllowUserToDeleteRows = false;
-            this.dgv1.AllowUserToOrderColumns = true;
-            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv1.Location = new System.Drawing.Point(0, 0);
-            this.dgv1.Name = "dgv1";
-            this.dgv1.ReadOnly = true;
-            this.dgv1.RowTemplate.Height = 23;
-            this.dgv1.Size = new System.Drawing.Size(755, 179);
-            this.dgv1.TabIndex = 1;
-            // 
             // Form制版线查询
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -338,10 +342,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.tabPage完工查询.ResumeLayout(false);
             this.tabPage完工查询.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_wg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
