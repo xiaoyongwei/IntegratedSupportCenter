@@ -137,6 +137,7 @@
             this.treeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView.ForeColor = System.Drawing.Color.Black;
+            this.treeView.HideSelection = false;
             this.treeView.Indent = 5;
             this.treeView.ItemHeight = 30;
             this.treeView.Location = new System.Drawing.Point(0, 0);

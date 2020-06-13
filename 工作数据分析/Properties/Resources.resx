@@ -652,7 +652,7 @@ left join t_StockPlace t5 on u1.FStockPlaceID=t5.FSPID
 	,[prodtime]'生产时间'
 	,[瓦片线]='1.8米制版线'
 FROM [dbo].[finish]
-WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-30,GETDATE())) and CONVERT(DATETIME,GETDATE()) and [orderno] like'C%'  ORDER BY [finishdate]desc</value>
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) and [orderno] like'C%'  ORDER BY [finishdate]desc</value>
   </data>
   <data name="制版线完工2500当天" xml:space="preserve">
     <value>select 

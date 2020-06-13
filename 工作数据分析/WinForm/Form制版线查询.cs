@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using 工作数据分析.Data.DAL;
 using 工作数据分析.Properties;
@@ -133,6 +135,23 @@ namespace 工作数据分析.WinForm
                 default:
                     break;
             }
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                if (column.Name=="订单号"||column.Name== "Cust_OrderID")
+                {
+                    foreach (DataGridViewRow row in dgv.Rows)
+                    {
+                        if (Regex.IsMatch(row.Cells[column.Name].Value.ToString(),"C\\d+"))
+                        {
+                            row.DefaultCellStyle.BackColor = Color.Yellow;
+                            row.DefaultCellStyle.SelectionBackColor = Color.Red;
+                        }
+                    }
+                    break;
+                }
+                
+            }
+            
         }
 
     }

@@ -299,7 +299,7 @@ namespace 工作数据分析.Properties {
         ///	,[prodtime]&apos;生产时间&apos;
         ///	,[瓦片线]=&apos;1.8米制版线&apos;
         ///FROM [dbo].[finish]
-        ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-30,GETDATE())) and CONVERT(DATETIME,GETDATE()) and [orderno] like&apos;C%&apos;  ORDER BY [finishdate]desc 的本地化字符串。
+        ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) and [orderno] like&apos;C%&apos;  ORDER BY [finishdate]desc 的本地化字符串。
         /// </summary>
         internal static string 制版线完工1800当天 {
             get {
