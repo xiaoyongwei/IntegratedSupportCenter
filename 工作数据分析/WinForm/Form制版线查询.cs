@@ -99,6 +99,7 @@ namespace 工作数据分析.WinForm
                     {
                         DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
                         dgv.DataSource = DataBaseList.sql制版线1800.Querytable("SELECT *FROM [dbo].[bc]ORDER BY [序号]");
+                        dgv1.DataSource= DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800当天);
                     }
                     else
                     {
@@ -110,6 +111,7 @@ namespace 工作数据分析.WinForm
                     {
                         DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
                         dgv.DataSource = DataBaseList.sql制版线2200.Querytable("SELECT *FROM [dbo].[bc]ORDER BY [序号]");
+                        dgv1.DataSource = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工1800当天);
                     }
                     else
                     {
@@ -121,6 +123,7 @@ namespace 工作数据分析.WinForm
                     {
                         DataBaseList.sql制版线2500 = new SqlHelper(DataBaseList.ConnString_制版线2500);
                         dgv.DataSource = DataBaseList.sql制版线2500.Querytable("exec GetOrderitemsMTest @ProdLineLevelCnt=2,@size=2000,@Page=1");
+                        dgv1.DataSource = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500当天);
                     }
                     else
                     {
@@ -131,14 +134,6 @@ namespace 工作数据分析.WinForm
                     break;
             }
         }
-
-        private void 刷新ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
 
     }
 }

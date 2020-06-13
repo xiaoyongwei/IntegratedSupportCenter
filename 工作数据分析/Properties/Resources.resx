@@ -635,6 +635,120 @@ left join t_StockPlace t5 on u1.FStockPlaceID=t5.FSPID
  Order By t1.FNumber,u1.FBatchNo
 ,u1.FMTONo Drop Table #TempInventory</value>
   </data>
+  <data name="制版线完工1800当天" xml:space="preserve">
+    <value>SELECT
+[orderno]'工单号'
+	,[custname]'客户名'
+	,[paper]'材质'
+	,[prodwid]'门幅'
+	,[wid]'宽度'
+	,[lenmm]'长度'
+	,[ordnum]'数量'
+	,[cutdata1]'压线'
+	,[lb]'楞型'
+	,[mem]'备注'
+	,[begindate]'开始时间'
+	,[finishdate]'结束时间'
+	,[prodtime]'生产时间'
+	,[瓦片线]='1.8米制版线'
+FROM [dbo].[finish]
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-30,GETDATE())) and CONVERT(DATETIME,GETDATE()) and [orderno] like'C%'  ORDER BY [finishdate]desc</value>
+  </data>
+  <data name="制版线完工2500当天" xml:space="preserve">
+    <value>select 
+DP.[Name] as GroupName,
+Item.Cust_OrderID,
+Cust.[Name] as CustomName,
+ORD.WEB,
+F.[Name] as Flute,
+Mass.fid as Mass,
+Item.Sec as sec,
+Item.Length as Length,
+case when Item.sec=0 then 0 else
+cast(item.width/item.sec as int) end as secwidth,
+Item.Lines as Lines,
+min(ComOrd.StartTime) as StartTime,
+max(ComOrd.EndTime) as EndTime,
+CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),'00:00:00'),108) as ProdTime,
+sum(ComOrd.StopTimes) as StopTimes,--停车次数
+sum(ComOrd.StopTime) as StopTime,
+convert(varchar(11),dateadd(ss,sum(ComOrd.StopTime),'00:00:00'),108) as 'StopTimeChar',
+avg(ComOrd.AvgSpd) as AvgSpd,
+(Item.qty) as Planqty,
+CONVERT(DECIMAL(18,1),(comOrd.id*Item.qty*Item.Length*1.0/1000))as OrdLen,
+sum(convert(int,comOrd.id*Item.qty*Item.Length*1.0/1000*(ord.web-ord.trim)/1000)) as OrdArea,
+avg(ComOrd.AvgSpd) as RunAvgSpd,
+sum(ComOrd.ProdQty) as Prodqty,
+sum(CONVERT(INT,comOrd.id*ComOrd.ProdQty*Item.Length*1.0/1000)) as ProdLen,
+sum(convert(int,comOrd.id*ComOrd.ProdQty*Item.Length*1.0/1000*(ord.web-ord.trim)/1000)) as ProdArea,
+sum(ComOrd.Wastqty) as wastqty,
+sum(convert(int,comOrd.id*ComOrd.wastqty*Item.length*1.0/1000)) as WastLen,
+sum(convert(int,comOrd.id*ComOrd.wastqty*Item.Length*1.0/1000*((ord.web-ord.trim)/1000)))as WastArea,
+sum(convert(int,comOrd.id*comord.prodqty* item.length*1.0/1000* (ord.trim* 1.0/1000))) as TrimArea,
+sum(ComOrd.wastrate) as WastRate,
+convert(decimal(18,2),sum(comOrd.id*ord.trim*100/ord.web))  as TrimRate,
+convert(decimal(18,2),sum(comOrd.id*comOrd.wastqty/ComOrd.prodqty+comOrd.id*ord.trim/ord.web)) as prodrate,
+sum(ComOrd.ProdQty*Item.Sec)  as Qtysecs,
+ord.lineType_fid,
+(select name from StkModels where fid = Item.StkModel_fid) as StkModle,
+Item.STK,
+Ord.Remark as Remark,
+avg(steam)as steam,
+sum(accsteam)as accsteam,
+avg(airpressure)as Airpressure,
+sum(accAirpressure)as accAirpressure,
+avg(kw)as kw,
+sum(kwh)as kwh,
+Item.NextStation as NextStation,
+id,
+comOrd.OrderItemOrderSN,
+Ord.Cust_SN as SN,--工号
+Ord.Cust_SchNo as SchNo,
+Ord.Cust_ProdNo as ProdNo,
+datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime))AS ProdTimeSS
+into #TmpR
+from completeOrders ComOrd,
+OrderItems as Item,
+Orders as Ord,
+Departments as Dp,
+Customs as Cust,
+Flutes as F,
+PaperMasses as Mass
+where 
+comord.OrderItem_fID=item.fid
+and comord.OrderItemOrder_fID=ord.fid
+and comord.OrderItemOrderSN=ord.sn
+and item.Order_fID=Ord.fid
+and item.OrderSN=Ord.sn
+and  ComOrd.starttime between CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE())
+and ComOrd.Department_fid = Dp.fid
+and item.Custom_fID=Cust.FID
+and Mass.Flute_fid = F.fid
+and Ord.PaperMass_fid = Mass.fid
+and Ord.PaperMassFlute_fid = F.fid
+and ComOrd.prodqty&gt;0 
+and ord.web&gt;0
+
+group by comOrd.OrderItemOrderSN,DP.[Name],Cust.[Name],ORD.WEB,F.[Name]
+,Mass.fid,Item.Sec,Item.Length
+,Item.qty
+,Item.Width
+,Item.Lines
+,Ord.Cust_SN 
+,Ord.Remark 
+,Ord.Cust_SchNo 
+,Ord.Cust_ProdNo 
+,id
+,ord.lineType_fid
+,StkModel_fid
+,STK
+,Item.NextStation,
+Item.Cust_OrderID
+delete from #TmpR where Cust_OrderID is null or SN is null
+select Cust_OrderID as '工单号',CustomName'客户名',WEB'门幅',Flute'楞型',mass'材质',length'长度',
+secwidth'宽度',lines'压线',starttime'开始时间',endtime'结束时间',prodtime'生产时间',remark'备注',[瓦片线]='2.5米制版线' from #TmpR where Cust_OrderID like 'C%' order by endtime desc
+drop table #TmpR</value>
+  </data>
   <data name="制版线完工_1800" xml:space="preserve">
     <value>SELECT
 [orderno]'工单号'
@@ -764,7 +878,7 @@ group by comOrd.OrderItemOrderSN,DP.[Name],Cust.[Name],ORD.WEB,F.[Name]
 Item.Cust_OrderID
 delete from #TmpR where Cust_OrderID is null or SN is null
 select Cust_OrderID as '工单号',CustomName'客户名',WEB'门幅',Flute'楞型',mass'材质',length'长度',
-secwidth'宽度',lines'压线',starttime'开始时间',endtime'结束时间',prodtime'生产时间',remark'备注',[瓦片线]='2.5米制版线' from #TmpR order by StartTime ,Cust_OrderID desc
+secwidth'宽度',lines'压线',starttime'开始时间',endtime'结束时间',prodtime'生产时间',remark'备注',[瓦片线]='2.5米制版线' from #TmpR where Cust_OrderID like 'C%' order by endtime desc
 drop table #TmpR</value>
   </data>
 </root>

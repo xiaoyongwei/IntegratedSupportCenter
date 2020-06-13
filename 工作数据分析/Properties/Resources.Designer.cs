@@ -19,7 +19,7 @@ namespace 工作数据分析.Properties {
     // 类通过类似于 ResGen 或 Visual Studio 的工具自动生成的。
     // 若要添加或移除成员，请编辑 .ResX 文件，然后重新运行 ResGen
     // (以 /str 作为命令选项)，或重新生成 VS 项目。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -47,7 +47,7 @@ namespace 工作数据分析.Properties {
         }
         
         /// <summary>
-        ///   使用此强类型资源类，为所有资源查找
+        ///   重写当前线程的 CurrentUICulture 属性
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -279,6 +279,56 @@ namespace 工作数据分析.Properties {
         internal static string 制版线完工_2500 {
             get {
                 return ResourceManager.GetString("制版线完工_2500", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 SELECT
+        ///[orderno]&apos;工单号&apos;
+        ///	,[custname]&apos;客户名&apos;
+        ///	,[paper]&apos;材质&apos;
+        ///	,[prodwid]&apos;门幅&apos;
+        ///	,[wid]&apos;宽度&apos;
+        ///	,[lenmm]&apos;长度&apos;
+        ///	,[ordnum]&apos;数量&apos;
+        ///	,[cutdata1]&apos;压线&apos;
+        ///	,[lb]&apos;楞型&apos;
+        ///	,[mem]&apos;备注&apos;
+        ///	,[begindate]&apos;开始时间&apos;
+        ///	,[finishdate]&apos;结束时间&apos;
+        ///	,[prodtime]&apos;生产时间&apos;
+        ///	,[瓦片线]=&apos;1.8米制版线&apos;
+        ///FROM [dbo].[finish]
+        ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-30,GETDATE())) and CONVERT(DATETIME,GETDATE()) and [orderno] like&apos;C%&apos;  ORDER BY [finishdate]desc 的本地化字符串。
+        /// </summary>
+        internal static string 制版线完工1800当天 {
+            get {
+                return ResourceManager.GetString("制版线完工1800当天", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 select 
+        ///DP.[Name] as GroupName,
+        ///Item.Cust_OrderID,
+        ///Cust.[Name] as CustomName,
+        ///ORD.WEB,
+        ///F.[Name] as Flute,
+        ///Mass.fid as Mass,
+        ///Item.Sec as sec,
+        ///Item.Length as Length,
+        ///case when Item.sec=0 then 0 else
+        ///cast(item.width/item.sec as int) end as secwidth,
+        ///Item.Lines as Lines,
+        ///min(ComOrd.StartTime) as StartTime,
+        ///max(ComOrd.EndTime) as EndTime,
+        ///CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),&apos;00:00:00&apos;),108) as ProdTime,
+        ///sum(ComOrd.StopTimes) as StopTimes,--停车次数
+        ///su [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string 制版线完工2500当天 {
+            get {
+                return ResourceManager.GetString("制版线完工2500当天", resourceCulture);
             }
         }
     }

@@ -38,6 +38,7 @@
             this.tabPage当前排程 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView = new System.Windows.Forms.TreeView();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.tabPage完工查询 = new System.Windows.Forms.TabPage();
             this.button查询 = new System.Windows.Forms.Button();
@@ -50,6 +51,7 @@
             this.dtPicker_e = new System.Windows.Forms.DateTimePicker();
             this.dtPicker_s = new System.Windows.Forms.DateTimePicker();
             this.dgv_wg = new System.Windows.Forms.DataGridView();
+            this.dgv1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage当前排程.SuspendLayout();
@@ -57,9 +59,14 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tabPage完工查询.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_wg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -78,7 +85,6 @@
             this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
             this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.刷新ToolStripMenuItem.Text = "刷新";
-            this.刷新ToolStripMenuItem.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
             // 
             // 从瓦片线载入数据ToolStripMenuItem
             // 
@@ -121,7 +127,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dgv);
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(910, 625);
             this.splitContainer1.SplitterDistance = 151;
             this.splitContainer1.TabIndex = 2;
@@ -150,6 +156,24 @@
             this.treeView.TabIndex = 0;
             this.treeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView_NodeMouseClick);
             // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.dgv);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.dgv1);
+            this.splitContainer2.Size = new System.Drawing.Size(755, 625);
+            this.splitContainer2.SplitterDistance = 442;
+            this.splitContainer2.TabIndex = 1;
+            // 
             // dgv
             // 
             this.dgv.AllowUserToAddRows = false;
@@ -161,7 +185,7 @@
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowTemplate.Height = 23;
-            this.dgv.Size = new System.Drawing.Size(755, 625);
+            this.dgv.Size = new System.Drawing.Size(755, 442);
             this.dgv.TabIndex = 0;
             // 
             // tabPage完工查询
@@ -263,9 +287,9 @@
             this.dgv_wg.AllowUserToAddRows = false;
             this.dgv_wg.AllowUserToDeleteRows = false;
             this.dgv_wg.AllowUserToOrderColumns = true;
-            this.dgv_wg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_wg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_wg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_wg.Location = new System.Drawing.Point(3, 33);
             this.dgv_wg.Name = "dgv_wg";
@@ -273,6 +297,20 @@
             this.dgv_wg.RowTemplate.Height = 23;
             this.dgv_wg.Size = new System.Drawing.Size(910, 595);
             this.dgv_wg.TabIndex = 0;
+            // 
+            // dgv1
+            // 
+            this.dgv1.AllowUserToAddRows = false;
+            this.dgv1.AllowUserToDeleteRows = false;
+            this.dgv1.AllowUserToOrderColumns = true;
+            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv1.Location = new System.Drawing.Point(0, 0);
+            this.dgv1.Name = "dgv1";
+            this.dgv1.ReadOnly = true;
+            this.dgv1.RowTemplate.Height = 23;
+            this.dgv1.Size = new System.Drawing.Size(755, 179);
+            this.dgv1.TabIndex = 1;
             // 
             // Form制版线查询
             // 
@@ -295,10 +333,15 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.tabPage完工查询.ResumeLayout(false);
             this.tabPage完工查询.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_wg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,5 +368,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtPicker_s;
         private System.Windows.Forms.Button button查询;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.DataGridView dgv1;
     }
 }

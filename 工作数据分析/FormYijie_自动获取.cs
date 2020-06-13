@@ -1747,7 +1747,10 @@ namespace 综合保障中心.其它
               + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&driver=&rowsPerPage=5000", WebAfter.运费管理);
             //送货单号匹配日期
             dic.Add("http://21.ej-sh.net:9191/dlvFare.shtml?method:form=&id=&pono=", WebAfter.送货单号匹配日期);
-
+                //纸板管理-入库明细
+                //成品入库
+                dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdr=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
+                   + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.入库明细);
             }
 
             if (!YunfeiOnly)
