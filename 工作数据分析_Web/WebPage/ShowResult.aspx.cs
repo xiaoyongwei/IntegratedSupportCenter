@@ -99,6 +99,10 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr = "CALL `slbz`.`发货检查预警`();";
                 gridTitle = "发货检查预警";
                 break;
+            case "30":
+                sqlStr = "CALL `slbz`.`纸板入库分析`();";
+                gridTitle = "纸板入库分析";
+                break;
             default:
                 break;
         }
