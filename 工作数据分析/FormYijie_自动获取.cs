@@ -55,7 +55,8 @@ namespace 综合保障中心.其它
             计划物流综合查询,
             销售退货,
             销售退货_明细,
-            送货单号匹配日期
+            送货单号匹配日期,
+            纸板入库明细
         }
         /// <summary>
         /// 浏览器加载后执行的动作
@@ -169,9 +170,79 @@ namespace 综合保障中心.其它
                 case WebAfter.送货单号匹配日期:
                     Get送货单号匹配日期();
                     break;
+                case WebAfter.纸板入库明细:
+                    Get纸板入库明细();
+                    break;
                 default:
                     break;
             }
+        }
+
+        private void Get纸板入库明细()
+        {
+            if (!webBrowser.Url.OriginalString.Contains("/zbInquiry.shtml?method:bcdr"))
+            {
+                AddtbShow("当前页面非[纸板入库明细]页面 " + dic.Count);
+
+                dic.Clear();
+                GotoWebUrlByDic();
+                return;
+
+            }
+            HtmlElementCollection heeeeee = webBrowser.Document.GetElementsByTagName("table");
+            HtmlElementCollection hec = webBrowser.Document.GetElementsByTagName("table")[3].GetElementsByTagName("tr");
+
+            if (hec.Count > 2)
+            {
+                DataTable dt = new DataTable();
+                foreach (HtmlElement item in hec[1].GetElementsByTagName("td"))
+                {
+                    dt.Columns.Add(item.OuterText);
+                }
+                for (int trI = 2; trI < hec.Count; trI++)
+                {
+                    List<object> listObj = new List<object>();
+                    foreach (HtmlElement item in hec[trI].GetElementsByTagName("td"))
+                    {
+                        listObj.Add(item.OuterText);
+                    }
+                    dt.Rows.Add(listObj.ToArray());
+                }
+                //添加到datatable中完成
+                dt.Columns.RemoveAt(0);
+                //开始添加到sql中
+                List<string> sqlList = new List<string>();
+                StringBuilder sb_Insert = new StringBuilder("replace  INTO `slbz`.`纸板管理入库明细`(");
+                foreach (DataColumn dc in dt.Columns)//添加列
+                {
+                    sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
+                }
+                sb_Insert.Remove(sb_Insert.Length - 1, 1);
+                sb_Insert.AppendLine(")VALUES");
+                StringBuilder sb_values = new StringBuilder("(");
+                foreach (DataRow dr in dt.Rows)
+                {
+                    sb_values = new StringBuilder("(");
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        sb_values.AppendFormat("'{0}',", dr[dc].ToString());
+                    }
+                    sb_values.Remove(sb_values.Length - 1, 1);
+                    sb_values.AppendLine(");");
+                    sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
+                }
+                if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
+                {
+                    dic.Clear();
+                    AddtbShow("获取[纸板入库明细]失败×××××! " + dic.Count);
+                }
+                else
+                {
+                    AddtbShow("获取[纸板入库明细]成功! " + dic.Count);
+                }
+            }
+
+            wAfter = WebAfter.下个明细;
         }
 
         private void Get送货单号匹配日期()
@@ -1748,7 +1819,8 @@ namespace 综合保障中心.其它
             //送货单号匹配日期
             dic.Add("http://21.ej-sh.net:9191/dlvFare.shtml?method:form=&id=&pono=", WebAfter.送货单号匹配日期);
                 //纸板管理-入库明细
-
+                dic.Add("http://21.ej-sh.net:9191/zbInquiry.shtml?method:bcdr=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
+                   + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.纸板入库明细);
                 //成品入库
                 dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml?method:bcdr=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
                    + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.入库明细);
