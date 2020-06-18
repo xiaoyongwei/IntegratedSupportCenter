@@ -1,8 +1,11 @@
 ﻿using DBUtility;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using 工作数据分析.Data.DAL;
@@ -11,11 +14,11 @@ using 综合保障中心.Comm;
 
 namespace 工作数据分析.WinForm
 {
-    public partial class Form制版线查询 : Form
+    public partial class Form制版线实时 : Form
     {
 
 
-        public Form制版线查询()
+        public Form制版线实时()
         {
             InitializeComponent();
         }
@@ -90,58 +93,81 @@ namespace 工作数据分析.WinForm
         {
             this.dtPicker_s.Value = DateTime.Now.AddDays(-90);
             this.dtPicker_e.Value = DateTime.Now;
+            InitShowData();
         }
 
-        private void treeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+
+        private void 刷新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switch (e.Node.Text)
+            InitShowData();
+        }
+        /// <summary>
+        /// 初始化刷新数据
+        /// </summary>
+        private void InitShowData()
+        {
+            //dgv1800.Rows.Clear();
+            //dgv2200.Rows.Clear();
+            //dgv2500.Rows.Clear();
+            //dgv24Hwangong.Rows.Clear();
+            DataTable dt1800 = new DataTable();
+            DataTable dt2200 = new DataTable();
+            DataTable dt2500 = new DataTable();
+            if (My.Ping(DataBaseList.IP_制版线1800)&& SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800))
             {
-                case "1.8米制版线":
-                    if (My.Ping(DataBaseList.IP_制版线1800))
-                    {
-                        DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
-                        dgv.DataSource = DataBaseList.sql制版线1800.Querytable("SELECT *FROM [dbo].[bc]ORDER BY [序号]");
-                        dgv1.DataSource= DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800当天);
-                    }
-                    else
-                    {
-                        My.ShowErrorMessage("制版线没有开机!\n" + DateTime.Now.ToString());
-                    }
-                    break;
-                case "2.2米制版线":
-                    if (My.Ping(DataBaseList.IP_制版线2200))
-                    {
-                        DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
-                        dgv.DataSource = DataBaseList.sql制版线2200.Querytable("SELECT *FROM [dbo].[bc]ORDER BY [序号]");
-                        dgv1.DataSource = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工1800当天);
-                    }
-                    else
-                    {
-                        My.ShowErrorMessage("2.2米制版线没有开机!\n" + DateTime.Now.ToString());
-                    }
-                    break;
-                case "2.5米制版线":
-                    if (My.Ping(DataBaseList.IP_制版线2500))
-                    {
-                        DataBaseList.sql制版线2500 = new SqlHelper(DataBaseList.ConnString_制版线2500);
-                        dgv.DataSource = DataBaseList.sql制版线2500.Querytable("exec GetOrderitemsMTest @ProdLineLevelCnt=2,@size=2000,@Page=1");
-                        dgv1.DataSource = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500当天);
-                    }
-                    else
-                    {
-                        My.ShowErrorMessage("2.5米制版线没有开机!\n" + DateTime.Now.ToString());
-                    }
-                    break;
-                default:
-                    break;
+                DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
+                dgv1800.DataSource = DataBaseList.sql制版线1800.Querytable("SELECT [订单号],[客户名称],rtrim([楞别])'楞别',[订单数],[纸宽],[纸长],rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]");
+                dt1800 = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800当天1);
             }
+
+            if (My.Ping(DataBaseList.IP_制版线2200) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2200))
+            {
+                DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
+                dgv2200.DataSource = DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称],rtrim([楞别])'楞别',[订单数],[纸宽],[纸长],rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]");
+                dt2200 = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工1800当天1);
+            }
+
+            if (My.Ping(DataBaseList.IP_制版线2500) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2500))
+            {
+                DataBaseList.sql制版线2500 = new SqlHelper(DataBaseList.ConnString_制版线2500);
+                dgv2500.DataSource = DataBaseList.sql制版线2500.Querytable(Resources.制版线当前排程2500);
+                dt2500 = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500当天1);
+            }
+            
+            dt1800.Merge(dt2200,false);
+            dt1800.Merge(dt2500,false);
+            dgv24Hwangong.DataSource = dt1800;
+            foreach (DataGridViewColumn column in dgv24Hwangong.Columns)
+            {
+                if (column.HeaderText=="结束时间")
+                {
+                    dgv24Hwangong.Sort(column, ListSortDirection.Descending);
+                    break;
+                }
+            }
+            SetDgvBackColor(dgv1800);
+            SetDgvBackColor(dgv2200);
+            SetDgvBackColor(dgv2500);
+            
+            this.groupBox1.Text = "当前队列(" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ")";
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            InitShowData();
+        }
+
+
+       
+        private void SetDgvBackColor(DataGridView dgv)
+        {
             foreach (DataGridViewColumn column in dgv.Columns)
             {
-                if (column.Name=="订单号"||column.Name== "Cust_OrderID")
+                if (column.Name == "订单号" || column.Name == "工单"|| column.Name == "Cust_OrderID")
                 {
                     foreach (DataGridViewRow row in dgv.Rows)
                     {
-                        if (Regex.IsMatch(row.Cells[column.Name].Value.ToString(),"C\\d+"))
+                        if (Regex.IsMatch(row.Cells[column.Name].Value.ToString(), "C\\d+"))
                         {
                             row.DefaultCellStyle.BackColor = Color.Yellow;
                             row.DefaultCellStyle.SelectionBackColor = Color.Red;
@@ -149,11 +175,8 @@ namespace 工作数据分析.WinForm
                     }
                     break;
                 }
-                
-            }
-            
-        }
 
-       
+            }
+        }
     }
 }

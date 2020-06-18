@@ -114,6 +114,12 @@
     <Compile Include="FormYijie_自动获取.Designer.cs">
       <DependentUpon>FormYijie_自动获取.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\Form制版线实时.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form制版线实时.Designer.cs">
+      <DependentUpon>Form制版线实时.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\Form制版线查询.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormYijie_自动获取.resx">
       <DependentUpon>FormYijie_自动获取.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form制版线实时.resx">
+      <DependentUpon>Form制版线实时.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\Form制版线查询.resx">
       <DependentUpon>Form制版线查询.cs</DependentUpon>

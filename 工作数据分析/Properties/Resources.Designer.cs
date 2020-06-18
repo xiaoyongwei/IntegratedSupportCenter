@@ -308,6 +308,27 @@ namespace 工作数据分析.Properties {
         }
         
         /// <summary>
+        ///   查找类似 SELECT
+        ///[orderno]&apos;工单号&apos;
+        ///	,[custname]&apos;客户名&apos;	
+        ///	,[prodwid]&apos;门幅&apos;
+        ///	,[lb]&apos;楞型&apos;
+        ///	,[paper]&apos;材质&apos;
+        ///	,[wid]&apos;宽度&apos;
+        ///	,[lenmm]&apos;长度&apos;
+        ///	,[ordnum]&apos;数量&apos;
+        ///	,[finishdate]&apos;结束时间&apos;
+        ///	,[瓦片线]=&apos;1.8米制版线&apos;
+        ///FROM [dbo].[finish]
+        ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) and [orderno] like&apos;C%&apos;  ORDER BY [finishdate]desc 的本地化字符串。
+        /// </summary>
+        internal static string 制版线完工1800当天1 {
+            get {
+                return ResourceManager.GetString("制版线完工1800当天1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 select 
         ///DP.[Name] as GroupName,
         ///Item.Cust_OrderID,
@@ -329,6 +350,56 @@ namespace 工作数据分析.Properties {
         internal static string 制版线完工2500当天 {
             get {
                 return ResourceManager.GetString("制版线完工2500当天", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 select 
+        ///DP.[Name] as GroupName,
+        ///Item.Cust_OrderID,
+        ///Cust.[Name] as CustomName,
+        ///ORD.WEB,
+        ///F.[Name] as Flute,
+        ///Mass.fid as Mass,
+        ///Item.Sec as sec,
+        ///Item.Length as Length,
+        ///case when Item.sec=0 then 0 else
+        ///cast(item.width/item.sec as int) end as secwidth,
+        ///Item.Lines as Lines,
+        ///min(ComOrd.StartTime) as StartTime,
+        ///max(ComOrd.EndTime) as EndTime,
+        ///CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),&apos;00:00:00&apos;),108) as ProdTime,
+        ///sum(ComOrd.StopTimes) as StopTimes,--停车次数
+        ///su [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string 制版线完工2500当天1 {
+            get {
+                return ResourceManager.GetString("制版线完工2500当天1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 declare @ProdLineLevelCnt INT,@size INT,@Page int
+        ///	SET @ProdLineLevelCnt=2
+        ///   set  @size=2000
+        ///   set  @Page=1
+        ///	
+        ///	SET NOCOUNT ON;
+        ///    --异常单分压资料
+        ///     
+        ///    
+        ///    create table #OrderItemLines (orderitem_fid varchar(100),
+        ///                                  Lines varchar(100))
+        ///    create table #TmpM (OrderSN int,
+        ///                        fid varchar(100),
+        ///                        Length int,
+        ///                        Qty int
+        ///                        )
+        ///   insert into #OrderItemLines exec GetNoNomalLines         /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string 制版线当前排程2500 {
+            get {
+                return ResourceManager.GetString("制版线当前排程2500", resourceCulture);
             }
         }
     }
