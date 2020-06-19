@@ -210,8 +210,13 @@ namespace 综合保障中心.其它
                 }
                 //添加到datatable中完成
                 dt.Columns.RemoveAt(0);
+
+                //时间范围
+                string dtime_min= dt.AsEnumerable().Select(t => t.Field<string>("日期")).Min();
+                string dtime_max= dt.AsEnumerable().Select(t => t.Field<string>("日期")).Max();
                 //开始添加到sql中
                 List<string> sqlList = new List<string>();
+                
                 StringBuilder sb_Insert = new StringBuilder("replace  INTO `slbz`.`纸板管理入库明细`(");
                 foreach (DataColumn dc in dt.Columns)//添加列
                 {
@@ -230,6 +235,10 @@ namespace 综合保障中心.其它
                     sb_values.Remove(sb_values.Length - 1, 1);
                     sb_values.AppendLine(");");
                     sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
+                }
+                if (sqlList.Count>0)
+                {
+                    sqlList.Insert(0, string.Format("DELETE FROM `slbz`.`纸板管理入库明细`WHERE 日期 between '{0}' and '{1}'", dtime_min, dtime_max));
                 }
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
