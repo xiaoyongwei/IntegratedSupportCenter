@@ -72,7 +72,7 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 gridTitle = "数据备份日志";
                 break;
             case "23":
-                sqlStr = "SELECT *FROM `slbz`.`报工但未入库近10天`; ";
+                sqlStr = "SELECT *FROM `slbz`.`报工但未入库近10天`;";
                 gridTitle = "报工但未入库(近10天)";
                 break;
             case "24":
@@ -152,40 +152,45 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
 
             //}
             //else
-                if (gridTitle.Contains("二期原纸仓库各类占比"))
+            if (gridTitle.Contains("二期原纸仓库各类占比"))
+            {
+                DataTable dt = MySqlDbHelper.ExecuteDataTable(sqlStr);
+                DataTable dt_temp = dt.Clone();
+                foreach (DataColumn dc in dt_temp.Columns)
                 {
-                    DataTable dt = MySqlDbHelper.ExecuteDataTable(sqlStr);
-                    DataTable dt_temp = dt.Clone();
-                    foreach (DataColumn dc in dt_temp.Columns)
+                    dc.DataType = Type.GetType("System.String");
+                }
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DataRow dr_new = dt_temp.NewRow();
+                    foreach (DataColumn dc in dt.Columns)
                     {
-                        dc.DataType = Type.GetType("System.String");
-                    }
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        DataRow dr_new = dt_temp.NewRow();
-                        foreach (DataColumn dc in dt.Columns)
+                        if (dt.Rows[i][dc.ColumnName].ToString() == "0"
+                            || dt.Rows[i][dc.ColumnName].ToString() == "0.00%")
                         {
-                            if (dt.Rows[i][dc.ColumnName].ToString() == "0"
-                                || dt.Rows[i][dc.ColumnName].ToString() == "0.00%")
-                            {
-                                dr_new[dc.ColumnName] = "";
-                            }
-                            else
-                            {
-                                dr_new[dc.ColumnName] = dt.Rows[i][dc.ColumnName].ToString();
-                            }
+                            dr_new[dc.ColumnName] = "";
                         }
-                        dt_temp.Rows.Add(dr_new);
+                        else
+                        {
+                            dr_new[dc.ColumnName] = dt.Rows[i][dc.ColumnName].ToString();
+                        }
                     }
+                    dt_temp.Rows.Add(dr_new);
+                }
 
-                    this.GridView1.DataSource = dt_temp;
-                    this.GridView1.DataBind();
-                }
-                else
-                {
-                    this.GridView1.DataSource = MySqlDbHelper.ExecuteDataTable(sqlStr);
-                    this.GridView1.DataBind();
-                }
+                this.GridView1.DataSource = dt_temp;
+                this.GridView1.DataBind();
+            }
+            else if (code == "23")
+            {
+                this.GridView1.DataSource = OracleHelper.ExecuteDataTable(CommandType.Text,sqlStr,null);
+                this.GridView1.DataBind();
+            }
+            else
+            {
+                this.GridView1.DataSource = MySqlDbHelper.ExecuteDataTable(sqlStr);
+                this.GridView1.DataBind();
+            }
 
         }
     }
