@@ -183,7 +183,12 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
             }
             else if (code == "23")
             {
-                this.GridView1.DataSource = OracleHelper.ExecuteDataTable(CommandType.Text,sqlStr,null);
+                this.GridView1.DataSource = GetSqlTxt_Datatable("报工但未入库");
+                this.GridView1.DataBind();
+            }
+            else if (code == "29")
+            {
+                this.GridView1.DataSource = GetSqlTxt_Datatable("送货检查预警");
                 this.GridView1.DataBind();
             }
             else
@@ -215,5 +220,15 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
         Response.Flush();
         Response.End();
 
+    }
+
+
+    protected DataTable GetSqlTxt_Datatable(string txtFileName)
+    {
+        return OracleHelper.ExecuteDataTable(CommandType.Text,
+        new StreamReader(
+                new FileStream(
+                  Server.MapPath("..\\sqltxt\\" + txtFileName + ".txt"),
+                    FileMode.Open, FileAccess.Read, FileShare.Read)).ReadToEnd(), null);
     }
 }

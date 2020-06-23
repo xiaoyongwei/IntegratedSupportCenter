@@ -2,9 +2,9 @@
 using System.Data;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data.OracleClient;
 using System.Text;
 using System.IO;
+using Oracle.ManagedDataAccess.Client;
 
 /// <summary>
 /// Oracle数据库操作类
@@ -13,7 +13,7 @@ public static class OracleHelper
 {
 
 
-    public static readonly string ConnectionString = "data source=db.21.ej-sh.net/dbms;user=ejsh;password=kuke.ejsh;";//定义连接数据库的字符串  
+    public static readonly string ConnectionString = "data source=db.21.ej-sh.net/dbms;user ID=ejsh;password=kuke.ejsh;";//定义连接数据库的字符串  
 
 
 

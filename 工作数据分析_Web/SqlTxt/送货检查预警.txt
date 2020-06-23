@@ -1,0 +1,18 @@
+﻿select bb.*
+,(select  to_char(wm_concat(sitloc||' '||invnum||'只'))库区    from v_bcdt_ct   where  v_bcdt_ct.SERIAL=bb.生产单号)库区 from (select 
+--decode(t.ordtyp,'CB','箱片','CT','纸箱','CL','彩盒',t.ordtyp) 类型,
+t.ptdate 送货时间
+,t.serial  生产单号
+,t.smpnme ||' ' || t.PRDNME 型号
+,t.pono    送货单号
+,t.ACCNUMR    送货数
+,(select  nvl(sum(invnum),0) as 数量  from v_bcdt_ct   where  v_bcdt_ct.SERIAL = t.serial ) 库存数
+,(select i.accnum from ord_ct i where   i.orgcde=t.orgcde and i.serial = t.serial and rownum = 1) 订单数
+,t.usrnme 操作人
+,(select  r.driver from v_dlv_fare r where r.pono=t.pono)司机
+,t.agntnme    业务员
+from v_bcdx_ct t where ORDOBJTYP='CL'   and t.orgcde='KS03' and t.pono  like'ZX%'
+  and to_char(ptdate,'yyyy-MM-dd') >= (select   to_char(sysdate - interval '5' day,'yyyy-mm-dd') from dual) 
+  and to_char(ptdate,'yyyy-MM-dd') <= ( select to_char(sysdate,'yyyy-mm-dd') from dual) 
+ order by t.ptdate desc)bb
+ where  bb.送货数<库存数

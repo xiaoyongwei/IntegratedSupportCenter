@@ -6,5 +6,8 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
         欢迎使用 工作数据分析系统!
+        <%
+            
+            %>
     </h2>
     </asp:Content>

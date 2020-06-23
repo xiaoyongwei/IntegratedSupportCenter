@@ -3,7 +3,7 @@
 	t.SMPNME AS 客户名称,
 	t.prdnme AS 产品名称,	
 	max(t.CREATED)报工时间,
-	(SELECT accnuml	FROM V_PB_BCDR WHERE  V_PB_BCDR.serial =t.serial and ROWNUM =1) AS 订单数,
+	(SELECT ACCNUM	FROM ord_ct  WHERE  ord_ct.serial =t.serial) AS 订单数,
 	sum(t.ACCNUM) AS 报工数,
 	(select nvl(sum(accnuml),0) as 入库数  from v_pb_bcdr where objtyp ='CL' AND  v_pb_bcdr.serial =t.serial)入库数
 FROM
