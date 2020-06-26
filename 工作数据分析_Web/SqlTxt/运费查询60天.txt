@@ -1,0 +1,30 @@
+select to_char(r.ptdate, 'yyyy-MM-dd') as 送货日期
+	,r.lnccde as 车牌
+	,r.driver as 司机
+	,r.smpnme as 客户名称
+	,(select PLNCDE from DLV_FARE where PONO=r.pono)装车单号
+	,r.pono as 送货单号
+	,r.distance as 里程
+	,round(r.acreage, 0) as 面积
+	,round(r.sacreage, 0) as 标准面积
+	,r.accamt as 运费
+	,r.annamt as 调整
+	,r.audnme as 结算人
+	,r.usmark as 备注
+from v_dlv_fare r
+where r.orgcde = 'KS03'
+	and r.DRIVER in (
+		'霍红海'
+		,'郑二毛'
+		,'郑荷伟'
+		,'周晓军'
+		,'娄绍勇'
+		,'杨冬冬'
+		,'郑华东'
+		,'董美枝'
+		,'颜海军.'
+		,'周晓军.'
+		)
+	and to_char(r.ptdate, 'yyyy-mm-dd') >= (select   to_char(sysdate - interval '60' day,'yyyy-mm-dd') from dual) 
+	and to_char(r.ptdate, 'yyyy-mm-dd') <= (select   to_char(sysdate,'yyyy-mm-dd') from dual) 
+	order by r.ptdate desc 
