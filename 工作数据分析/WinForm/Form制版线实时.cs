@@ -22,6 +22,7 @@ namespace 工作数据分析.WinForm
         public Form制版线实时()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
 
@@ -44,11 +45,11 @@ namespace 工作数据分析.WinForm
                 SubmitZhiBanXian(dt);
             }
         }
-        private void Get2500制版线完成信息3天()
+        private void Get2500制版线完成信息1天()
         {
             if (DataBaseList.sql制版线2500 != null)
             {
-                DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500_3天);
+                DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500_1天);
                 SubmitZhiBanXian(dt);
             }
         }
@@ -61,11 +62,11 @@ namespace 工作数据分析.WinForm
                 SubmitZhiBanXian(dt);
             }
         }
-        private void Get2200制版线完成信息3天()
+        private void Get2200制版线完成信息1天()
         {
             if (DataBaseList.sql制版线2200 != null)
             {
-                DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工2200_3天);
+                DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工2200_1天);
                 SubmitZhiBanXian(dt);
             }
         }
@@ -79,11 +80,11 @@ namespace 工作数据分析.WinForm
                 SubmitZhiBanXian(dt);
             }
         }
-        private void Get1800制版线完成信息3天()
+        private void Get1800制版线完成信息1天()
         {
             if (DataBaseList.sql制版线1800 != null)
             {
-                DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800_3天);
+                DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800_1天);
                 SubmitZhiBanXian(dt);
             }
         }
@@ -118,15 +119,17 @@ namespace 工作数据分析.WinForm
         {
             this.dtPicker_s.Value = DateTime.Now.AddDays(-30);
             this.dtPicker_e.Value = DateTime.Now;
-
             thread = new Thread(new ThreadStart(InitShowData));
-            backgroundWorker1.RunWorkerAsync();
+            InitShowData();
         }
 
-
+       
         private void 刷新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            backgroundWorker1.RunWorkerAsync();
+            if (tabControl1.SelectedTab == tabPage当前排程)
+            {
+                InitShowData();
+            }
         }
         /// <summary>
         /// 初始化刷新数据
@@ -176,9 +179,9 @@ namespace 工作数据分析.WinForm
             SetDgvBackColor(dgv2200);
             SetDgvBackColor(dgv2500);
 
-            Get1800制版线完成信息3天();
-            Get2200制版线完成信息3天();
-            Get2500制版线完成信息3天();
+            Get1800制版线完成信息1天();
+            Get2200制版线完成信息1天();
+            Get2500制版线完成信息1天();
 
             this.groupBox1.Text = "当前队列(" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ")";
         }
@@ -207,13 +210,12 @@ namespace 工作数据分析.WinForm
             }
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            if (!backgroundWorker1.IsBusy)
+            if (tabControl1.SelectedTab==tabPage当前排程)
             {
                 InitShowData();
             }
         }
-
     }
 }

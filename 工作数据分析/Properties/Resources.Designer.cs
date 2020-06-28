@@ -299,11 +299,11 @@ namespace 工作数据分析.Properties {
         ///	,[prodtime]&apos;生产时间&apos;
         ///	,[瓦片线]=&apos;1.8米制版线&apos;
         ///FROM [dbo].[finish]
-        ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-3,GETDATE())) and CONVERT(DATETIME,GETDATE()) 的本地化字符串。
+        ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) 的本地化字符串。
         /// </summary>
-        internal static string 制版线完工1800_3天 {
+        internal static string 制版线完工1800_1天 {
             get {
-                return ResourceManager.GetString("制版线完工1800_3天", resourceCulture);
+                return ResourceManager.GetString("制版线完工1800_1天", resourceCulture);
             }
         }
         
@@ -369,11 +369,11 @@ namespace 工作数据分析.Properties {
         ///	,[prodtime]&apos;生产时间&apos;
         ///	,[瓦片线]=&apos;2.2米制版线&apos;
         ///FROM [dbo].[finish]
-        ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-3,GETDATE())) and CONVERT(DATETIME,GETDATE()) 的本地化字符串。
+        ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) 的本地化字符串。
         /// </summary>
-        internal static string 制版线完工2200_3天 {
+        internal static string 制版线完工2200_1天 {
             get {
-                return ResourceManager.GetString("制版线完工2200_3天", resourceCulture);
+                return ResourceManager.GetString("制版线完工2200_1天", resourceCulture);
             }
         }
         
@@ -396,9 +396,9 @@ namespace 工作数据分析.Properties {
         ///sum(ComOrd.StopTimes) as StopTimes,--停车次数
         ///su [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
-        internal static string 制版线完工2500_3天 {
+        internal static string 制版线完工2500_1天 {
             get {
-                return ResourceManager.GetString("制版线完工2500_3天", resourceCulture);
+                return ResourceManager.GetString("制版线完工2500_1天", resourceCulture);
             }
         }
         

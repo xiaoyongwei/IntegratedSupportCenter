@@ -635,7 +635,7 @@ left join t_StockPlace t5 on u1.FStockPlaceID=t5.FSPID
  Order By t1.FNumber,u1.FBatchNo
 ,u1.FMTONo Drop Table #TempInventory</value>
   </data>
-  <data name="制版线完工1800_3天" xml:space="preserve">
+  <data name="制版线完工1800_1天" xml:space="preserve">
     <value>SELECT
 [orderno]'工单号'
 	,[custname]'客户名'
@@ -652,7 +652,7 @@ left join t_StockPlace t5 on u1.FStockPlaceID=t5.FSPID
 	,[prodtime]'生产时间'
 	,[瓦片线]='1.8米制版线'
 FROM [dbo].[finish]
-WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-3,GETDATE())) and CONVERT(DATETIME,GETDATE())</value>
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE())</value>
   </data>
   <data name="制版线完工1800当天" xml:space="preserve">
     <value>SELECT
@@ -688,7 +688,7 @@ WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVER
 FROM [dbo].[finish]
 WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) and [orderno] like'C%'  ORDER BY [finishdate]desc</value>
   </data>
-  <data name="制版线完工2200_3天" xml:space="preserve">
+  <data name="制版线完工2200_1天" xml:space="preserve">
     <value>SELECT  [orderno]'工单号'
 	,[custname]'客户名'
 	,[paper]'材质'
@@ -704,9 +704,9 @@ WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVER
 	,[prodtime]'生产时间'
 	,[瓦片线]='2.2米制版线'
 FROM [dbo].[finish]
-WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-3,GETDATE())) and CONVERT(DATETIME,GETDATE())</value>
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE())</value>
   </data>
-  <data name="制版线完工2500_3天" xml:space="preserve">
+  <data name="制版线完工2500_1天" xml:space="preserve">
     <value>select 
 DP.[Name] as GroupName,
 Item.Cust_OrderID,
@@ -772,7 +772,7 @@ and comord.OrderItemOrder_fID=ord.fid
 and comord.OrderItemOrderSN=ord.sn
 and item.Order_fID=Ord.fid
 and item.OrderSN=Ord.sn
-and  ComOrd.starttime between CONVERT(DATETIME,dateadd(dd,-3,GETDATE())) and CONVERT(DATETIME,GETDATE())
+and  ComOrd.starttime between CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE())
 and ComOrd.Department_fid = Dp.fid
 and item.Custom_fID=Cust.FID
 and Mass.Flute_fid = F.fid
