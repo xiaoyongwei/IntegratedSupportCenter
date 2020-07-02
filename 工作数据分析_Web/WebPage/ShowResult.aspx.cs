@@ -103,6 +103,10 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr = "CALL `slbz`.`纸板入库分析`();";
                 gridTitle = "纸板入库分析";
                 break;
+            case "31":
+                sqlStr = "CALL `slbz`.`纸板出库分析`();";
+                gridTitle = "纸板出库分析";
+                break;
             default:
                 break;
         }
@@ -189,6 +193,11 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
             else if (code == "29")
             {
                 this.GridView1.DataSource = GetSqlTxt_Datatable("送货检查预警");
+                this.GridView1.DataBind();
+            }
+            else if (code == "31")
+            {
+                this.GridView1.DataSource = GetSqlTxt_Datatable("纸板出库分析");
                 this.GridView1.DataBind();
             }
             else

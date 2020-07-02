@@ -1,0 +1,54 @@
+﻿SELECT "SERIAL" 工单号
+	,"CTSMPNME" || '-' || "CTPRDNME" 产品名称
+	,"SPECS" 规格
+	,CRRCDE || '-' || "TCSIZE" 坑型材质
+	,"INVNUM" 数量
+	,nvl("SITCDE", ' ') 库区
+	,(
+		SELECT case 
+				when count(0) > 0
+					then '完工'
+				else ' '
+				end
+		FROM "EJSH"."V_HR_PIECE_DATA"
+		WHERE ROWNUM <= 500
+			and orgcde = 'KS03'
+			and SERIAL = "EJSH"."V_BCDT_ZB".serial
+			and PRCNME in (
+				'裱胶'
+				,'裱胶（该工序废弃）'
+				,'裱瓦楞'
+				,'裱纸板'
+				,'钉二页箱'
+				,'钉四页箱'
+				,'钉一页箱'
+				,'清废'
+				,'清孔'
+				,'取部件'
+				,'绳捆打包'
+				,'贴背/贴标签'
+				,'贴天窗'
+				,'贴纤维胶带'
+				,'压痕(无底膜)'
+				,'压痕(有底膜)'
+				,'粘二页箱'
+				,'粘一页箱'
+				,'纸半包'
+				,'纸全包'
+				,'装矩（圆）形提手扣 白'
+				,'装矩（圆）形提手扣 黑'
+				,'装条形提手（10KG）'
+				,'装条形提手（5KG）'
+				)
+		) 完工
+		,(SELECT  case 
+				when count(0) > 0
+					then '入库'
+				else ' '
+				end
+	FROM "EJSH"."PB_BCDR"
+	WHERE SERIAL="EJSH"."V_BCDT_ZB".serial and OBJTYP='CL')入库
+FROM "EJSH"."V_BCDT_ZB"
+WHERE ORGCDE = 'KS03'
+	and OBJTYP = 'ZB'
+order by UPDATED desc

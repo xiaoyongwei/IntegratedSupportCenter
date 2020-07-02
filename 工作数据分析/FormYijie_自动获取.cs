@@ -56,7 +56,8 @@ namespace 综合保障中心.其它
             销售退货,
             销售退货_明细,
             送货单号匹配日期,
-            纸板入库明细
+            纸板入库明细,
+            纸板库存明细
         }
         /// <summary>
         /// 浏览器加载后执行的动作
@@ -173,9 +174,82 @@ namespace 综合保障中心.其它
                 case WebAfter.纸板入库明细:
                     Get纸板入库明细();
                     break;
+                case WebAfter.纸板库存明细:
+                    Get纸板库存明细();
+                    break;
                 default:
                     break;
             }
+        }
+
+        private void Get纸板库存明细()
+        {
+            if (!webBrowser.Url.OriginalString.Contains("zbInquiry.shtml?method:bcdt="))
+            {
+                AddtbShow("当前页面非[纸板库存明细]页面 " + dic.Count);
+
+                dic.Clear();
+                GotoWebUrlByDic();
+                return;
+
+            }
+            HtmlElementCollection heeeeee = webBrowser.Document.GetElementsByTagName("table");
+            HtmlElementCollection hec = webBrowser.Document.GetElementsByTagName("table")[3].GetElementsByTagName("tr");
+
+            if (hec.Count > 2)
+            {
+                DataTable dt = new DataTable();
+                foreach (HtmlElement item in hec[1].GetElementsByTagName("td"))
+                {
+                    dt.Columns.Add(item.OuterText);
+                }
+                for (int trI = 2; trI < hec.Count; trI++)
+                {
+                    List<object> listObj = new List<object>();
+                    foreach (HtmlElement item in hec[trI].GetElementsByTagName("td"))
+                    {
+                        listObj.Add(item.OuterText);
+                    }
+                    dt.Rows.Add(listObj.ToArray());
+                }
+                //添加到datatable中完成
+                dt.Columns.RemoveAt(0);
+
+                
+                //开始添加到sql中
+                List<string> sqlList = new List<string>();
+                sqlList.Add("TRUNCATE TABLE  `slbz`.`纸板管理库存明细`;");
+                StringBuilder sb_Insert = new StringBuilder("replace  INTO `slbz`.`纸板管理库存明细`(");
+                foreach (DataColumn dc in dt.Columns)//添加列
+                {
+                    sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
+                }
+                sb_Insert.Remove(sb_Insert.Length - 1, 1);
+                sb_Insert.AppendLine(")VALUES");
+                StringBuilder sb_values = new StringBuilder("(");
+                foreach (DataRow dr in dt.Rows)
+                {
+                    sb_values = new StringBuilder("(");
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        sb_values.AppendFormat("'{0}',", dr[dc].ToString());
+                    }
+                    sb_values.Remove(sb_values.Length - 1, 1);
+                    sb_values.AppendLine(");");
+                    sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
+                }
+                if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
+                {
+                    dic.Clear();
+                    AddtbShow("获取[纸板库存明细]失败×××××! " + dic.Count);
+                }
+                else
+                {
+                    AddtbShow("获取[纸板库存明细]成功! " + dic.Count);
+                }
+            }
+
+            wAfter = WebAfter.下个明细;
         }
 
         private void Get纸板入库明细()
@@ -1825,11 +1899,9 @@ namespace 综合保障中心.其它
                 //其他司机的运费(仅限有打单记录的送货运费)
                 dic.Add("http://21.ej-sh.net:9191/dlvFare/sl.shtml?pono=ZX&strdats=" + DateTime.Now.AddDays(-60).ToString("yyyy-MM-dd")
               + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&driver=&rowsPerPage=5000", WebAfter.运费管理);
-            //送货单号匹配日期
-            dic.Add("http://21.ej-sh.net:9191/dlvFare.shtml?method:form=&id=&pono=", WebAfter.送货单号匹配日期);
-                //纸板管理-入库明细
-                dic.Add("http://21.ej-sh.net:9191/zbInquiry.shtml?method:bcdr=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
-                   + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.纸板入库明细);
+                //送货单号匹配日期
+                dic.Add("http://21.ej-sh.net:9191/dlvFare.shtml?method:form=&id=&pono=", WebAfter.送货单号匹配日期);
+
             }
 
             if (!YunfeiOnly)
@@ -1898,6 +1970,11 @@ namespace 综合保障中心.其它
                     {
                         dic.Add("http://21.ej-sh.net:9191/ctBcdx/xl.shtml?method:form=&id=" + dr[0] + "&actype=D", WebAfter.销售退货_明细);
                     }
+                    //纸板管理-入库明细
+                    dic.Add("http://21.ej-sh.net:9191/zbInquiry.shtml?method:bcdr=&strdats=" + DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd")
+                       + "&endates=" + DateTime.Now.ToString("yyyy-MM-dd") + "&rowsPerPage=5000", WebAfter.纸板入库明细);
+                    //纸板管理-库存明细
+                    dic.Add("http://21.ej-sh.net:9191/zbInquiry.shtml?method:bcdt=&rowsPerPage=5000", WebAfter.纸板库存明细);
                     //返回
                     dic.Add("http://21.ej-sh.net:9191/ctInquiry.shtml", WebAfter.计算入库面积);
                 }

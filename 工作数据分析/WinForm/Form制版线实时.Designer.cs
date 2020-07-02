@@ -429,6 +429,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "制版线实时查询";
             this.Load += new System.EventHandler(this.Form制版线查询_Load);
+            this.SizeChanged += new System.EventHandler(this.Form制版线实时_SizeChanged);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);

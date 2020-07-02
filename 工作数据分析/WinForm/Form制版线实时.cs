@@ -39,53 +39,90 @@ namespace 工作数据分析.WinForm
 
         private void Get2500制版线完成信息()
         {
-            if (DataBaseList.sql制版线2500 != null)
+            try
+            {
+                if (DataBaseList.sql制版线2500 != null)
             {
                 DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工_2500);
                 SubmitZhiBanXian(dt);
             }
         }
+            catch 
+            {
+            }
+        }
         private void Get2500制版线完成信息1天()
         {
-            if (DataBaseList.sql制版线2500 != null)
+            try
+            {
+                if (DataBaseList.sql制版线2500 != null)
             {
                 DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500_1天);
                 SubmitZhiBanXian(dt);
             }
         }
+            catch 
+            {
+            }
+        }
 
         private void Get2200制版线完成信息()
         {
+            try
+            {
+
+            
             if (DataBaseList.sql制版线2200 != null)
             {
                 DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工_2200);
                 SubmitZhiBanXian(dt);
             }
+            }
+            catch
+            {
+            }
         }
         private void Get2200制版线完成信息1天()
         {
+            try
+            { 
             if (DataBaseList.sql制版线2200 != null)
             {
                 DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工2200_1天);
                 SubmitZhiBanXian(dt);
+            }
+            }
+            catch
+            {
             }
         }
 
 
         private void Get1800制版线完成信息()
         {
+            try { 
             if (DataBaseList.sql制版线1800 != null)
             {
                 DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800);
                 SubmitZhiBanXian(dt);
             }
         }
+            catch 
+            {
+            }
+        }
         private void Get1800制版线完成信息1天()
         {
-            if (DataBaseList.sql制版线1800 != null)
+            try
             {
-                DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800_1天);
-                SubmitZhiBanXian(dt);
+                if (DataBaseList.sql制版线1800 != null)
+                {
+                    DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800_1天);
+                    SubmitZhiBanXian(dt);
+                }
+            }
+            catch 
+            {
             }
         }
 
@@ -143,25 +180,46 @@ namespace 工作数据分析.WinForm
             DataTable dt1800 = new DataTable();
             DataTable dt2200 = new DataTable();
             DataTable dt2500 = new DataTable();
-            if (My.Ping(DataBaseList.IP_制版线1800)&& SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800))
+            try
             {
-                DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
-                dgv1800.DataSource = DataBaseList.sql制版线1800.Querytable("SELECT [订单号],[客户名称],rtrim([楞别])'楞别',[订单数],[纸宽],[纸长],rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]");
-                dt1800 = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800当天1);
+                if (My.Ping(DataBaseList.IP_制版线1800) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800))
+                {
+                    DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
+                    dgv1800.DataSource = DataBaseList.sql制版线1800.Querytable("SELECT [订单号],[客户名称],rtrim([楞别])'楞别',[订单数],[纸宽],[纸长],rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]");
+                    dt1800 = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800当天1);
+                }
             }
-
-            if (My.Ping(DataBaseList.IP_制版线2200) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2200))
+            catch 
             {
-                DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
-                dgv2200.DataSource = DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称],rtrim([楞别])'楞别',[订单数],[纸宽],[纸长],rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]");
-                dt2200 = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工1800当天1);
+                dgv1800.DataSource = null;
             }
-
-            if (My.Ping(DataBaseList.IP_制版线2500) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2500))
+            try
             {
-                DataBaseList.sql制版线2500 = new SqlHelper(DataBaseList.ConnString_制版线2500);
-                dgv2500.DataSource = DataBaseList.sql制版线2500.Querytable(Resources.制版线当前排程2500);
-                dt2500 = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500当天1);
+                if (My.Ping(DataBaseList.IP_制版线2200) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2200))
+                
+                    {
+                        DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
+                        dgv2200.DataSource = DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称],rtrim([楞别])'楞别',[订单数],[纸宽],[纸长],rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]");
+                        dt2200 = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工1800当天1);
+                    }
+                }
+                catch 
+                {
+                    dgv2200.DataSource = null;
+                }
+
+            try
+            {
+                if (My.Ping(DataBaseList.IP_制版线2500) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2500))
+                {
+                    DataBaseList.sql制版线2500 = new SqlHelper(DataBaseList.ConnString_制版线2500);
+                    dgv2500.DataSource = DataBaseList.sql制版线2500.Querytable(Resources.制版线当前排程2500);
+                    dt2500 = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500当天1);
+                }
+            }
+            catch
+            {
+                dgv2500.DataSource = null;
             }
             
             dt1800.Merge(dt2200,false);
@@ -216,6 +274,12 @@ namespace 工作数据分析.WinForm
             {
                 InitShowData();
             }
+        }
+
+        private void Form制版线实时_SizeChanged(object sender, EventArgs e)
+        {
+            splitContainer1.SplitterDistance = splitContainer2.Width / 3;
+            splitContainer3.SplitterDistance = splitContainer3.Width / 2;
         }
     }
 }
