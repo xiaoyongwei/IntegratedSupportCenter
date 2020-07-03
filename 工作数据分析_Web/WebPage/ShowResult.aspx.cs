@@ -199,6 +199,11 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
             {
                 this.GridView1.DataSource = GetSqlTxt_Datatable("纸板出库分析");
                 this.GridView1.DataBind();
+            } 
+            else if (code == "26")
+            {
+                this.GridView1.DataSource = GetSqlTxt_Datatable("退货数与退库数不符");
+                this.GridView1.DataBind();
             }
             else
             {

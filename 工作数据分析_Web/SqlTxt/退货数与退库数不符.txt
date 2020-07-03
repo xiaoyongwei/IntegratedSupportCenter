@@ -1,0 +1,48 @@
+﻿SELECT * FROM (select t.serial 工单号
+	,t.prdnme 产品名称
+	,(
+		SELECT nvl(SUM(ACCNUMR),0)
+		FROM "EJSH"."PB_BCDX"
+		WHERE SERIAL = t.serial
+			AND INVTYP = 'XL'
+		) 退货数
+	,(
+		select nvl(sum(a.accnumr),0)
+		from pb_bcdx a
+		where a.serial = t.serial
+			and a.invtyp = 'XT'
+			AND a.ORGCDE = 'KS03'
+		) 退库数
+	,(
+		select nvl(sum(a.accnumr),0)
+		from pb_bcdx a
+		where a.serial = t.serial
+			and a.invtyp IN (
+				'XC'
+				,'XM'
+				)
+			AND a.ORGCDE = 'KS03'
+			and a.objtyp = 'DL'
+		) 报废数
+FROM "EJSH"."PB_BCDX" t
+WHERE t.SERIAL IN (
+		select p.serial
+		from pb_bcdx p
+		where p.orgcde = 'KS03'
+			and p.objtyp = 'DL'
+			and p.invtyp = 'XL'
+			and p.status = 'Y'
+			and serial like 'C%'
+			and to_char(p.PTDATE, 'yyyy-mm-dd') between (
+						select to_char(sysdate - interval '20' day, 'yyyy-mm-dd')
+						from dual
+						)
+				and (
+						select to_char(sysdate, 'yyyy-mm-dd')
+						from dual
+						)
+		GROUP BY p.serial
+		)
+group by t.serial
+	,t.prdnme)c
+	WHERE c.退货数!=c.退库数
