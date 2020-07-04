@@ -1,10 +1,5 @@
-﻿SELECT "SERIAL" 工单号
-	,"CTSMPNME" || '-' || "CTPRDNME" 产品名称
-	,"SPECS" 规格
-	,CRRCDE || '-' || "TCSIZE" 坑型材质
-	,"INVNUM" 数量
-	,nvl("SITCDE", ' ') 库区
-	,(
+﻿SELECT 
+(
 		SELECT case 
 				when count(0) > 0
 					then '完工'
@@ -40,14 +35,21 @@
 				,'装条形提手（10KG）'
 				,'装条形提手（5KG）'
 				)
-		) 完工
+		) 后工序
 		,(SELECT  case 
 				when count(0) > 0
 					then '入库'
 				else ' '
 				end
 	FROM "EJSH"."PB_BCDR"
-	WHERE SERIAL="EJSH"."V_BCDT_ZB".serial and OBJTYP='CL')入库
+	WHERE SERIAL="EJSH"."V_BCDT_ZB".serial and OBJTYP='CL')成品
+,"SERIAL" 工单号
+	,"CTSMPNME" || '-' || "CTPRDNME" 产品名称
+	,"SPECS" 规格
+	,CRRCDE || '-' || "TCSIZE" 坑型材质
+	,"INVNUM" 库存数
+	,nvl("SITCDE", ' ') 库区
+	
 FROM "EJSH"."V_BCDT_ZB"
 WHERE ORGCDE = 'KS03'
 	and OBJTYP = 'ZB'

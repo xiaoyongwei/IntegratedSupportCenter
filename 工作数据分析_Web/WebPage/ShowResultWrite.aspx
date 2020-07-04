@@ -9,15 +9,15 @@
     <%
         string code = Request.QueryString.Count > 0 ? Request.QueryString["sqlcode"].ToString().Trim() : "";
 
-        
+
         string sqlStr = "";
         string gridTitle = "";
         switch (code)
         {
-            case "8":
-                sqlStr = "CALL `slbz`.`二期特殊工艺订单`('1')";
-                gridTitle = "特殊工艺订单";
-                break;
+            //case "8":
+            //    sqlStr = "CALL `slbz`.`二期特殊工艺订单`('1')";
+            //    gridTitle = "特殊工艺订单";
+            //    break;
             case "12":
                 sqlStr = "CALL `slbz`.`二期未完工订单`('1');";
                 gridTitle = "二期未完工订单";
@@ -33,7 +33,7 @@
         }
         Response.Write(gridTitle + "<br/>");
         Response.Write(My.DataTableToHtml(dt, ""));
-    
+
     %>
    
     </asp:Panel>

@@ -32,7 +32,11 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 sqlStr = "SELECT * FROM `slbz`.`二期原纸仓库库存明细(uv合并)_分类`";
                 gridTitle = "二期原纸仓库库存明细_按UV合并分类";
                 break;
-            
+            case "8":
+                sqlStr = "CALL `slbz`.`二期特殊工艺订单`('1')";
+                gridTitle = "特殊工艺订单(近90天)";
+                break;
+
             //case "9":
             //    sqlStr = "CALL `slbz`.`二期原纸仓库库存明细分类汇总`('A')";
             //    gridTitle = "分类汇总(A类纸)";
@@ -203,6 +207,11 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
             else if (code == "26")
             {
                 this.GridView1.DataSource = GetSqlTxt_Datatable("退货数与退库数不符");
+                this.GridView1.DataBind();
+            }
+else if (code == "8")
+            {
+                this.GridView1.DataSource = GetSqlTxt_Datatable("特殊工艺订单");
                 this.GridView1.DataBind();
             }
             else

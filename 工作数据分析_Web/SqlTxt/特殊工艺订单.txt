@@ -1,0 +1,50 @@
+﻿SELECT "PRCNME" 工序
+	,"UPOPNUM" - "LSSNUM" 工序数
+	,"SERIAL" 工单号
+	,"SMPNME" 客户
+	,"PRDNME" 产品名称
+FROM "EJSH"."V_ORD_SCH" t
+WHERE t.ORGCDE = 'KS03'
+	AND t.OBJTYP = 'CL'
+	AND to_char(ptdate, 'yyyy-mm-dd') >= (
+		select to_char(sysdate - interval '90' day, 'yyyy-mm-dd')
+		from dual
+		)
+	AND to_char(ptdate, 'yyyy-mm-dd') <= (
+		select to_char(sysdate, 'yyyy-mm-dd')
+		from dual
+		)
+	and not exists (
+		select 1
+		from pb_bcdr i
+		where i.orgcde = 'KS03'
+			and i.objtyp in ('CL')
+			and i.serial = SUBSTR(t.serial,0,10)
+		)
+	AND PRCNME IN (
+		'手工勾底'
+		,'粘天地盖'
+		,'装条形提手（10KG）'
+		,'装矩（圆）形提手扣 黑'
+		,'装条形提手（5KG）'
+		,'装矩（圆）形提手扣 白'
+		,'贴背/贴标签'
+		,'辅助工序'
+		,'贴胶片'
+		,'穿绳'
+		,'全检'
+		,'普包商检'
+		,'隔纸'
+		,'割样'
+		,'大检'
+		,'危包商检'
+		,'贴天窗'
+		,'防潮油'
+		,'晒箱'
+		,'喷墨防水油'
+		,'烫银'
+		,'贴彩画'
+		,'喷墨UV油'
+		,'烫金'
+		,'贴纤维胶带'
+		)
