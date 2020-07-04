@@ -132,6 +132,18 @@
     <Compile Include="WinForm\Form各工序订单情况.Designer.cs">
       <DependentUpon>Form各工序订单情况.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\Form回单导入.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form回单导入.Designer.cs">
+      <DependentUpon>Form回单导入.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Form回单管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Form回单管理.Designer.cs">
+      <DependentUpon>Form回单管理.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\Form弹窗.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +258,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\Form各工序订单情况.resx">
       <DependentUpon>Form各工序订单情况.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form回单导入.resx">
+      <DependentUpon>Form回单导入.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Form回单管理.resx">
+      <DependentUpon>Form回单管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\Form弹窗.resx">
       <DependentUpon>Form弹窗.cs</DependentUpon>

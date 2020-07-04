@@ -476,5 +476,25 @@ namespace 工作数据分析.Properties {
                 return ResourceManager.GetString("制版线当前排程2500", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找类似 select * from(select 
+        ///to_char(t.ptdate,&apos;yyyy-MM-dd&apos;) 送货日期
+        ///,t.pono    送货单号
+        ///,t.smpnme  客户简称
+        ///,t.agntnme    业务员
+        ///,(select driver from dlv_auto where lnccde in (select lnccde from v_bcdx_ct b where b.id=t.id) and rownum = 1) 司机
+        ///,t.usrnme 操作人
+        ///from v_bcdx_ct t where t.objtyp=&apos;DL&apos; and t.invtyp =&apos;XD&apos; and t.orgcde=&apos;KS03&apos; and t.clientid=&apos;KS&apos;
+        ///  and to_char(ptdate,&apos;yyyy-MM-dd&apos;) &gt;= &apos;@starttime&apos;
+        ///  and to_char(ptdate,&apos;yyyy-MM-dd&apos;) &lt;= &apos;@endtime&apos; 
+        ///  and t.usrnme in(&apos;肖永卫&apos;,&apos;颜玲敏&apos;,&apos;应燕华&apos;,&apos;刘正利&apos;,&apos;董小浩&apos;,&apos;叶耀红&apos;))a
+        ///group by 送货 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string 获取送货单回单信息 {
+            get {
+                return ResourceManager.GetString("获取送货单回单信息", resourceCulture);
+            }
+        }
     }
 }

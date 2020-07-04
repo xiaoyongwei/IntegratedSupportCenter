@@ -1198,4 +1198,19 @@ ORDER BY ord.sn ))
 drop table #OrderItemLines
 drop table #TmpM</value>
   </data>
+  <data name="获取送货单回单信息" xml:space="preserve">
+    <value>select * from(select 
+to_char(t.ptdate,'yyyy-MM-dd') 送货日期
+,t.pono    送货单号
+,t.smpnme  客户简称
+,t.agntnme    业务员
+,(select driver from dlv_auto where lnccde in (select lnccde from v_bcdx_ct b where b.id=t.id) and rownum = 1) 司机
+,t.usrnme 操作人
+from v_bcdx_ct t where t.objtyp='DL' and t.invtyp ='XD' and t.orgcde='KS03' and t.clientid='KS'
+  and to_char(ptdate,'yyyy-MM-dd') &gt;= '@starttime'
+  and to_char(ptdate,'yyyy-MM-dd') &lt;= '@endtime' 
+  and t.usrnme in('肖永卫','颜玲敏','应燕华','刘正利','董小浩','叶耀红'))a
+group by 送货日期,送货单号,客户简称,业务员,司机,操作人
+order by 送货日期,送货单号</value>
+  </data>
 </root>
