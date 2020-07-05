@@ -23,17 +23,17 @@ namespace 工作数据分析.WinForm
 
         private void Form回单管理_Load(object sender, EventArgs e)
         {
-            this.comboBox1.SelectedIndex = 0;
+            this.comboBoxHdzc.SelectedIndex = 0;
+            this.comboBoxXsbqs.SelectedIndex = 0;
             this.dtpS.Value = DateTime.Now.AddDays(-3);
             InitDgv();
         }
 
         private void InitDgv()
         {
-
-            if ((dtpE.Value - dtpS.Value).Days > 30)
+            if ((dtpE.Value - dtpS.Value).Days > 90)
             {
-                My.ShowErrorMessage("间隔时间不能超过30天");
+                My.ShowErrorMessage("间隔时间不能超过90天");
                 return;
             }
             else if (dtpE.Value < dtpS.Value)
@@ -42,22 +42,32 @@ namespace 工作数据分析.WinForm
                 return;
             }
 
-
-
             string sql = string.Format("SELECT * FROM `slbz`.`送货回单情况`where 送货日期 between '{0}' and '{1}' and (送货单号 like'%{2}%' or 客户简称 like'%{2}%' or 业务员 like '%{2}%' or 司机 like '%{2}%' or 操作人 like'%{2}%' )"
                 , dtpS.Value.ToString("yyyy-MM-dd"), dtpE.Value.ToString("yyyy-MM-dd"), textBoxSearch.Text.Trim());
-            switch (comboBox1.Text)
+            switch (comboBoxHdzc.Text)
             {
                 case "正常回单":
                     sql += " and 回单正常 ='Y'";
                     break;
                 case "异常回单":
-                    sql += " and 回单正常 =''";
+                    sql += " and 回单正常 !='Y'";
                     break;
                 case "全部回单":
                 default:
                     break;
             }
+            switch (comboBoxXsbqs.Text)
+            {
+                case "销售部签收":
+                    sql += " and 销售部签收='Y' ";
+                    break;
+                case "销售部未签收":
+                    sql += " and 销售部签收!='Y' ";
+                    break;
+                default:
+                    break;
+            }
+
             sql += " ORDER BY `送货日期`DESC,送货单号 DESC";
             dgv.DataSource = MySqlDbHelper.ExecuteDataTable(sql);
             SetDgvRowBackColor();
@@ -65,12 +75,7 @@ namespace 工作数据分析.WinForm
 
 	
 
-        private void buttonInput_Click(object sender, EventArgs e)
-        {
-            new Form回单导入().ShowDialog();
-            InitDgv();
-        }
-
+       
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             InitDgv();
@@ -103,6 +108,22 @@ namespace 工作数据分析.WinForm
             if (ponoList.Count > 0)
             {
                 StringBuilder sb = new StringBuilder("UPDATE `slbz`.`送货回单情况`SET `回单正常` = '"+(bl?"Y":"")+"'WHERE `送货单号` in(");
+                foreach (string item in ponoList)
+                {
+                    sb.AppendFormat("'{0}',", item);
+                }
+                sb.Append("'');");
+                MySqlDbHelper.ExecuteNonQuery(sb.ToString());
+                InitDgv();
+            }
+        }
+
+        private void Set销售部签收(bool bl)
+        {
+            List<string> ponoList = GetSelectedPonos();
+            if (ponoList.Count > 0)
+            {
+                StringBuilder sb = new StringBuilder("UPDATE `slbz`.`送货回单情况`SET `销售部签收` = '" + (bl ? "Y" : "") + "'WHERE `送货单号` in(");
                 foreach (string item in ponoList)
                 {
                     sb.AppendFormat("'{0}',", item);
@@ -191,6 +212,22 @@ namespace 工作数据分析.WinForm
                 }
 
             }
+        }
+
+        private void 导入数据ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Form回单导入().ShowDialog();
+            InitDgv();
+        }
+
+        private void 标记为销售部签收ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Set销售部签收(true);
+        }
+
+        private void 取消销售部签收ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Set销售部签收(false);
         }
     }
 }
