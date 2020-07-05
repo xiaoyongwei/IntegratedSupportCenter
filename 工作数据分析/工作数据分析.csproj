@@ -73,8 +73,8 @@
     <Reference Include="NPOI.OpenXml4Net">
       <HintPath>D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.OpenXml4Net.dll</HintPath>
     </Reference>
-    <Reference Include="QRCoder, Version=1.3.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QRCoder.1.3.6\lib\net40\QRCoder.dll</HintPath>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.7.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -95,6 +95,7 @@
     <Compile Include="Class\ExcelHelper.cs" />
     <Compile Include="Class\SystemInfo.cs" />
     <Compile Include="Data\DAL\DataBaseList.cs" />
+    <Compile Include="Data\DAL\Oracle\OracleHelper.cs" />
     <Compile Include="Data\DAL\SqlServer\SqlHelper.cs" />
     <Compile Include="Data\DAL\SqlServer\SqlHelper_2500.cs" />
     <Compile Include="Data\DAL\SqlServer\SqlHelper_财务.cs" />
@@ -132,16 +133,22 @@
     <Compile Include="WinForm\Form各工序订单情况.Designer.cs">
       <DependentUpon>Form各工序订单情况.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\Form回单导入.cs">
+    <Compile Include="WinForm\huidan\Form回单信息.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\Form回单导入.Designer.cs">
+    <Compile Include="WinForm\huidan\Form回单信息.Designer.cs">
+      <DependentUpon>Form回单信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\huidan\Form回单导入.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\huidan\Form回单导入.Designer.cs">
       <DependentUpon>Form回单导入.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\Form回单管理.cs">
+    <Compile Include="WinForm\huidan\Form回单管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\Form回单管理.Designer.cs">
+    <Compile Include="WinForm\huidan\Form回单管理.Designer.cs">
       <DependentUpon>Form回单管理.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\Form弹窗.cs">
@@ -259,10 +266,13 @@
     <EmbeddedResource Include="WinForm\Form各工序订单情况.resx">
       <DependentUpon>Form各工序订单情况.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\Form回单导入.resx">
+    <EmbeddedResource Include="WinForm\huidan\Form回单信息.resx">
+      <DependentUpon>Form回单信息.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\huidan\Form回单导入.resx">
       <DependentUpon>Form回单导入.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\Form回单管理.resx">
+    <EmbeddedResource Include="WinForm\huidan\Form回单管理.resx">
       <DependentUpon>Form回单管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\Form弹窗.resx">
