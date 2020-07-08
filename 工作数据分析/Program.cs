@@ -30,9 +30,9 @@ namespace 甩纸数据
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormYijie_自动获取());
+            Application.Run(new FormYijie_自动获取());
             //Application.Run(new Form制版线实时());
-            Application.Run(new Form回单管理());
+            //Application.Run(new Form回单管理());
         }
     }
 }

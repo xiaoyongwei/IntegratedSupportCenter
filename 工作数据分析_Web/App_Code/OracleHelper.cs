@@ -205,6 +205,11 @@ public static class OracleHelper
         return result;
     }
 
+    public static object ExecuteScalar(string cmdText)
+    {
+        return ExecuteScalar(CommandType.Text, cmdText, null);       
+    }
+
     ///    <summary>
     ///    执行数据库事务查询操作,返回结果集中位于第一行第一列的Object类型的值
     ///    </summary>

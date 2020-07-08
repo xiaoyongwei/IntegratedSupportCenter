@@ -29,16 +29,9 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分�
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\工作数据分析_自动获取.pdb
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析_自动获取.exe
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析_自动获取.pdb
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\Ionic.Zip.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\MySql.Data.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\NPOI.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\NPOI.OOXML.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\NPOI.OpenXml4Net.dll
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\Oracle.ManagedDataAccess.dll
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\NPOI.OpenXmlFormats.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\System.Data.SQLite.pdb
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.Form回单导入.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.Form回单管理.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.huidan.Form回单信息.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csprojAssemblyReference.cache
