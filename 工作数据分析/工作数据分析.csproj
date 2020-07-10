@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>工作数据分析</RootNamespace>
-    <AssemblyName>工作数据分析_自动获取</AssemblyName>
+    <AssemblyName>物流数据</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -133,22 +133,22 @@
     <Compile Include="WinForm\Form各工序订单情况.Designer.cs">
       <DependentUpon>Form各工序订单情况.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\huidan\Form回单信息.cs">
+    <Compile Include="WinForm\WuLiu\huidan\Form回单信息.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\huidan\Form回单信息.Designer.cs">
+    <Compile Include="WinForm\WuLiu\huidan\Form回单信息.Designer.cs">
       <DependentUpon>Form回单信息.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\huidan\Form回单导入.cs">
+    <Compile Include="WinForm\WuLiu\huidan\Form回单导入.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\huidan\Form回单导入.Designer.cs">
+    <Compile Include="WinForm\WuLiu\huidan\Form回单导入.Designer.cs">
       <DependentUpon>Form回单导入.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\huidan\Form回单管理.cs">
+    <Compile Include="WinForm\WuLiu\huidan\Form回单管理.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\huidan\Form回单管理.Designer.cs">
+    <Compile Include="WinForm\WuLiu\huidan\Form回单管理.Designer.cs">
       <DependentUpon>Form回单管理.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\Form弹窗.cs">
@@ -233,23 +233,29 @@
     <Compile Include="WinForm\Form选择日期.Designer.cs">
       <DependentUpon>Form选择日期.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\WuLiu\Form添加报货.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForm\WuLiu\Form添加报货.Designer.cs">
-      <DependentUpon>Form添加报货.cs</DependentUpon>
-    </Compile>
     <Compile Include="WinForm\WuLiu\Form物流Mian.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WinForm\WuLiu\Form物流Mian.Designer.cs">
       <DependentUpon>Form物流Mian.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\WuLiu\Form物流当日分析.cs">
+    <Compile Include="WinForm\WuLiu\yunfei\Form拼车距离弹窗.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\WuLiu\Form物流当日分析.Designer.cs">
-      <DependentUpon>Form物流当日分析.cs</DependentUpon>
+    <Compile Include="WinForm\WuLiu\yunfei\Form拼车距离弹窗.Designer.cs">
+      <DependentUpon>Form拼车距离弹窗.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\yunfei\Form计算运费弹窗.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\yunfei\Form计算运费弹窗.Designer.cs">
+      <DependentUpon>Form计算运费弹窗.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\yunfei\Form运费结算.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\yunfei\Form运费结算.Designer.cs">
+      <DependentUpon>Form运费结算.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="WinForm\FormShowData.resx">
       <DependentUpon>FormShowData.cs</DependentUpon>
@@ -266,13 +272,13 @@
     <EmbeddedResource Include="WinForm\Form各工序订单情况.resx">
       <DependentUpon>Form各工序订单情况.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\huidan\Form回单信息.resx">
+    <EmbeddedResource Include="WinForm\WuLiu\huidan\Form回单信息.resx">
       <DependentUpon>Form回单信息.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\huidan\Form回单导入.resx">
+    <EmbeddedResource Include="WinForm\WuLiu\huidan\Form回单导入.resx">
       <DependentUpon>Form回单导入.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\huidan\Form回单管理.resx">
+    <EmbeddedResource Include="WinForm\WuLiu\huidan\Form回单管理.resx">
       <DependentUpon>Form回单管理.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\Form弹窗.resx">
@@ -324,14 +330,17 @@
     <EmbeddedResource Include="WinForm\Form选择日期.resx">
       <DependentUpon>Form选择日期.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\WuLiu\Form添加报货.resx">
-      <DependentUpon>Form添加报货.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WuLiu\Form物流Mian.resx">
       <DependentUpon>Form物流Mian.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\WuLiu\Form物流当日分析.resx">
-      <DependentUpon>Form物流当日分析.cs</DependentUpon>
+    <EmbeddedResource Include="WinForm\WuLiu\yunfei\Form拼车距离弹窗.resx">
+      <DependentUpon>Form拼车距离弹窗.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WuLiu\yunfei\Form计算运费弹窗.resx">
+      <DependentUpon>Form计算运费弹窗.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WuLiu\yunfei\Form运费结算.resx">
+      <DependentUpon>Form运费结算.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>

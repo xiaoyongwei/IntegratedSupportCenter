@@ -37,6 +37,10 @@ namespace 工作数据分析.Data.DAL.Oracle
                 return val;
             }
         }
+        public static int ExecuteNonQuery(string cmdText)
+        {
+            return ExecuteNonQuery(CommandType.Text, cmdText, null);
+        }
 
         /// <summary>
         /// 执行数据库事务非查询操作,返回受影响的行数
@@ -175,6 +179,16 @@ namespace 工作数据分析.Data.DAL.Oracle
         }
 
         /// <summary>
+        /// 执行数据库查询操作,返回DataTable类型的结果集
+        /// </summary>
+        /// <param name="cmdText">SQL语句</param>
+        /// <returns>当前查询操作返回的DataTable类型的结果集</returns>
+        public static DataTable ExecuteDataTable(string cmdText)
+        {
+            return ExecuteDataTable(CommandType.Text, cmdText, null);
+        }
+
+        /// <summary>
         /// 执行数据库查询操作,返回结果集中位于第一行第一列的Object类型的值
         /// </summary>
         /// <param name="connectionString">数据库连接字符串</param>
@@ -205,6 +219,16 @@ namespace 工作数据分析.Data.DAL.Oracle
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// 执行数据库查询操作,返回结果集中位于第一行第一列的Object类型的值
+        /// </summary>
+        /// <param name="cmdText">SQL命令语句</param>
+        /// <returns>当前查询操作返回的结果集中位于第一行第一列的Object类型的值</returns>
+        public static object ExecuteScalar( string cmdText)
+        {
+            return ExecuteScalar(CommandType.Text, cmdText, null);
         }
 
         ///    <summary>

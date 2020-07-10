@@ -310,7 +310,7 @@ namespace 综合保障中心
             {
                 pcf = 20 + (juli - 5) * 2;
             }
-            row.Cells[ColumnPcyf.Index].Value = Math.Round(pcf, 0);
+            row.Cells[ColumnPcyf.Index].Value = Math.Round(pcf, 2);
             TongjiYunfei();
         }
 

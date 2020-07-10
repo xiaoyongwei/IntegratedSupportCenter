@@ -88,7 +88,10 @@ namespace 工作数据分析.Properties {
         ///	,u1.FBatchNo&apos;批号&apos;
         ///	,t30.FName AS &apos;基本单位&apos;
         ///	,u1.Fauxqty AS &apos;实收数量&apos;
-        ///	,t552.FName AS &apos;辅助单位 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	,t552.FName AS &apos;辅助单位&apos;
+        ///	,u1.FSecQty AS&apos;辅助数量&apos;
+        ///	
+        ///	 [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 二期仓库入库 {
             get {
@@ -113,7 +116,8 @@ namespace 工作数据分析.Properties {
         ///	,[FKFDate] [varchar](255) NOT NULL
         ///	,[FMyKFDate] [varchar](255)
         ///	,[FStockTypeID] [Int] NOT NULL
-        ///	,[FQtyLock] [decimal](28 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	,[FQtyLock] [decimal](28, 10) NOT NULL
+        ///	 [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 二期原纸仓库即时库存 {
             get {
@@ -150,7 +154,8 @@ namespace 工作数据分析.Properties {
         ///		) AS &apos;辅助属性&apos;
         ///	,u1.FBatchNo AS &apos;批号&apos;
         ///	,t23.Fname &apos;基本单位&apos;
-        ///	,vw.Fauxqty &apos; [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	,vw.Fauxqty &apos;实发数量&apos;
+        ///	,t512.FName AS &apos;辅助单位&apos; [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 二期原纸辅料领料明细 {
             get {
@@ -182,7 +187,7 @@ namespace 工作数据分析.Properties {
         ///                            [FSupplyID] [int] NOT NULL ,
         ///                            [FStockID] [int] NOT NULL ,
         ///                            [FQty] [decimal](28, 10) NOT NULL ,
-        ///                            [FB [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///                            [FBal] [deci [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 二期胶印纸箱仓库即时库存 {
             get {
@@ -200,7 +205,7 @@ namespace 工作数据分析.Properties {
         ///                            [FSupplyID] [int] NOT NULL ,
         ///                            [FStockID] [int] NOT NULL ,
         ///                            [FQty] [decimal](28, 10) NOT NULL ,
-        ///                            [FB [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///                            [FBal] [deci [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 二期辅料仓库即时库存 {
             get {
@@ -274,7 +279,7 @@ namespace 工作数据分析.Properties {
         ///max(ComOrd.EndTime) as EndTime,
         ///CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),&apos;00:00:00&apos;),108) as ProdTime,
         ///sum(ComOrd.StopTimes) as StopTimes,--停车次数
-        ///su [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///sum(ComOrd.StopTim [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线完工_2500 {
             get {
@@ -394,7 +399,7 @@ namespace 工作数据分析.Properties {
         ///max(ComOrd.EndTime) as EndTime,
         ///CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),&apos;00:00:00&apos;),108) as ProdTime,
         ///sum(ComOrd.StopTimes) as StopTimes,--停车次数
-        ///su [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///sum(ComOrd.StopTim [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线完工2500_1天 {
             get {
@@ -419,7 +424,7 @@ namespace 工作数据分析.Properties {
         ///max(ComOrd.EndTime) as EndTime,
         ///CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),&apos;00:00:00&apos;),108) as ProdTime,
         ///sum(ComOrd.StopTimes) as StopTimes,--停车次数
-        ///su [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///sum(ComOrd.StopTim [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线完工2500当天 {
             get {
@@ -444,7 +449,7 @@ namespace 工作数据分析.Properties {
         ///max(ComOrd.EndTime) as EndTime,
         ///CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),&apos;00:00:00&apos;),108) as ProdTime,
         ///sum(ComOrd.StopTimes) as StopTimes,--停车次数
-        ///su [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///sum(ComOrd.StopTim [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线完工2500当天1 {
             get {
@@ -469,7 +474,8 @@ namespace 工作数据分析.Properties {
         ///                        Length int,
         ///                        Qty int
         ///                        )
-        ///   insert into #OrderItemLines exec GetNoNomalLines         /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   insert into #OrderItemLines exec GetNoNomalLines 
+        ///if @ProdLineLeve [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线当前排程2500 {
             get {
@@ -489,11 +495,42 @@ namespace 工作数据分析.Properties {
         ///  and to_char(ptdate,&apos;yyyy-MM-dd&apos;) &gt;= &apos;@starttime&apos;
         ///  and to_char(ptdate,&apos;yyyy-MM-dd&apos;) &lt;= &apos;@endtime&apos; 
         ///  and t.usrnme in(&apos;肖永卫&apos;,&apos;颜玲敏&apos;,&apos;应燕华&apos;,&apos;刘正利&apos;,&apos;董小浩&apos;,&apos;叶耀红&apos;))a
-        ///group by 送货 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///group by 送货日期,送货单号,客户简 [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 获取送货单回单信息 {
             get {
                 return ResourceManager.GetString("获取送货单回单信息", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 SELECT ID,&quot;PAYSTS&quot; 结算
+        ///	,&quot;DRIVER&quot; 司机
+        ///	,&quot;LNCCDE&quot; 车牌号
+        ///	,nvl(&quot;DISTANCE&quot;,0) 距离
+        ///	,&quot;CLNTNME&quot; 客户
+        ///	,nvl(&quot;PLNCDE&quot;,&apos; &apos;) 装车单
+        ///	,&quot;PONO&quot; 送货单
+        ///	,(select nvl(sum(i.ratios * i.acreage * i.ACCNUMR),0) from v_bcdx_ct i where i.clientid = t.clientid and i.orgcde = t.orgcde
+        ///          and i.PONO = t.pono) as 运费面积
+        ///	,nvl(&quot;ACCAMT&quot;,0) 运费
+        ///	,nvl(&quot;ANNAMT&quot;,0) 补运费
+        ///	,&quot;CREATED&quot; 打单时间	
+        ///	,nvl(&quot;USMARK&quot;,&apos; &apos;) 备注
+        ///	
+        ///FROM &quot;EJSH&quot;.&quot;DLV_FARE&quot; t
+        ///WHERE   orgcde = &apos;KS03&apos;
+        ///	AND DRIVER IN (
+        ///		&apos;霍红海&apos;
+        ///		,&apos;郑二毛&apos;
+        ///		,&apos;郑荷伟&apos;
+        ///		,&apos;娄绍勇&apos;
+        ///		,&apos;周晓军&apos;
+        ///		, [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string 运费结算 {
+            get {
+                return ResourceManager.GetString("运费结算", resourceCulture);
             }
         }
     }

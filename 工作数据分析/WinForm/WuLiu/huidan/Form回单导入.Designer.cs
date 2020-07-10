@@ -106,6 +106,7 @@
             this.MinimizeBox = false;
             this.Name = "Form回单导入";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "回单导入";
             this.Load += new System.EventHandler(this.Form回单导入_Load);
             this.ResumeLayout(false);

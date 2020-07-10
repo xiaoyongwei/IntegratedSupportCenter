@@ -10,31 +10,39 @@ namespace 工作数据分析.WinForm.WuLiu
             InitializeComponent();
         }
 
-        private void InitDgv()
-        {
-            //SELECT *FROM `slbz`.`物流_发货通知单`ORDER BY `ID` DESC LIMIT 500
-            dgv.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT * FROM `slbz`.`物流_发货通知单` ORDER BY `ID` DESC LIMIT 500");
-            dgv.AutoResizeColumns();
-        }
 
-
-        private void 添加报货ToolStripMenuItem_Click(object sender, EventArgs e)
+       
+       
+        private void 回单管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form添加报货 add = new Form添加报货();
-            if (add.ShowDialog() == DialogResult.OK)
+            for (int i = this.MdiChildren.Length-1; i >=0 ; i--)
             {
-                InitDgv();
+                if (this.MdiChildren[i] is Form回单管理)
+                {
+                    this.MdiChildren[i].Dispose();
+                }
             }
+
+            Form回单管理 huidan = new Form回单管理();
+            huidan.WindowState = FormWindowState.Maximized;
+            huidan.MdiParent = this;
+            huidan.Show();
         }
 
-        private void 当日报表ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 运费结算ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Form物流当日分析().ShowDialog();
-        }
+            for (int i = this.MdiChildren.Length - 1; i >= 0; i--)
+            {
+                if (this.MdiChildren[i] is Form运费结算)
+                {
+                    this.MdiChildren[i].Dispose();
+                }
+            }
 
-        private void Form物流Mian_Load(object sender, EventArgs e)
-        {
-            InitDgv();
+            Form运费结算 yunfei = new Form运费结算();
+            yunfei.WindowState = FormWindowState.Maximized;
+            yunfei.MdiParent = this;
+            yunfei.Show();
         }
     }
 }

@@ -1213,4 +1213,35 @@ from v_bcdx_ct t where t.objtyp='DL' and t.invtyp ='XD' and t.orgcde='KS03' and 
 group by 送货日期,送货单号,客户简称,业务员,司机,操作人
 order by 送货日期,送货单号</value>
   </data>
+  <data name="运费结算" xml:space="preserve">
+    <value>SELECT ID,"PAYSTS" 结算
+	,"DRIVER" 司机
+	,"LNCCDE" 车牌号
+	,nvl("DISTANCE",0) 距离
+	,"CLNTNME" 客户
+	,nvl("PLNCDE",' ') 装车单
+	,"PONO" 送货单
+	,(select nvl(sum(i.ratios * i.acreage * i.ACCNUMR),0) from v_bcdx_ct i where i.clientid = t.clientid and i.orgcde = t.orgcde
+          and i.PONO = t.pono) as 运费面积
+	,nvl("ACCAMT",0) 运费
+	,nvl("ANNAMT",0) 补运费
+	,"CREATED" 打单时间	
+	,nvl("USMARK",' ') 备注
+	
+FROM "EJSH"."DLV_FARE" t
+WHERE   orgcde = 'KS03'
+	AND DRIVER IN (
+		'霍红海'
+		,'郑二毛'
+		,'郑荷伟'
+		,'娄绍勇'
+		,'周晓军'
+		,'郑华东'
+		,'杨冬冬'
+		,'董美枝'
+		,'颜海军.'
+		,'周晓军.'
+		,'陶明凯'
+		)</value>
+  </data>
 </root>

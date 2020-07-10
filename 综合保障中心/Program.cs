@@ -16,7 +16,7 @@ namespace 综合保障中心
         [STAThread]
         static void Main()
         {
-            SQLiteList.GD = new SQLiteDbHelper(@"Data Source=" + Application.StartupPath + "\\Data\\GaoDai.db;Version=3;Password=1234;");
+            //SQLiteList.GD = new SQLiteDbHelper(@"Data Source=" + Application.StartupPath + "\\Data\\GaoDai.db;Version=3;Password=1234;");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

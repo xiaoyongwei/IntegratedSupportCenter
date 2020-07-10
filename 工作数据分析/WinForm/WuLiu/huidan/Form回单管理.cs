@@ -23,6 +23,16 @@ namespace 工作数据分析.WinForm
 
         private void Form回单管理_Load(object sender, EventArgs e)
         {
+
+            ////关闭多余的窗体
+            //foreach (Form f in this.ParentForm.MdiChildren)
+            //{
+            //    if (f.Name == this.Name && f.Handle != this.Handle)
+            //    {
+            //        f.Dispose();
+            //    }
+            //}
+
             this.comboBoxHdzc.SelectedIndex = 0;
             this.comboBoxXsbqs.SelectedIndex = 0;
             this.dtpS.Value = DateTime.Now.AddDays(-3);
@@ -157,17 +167,20 @@ namespace 工作数据分析.WinForm
 
         private void SetDgvRowBackColor()
         {
-            foreach (DataGridViewRow row in dgv.Rows)
+            if (dgv.Columns.Contains("回单正常"))
             {
-                if (row.Cells["回单正常"].Value.ToString()=="Y")
+                foreach (DataGridViewRow row in dgv.Rows)
                 {
-                    row.DefaultCellStyle.BackColor = dgv.DefaultCellStyle.BackColor;
-                    row.DefaultCellStyle.SelectionBackColor = dgv.DefaultCellStyle.SelectionBackColor;
-                }
-                else
-                {                    
-                    row.DefaultCellStyle.BackColor = Color.Yellow;
-                    row.DefaultCellStyle.SelectionBackColor = Color.Red;
+                    if (row.Cells["回单正常"].Value.ToString() == "Y")
+                    {
+                        row.DefaultCellStyle.BackColor = dgv.DefaultCellStyle.BackColor;
+                        row.DefaultCellStyle.SelectionBackColor = dgv.DefaultCellStyle.SelectionBackColor;
+                    }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Yellow;
+                        row.DefaultCellStyle.SelectionBackColor = Color.Red;
+                    }
                 }
             }
         }
