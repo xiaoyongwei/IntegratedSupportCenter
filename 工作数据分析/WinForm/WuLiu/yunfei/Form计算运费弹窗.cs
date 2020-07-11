@@ -52,7 +52,7 @@ namespace 工作数据分析.WinForm.WuLiu
                 }
                 else
                 {
-                    zongYunfei = baodi + sumAreas * 0.03;
+                    zongYunfei = diquYunfei + sumAreas * 0.03;
                 }
 
                 zongYunfei = Math.Round(zongYunfei, 4);
