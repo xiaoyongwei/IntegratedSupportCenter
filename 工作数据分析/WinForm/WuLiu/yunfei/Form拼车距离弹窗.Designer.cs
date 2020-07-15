@@ -62,7 +62,7 @@
             this.textBoxKm.Location = new System.Drawing.Point(72, 14);
             this.textBoxKm.Name = "textBoxKm";
             this.textBoxKm.Size = new System.Drawing.Size(68, 21);
-            this.textBoxKm.TabIndex = 2;
+            this.textBoxKm.TabIndex = 0;
             // 
             // label2
             // 
@@ -88,7 +88,7 @@
             this.textBoxMiaosu.Location = new System.Drawing.Point(72, 46);
             this.textBoxMiaosu.Name = "textBoxMiaosu";
             this.textBoxMiaosu.Size = new System.Drawing.Size(163, 21);
-            this.textBoxMiaosu.TabIndex = 4;
+            this.textBoxMiaosu.TabIndex = 1;
             // 
             // buttonShow
             // 

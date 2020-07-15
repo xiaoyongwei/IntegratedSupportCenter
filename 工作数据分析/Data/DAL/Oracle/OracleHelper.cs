@@ -104,6 +104,15 @@ namespace 工作数据分析.Data.DAL.Oracle
                 throw;
             }
         }
+        /// <summary>
+        /// 执行数据库查询操作,返回OracleDataReader类型的内存结果集
+        /// </summary>
+        /// <param name="cmdText">SQL语句</param>
+        /// <returns>当前查询操作返回的OracleDataReader类型的内存结果集</returns>
+        public static OracleDataReader ExecuteReader(string cmdText)
+        {
+            return ExecuteReader(CommandType.Text,cmdText,null);
+        }
 
         /// <summary>
         /// 执行数据库查询操作,返回DataSet类型的结果集

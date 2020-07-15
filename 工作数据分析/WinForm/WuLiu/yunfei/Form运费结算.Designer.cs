@@ -43,6 +43,8 @@
             this.二次堆码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.清零补运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.清零运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.平方运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -140,9 +142,11 @@
             this.拼车距离ToolStripMenuItem,
             this.二次堆码ToolStripMenuItem,
             this.清零补运费ToolStripMenuItem,
-            this.清零运费ToolStripMenuItem});
+            this.清零运费ToolStripMenuItem,
+            this.平方运费ToolStripMenuItem,
+            this.导出数据ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 180);
             // 
             // 计算运费ToolStripMenuItem
             // 
@@ -178,6 +182,20 @@
             this.清零运费ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.清零运费ToolStripMenuItem.Text = "清零运费";
             this.清零运费ToolStripMenuItem.Click += new System.EventHandler(this.清零运费ToolStripMenuItem_Click);
+            // 
+            // 平方运费ToolStripMenuItem
+            // 
+            this.平方运费ToolStripMenuItem.Name = "平方运费ToolStripMenuItem";
+            this.平方运费ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.平方运费ToolStripMenuItem.Text = "平方/运费";
+            this.平方运费ToolStripMenuItem.Click += new System.EventHandler(this.平方运费ToolStripMenuItem_Click);
+            // 
+            // 导出数据ToolStripMenuItem
+            // 
+            this.导出数据ToolStripMenuItem.Name = "导出数据ToolStripMenuItem";
+            this.导出数据ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.导出数据ToolStripMenuItem.Text = "导出数据";
+            this.导出数据ToolStripMenuItem.Click += new System.EventHandler(this.导出数据ToolStripMenuItem_Click);
             // 
             // Form运费结算
             // 
@@ -220,5 +238,7 @@
         private System.Windows.Forms.ToolStripMenuItem 计算运费ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 清零补运费ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 清零运费ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 平方运费ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 导出数据ToolStripMenuItem;
     }
 }

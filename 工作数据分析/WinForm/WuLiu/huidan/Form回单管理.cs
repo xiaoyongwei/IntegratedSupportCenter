@@ -207,7 +207,8 @@ namespace 工作数据分析.WinForm
         {
             SaveFileDialog save = new SaveFileDialog();
             save.DefaultExt = ".xls";
-            save.FileName = this.Text + "_" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            save.FileName = "回单管理-" + this.dtpS.Value.ToString("yyyy-MM-dd") + "-" + this.dtpE.Value.ToString("yyyy-MM-dd") + "-"
+                + this.comboBoxHdzc.Text + "-" + this.comboBoxXsbqs.Text;
             save.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             save.Filter = "Excel(.xls)|*.xls";
             if (save.ShowDialog() == DialogResult.OK)

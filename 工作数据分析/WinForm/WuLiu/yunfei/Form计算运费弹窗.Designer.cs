@@ -33,6 +33,7 @@
             this.textBoxDiquYunfei = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxBaodi
@@ -40,7 +41,7 @@
             this.textBoxBaodi.Location = new System.Drawing.Point(77, 15);
             this.textBoxBaodi.Name = "textBoxBaodi";
             this.textBoxBaodi.Size = new System.Drawing.Size(100, 21);
-            this.textBoxBaodi.TabIndex = 0;
+            this.textBoxBaodi.TabIndex = 9;
             this.textBoxBaodi.Text = "1800";
             // 
             // label1
@@ -79,16 +80,29 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // buttonClose
+            // 
+            this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonClose.Location = new System.Drawing.Point(12, 108);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.TabIndex = 3;
+            this.buttonClose.Text = "关  闭";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            // 
             // Form计算运费弹窗
             // 
+            this.AcceptButton = this.buttonSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonClose;
             this.ClientSize = new System.Drawing.Size(194, 153);
+            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxDiquYunfei);
             this.Controls.Add(this.textBoxBaodi);
+            this.Controls.Add(this.textBoxDiquYunfei);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form计算运费弹窗";
@@ -108,5 +122,6 @@
         private System.Windows.Forms.TextBox textBoxDiquYunfei;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonClose;
     }
 }
