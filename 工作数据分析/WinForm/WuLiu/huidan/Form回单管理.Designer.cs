@@ -47,6 +47,8 @@
             this.buttonSearch = new System.Windows.Forms.Button();
             this.comboBoxHdzc = new System.Windows.Forms.ComboBox();
             this.comboBoxXsbqs = new System.Windows.Forms.ComboBox();
+            this.标记运费结算ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.取消运费结算ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -82,63 +84,65 @@
             this.编辑信息ToolStripMenuItem,
             this.删除ToolStripMenuItem,
             this.导入数据ToolStripMenuItem,
-            this.导出数据ToolStripMenuItem});
+            this.导出数据ToolStripMenuItem,
+            this.标记运费结算ToolStripMenuItem,
+            this.取消运费结算ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 180);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 246);
             // 
             // 标记为回单正常ToolStripMenuItem
             // 
             this.标记为回单正常ToolStripMenuItem.Name = "标记为回单正常ToolStripMenuItem";
-            this.标记为回单正常ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.标记为回单正常ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.标记为回单正常ToolStripMenuItem.Text = "标记\"回单正常\"";
             this.标记为回单正常ToolStripMenuItem.Click += new System.EventHandler(this.标记为回单正常ToolStripMenuItem_Click);
             // 
             // 标记为回单异常ToolStripMenuItem
             // 
             this.标记为回单异常ToolStripMenuItem.Name = "标记为回单异常ToolStripMenuItem";
-            this.标记为回单异常ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.标记为回单异常ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.标记为回单异常ToolStripMenuItem.Text = "标记\"回单异常\"";
             this.标记为回单异常ToolStripMenuItem.Click += new System.EventHandler(this.标记为回单异常ToolStripMenuItem_Click);
             // 
             // 标记为销售部签收ToolStripMenuItem
             // 
             this.标记为销售部签收ToolStripMenuItem.Name = "标记为销售部签收ToolStripMenuItem";
-            this.标记为销售部签收ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.标记为销售部签收ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.标记为销售部签收ToolStripMenuItem.Text = "标记\"销售部签收\"";
             this.标记为销售部签收ToolStripMenuItem.Click += new System.EventHandler(this.标记为销售部签收ToolStripMenuItem_Click);
             // 
             // 取消销售部签收ToolStripMenuItem
             // 
             this.取消销售部签收ToolStripMenuItem.Name = "取消销售部签收ToolStripMenuItem";
-            this.取消销售部签收ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.取消销售部签收ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.取消销售部签收ToolStripMenuItem.Text = "取消\"销售部签收\"";
             this.取消销售部签收ToolStripMenuItem.Click += new System.EventHandler(this.取消销售部签收ToolStripMenuItem_Click);
             // 
             // 编辑信息ToolStripMenuItem
             // 
             this.编辑信息ToolStripMenuItem.Name = "编辑信息ToolStripMenuItem";
-            this.编辑信息ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.编辑信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.编辑信息ToolStripMenuItem.Text = "编辑信息";
             this.编辑信息ToolStripMenuItem.Click += new System.EventHandler(this.编辑信息ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // 导入数据ToolStripMenuItem
             // 
             this.导入数据ToolStripMenuItem.Name = "导入数据ToolStripMenuItem";
-            this.导入数据ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.导入数据ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.导入数据ToolStripMenuItem.Text = "导入数据";
             this.导入数据ToolStripMenuItem.Click += new System.EventHandler(this.导入数据ToolStripMenuItem_Click);
             // 
             // 导出数据ToolStripMenuItem
             // 
             this.导出数据ToolStripMenuItem.Name = "导出数据ToolStripMenuItem";
-            this.导出数据ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.导出数据ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.导出数据ToolStripMenuItem.Text = "导出数据";
             this.导出数据ToolStripMenuItem.Click += new System.EventHandler(this.导出数据ToolStripMenuItem_Click);
             // 
@@ -221,6 +225,20 @@
             this.comboBoxXsbqs.Size = new System.Drawing.Size(105, 20);
             this.comboBoxXsbqs.TabIndex = 7;
             // 
+            // 标记运费结算ToolStripMenuItem
+            // 
+            this.标记运费结算ToolStripMenuItem.Name = "标记运费结算ToolStripMenuItem";
+            this.标记运费结算ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.标记运费结算ToolStripMenuItem.Text = "标记\"运费结算\"";
+            this.标记运费结算ToolStripMenuItem.Click += new System.EventHandler(this.标记运费结算ToolStripMenuItem_Click);
+            // 
+            // 取消运费结算ToolStripMenuItem
+            // 
+            this.取消运费结算ToolStripMenuItem.Name = "取消运费结算ToolStripMenuItem";
+            this.取消运费结算ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.取消运费结算ToolStripMenuItem.Text = "取消\"运费结算\"";
+            this.取消运费结算ToolStripMenuItem.Click += new System.EventHandler(this.取消运费结算ToolStripMenuItem_Click);
+            // 
             // Form回单管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -265,5 +283,7 @@
         private System.Windows.Forms.ComboBox comboBoxXsbqs;
         private System.Windows.Forms.ToolStripMenuItem 编辑信息ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 取消销售部签收ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 标记运费结算ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 取消运费结算ToolStripMenuItem;
     }
 }

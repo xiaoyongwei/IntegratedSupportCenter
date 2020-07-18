@@ -243,5 +243,31 @@ namespace 工作数据分析.WinForm
         {
             Set销售部签收(false);
         }
+
+        private void 标记运费结算ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Set运费结算(true);
+        }
+
+        private void 取消运费结算ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Set运费结算(false);
+        }
+
+        private void Set运费结算(bool v)
+        {
+            List<string> ponoList = GetSelectedPonos();
+            if (ponoList.Count > 0)
+            {
+                StringBuilder sb = new StringBuilder("UPDATE `slbz`.`送货回单情况`SET `运费结算` = '" + (v ? "Y" : "") + "'WHERE `送货单号` in(");
+                foreach (string item in ponoList)
+                {
+                    sb.AppendFormat("'{0}',", item);
+                }
+                sb.Append("'');");
+                MySqlDbHelper.ExecuteNonQuery(sb.ToString());
+                InitDgv();
+            }
+        }
     }
 }
