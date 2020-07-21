@@ -226,7 +226,10 @@ namespace 工作数据分析.Data.DAL.Oracle
                 conn.Close();
                 conn.Dispose();
             }
-
+            if (result==null)
+            {
+                result = string.Empty;
+            }
             return result;
         }
 

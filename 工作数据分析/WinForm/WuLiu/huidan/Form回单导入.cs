@@ -61,6 +61,7 @@ namespace 工作数据分析.WinForm
             if (MySqlDbHelper.ExecuteSqlTran(sqlList))
             {
                 this.textBoxShowResult.AppendText("导入成功" + Environment.NewLine);
+                DialogResult = DialogResult.OK;
             }
             else
             {

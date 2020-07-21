@@ -82,6 +82,7 @@
       <HintPath>E:\任意存放区-共享\xiao\0000\Backup_Evo28204\bin\Debug\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -239,6 +240,12 @@
     <Compile Include="WinForm\WuLiu\Form物流Mian.Designer.cs">
       <DependentUpon>Form物流Mian.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WuLiu\yunfei\Form为客户设置地区.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\yunfei\Form为客户设置地区.Designer.cs">
+      <DependentUpon>Form为客户设置地区.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\WuLiu\yunfei\Form拼车距离弹窗.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -332,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WuLiu\Form物流Mian.resx">
       <DependentUpon>Form物流Mian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WuLiu\yunfei\Form为客户设置地区.resx">
+      <DependentUpon>Form为客户设置地区.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WuLiu\yunfei\Form拼车距离弹窗.resx">
       <DependentUpon>Form拼车距离弹窗.cs</DependentUpon>

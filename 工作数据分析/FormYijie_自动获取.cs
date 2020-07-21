@@ -1429,7 +1429,8 @@ namespace 综合保障中心.其它
                                 em.SetAttribute("value", "WL0254");//账号，保存在序列化的student类中 
                                 break; //填表 
                             case "passwd":
-                                em.SetAttribute("value", "123");//密码，保存在序列化的student类中 
+                                em.SetAttribute("value", 
+                                    MySqlDbHelper.ExecuteScalar("SELECT `Value`FROM `slbz`.`settingall`where `Key`='YJ_wl0254_password'").ToString());//密码，保存在序列化的student类中 
                                 break; //填表 
                             //case "sublogin":
                             //    btn = em;

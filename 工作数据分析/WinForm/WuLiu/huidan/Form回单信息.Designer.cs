@@ -177,6 +177,7 @@
             this.MinimizeBox = false;
             this.Name = "Form回单信息";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "回单信息";
             this.Load += new System.EventHandler(this.Form回单信息_Load);
             this.ResumeLayout(false);

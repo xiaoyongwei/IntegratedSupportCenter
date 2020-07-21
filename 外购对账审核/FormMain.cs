@@ -21,7 +21,7 @@ namespace 外购对账审核
         {
             if (new FormInputPassWord("123456").ShowDialog() == DialogResult.OK)
             {
-                new FormWeihu("select * from 外购类型 where ID>0", "类型维护").ShowDialog();
+                new FormWeihu("select * from 外购类型 where ID>0  order by ID", "类型维护").ShowDialog();
             }
         }
 
@@ -34,7 +34,7 @@ namespace 外购对账审核
         {
             if (new FormInputPassWord("123456").ShowDialog()==DialogResult.OK)
             {
-                new FormWeihu("select * from 外购对账簿 limit 100", "对账簿维护").ShowDialog(); 
+                new FormWeihu("select * from 外购对账簿 order by  ID desc limit 20 ", "对账簿维护").ShowDialog(); 
             }
 
 

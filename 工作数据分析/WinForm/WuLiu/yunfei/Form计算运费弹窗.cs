@@ -14,10 +14,13 @@ namespace 工作数据分析.WinForm.WuLiu
     public partial class Form计算运费弹窗 : Form
     {
         private List<string> IDList = new List<string>();
-        public Form计算运费弹窗(List<string> idList)
+
+        public Form计算运费弹窗(List<string> idList,int BD,double YF)
         {
             InitializeComponent();
             IDList = idList;
+            this.textBoxBaodi.Text = BD.ToString();
+            this.textBoxDiquYunfei.Text = YF.ToString();
         }
 
         private void Form计算运费弹窗_Load(object sender, EventArgs e)

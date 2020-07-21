@@ -517,16 +517,14 @@ namespace 工作数据分析.Properties {
         ///	,nvl(&quot;ANNAMT&quot;,0) 补运费
         ///	,&quot;CREATED&quot; 打单时间	
         ///	,nvl(&quot;USMARK&quot;,&apos; &apos;) 备注
-        ///	
+        ///	,t.ADDRESS 送货地址
         ///FROM &quot;EJSH&quot;.&quot;DLV_FARE&quot; t
         ///WHERE   orgcde = &apos;KS03&apos;
         ///	AND DRIVER IN (
         ///		&apos;霍红海&apos;
         ///		,&apos;郑二毛&apos;
         ///		,&apos;郑荷伟&apos;
-        ///		,&apos;娄绍勇&apos;
-        ///		,&apos;周晓军&apos;
-        ///		, [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///		,&apos;娄绍勇&apos; [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 运费结算 {
             get {

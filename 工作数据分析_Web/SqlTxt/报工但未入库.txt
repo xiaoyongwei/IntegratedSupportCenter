@@ -4,15 +4,16 @@
 	t.prdnme AS 产品名称,	
 	max(t.CREATED)报工时间,
 	(SELECT ACCNUM	FROM ord_ct  WHERE  ord_ct.serial =t.serial) AS 订单数,
-	sum(t.ACCNUM) AS 报工数,
-	(select nvl(sum(accnuml),0) as 入库数  from v_pb_bcdr where objtyp ='CL' AND  v_pb_bcdr.serial =t.serial)入库数
+	(select sum(ACCNUM) FROM V_HR_PIECE_DATA WHERE SERIAL=t.serial AND prcnme like'%打包%')  AS 报工数,
+	(select nvl(sum(accnuml),0) as 入库数  from v_pb_bcdr where objtyp ='CL' AND  v_pb_bcdr.serial =substr(t.serial,1,10))入库数
 FROM
 	V_HR_PIECE_DATA t 
 WHERE
 	t.ORGCDE = 'KS03' 
 	and  t.objtyp='CL'
 	and t.prcnme like'%打包%'
-	AND to_char( t.ptdate, 'yyyy-mm-dd' ) >= (select   to_char(sysdate - interval '3' day,'yyyy-mm-dd')  from dual)
+	AND t.serial NOT like '%-%'
+	AND to_char( t.ptdate, 'yyyy-mm-dd' ) >= (select   to_char(sysdate - interval '10' day,'yyyy-mm-dd')  from dual)
 	AND to_char( t.ptdate, 'yyyy-mm-dd' ) <=( select to_char(sysdate,'yyyy-mm-dd') from dual)	
 	group BY t.serial,t.SMPNME,t.prdnme,t.planum)a
 WHERE A.入库数<a.订单数

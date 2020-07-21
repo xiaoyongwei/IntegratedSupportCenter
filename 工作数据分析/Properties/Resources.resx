@@ -1227,7 +1227,7 @@ order by 送货日期,送货单号</value>
 	,nvl("ANNAMT",0) 补运费
 	,"CREATED" 打单时间	
 	,nvl("USMARK",' ') 备注
-	
+	,t.ADDRESS 送货地址
 FROM "EJSH"."DLV_FARE" t
 WHERE   orgcde = 'KS03'
 	AND DRIVER IN (
