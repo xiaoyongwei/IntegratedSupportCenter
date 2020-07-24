@@ -1,0 +1,78 @@
+﻿select 
+ t.sitloc as 库区位,
+  t.serial as 生产单号,   
+(select i.smpnme
+        from pb_clnt i
+       where i.orgcde = t.orgcde
+         and i.clntcde = t.clntcde)客户,
+           t.prdnme as 产品名称,
+       case objtyp
+         when 'CB' then
+          (select replace(b.spcshw, 'x', '*')
+             from ord_ct b
+            where b.serial = t.serial
+              and b.orgcde = t.orgcde)
+         when 'SP' then
+          (select b.fringl || '*' || b.fringw
+             from ord_ct_cal b
+            where b.serial = t.serial
+              and b.orgcde = t.orgcde)
+         else
+          replace(max(replace(t.specs, 'x0', '')), 'x', '*')
+       end 规格,
+       t.invnum as 数量,
+       t.accamt as 金额,
+       round(t.invnum * t.acreage) as 总面积,  
+        to_char(t.ptdate, 'yyyy-mm-dd') as 入库日期,
+       (select TRUNC(sysdate) - TRUNC(t.ptdate)   FROM DUAL)库存天数,
+       CASE WHEN (select TRUNC(sysdate) - TRUNC(t.ptdate)   FROM DUAL) BETWEEN 0 and 7 THEN '00-07天' 
+        WHEN (select TRUNC(sysdate) - TRUNC(t.ptdate)   FROM DUAL) BETWEEN 8 and 14  THEN '08-14天'   
+        WHEN (select TRUNC(sysdate) - TRUNC(t.ptdate)   FROM DUAL) BETWEEN 15 and 30  THEN '15-30天'        
+       ELSE '31天及以上' END 库存天数范围,       
+       to_char(t.shdate, 'yyyy-mm-dd') as 交货日期, 
+       case when (select TRUNC(sysdate) - TRUNC(t.ptdate)   FROM DUAL)>2 and (select TRUNC(sysdate) - TRUNC(t.shdate)   FROM DUAL)>=7 then 
+       	(case when (select TRUNC(sysdate) - TRUNC(t.shdate)   FROM DUAL) between 7 and 14 then '07-14天'
+       	when (select TRUNC(sysdate) - TRUNC(t.shdate)   FROM DUAL) between 15 and 30 then '15-30天'
+       	else '31天及以上' end) else ' ' end 交期超期,
+       (select r.agntnme
+          from v_ord r
+         where r.orgcde = t.orgcde
+           and r.clntcde = t.clntcde
+           and rownum = 1) as 业务员,
+           (CASE WHEN  (select r.agntnme
+          from v_ord r
+         where r.orgcde = t.orgcde
+           and r.clntcde = t.clntcde
+           and rownum = 1) IN(SELECT EMPNME
+FROM EJSH.V_HR_BASE
+WHERE  orgcde = 'KS03'
+   and clientid = 'KS'
+   and DUTNME='温岭二期'
+   and DPTNME='彩印销售部'
+   and STATUS='Y') then '二期' ELSE'一期' end )业务员归属,
+       nvl(t.remark,' ') as 备注
+  from v_bcdt_ct t
+ where t.objtyp ='CL'
+   and t.orgcde = 'KS03'
+   and t.clientid = 'KS'
+--   and to_char(t.ptdate, 'yyyy-mm-dd') >= '@strdat'
+--   and to_char(t.ptdate, 'yyyy-mm-dd') <= '@endate'
+ group by t.objtyp,
+          t.orgcde,
+          t.clntnme,
+          t.serial,
+          t.mkpcde,
+          t.ptdate,
+          t.shdate,
+          t.clntcde,
+          t.specs,
+          t.clientid,
+          t.prdnme,
+          t.sitloc,
+          t.invnum,
+          t.prices,
+          t.accamt,
+          t.acreage,
+          t.crrcde,
+          t.matcde,
+          t.remark

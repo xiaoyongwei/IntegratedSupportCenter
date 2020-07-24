@@ -61,7 +61,7 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 break;
             case "16":
                 sqlStr = "CALL `slbz`.`二期成品仓库超期一览`();";
-                gridTitle = "二期成品仓库超期一览";
+                gridTitle = "彩盒库存明细";
                 break;
             case "18":
                 sqlStr = "CALL `slbz`.`二期送货运费明细近90天`();";
@@ -209,9 +209,14 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 this.GridView1.DataSource = GetSqlTxt_Datatable("退货数与退库数不符");
                 this.GridView1.DataBind();
             }
-else if (code == "8")
+            else if (code == "8")
             {
                 this.GridView1.DataSource = GetSqlTxt_Datatable("特殊工艺订单");
+                this.GridView1.DataBind();
+            }
+            else if (code == "16")
+            {
+                this.GridView1.DataSource = GetSqlTxt_Datatable("彩盒库存明细");
                 this.GridView1.DataBind();
             }
             else

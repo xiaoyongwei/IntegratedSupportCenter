@@ -60,7 +60,7 @@
                             <asp:MenuItem NavigateUrl="~/WebPage/WuliuShujuFenxi.aspx" Text="物流数据分析" Value="物流数据分析"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=18" Text="近90天运费" Value="近90天运费" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=15" Text="成品近30天入库" Value="成品近30天入库" />
-                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=16" Text="二期成品仓库超期一览" Value="二期成品仓库超期一览" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=16" Text="彩盒库存明细" Value="彩盒库存明细" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ChengpinCangku.aspx" Text="成品库存超期明细" Value="成品库存超期明细" />
                             <asp:MenuItem NavigateUrl="~/WebPage/RukuGaikuangAnRiqi.aspx" Text="入库情况(按日期)" Value="入库情况(按日期)" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ErqiChenpinKucun.aspx" Text="成品库存情况" Value="成品库存情况" />
