@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using 工作数据分析.Data.DAL.Oracle;
 using 综合保障中心.Comm;
@@ -23,8 +17,8 @@ namespace 工作数据分析.WinForm.WuLiu.yunfei
         private void buttonSave_Click(object sender, EventArgs e)
         {
             double km = 0;
-            double.TryParse(this.textBoxKm.Text,out km);
-            if (km>0)
+            double.TryParse(this.textBoxKm.Text, out km);
+            if (km > 0)
             {
                 if (SetPinCheFei(km))
                 {
@@ -35,12 +29,12 @@ namespace 工作数据分析.WinForm.WuLiu.yunfei
                     My.ShowErrorMessage("修改拼车费失败!!!");
                     DialogResult = DialogResult.None;
                 }
-               
+
             }
             else
             {
                 My.ShowErrorMessage("拼车距离错误!!!\n必须是大于0的有效小数或整数");
-                DialogResult= DialogResult.None;
+                DialogResult = DialogResult.None;
             }
         }
 
@@ -52,7 +46,7 @@ namespace 工作数据分析.WinForm.WuLiu.yunfei
             string SQL = string.Format("UPDATE EJSH.DLV_FARE "
             + " SET ANNAMT = NVL(ANNAMT, 0) + (case when {0} > 5 then round(20 + ({0} - 5) * 2,2) ELSE 20 End) "
             + " ,USMARK = USMARK || '{2}拼车距离{0}km+' || (case when {0} > 5 then round(20 + ({0} - 5) * 2,2) ELSE 20 End)|| ',' "
-            + " WHERE PAYSTS = 'N' AND(usmark NOT like '%拼车%' OR USMARK IS null)   and ID = {1}", km, ID,this.textBoxMiaosu.Text.Trim());
+            + " WHERE PAYSTS = 'N' AND(usmark NOT like '%拼车%' OR USMARK IS null)   and ID = {1}", km, ID, this.textBoxMiaosu.Text.Trim());
 
             return OracleHelper.ExecuteNonQuery(SQL) > 0;
         }

@@ -2,11 +2,8 @@
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using 工作数据分析.Data.DAL.Oracle;
@@ -109,14 +106,14 @@ namespace 工作数据分析.WinForm.WuLiu
 
         private void 计算运费ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (new Form计算运费弹窗(GetSelectedAllID(),1800,0).ShowDialog() == DialogResult.OK)
+            if (new Form计算运费弹窗(GetSelectedAllID(), 1800, 0).ShowDialog() == DialogResult.OK)
             { InitDgv(); }
         }
 
         private void 清零补运费ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("确定要清空[补运费]吗?\n此操作无法撤销!", "清空?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {                
+            {
 
                 string SQL = "UPDATE EJSH.DLV_FARE SET ANNAMT = 0 WHERE PAYSTS = 'N' and ID in (" + GetIdIn() + ")";
                 if (OracleHelper.ExecuteNonQuery(SQL) == 0)
@@ -138,14 +135,14 @@ namespace 工作数据分析.WinForm.WuLiu
 
             foreach (string id in GetSelectedAllID())
             {
-                sb.Append (id + ",");
+                sb.Append(id + ",");
             }
-           return sb.Remove(sb.Length - 1, 1).ToString();
+            return sb.Remove(sb.Length - 1, 1).ToString();
         }
         private void 清零运费ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("确定要清空[运费]吗?\n此操作无法撤销!", "清空?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {               
+            {
 
                 string SQL = "UPDATE EJSH.DLV_FARE SET ACCAMT = 0 WHERE PAYSTS = 'N' and ID in (" + GetIdIn() + ")";
 
@@ -162,9 +159,9 @@ namespace 工作数据分析.WinForm.WuLiu
 
         private void 平方运费ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string SQL = "SELECT SUM((select nvl(sum(i.ratios * i.acreage * i.ACCNUMR), 0) from v_bcdx_ct i where i.clientid = t.clientid	"+
-            " and i.orgcde = t.orgcde and i.PONO = t.pono)) as 运费面积 ,nvl(sum(ACCAMT), 0) as 运费,nvl(sum(ANNAMT), 0)AS 补运费"+
-            "  , nvl(sum(ACCAMT) + sum(ANNAMT), 0) AS 合计运费 FROM EJSH.DLV_FARE t WHERE ID in ("+GetIdIn()+")";
+            string SQL = "SELECT SUM((select nvl(sum(i.ratios * i.acreage * i.ACCNUMR), 0) from v_bcdx_ct i where i.clientid = t.clientid	" +
+            " and i.orgcde = t.orgcde and i.PONO = t.pono)) as 运费面积 ,nvl(sum(ACCAMT), 0) as 运费,nvl(sum(ANNAMT), 0)AS 补运费" +
+            "  , nvl(sum(ACCAMT) + sum(ANNAMT), 0) AS 合计运费 FROM EJSH.DLV_FARE t WHERE ID in (" + GetIdIn() + ")";
 
             OracleDataReader reader = OracleHelper.ExecuteReader(SQL);
             reader.Read();
@@ -179,7 +176,7 @@ namespace 工作数据分析.WinForm.WuLiu
             SaveFileDialog save = new SaveFileDialog();
             save.DefaultExt = ".xls";
             save.FileName = "运费结算-" + this.dtpS.Value.ToString("yyyy-MM-dd") + "-" + this.dtpE.Value.ToString("yyyy-MM-dd") + "-"
-                + this.comboBoxYfjs.Text +(string.IsNullOrEmpty(this.textBoxSearch.Text)?"":( "-" + this.textBoxSearch.Text));
+                + this.comboBoxYfjs.Text + (string.IsNullOrEmpty(this.textBoxSearch.Text) ? "" : ("-" + this.textBoxSearch.Text));
             save.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             save.Filter = "Excel(.xls)|*.xls";
             if (save.ShowDialog() == DialogResult.OK)
@@ -234,20 +231,20 @@ namespace 工作数据分析.WinForm.WuLiu
                     return;
                 }
             }
-            
+
 
             //获取面积最大的客户
             string SQL = "select 客户 from (select 客户 from(SELECT 客户,sum(运费面积)面积 FROM (SELECT CLNTNME 客户 "
                 + ",(select nvl(sum(i.ratios * i.acreage * i.ACCNUMR), 0) from v_bcdx_ct i where i.clientid = t.clientid and i.orgcde = t.orgcde "
                 + "  and i.PONO = t.pono) as 运费面积 "
                 + "FROM EJSH.DLV_FARE t "
-                + "WHERE id IN("+GetIdIn()+"))a GROUP BY 客户)b order by b.面积 desc)c where rownum = 1 ";
+                + "WHERE id IN(" + GetIdIn() + "))a GROUP BY 客户)b order by b.面积 desc)c where rownum = 1 ";
             string kehu = OracleHelper.ExecuteScalar(SQL).ToString();
             //获取司机(根据司机来判断大车和小车)
             string siji = OracleHelper.ExecuteScalar("SELECT DRIVER  FROM EJSH.DLV_FARE WHERE  id =" + GetSelectedID()).ToString();
-            if (siji=="董美枝"||siji=="周晓军.")//大车
+            if (siji == "董美枝" || siji == "周晓军.")//大车
             {
-                if (new Form计算运费弹窗(GetSelectedAllID(),3000,
+                if (new Form计算运费弹窗(GetSelectedAllID(), 3000,
                     Convert.ToDouble(MySqlDbHelper.ExecuteScalar("SELECT 大车 FROM `slbz`.`客户对应区域运费表`where 客户 ='" + kehu + "'"))
                     ).ShowDialog() == DialogResult.OK)
                 { InitDgv(); }

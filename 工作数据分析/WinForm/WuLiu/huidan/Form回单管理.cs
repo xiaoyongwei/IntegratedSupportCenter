@@ -1,14 +1,11 @@
 ﻿using excelToTable_NPOI;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using 工作数据分析.Properties;
 using 工作数据分析.WinForm.huidan;
 using 综合保障中心.Comm;
 
@@ -83,9 +80,9 @@ namespace 工作数据分析.WinForm
             SetDgvRowBackColor();
         }
 
-	
 
-       
+
+
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             InitDgv();
@@ -117,7 +114,7 @@ namespace 工作数据分析.WinForm
             List<string> ponoList = GetSelectedPonos();
             if (ponoList.Count > 0)
             {
-                StringBuilder sb = new StringBuilder("UPDATE `slbz`.`送货回单情况`SET `回单正常` = '"+(bl?"Y":"")+"'WHERE `送货单号` in(");
+                StringBuilder sb = new StringBuilder("UPDATE `slbz`.`送货回单情况`SET `回单正常` = '" + (bl ? "Y" : "") + "'WHERE `送货单号` in(");
                 foreach (string item in ponoList)
                 {
                     sb.AppendFormat("'{0}',", item);
@@ -157,8 +154,8 @@ namespace 工作数据分析.WinForm
         private void 编辑信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             List<string> ponoList = GetSelectedPonos();
-            if (ponoList.Count>0
-                &&new Form回单信息(ponoList[0]).ShowDialog()==DialogResult.OK)
+            if (ponoList.Count > 0
+                && new Form回单信息(ponoList[0]).ShowDialog() == DialogResult.OK)
             {
                 InitDgv();
             }
@@ -213,7 +210,7 @@ namespace 工作数据分析.WinForm
             save.Filter = "Excel(.xls)|*.xls";
             if (save.ShowDialog() == DialogResult.OK)
             {
-                if (new ExcelHelper(save.FileName).DataTableToExcel((DataTable)dgv.DataSource, "回单情况"+DateTime.Now.ToString("yyyyMMdd"), true) > 0)
+                if (new ExcelHelper(save.FileName).DataTableToExcel((DataTable)dgv.DataSource, "回单情况" + DateTime.Now.ToString("yyyyMMdd"), true) > 0)
                 {
                     if (MessageBox.Show("保存成功!\n是否直接打开?", "打开?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {

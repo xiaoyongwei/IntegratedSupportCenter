@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using 工作数据分析.Data.DAL.Oracle;
 using 综合保障中心.Comm;
@@ -15,7 +10,7 @@ namespace 工作数据分析.WinForm.WuLiu
     {
         private List<string> IDList = new List<string>();
 
-        public Form计算运费弹窗(List<string> idList,int BD,double YF)
+        public Form计算运费弹窗(List<string> idList, int BD, double YF)
         {
             InitializeComponent();
             IDList = idList;
@@ -34,9 +29,9 @@ namespace 工作数据分析.WinForm.WuLiu
             double baodi = 0;
             double diquYunfei = 0;
 
-            double.TryParse(this.textBoxBaodi.Text,out baodi);
-            double.TryParse(this.textBoxDiquYunfei.Text,out diquYunfei);
-            if (baodi>0&&diquYunfei>0&& IDList.Count>0)
+            double.TryParse(this.textBoxBaodi.Text, out baodi);
+            double.TryParse(this.textBoxDiquYunfei.Text, out diquYunfei);
+            if (baodi > 0 && diquYunfei > 0 && IDList.Count > 0)
             {
                 string idIn = "";
                 foreach (string id in IDList)
@@ -49,9 +44,9 @@ namespace 工作数据分析.WinForm.WuLiu
                     "SELECT sum((select nvl(sum(i.ratios * i.acreage * i.ACCNUMR),0) from v_bcdx_ct i where i.clientid = t.clientid " +
                     "and i.orgcde = t.orgcde and i.PONO = t.pono))FROM EJSH.DLV_FARE t WHERE id IN(" + idIn + ")"));
                 double zongYunfei = 0;
-                if (sumAreas>=baodi)
+                if (sumAreas >= baodi)
                 {
-                    zongYunfei = (diquYunfei / baodi+0.03) * sumAreas;
+                    zongYunfei = (diquYunfei / baodi + 0.03) * sumAreas;
                 }
                 else
                 {
@@ -63,7 +58,7 @@ namespace 工作数据分析.WinForm.WuLiu
                 string SQL = string.Format("UPDATE EJSH.DLV_FARE t SET ACCAMT =round( (select nvl(sum(i.ratios * i.acreage * i.ACCNUMR),0) from v_bcdx_ct i " +
                 "where i.clientid = t.clientid and i.orgcde = t.orgcde and i.PONO = t.pono)/ {0} * {1},2) WHERE PAYSTS = 'N' and ID in({2}) "
                 , sumAreas, zongYunfei, idIn);
-                if (OracleHelper.ExecuteNonQuery(SQL)>0)
+                if (OracleHelper.ExecuteNonQuery(SQL) > 0)
                 {
                     this.DialogResult = DialogResult.OK;
                 }

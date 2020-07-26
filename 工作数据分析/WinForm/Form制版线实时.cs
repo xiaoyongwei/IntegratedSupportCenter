@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -42,12 +40,12 @@ namespace 工作数据分析.WinForm
             try
             {
                 if (DataBaseList.sql制版线2500 != null)
-            {
-                DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工_2500);
-                SubmitZhiBanXian(dt);
+                {
+                    DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工_2500);
+                    SubmitZhiBanXian(dt);
+                }
             }
-        }
-            catch 
+            catch
             {
             }
         }
@@ -56,12 +54,12 @@ namespace 工作数据分析.WinForm
             try
             {
                 if (DataBaseList.sql制版线2500 != null)
-            {
-                DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500_1天);
-                SubmitZhiBanXian(dt);
+                {
+                    DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500_1天);
+                    SubmitZhiBanXian(dt);
+                }
             }
-        }
-            catch 
+            catch
             {
             }
         }
@@ -71,12 +69,12 @@ namespace 工作数据分析.WinForm
             try
             {
 
-            
-            if (DataBaseList.sql制版线2200 != null)
-            {
-                DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工_2200);
-                SubmitZhiBanXian(dt);
-            }
+
+                if (DataBaseList.sql制版线2200 != null)
+                {
+                    DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工_2200);
+                    SubmitZhiBanXian(dt);
+                }
             }
             catch
             {
@@ -85,12 +83,12 @@ namespace 工作数据分析.WinForm
         private void Get2200制版线完成信息1天()
         {
             try
-            { 
-            if (DataBaseList.sql制版线2200 != null)
             {
-                DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工2200_1天);
-                SubmitZhiBanXian(dt);
-            }
+                if (DataBaseList.sql制版线2200 != null)
+                {
+                    DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工2200_1天);
+                    SubmitZhiBanXian(dt);
+                }
             }
             catch
             {
@@ -100,14 +98,15 @@ namespace 工作数据分析.WinForm
 
         private void Get1800制版线完成信息()
         {
-            try { 
-            if (DataBaseList.sql制版线1800 != null)
+            try
             {
-                DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800);
-                SubmitZhiBanXian(dt);
+                if (DataBaseList.sql制版线1800 != null)
+                {
+                    DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800);
+                    SubmitZhiBanXian(dt);
+                }
             }
-        }
-            catch 
+            catch
             {
             }
         }
@@ -121,7 +120,7 @@ namespace 工作数据分析.WinForm
                     SubmitZhiBanXian(dt);
                 }
             }
-            catch 
+            catch
             {
             }
         }
@@ -160,7 +159,7 @@ namespace 工作数据分析.WinForm
             InitShowData();
         }
 
-       
+
         private void 刷新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab == tabPage当前排程)
@@ -171,7 +170,7 @@ namespace 工作数据分析.WinForm
         /// <summary>
         /// 初始化刷新数据
         /// </summary>
-        private  void InitShowData()
+        private void InitShowData()
         {
             //dgv1800.Rows.Clear();
             //dgv2200.Rows.Clear();
@@ -189,24 +188,24 @@ namespace 工作数据分析.WinForm
                     dt1800 = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800当天1);
                 }
             }
-            catch 
+            catch
             {
                 dgv1800.DataSource = null;
             }
             try
             {
                 if (My.Ping(DataBaseList.IP_制版线2200) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2200))
-                
-                    {
-                        DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
-                        dgv2200.DataSource = DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称],rtrim([楞别])'楞别',[订单数],[纸宽],[纸长],rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]");
-                        dt2200 = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工1800当天1);
-                    }
-                }
-                catch 
+
                 {
-                    dgv2200.DataSource = null;
+                    DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
+                    dgv2200.DataSource = DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称],rtrim([楞别])'楞别',[订单数],[纸宽],[纸长],rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]");
+                    dt2200 = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工1800当天1);
                 }
+            }
+            catch
+            {
+                dgv2200.DataSource = null;
+            }
 
             try
             {
@@ -221,13 +220,13 @@ namespace 工作数据分析.WinForm
             {
                 dgv2500.DataSource = null;
             }
-            
-            dt1800.Merge(dt2200,false);
-            dt1800.Merge(dt2500,false);
+
+            dt1800.Merge(dt2200, false);
+            dt1800.Merge(dt2500, false);
             dgv24Hwangong.DataSource = dt1800;
             foreach (DataGridViewColumn column in dgv24Hwangong.Columns)
             {
-                if (column.HeaderText=="结束时间")
+                if (column.HeaderText == "结束时间")
                 {
                     dgv24Hwangong.Sort(column, ListSortDirection.Descending);
                     break;
@@ -244,15 +243,15 @@ namespace 工作数据分析.WinForm
             this.groupBox1.Text = "当前队列(" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ")";
         }
 
-       
 
 
-       
+
+
         private void SetDgvBackColor(DataGridView dgv)
         {
             foreach (DataGridViewColumn column in dgv.Columns)
             {
-                if (column.Name == "订单号" || column.Name == "工单"|| column.Name == "Cust_OrderID")
+                if (column.Name == "订单号" || column.Name == "工单" || column.Name == "Cust_OrderID")
                 {
                     foreach (DataGridViewRow row in dgv.Rows)
                     {
@@ -270,7 +269,7 @@ namespace 工作数据分析.WinForm
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab==tabPage当前排程)
+            if (tabControl1.SelectedTab == tabPage当前排程)
             {
                 InitShowData();
             }

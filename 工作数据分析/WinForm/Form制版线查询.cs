@@ -101,7 +101,7 @@ namespace 工作数据分析.WinForm
                     {
                         DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
                         dgv.DataSource = DataBaseList.sql制版线1800.Querytable("SELECT *FROM [dbo].[bc]ORDER BY [序号]");
-                        dgv1.DataSource= DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800当天);
+                        dgv1.DataSource = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800当天);
                     }
                     else
                     {
@@ -137,11 +137,11 @@ namespace 工作数据分析.WinForm
             }
             foreach (DataGridViewColumn column in dgv.Columns)
             {
-                if (column.Name=="订单号"||column.Name== "Cust_OrderID")
+                if (column.Name == "订单号" || column.Name == "Cust_OrderID")
                 {
                     foreach (DataGridViewRow row in dgv.Rows)
                     {
-                        if (Regex.IsMatch(row.Cells[column.Name].Value.ToString(),"C\\d+"))
+                        if (Regex.IsMatch(row.Cells[column.Name].Value.ToString(), "C\\d+"))
                         {
                             row.DefaultCellStyle.BackColor = Color.Yellow;
                             row.DefaultCellStyle.SelectionBackColor = Color.Red;
@@ -149,11 +149,11 @@ namespace 工作数据分析.WinForm
                     }
                     break;
                 }
-                
+
             }
-            
+
         }
 
-       
+
     }
 }

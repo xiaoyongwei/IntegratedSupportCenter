@@ -1,10 +1,6 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Data;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Text;
-using System.IO;
-using Oracle.ManagedDataAccess.Client;
 
 namespace 工作数据分析.Data.DAL.Oracle
 {
@@ -111,7 +107,7 @@ namespace 工作数据分析.Data.DAL.Oracle
         /// <returns>当前查询操作返回的OracleDataReader类型的内存结果集</returns>
         public static OracleDataReader ExecuteReader(string cmdText)
         {
-            return ExecuteReader(CommandType.Text,cmdText,null);
+            return ExecuteReader(CommandType.Text, cmdText, null);
         }
 
         /// <summary>
@@ -226,7 +222,7 @@ namespace 工作数据分析.Data.DAL.Oracle
                 conn.Close();
                 conn.Dispose();
             }
-            if (result==null)
+            if (result == null)
             {
                 result = string.Empty;
             }
@@ -238,7 +234,7 @@ namespace 工作数据分析.Data.DAL.Oracle
         /// </summary>
         /// <param name="cmdText">SQL命令语句</param>
         /// <returns>当前查询操作返回的结果集中位于第一行第一列的Object类型的值</returns>
-        public static object ExecuteScalar( string cmdText)
+        public static object ExecuteScalar(string cmdText)
         {
             return ExecuteScalar(CommandType.Text, cmdText, null);
         }

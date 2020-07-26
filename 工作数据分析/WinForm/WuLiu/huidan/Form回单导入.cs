@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using 工作数据分析.Data.DAL.Oracle;
@@ -20,7 +17,7 @@ namespace 工作数据分析.WinForm
         }
 
         private void buttonImport_Click(object sender, EventArgs e)
-        {           
+        {
             if ((dtpE.Value - dtpS.Value).Days > 30)
             {
                 My.ShowErrorMessage("间隔时间不能超过30天");
@@ -36,7 +33,7 @@ namespace 工作数据分析.WinForm
                 .Replace("@endtime", dtpE.Value.ToString("yyyy-MM-dd"));
 
             List<string> sqlList = new List<string>();
-            DataTable dt = OracleHelper.ExecuteDataTable(CommandType.Text, sqlTxt, null);            
+            DataTable dt = OracleHelper.ExecuteDataTable(CommandType.Text, sqlTxt, null);
 
 
             StringBuilder sb_Insert = new StringBuilder("INSERT IGNORE  INTO `slbz`.`送货回单情况`(");

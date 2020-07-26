@@ -11,11 +11,11 @@ namespace 工作数据分析.WinForm.WuLiu
         }
 
 
-       
-       
+
+
         private void 回单管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            for (int i = this.MdiChildren.Length-1; i >=0 ; i--)
+            for (int i = this.MdiChildren.Length - 1; i >= 0; i--)
             {
                 if (this.MdiChildren[i] is Form回单管理)
                 {

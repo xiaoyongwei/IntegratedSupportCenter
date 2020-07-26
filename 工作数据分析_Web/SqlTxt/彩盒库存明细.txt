@@ -21,7 +21,7 @@
           replace(max(replace(t.specs, 'x0', '')), 'x', '*')
        end 规格,
        t.invnum as 数量,
-       t.accamt as 金额,
+       round(t.accamt) as 金额,
        round(t.invnum * t.acreage) as 总面积,  
         to_char(t.ptdate, 'yyyy-mm-dd') as 入库日期,
        (select TRUNC(sysdate) - TRUNC(t.ptdate)   FROM DUAL)库存天数,
@@ -33,7 +33,7 @@
        case when (select TRUNC(sysdate) - TRUNC(t.ptdate)   FROM DUAL)>2 and (select TRUNC(sysdate) - TRUNC(t.shdate)   FROM DUAL)>=7 then 
        	(case when (select TRUNC(sysdate) - TRUNC(t.shdate)   FROM DUAL) between 7 and 14 then '07-14天'
        	when (select TRUNC(sysdate) - TRUNC(t.shdate)   FROM DUAL) between 15 and 30 then '15-30天'
-       	else '31天及以上' end) else ' ' end 交期超期,
+       	else '31天及以上' end) else ' ' end 交货超期,
        (select r.agntnme
           from v_ord r
          where r.orgcde = t.orgcde
@@ -49,7 +49,7 @@ WHERE  orgcde = 'KS03'
    and clientid = 'KS'
    and DUTNME='温岭二期'
    and DPTNME='彩印销售部'
-   and STATUS='Y') then '二期' ELSE'一期' end )业务员归属,
+   and STATUS='Y') then '二期' ELSE'一期' end )业务归属,
        nvl(t.remark,' ') as 备注
   from v_bcdt_ct t
  where t.objtyp ='CL'

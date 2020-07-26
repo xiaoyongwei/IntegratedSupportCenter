@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -215,7 +214,7 @@ namespace 综合保障中心.其它
                 //添加到datatable中完成
                 dt.Columns.RemoveAt(0);
 
-                
+
                 //开始添加到sql中
                 List<string> sqlList = new List<string>();
                 sqlList.Add("TRUNCATE TABLE  `slbz`.`纸板管理库存明细`;");
@@ -286,11 +285,11 @@ namespace 综合保障中心.其它
                 dt.Columns.RemoveAt(0);
 
                 //时间范围
-                string dtime_min= dt.AsEnumerable().Select(t => t.Field<string>("日期")).Min();
-                string dtime_max= dt.AsEnumerable().Select(t => t.Field<string>("日期")).Max();
+                string dtime_min = dt.AsEnumerable().Select(t => t.Field<string>("日期")).Min();
+                string dtime_max = dt.AsEnumerable().Select(t => t.Field<string>("日期")).Max();
                 //开始添加到sql中
                 List<string> sqlList = new List<string>();
-                
+
                 StringBuilder sb_Insert = new StringBuilder("replace  INTO `slbz`.`纸板管理入库明细`(");
                 foreach (DataColumn dc in dt.Columns)//添加列
                 {
@@ -310,7 +309,7 @@ namespace 综合保障中心.其它
                     sb_values.AppendLine(");");
                     sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
                 }
-                if (sqlList.Count>0)
+                if (sqlList.Count > 0)
                 {
                     sqlList.Insert(0, string.Format("DELETE FROM `slbz`.`纸板管理入库明细`WHERE 日期 between '{0}' and '{1}'", dtime_min, dtime_max));
                 }
@@ -361,9 +360,9 @@ namespace 综合保障中心.其它
                 //    添加到datatable中完成
                 dt.Columns.RemoveAt(0);
                 //只保留日期和单号列
-                for (int i = dt.Columns.Count-1; i >=0; i--)
+                for (int i = dt.Columns.Count - 1; i >= 0; i--)
                 {
-                    if (!(dt.Columns[i].ColumnName.Contains("日期")|| dt.Columns[i].ColumnName.Contains("单号")))
+                    if (!(dt.Columns[i].ColumnName.Contains("日期") || dt.Columns[i].ColumnName.Contains("单号")))
                     {
                         dt.Columns.RemoveAt(i);
                     }
@@ -1026,7 +1025,7 @@ namespace 综合保障中心.其它
                 {
                     sqlList.Insert(0, "truncate table `slbz`.`成品_库存明细`;");
                     sqlList.Add("DELETE FROM `slbz`.`成品_库存明细`"
-                        +"WHERE `生产单号` NOT like'C%' AND 入库员 NOT in(SELECT `姓名`FROM `slbz`.`二期入库名单`)");
+                        + "WHERE `生产单号` NOT like'C%' AND 入库员 NOT in(SELECT `姓名`FROM `slbz`.`二期入库名单`)");
                 }
 
 
@@ -1429,7 +1428,7 @@ namespace 综合保障中心.其它
                                 em.SetAttribute("value", "WL0254");//账号，保存在序列化的student类中 
                                 break; //填表 
                             case "passwd":
-                                em.SetAttribute("value", 
+                                em.SetAttribute("value",
                                     MySqlDbHelper.ExecuteScalar("SELECT `Value`FROM `slbz`.`settingall`where `Key`='YJ_wl0254_password'").ToString());//密码，保存在序列化的student类中 
                                 break; //填表 
                             //case "sublogin":
