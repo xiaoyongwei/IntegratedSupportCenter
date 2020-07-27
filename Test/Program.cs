@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aspose.Pdf;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -14,13 +15,10 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            SpeechSynthesizer ssh = new SpeechSynthesizer();
-             for (int i = 0; i < 100; i++)
-            {
-                ssh.SpeakAsync(i.ToString());
-            }
-            
-            Console.ReadKey();
+            Document doc = new Document("E:\\E069-绿田2805073130-387x367x903-A.pdf");
+            Page page = doc.Pages[1];
+            Rectangle rec = page.TrimBox;
+            Rotation rot = page.Rotate;
         }
     }
 }
