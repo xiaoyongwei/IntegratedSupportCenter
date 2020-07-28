@@ -1,0 +1,15 @@
+﻿SELECT
+SITCDE 库区
+	,SERIAL 生产单号
+	,(select c.smpnme from v_ord c where c.clientid = t.clientid and c.orgcde = t.orgcde
+         and c.serial = t.serial) as 客户
+    ,(SELECT case when nvl(SUM (ACCNUM),0)>0 then '√' else ' ' end FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.PRCTYPNME='甩切甩纸' and vh.SERIAL=t.serial) 甩纸
+    ,(SELECT case when nvl(SUM (ACCNUM),0)>0 then '√' else ' ' end FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.PRCTYPNME='胶印凹印' and vh.SERIAL=t.serial) 胶印
+    ,(SELECT case when nvl(SUM (ACCNUM),0)>0 then '√' else ' ' end FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.PRCTYPNME in('覆膜过胶','彩印上油') and vh.SERIAL=t.serial) 表处
+    ,(SELECT case when nvl(SUM (ACCNUM),0)>0 then '√' else ' ' end FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.PRCTYPNME='裱合贴面' and vh.SERIAL=t.serial) 裱胶
+    ,(SELECT case when nvl(SUM (ACCNUM),0)>0 then '√' else ' ' end FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.PRCTYPNME='模切压痕' and vh.SERIAL=t.serial) 压痕
+    ,(SELECT case when nvl(SUM (ACCNUM),0)>0 then '√' else ' ' end FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.PRCTYPNME in ('粘箱粘合','钉箱装钉') and vh.SERIAL=t.serial) 钉箱粘箱
+    ,(SELECT case when nvl(SUM (ACCNUM),0)>0 then '√' else ' ' end FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.PRCTYPNME='打包堆码' and vh.SERIAL=t.serial) 打包
+FROM EJSH.V_BCDT_ZB t
+WHERE  ORGCDE = 'KS03'
+	and OBJTYP = 'ZB'
