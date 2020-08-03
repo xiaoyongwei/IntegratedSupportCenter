@@ -22,7 +22,7 @@ namespace 综合保障中心.Comm
 
         public static bool ExceptToExcel(string fileFullName, DataTable table)
         {
-            return new ExcelHelper(fileFullName).DataTableToExcel(table, null, true) > 0;
+            return new ExcelHelper(fileFullName).DataTableToExcel_Zhuangche(table, null, true) > 0;
         }
 
       

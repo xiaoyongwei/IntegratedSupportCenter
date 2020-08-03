@@ -1214,7 +1214,7 @@ group by 送货日期,送货单号,客户简称,业务员,司机,操作人
 order by 送货日期,送货单号</value>
   </data>
   <data name="运费结算" xml:space="preserve">
-    <value>SELECT ID,"PAYSTS" 结算
+    <value>SELECT ID,to_char("CREATED",'yyyy-mm-dd hh:MM:ss') 打单时间,"PAYSTS" 结算
 	,"DRIVER" 司机
 	,"LNCCDE" 车牌号
 	,nvl("DISTANCE",0) 距离
@@ -1224,8 +1224,7 @@ order by 送货日期,送货单号</value>
 	,(select nvl(sum(i.ratios * i.acreage * i.ACCNUMR),0) from v_bcdx_ct i where i.clientid = t.clientid and i.orgcde = t.orgcde
           and i.PONO = t.pono) as 运费面积
 	,nvl("ACCAMT",0) 运费
-	,nvl("ANNAMT",0) 补运费
-	,"CREATED" 打单时间	
+	,nvl("ANNAMT",0) 补运费			
 	,nvl("USMARK",' ') 备注
 	,t.ADDRESS 送货地址
 FROM "EJSH"."DLV_FARE" t

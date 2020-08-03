@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using 综合保障中心.Comm;
 using HandeJobManager.DAL;
-
+using excelToTable_NPOI;
 
 namespace 纸箱纸板性能分析.WinForm
 {
@@ -127,7 +127,7 @@ namespace 纸箱纸板性能分析.WinForm
             save.Filter = "Excel(.xls)|*.xls";
             if (save.ShowDialog()==DialogResult.OK)
             {
-                My.ExceptToExcel(save.FileName, Dt);
+               new  ExcelHelper(save.FileName).DataGridViewToExcel(dgv,"sheet1");
             }
         }
 

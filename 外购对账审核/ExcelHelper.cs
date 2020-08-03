@@ -40,7 +40,7 @@ namespace excelToTable_NPOI
         /// <param name="isColumnWritten">DataTable的列名是否要导入</param>
         /// <param name="sheetName">要导入的excel的sheet的名称</param>
         /// <returns>导入数据行数(包含列名那一行)</returns>
-        public int DataTableToExcel(DataTable data, string sheetName, bool isColumnWritten)
+        public int DataTableToExcel_Zhuangche(DataTable data, string sheetName, bool isColumnWritten)
         {
             int i = 0;
             int j = 0;
@@ -48,7 +48,9 @@ namespace excelToTable_NPOI
             ISheet sheet = null;
             FileStream fs = null;
             Dictionary<string, int> dic = new Dictionary<string, int>();
-            data.DefaultView.Sort = "装车单号,生产单号 DESC";
+            
+                data.DefaultView.Sort = "装车单号,生产单号 DESC";
+            
             try
             {
                 fs = new FileStream(fileFullName, FileMode.OpenOrCreate, FileAccess.ReadWrite);

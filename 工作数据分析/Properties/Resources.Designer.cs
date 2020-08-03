@@ -504,7 +504,7 @@ namespace 工作数据分析.Properties {
         }
         
         /// <summary>
-        ///   查找类似 SELECT ID,&quot;PAYSTS&quot; 结算
+        ///   查找类似 SELECT ID,to_char(&quot;CREATED&quot;,&apos;yyyy-mm-dd hh:MM:ss&apos;) 打单时间,&quot;PAYSTS&quot; 结算
         ///	,&quot;DRIVER&quot; 司机
         ///	,&quot;LNCCDE&quot; 车牌号
         ///	,nvl(&quot;DISTANCE&quot;,0) 距离
@@ -514,17 +514,13 @@ namespace 工作数据分析.Properties {
         ///	,(select nvl(sum(i.ratios * i.acreage * i.ACCNUMR),0) from v_bcdx_ct i where i.clientid = t.clientid and i.orgcde = t.orgcde
         ///          and i.PONO = t.pono) as 运费面积
         ///	,nvl(&quot;ACCAMT&quot;,0) 运费
-        ///	,nvl(&quot;ANNAMT&quot;,0) 补运费
-        ///	,&quot;CREATED&quot; 打单时间	
+        ///	,nvl(&quot;ANNAMT&quot;,0) 补运费			
         ///	,nvl(&quot;USMARK&quot;,&apos; &apos;) 备注
         ///	,t.ADDRESS 送货地址
         ///FROM &quot;EJSH&quot;.&quot;DLV_FARE&quot; t
         ///WHERE   orgcde = &apos;KS03&apos;
         ///	AND DRIVER IN (
-        ///		&apos;霍红海&apos;
-        ///		,&apos;郑二毛&apos;
-        ///		,&apos;郑荷伟&apos;
-        ///		,&apos;娄绍勇&apos; [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///		&apos;霍红海&apos; [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 运费结算 {
             get {
