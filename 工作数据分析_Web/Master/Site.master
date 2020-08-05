@@ -61,14 +61,15 @@
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=18" Text="近90天运费" Value="近90天运费" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=15" Text="成品近30天入库" Value="成品近30天入库" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=16" Text="彩盒库存明细" Value="彩盒库存明细" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/erqiCaiheKucunMeizhouHuibao.aspx" Text="彩盒库存汇报" Value="彩盒库存汇报" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ChengpinCangku.aspx" Text="成品库存超期明细" Value="成品库存超期明细" />
                             <asp:MenuItem NavigateUrl="~/WebPage/RukuGaikuangAnRiqi.aspx" Text="入库情况(按日期)" Value="入库情况(按日期)" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ErqiChenpinKucun.aspx" Text="成品库存情况" Value="成品库存情况" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=29" Text="发货检查预警" Value="发货检查预警" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=20" Text="出入库异常记录" Value="出入库异常记录" />
-                            <asp:MenuItem NavigateUrl="~/WebPage/erqiCaiheKucunMeizhouHuibao.aspx" Text="彩盒库存汇报" Value="彩盒库存汇报" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=23" Text="报工但未入库" Value="报工但未入库" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=24" Text="超订单入库" Value="超订单入库" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=33" Text="提前入库明细" Value="提前入库明细" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=25" Text="送完货多余库存" Value="送完货多余库存" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=26" Text="销售退货和退货入库不符" Value="销售退货和退货入库不符" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=5" Text="未甩纸明细" Value="未甩纸明细"></asp:MenuItem>
