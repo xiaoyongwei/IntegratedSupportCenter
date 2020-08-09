@@ -57,9 +57,9 @@
                             <asp:MenuItem NavigateUrl="~/WebPage/K3Lingliao.aspx" Text="辅料领料" Value="辅料领料"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=27" Text="辅料备料" Value="辅料备料" />
                             <asp:MenuItem NavigateUrl="~/WebPage/wuliaorukujinezoushi.aspx" Text="物料金额走势" Value="物料金额走势" />
-                            <asp:MenuItem NavigateUrl="~/WebPage/WuliuShujuFenxi.aspx" Text="物流数据分析" Value="物流数据分析"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=18" Text="近90天运费" Value="近90天运费" />
-                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=15" Text="成品近30天入库" Value="成品近30天入库" />
+                            <%--<asp:MenuItem NavigateUrl="~/WebPage/WuliuShujuFenxi.aspx" Text="物流数据分析" Value="物流数据分析"></asp:MenuItem>--%>
+                            <%--<asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=18" Text="近90天运费" Value="近90天运费" />--%>
+                            <%--<asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=15" Text="成品近30天入库" Value="成品近30天入库" />--%>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=16" Text="彩盒库存明细" Value="彩盒库存明细" />
                             <asp:MenuItem NavigateUrl="~/WebPage/erqiCaiheKucunMeizhouHuibao.aspx" Text="彩盒库存汇报" Value="彩盒库存汇报" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ChengpinCangku.aspx" Text="成品库存超期明细" Value="成品库存超期明细" />
@@ -70,7 +70,7 @@
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=23" Text="报工但未入库" Value="报工但未入库" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=24" Text="超订单入库" Value="超订单入库" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=33" Text="提前入库明细" Value="提前入库明细" />
-                            <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=25" Text="送完货多余库存" Value="送完货多余库存" />
+                            <%--<asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=25" Text="送完货多余库存" Value="送完货多余库存" />--%>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=26" Text="销售退货和退货入库不符" Value="销售退货和退货入库不符" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=5" Text="未甩纸明细" Value="未甩纸明细"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult2.aspx?sqlcode=6" Text="未覆膜明细" Value="未覆膜明细"></asp:MenuItem>
@@ -81,7 +81,7 @@
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=30" Text="纸板入库分析" Value="纸板入库分析" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=31" Text="纸板出库分析" Value="纸板出库分析" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=32" Text="纸板库存情况" Value="纸板库存情况" />
-                            <asp:MenuItem NavigateUrl="~/WebPage/Kaidan.aspx" Text="开单数据" Value="开单数据"></asp:MenuItem>
+                            <%--<asp:MenuItem NavigateUrl="~/WebPage/Kaidan.aspx" Text="开单数据" Value="开单数据"></asp:MenuItem>--%>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=22" Text="日志" Value="日志" />
                             <asp:MenuItem NavigateUrl="~/About.aspx" Text="关于" />
                         </Items>

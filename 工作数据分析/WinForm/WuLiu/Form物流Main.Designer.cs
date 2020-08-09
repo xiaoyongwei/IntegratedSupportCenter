@@ -1,6 +1,6 @@
 ﻿namespace 工作数据分析.WinForm.WuLiu
 {
-    partial class Form物流Mian
+    partial class Form物流Main
     {
         /// <summary>
         /// Required designer variable.

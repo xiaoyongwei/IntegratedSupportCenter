@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace 工作数据分析.WinForm.WuLiu
 {
-    public partial class Form物流Mian : Form
+    public partial class Form物流Main : Form
     {
-        public Form物流Mian()
+        public Form物流Main()
         {
             InitializeComponent();
         }

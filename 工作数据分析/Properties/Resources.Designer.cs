@@ -88,10 +88,7 @@ namespace 工作数据分析.Properties {
         ///	,u1.FBatchNo&apos;批号&apos;
         ///	,t30.FName AS &apos;基本单位&apos;
         ///	,u1.Fauxqty AS &apos;实收数量&apos;
-        ///	,t552.FName AS &apos;辅助单位&apos;
-        ///	,u1.FSecQty AS&apos;辅助数量&apos;
-        ///	
-        ///	 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	,t552.FName AS &apos;辅助单位 [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 二期仓库入库 {
             get {
@@ -116,8 +113,7 @@ namespace 工作数据分析.Properties {
         ///	,[FKFDate] [varchar](255) NOT NULL
         ///	,[FMyKFDate] [varchar](255)
         ///	,[FStockTypeID] [Int] NOT NULL
-        ///	,[FQtyLock] [decimal](28, 10) NOT NULL
-        ///	 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	,[FQtyLock] [decimal](28 [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 二期原纸仓库即时库存 {
             get {
@@ -154,8 +150,7 @@ namespace 工作数据分析.Properties {
         ///		) AS &apos;辅助属性&apos;
         ///	,u1.FBatchNo AS &apos;批号&apos;
         ///	,t23.Fname &apos;基本单位&apos;
-        ///	,vw.Fauxqty &apos;实发数量&apos;
-        ///	,t512.FName AS &apos;辅助单位&apos; [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	,vw.Fauxqty &apos; [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 二期原纸辅料领料明细 {
             get {
@@ -187,7 +182,7 @@ namespace 工作数据分析.Properties {
         ///                            [FSupplyID] [int] NOT NULL ,
         ///                            [FStockID] [int] NOT NULL ,
         ///                            [FQty] [decimal](28, 10) NOT NULL ,
-        ///                            [FBal] [deci [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///                            [FB [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 二期胶印纸箱仓库即时库存 {
             get {
@@ -205,7 +200,7 @@ namespace 工作数据分析.Properties {
         ///                            [FSupplyID] [int] NOT NULL ,
         ///                            [FStockID] [int] NOT NULL ,
         ///                            [FQty] [decimal](28, 10) NOT NULL ,
-        ///                            [FBal] [deci [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///                            [FB [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 二期辅料仓库即时库存 {
             get {
@@ -279,7 +274,7 @@ namespace 工作数据分析.Properties {
         ///max(ComOrd.EndTime) as EndTime,
         ///CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),&apos;00:00:00&apos;),108) as ProdTime,
         ///sum(ComOrd.StopTimes) as StopTimes,--停车次数
-        ///sum(ComOrd.StopTim [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///su [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线完工_2500 {
             get {
@@ -399,7 +394,7 @@ namespace 工作数据分析.Properties {
         ///max(ComOrd.EndTime) as EndTime,
         ///CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),&apos;00:00:00&apos;),108) as ProdTime,
         ///sum(ComOrd.StopTimes) as StopTimes,--停车次数
-        ///sum(ComOrd.StopTim [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///su [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线完工2500_1天 {
             get {
@@ -424,7 +419,7 @@ namespace 工作数据分析.Properties {
         ///max(ComOrd.EndTime) as EndTime,
         ///CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),&apos;00:00:00&apos;),108) as ProdTime,
         ///sum(ComOrd.StopTimes) as StopTimes,--停车次数
-        ///sum(ComOrd.StopTim [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///su [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线完工2500当天 {
             get {
@@ -449,7 +444,7 @@ namespace 工作数据分析.Properties {
         ///max(ComOrd.EndTime) as EndTime,
         ///CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),&apos;00:00:00&apos;),108) as ProdTime,
         ///sum(ComOrd.StopTimes) as StopTimes,--停车次数
-        ///sum(ComOrd.StopTim [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///su [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线完工2500当天1 {
             get {
@@ -474,12 +469,70 @@ namespace 工作数据分析.Properties {
         ///                        Length int,
         ///                        Qty int
         ///                        )
-        ///   insert into #OrderItemLines exec GetNoNomalLines 
-        ///if @ProdLineLeve [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   insert into #OrderItemLines exec GetNoNomalLines         /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线当前排程2500 {
             get {
                 return ResourceManager.GetString("制版线当前排程2500", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 SELECT *
+        ///FROM (select t.serial as 工单号
+        ///	,(select x.smpnme
+        ///	from v_ord x
+        ///	where  x.serial = t.serial
+        ///	)as 客户简称
+        ///	,trim(t.prdnme) as 产品名称
+        ///	,min(ptdate)as 最早入库时间
+        ///	,min(t.UPDATED) as 最早入库操作时间
+        ///	,(
+        ///		SELECT min(ta.CREATED)
+        ///		FROM V_HR_PIECE_DATA ta
+        ///		WHERE ta.serial = t.serial AND ta.PRCTYPNME like&apos;%打包%&apos; 
+        ///		) as 最早报工时间
+        ///from v_pb_bcdr t
+        ///where t.objtyp = &apos;CL&apos;
+        ///	and t.orgcde = &apos;KS03&apos;
+        ///	AND to_char(t.ptdate, &apos;yyyy-mm-dd&apos;) &gt;= (
+        ///		select to_char(sysdate - 10, &apos;yyyy-mm-dd&apos;)
+        ///		from dual
+        ///		)
+        ///	AND to_char( [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string 提前入库明细 {
+            get {
+                return ResourceManager.GetString("提前入库明细", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 SELECT *
+        ///FROM (select t.serial as 工单号
+        ///	,(select x.smpnme
+        ///	from v_ord x
+        ///	where  x.serial = t.serial
+        ///	)as 客户简称
+        ///	,trim(t.prdnme) as 产品名称
+        ///	,min(ptdate)as 最早入库时间
+        ///	,min(t.UPDATED) as 最早入库操作时间
+        ///	,(
+        ///		SELECT min(ta.CREATED)
+        ///		FROM V_HR_PIECE_DATA ta
+        ///		WHERE ta.serial = t.serial AND ta.PRCTYPNME like&apos;%打包%&apos; 
+        ///		) as 最早报工时间
+        ///from v_pb_bcdr t
+        ///where t.objtyp = &apos;CL&apos;
+        ///	and t.orgcde = &apos;KS03&apos;
+        ///	and to_char(t.UPDATED, &apos;yyyy-mm-dd&apos;)=(
+        ///		select to_char(sysdate, &apos;yyyy-mm-dd&apos;)
+        ///		from dual)
+        ///	AND to_char(t.ptdate, &apos; [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string 提前入库明细当天 {
+            get {
+                return ResourceManager.GetString("提前入库明细当天", resourceCulture);
             }
         }
         
@@ -495,7 +548,7 @@ namespace 工作数据分析.Properties {
         ///  and to_char(ptdate,&apos;yyyy-MM-dd&apos;) &gt;= &apos;@starttime&apos;
         ///  and to_char(ptdate,&apos;yyyy-MM-dd&apos;) &lt;= &apos;@endtime&apos; 
         ///  and t.usrnme in(&apos;肖永卫&apos;,&apos;颜玲敏&apos;,&apos;应燕华&apos;,&apos;刘正利&apos;,&apos;董小浩&apos;,&apos;叶耀红&apos;))a
-        ///group by 送货日期,送货单号,客户简 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///group by 送货 [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 获取送货单回单信息 {
             get {

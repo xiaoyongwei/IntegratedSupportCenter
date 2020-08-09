@@ -228,7 +228,7 @@ namespace 综合保障中心.其它
 
         private void 物流数据ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form物流Mian f = new Form物流Mian();
+            Form物流Main f = new Form物流Main();
             f.MdiParent = this;
             f.Show();
         }

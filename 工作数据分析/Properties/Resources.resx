@@ -1198,6 +1198,67 @@ ORDER BY ord.sn ))
 drop table #OrderItemLines
 drop table #TmpM</value>
   </data>
+  <data name="提前入库明细" xml:space="preserve">
+    <value>SELECT *
+FROM (select t.serial as 工单号
+	,(select x.smpnme
+	from v_ord x
+	where  x.serial = t.serial
+	)as 客户简称
+	,trim(t.prdnme) as 产品名称
+	,min(ptdate)as 最早入库时间
+	,min(t.UPDATED) as 最早入库操作时间
+	,(
+		SELECT min(ta.CREATED)
+		FROM V_HR_PIECE_DATA ta
+		WHERE ta.serial = t.serial AND ta.PRCTYPNME like'%打包%' 
+		) as 最早报工时间
+from v_pb_bcdr t
+where t.objtyp = 'CL'
+	and t.orgcde = 'KS03'
+	AND to_char(t.ptdate, 'yyyy-mm-dd') &gt;= (
+		select to_char(sysdate - 10, 'yyyy-mm-dd')
+		from dual
+		)
+	AND to_char(t.ptdate, 'yyyy-mm-dd') &lt;= (
+		select to_char(sysdate, 'yyyy-mm-dd')
+		from dual)		
+group by t.serial,t.prdnme) a
+where a.最早报工时间 &gt; a.最早入库操作时间 
+ORDER BY a.最早入库操作时间 desc</value>
+  </data>
+  <data name="提前入库明细当天" xml:space="preserve">
+    <value>SELECT *
+FROM (select t.serial as 工单号
+	,(select x.smpnme
+	from v_ord x
+	where  x.serial = t.serial
+	)as 客户简称
+	,trim(t.prdnme) as 产品名称
+	,min(ptdate)as 最早入库时间
+	,min(t.UPDATED) as 最早入库操作时间
+	,(
+		SELECT min(ta.CREATED)
+		FROM V_HR_PIECE_DATA ta
+		WHERE ta.serial = t.serial AND ta.PRCTYPNME like'%打包%' 
+		) as 最早报工时间
+from v_pb_bcdr t
+where t.objtyp = 'CL'
+	and t.orgcde = 'KS03'
+	and to_char(t.UPDATED, 'yyyy-mm-dd')=(
+		select to_char(sysdate, 'yyyy-mm-dd')
+		from dual)
+	AND to_char(t.ptdate, 'yyyy-mm-dd') &gt;= (
+		select to_char(sysdate - 10, 'yyyy-mm-dd')
+		from dual
+		)
+	AND to_char(t.ptdate, 'yyyy-mm-dd') &lt;= (
+		select to_char(sysdate, 'yyyy-mm-dd')
+		from dual)		
+group by t.serial,t.prdnme) a
+where a.最早报工时间 &gt; a.最早入库操作时间 
+ORDER BY a.最早入库操作时间 desc</value>
+  </data>
   <data name="获取送货单回单信息" xml:space="preserve">
     <value>select * from(select 
 to_char(t.ptdate,'yyyy-MM-dd') 送货日期

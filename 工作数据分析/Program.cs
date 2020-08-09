@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using 工作数据分析.WinForm;
 using 工作数据分析.WinForm.WuLiu;
 using 综合保障中心.Comm;
 
@@ -30,7 +31,7 @@ namespace 甩纸数据
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormYijie_自动获取());
             //Application.Run(new Form制版线实时());
-            Application.Run(new Form物流Mian());
+            Application.Run(new Form物流Main());
         }
     }
 }

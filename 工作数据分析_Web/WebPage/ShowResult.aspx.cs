@@ -80,8 +80,8 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 gridTitle = "报工但未入库(近10天)";
                 break;
             case "24":
-                sqlStr = "CALL `slbz`.`超订单入库近30天`();";
-                gridTitle = "超订单入库(近30天)";
+                sqlStr = "CALL `slbz`.`超订单入库近10天`();";
+                gridTitle = "超订单入库(近10天)";
                 break;
             case "25":
                 sqlStr = "CALL `slbz`.`送完货多余库存`();";
@@ -235,6 +235,11 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
             else if (code == "33")
             {
                 this.GridView1.DataSource = GetSqlTxt_Datatable("提前入库明细");
+                this.GridView1.DataBind();
+            }
+ else if (code == "24")
+            {
+                this.GridView1.DataSource = GetSqlTxt_Datatable("超订单入库明细");
                 this.GridView1.DataBind();
             }
             else
