@@ -48,6 +48,7 @@ namespace DBUtility
             {
                 SqlConnection conn = new SqlConnection(connString);
                 conn.Open();
+                conn.Close();
             }
             catch
             {

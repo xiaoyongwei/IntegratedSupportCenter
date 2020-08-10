@@ -1275,7 +1275,7 @@ group by 送货日期,送货单号,客户简称,业务员,司机,操作人
 order by 送货日期,送货单号</value>
   </data>
   <data name="运费结算" xml:space="preserve">
-    <value>SELECT ID,to_char("CREATED",'yyyy-mm-dd hh:MM:ss') 打单时间,"PAYSTS" 结算
+    <value>SELECT ID,to_char(ptdate,'yyyy-mm-dd hh:MM:ss') 时间,"PAYSTS" 结算
 	,"DRIVER" 司机
 	,"LNCCDE" 车牌号
 	,nvl("DISTANCE",0) 距离

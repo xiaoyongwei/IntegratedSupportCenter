@@ -557,7 +557,7 @@ namespace 工作数据分析.Properties {
         }
         
         /// <summary>
-        ///   查找类似 SELECT ID,to_char(&quot;CREATED&quot;,&apos;yyyy-mm-dd hh:MM:ss&apos;) 打单时间,&quot;PAYSTS&quot; 结算
+        ///   查找类似 SELECT ID,to_char(ptdate,&apos;yyyy-mm-dd hh:MM:ss&apos;) 时间,&quot;PAYSTS&quot; 结算
         ///	,&quot;DRIVER&quot; 司机
         ///	,&quot;LNCCDE&quot; 车牌号
         ///	,nvl(&quot;DISTANCE&quot;,0) 距离
@@ -573,7 +573,8 @@ namespace 工作数据分析.Properties {
         ///FROM &quot;EJSH&quot;.&quot;DLV_FARE&quot; t
         ///WHERE   orgcde = &apos;KS03&apos;
         ///	AND DRIVER IN (
-        ///		&apos;霍红海&apos; [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///		&apos;霍红海&apos;
+        ///		, [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 运费结算 {
             get {

@@ -158,7 +158,7 @@
             treeNode3});
             this.treeView.ShowLines = false;
             this.treeView.Size = new System.Drawing.Size(151, 625);
-            this.treeView.TabIndex = 0;;
+            this.treeView.TabIndex = 0;
             this.treeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView_NodeMouseClick);
             // 
             // splitContainer2
