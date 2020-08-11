@@ -18,12 +18,13 @@ namespace 工作数据分析.WinForm
             this.Text = title;
             SQLString = sqlString;
         }
-        public FormShowData(string title, DataTable dt)
-        {
-            InitializeComponent();
-            this.Text = title;
-            dgv.DataSource = dt;
-        }
+        //public FormShowData(string title, DataTable dt)
+        //{
+        //    InitializeComponent();
+        //    this.Text = title;
+        //    dgv.DataSource = dt;
+            
+        //}
 
         private void FormShowData_Load(object sender, EventArgs e)
         {
@@ -39,17 +40,17 @@ namespace 工作数据分析.WinForm
         private void ShuaXin()
         {
             dgv.DataSource = MySqlDbHelper.ExecuteDataTable(SQLString);
-            foreach (DataGridViewColumn col in dgv.Columns)
-            {
-                if (col.HeaderText.Contains("工单") ||
-                    col.HeaderText.Contains("生产单") ||
-                    col.HeaderText.Contains("生产单号"))
-                {
-                    GongdanhaoColumn = col;
-                    dgv.ContextMenuStrip = contextMenuStrip1;
-                    break;
-                }
-            }
+            //foreach (DataGridViewColumn col in dgv.Columns)
+            //{
+            //    if (col.HeaderText.Contains("工单") ||
+            //        col.HeaderText.Contains("生产单") ||
+            //        col.HeaderText.Contains("生产单号"))
+            //    {
+            //        GongdanhaoColumn = col;
+            //        dgv.ContextMenuStrip = contextMenuStrip1;
+            //        break;
+            //    }
+            //}
             dgv.AutoResizeColumns();
         }
 

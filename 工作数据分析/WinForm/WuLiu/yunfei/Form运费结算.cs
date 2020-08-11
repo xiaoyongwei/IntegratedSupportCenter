@@ -209,7 +209,7 @@ namespace 工作数据分析.WinForm.WuLiu
 
         private void 查看客户区域对应表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormShowData("客户区域对应表", MySqlDbHelper.ExecuteDataTable("SELECT * FROM `slbz`.`客户对应区域运费表`")).ShowDialog();
+            new FormShowData("客户区域对应表", "SELECT * FROM `slbz`.`客户对应区域运费表`").ShowDialog();
         }
 
         private void 自动计算运费ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -256,6 +256,29 @@ namespace 工作数据分析.WinForm.WuLiu
                    ).ShowDialog() == DialogResult.OK)
                 { InitDgv(); }
             }
+        }
+
+        private void 文信1区2区拼车ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SetPinCheWenXin())
+            {
+                InitDgv();
+            }
+            else
+            {
+                My.ShowErrorMessage("设置文信拼车费失败!");
+            }
+        }
+
+        /// <summary>
+        /// 设置文信拼车费
+        /// </summary>
+        private bool SetPinCheWenXin()
+        {
+            string SQL = "UPDATE EJSH.DLV_FARE  SET ANNAMT = NVL(ANNAMT, 0) + 20  ,USMARK = USMARK || '1区2区拼车+20,'  "
+                +"WHERE PAYSTS = 'N' AND(usmark NOT like '%拼车%' OR USMARK IS null)   and ID = "+ GetSelectedID();
+
+            return OracleHelper.ExecuteNonQuery(SQL) > 0;
         }
     }
 }

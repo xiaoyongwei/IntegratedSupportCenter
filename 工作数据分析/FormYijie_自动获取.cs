@@ -2261,7 +2261,7 @@ namespace 综合保障中心.其它
                 sqlList.Add("INSERT ignore  INTO `slbz`.`瓦片完成情况` (`工单号`,`客户名`,`门幅`,`楞型`,`材质`,`长度`,`宽度`,`压线`,`开始时间`,`结束时间`,`生产时间`,`备注`,`瓦片线`) VALUES"
         + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}');"
         , row["工单号"], row["客户名"], row["门幅"], row["楞型"], row["材质"], row["长度"], row["宽度"]
-        , row["压线"], row["开始时间"], row["结束时间"], row["生产时间"], row["备注"], row["瓦片线"]));
+        , row["压线"], row["开始时间"].ToString(), row["结束时间"].ToString(), row["生产时间"], row["备注"], row["瓦片线"]));
 
             }
             MySqlDbHelper.ExecuteSqlTran(sqlList);

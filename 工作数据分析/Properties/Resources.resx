@@ -1166,7 +1166,7 @@ if @ProdLineLevelCnt = 1
         select top (@size) 
         A.Cust_OrderID '订单号',
         Cust.Name as '客户',
-        Qty*SEC '数量',
+        Qty*SEC '订单数',
         --楞型
         rtrim(Flute.[Name]) as '楞型',
         convert(int,Width)/SEC as '宽度',

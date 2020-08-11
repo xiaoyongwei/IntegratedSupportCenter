@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -15,7 +16,6 @@ namespace 工作数据分析.WinForm
 {
     public partial class Form制版线实时 : Form
     {
-        Thread thread;
 
         public Form制版线实时()
         {
@@ -28,6 +28,7 @@ namespace 工作数据分析.WinForm
         {
             if (MessageBox.Show("此过程需要5-10分钟,确定要加载吗?", "加载?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+
                 Get1800制版线完成信息();
                 Get2200制版线完成信息();
                 Get2500制版线完成信息();
@@ -125,6 +126,28 @@ namespace 工作数据分析.WinForm
             }
         }
 
+        private bool Insert制版线当前排程(DataTable dt,string zhibanxian)
+        {
+            List<string> sqlList = new List<string>();
+            foreach (DataRow row in dt.Rows)
+            {
+                string sql = "INSERT INTO `slbz`.`生产线当前排程`"
+                + "(`订单号`,`客户`,`楞型`,`订单数`,`宽度`,`长度`,`材质`,`门幅`,`序号`,`生产线`)VALUES("
+                + "'" + row["订单号"].ToString() + "',"
+                + "'" + row["客户"].ToString() + "',"
+                + "'" + row["楞型"].ToString() + "',"
+                + "'" + row["订单数"].ToString() + "',"
+                + "'" + row["宽度"].ToString() + "',"
+                + "'" + row["长度"].ToString() + "',"
+                + "'" + row["材质"].ToString() + "',"
+                + "'" + row["门幅"].ToString() + "',"
+                + "'" + row["序号"].ToString() + "',"
+                + "'" + zhibanxian + "');";
+                sqlList.Add(sql);
+            }
+           return  MySqlDbHelper.ExecuteSqlTran(sqlList);
+        }
+
         private void SubmitZhiBanXian(DataTable dt)
         {
             List<string> sqlList = new List<string>();
@@ -133,10 +156,11 @@ namespace 工作数据分析.WinForm
                 sqlList.Add("INSERT ignore  INTO `slbz`.`瓦片完成情况` (`工单号`,`客户名`,`门幅`,`楞型`,`材质`,`长度`,`宽度`,`压线`,`开始时间`,`结束时间`,`生产时间`,`备注`,`瓦片线`) VALUES"
         + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}');"
         , row["工单号"], row["客户名"], row["门幅"], row["楞型"], row["材质"], row["长度"], row["宽度"]
-        , row["压线"], row["开始时间"], row["结束时间"], row["生产时间"], row["备注"], row["瓦片线"]));
+        , row["压线"], row["开始时间"], row["结束时间"].ToString(), row["生产时间"].ToString(), row["备注"], row["瓦片线"]));
 
             }
             MySqlDbHelper.ExecuteSqlTran(sqlList);
+            //File.AppendAllLines("D:\\sqllist.txt", sqlList);
         }
 
         private void button查询_Click(object sender, EventArgs e)
@@ -153,9 +177,10 @@ namespace 工作数据分析.WinForm
 
         private void Form制版线查询_Load(object sender, EventArgs e)
         {
+            刷新ToolStripMenuItem.Enabled = false;
+            从瓦片线载入数据ToolStripMenuItem.Enabled = false;
             this.dtPicker_s.Value = DateTime.Now.AddDays(-30);
             this.dtPicker_e.Value = DateTime.Now;
-            thread = new Thread(new ThreadStart(InitShowData));
             InitShowData();
         }
 
@@ -172,25 +197,29 @@ namespace 工作数据分析.WinForm
         /// </summary>
         private void InitShowData()
         {
-            //dgv1800.Rows.Clear();
-            //dgv2200.Rows.Clear();
-            //dgv2500.Rows.Clear();
-            //dgv24Hwangong.Rows.Clear();
-            DataTable dt1800 = new DataTable();
-            DataTable dt2200 = new DataTable();
-            DataTable dt2500 = new DataTable();
+            
+            //将制版线当前排程备份到中间数据库
+            MySqlDbHelper.ExecuteSqlTran("TRUNCATE TABLE`slbz`.`生产线当前排程`;");
+
             try
             {
                 if (My.Ping(DataBaseList.IP_制版线1800) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800))
                 {
                     DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
-                    dgv1800.DataSource = DataBaseList.sql制版线1800.Querytable("SELECT [订单号],[客户名称],rtrim([楞别])'楞别',[订单数],[纸宽],[纸长],rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]");
-                    dt1800 = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工1800当天1);
+                    Insert制版线当前排程( DataBaseList.sql制版线1800.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]"),"制版线1800");
+                   groupBox1800.Text= "1800制版线(运行中)";
+                   // groupBox1800.ForeColor = Color.Blue;
+                }
+                else
+                {
+                    groupBox1800.Text = "1800制版线(停机)";
+                    //groupBox1800.ForeColor = Color.Red;
                 }
             }
             catch
             {
-                dgv1800.DataSource = null;
+                groupBox1800.Text = "1800制版线(停机)";
+                    //groupBox1800.ForeColor = Color.Red;
             }
             try
             {
@@ -198,13 +227,20 @@ namespace 工作数据分析.WinForm
 
                 {
                     DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
-                    dgv2200.DataSource = DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称],rtrim([楞别])'楞别',[订单数],[纸宽],[纸长],rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]");
-                    dt2200 = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工1800当天1);
+                    Insert制版线当前排程(DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线2200");
+                    groupBox2200.Text = "2200制版线(运行中)";
+                    //groupBox2200.ForeColor = Color.Blue;
+                }
+                else
+                {
+                    groupBox2200.Text = "2200制版线(停机)";
+                    //groupBox2200.ForeColor = Color.Red;
                 }
             }
             catch
             {
-                dgv2200.DataSource = null;
+                groupBox2200.Text = "2200制版线(停机)";
+                //groupBox2200.ForeColor = Color.Red;
             }
 
             try
@@ -212,33 +248,40 @@ namespace 工作数据分析.WinForm
                 if (My.Ping(DataBaseList.IP_制版线2500) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2500))
                 {
                     DataBaseList.sql制版线2500 = new SqlHelper(DataBaseList.ConnString_制版线2500);
-                    dgv2500.DataSource = DataBaseList.sql制版线2500.Querytable(Resources.制版线当前排程2500);
-                    dt2500 = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500当天1);
+                    Insert制版线当前排程(DataBaseList.sql制版线2500.Querytable(Resources.制版线当前排程2500), "制版线2500");
+                    groupBox2500.Text = "2500制版线(运行中)";
+                   // groupBox2500.ForeColor = Color.Blue;
+                }
+                else
+                {
+                    groupBox2500.Text = "2500制版线(停机)";
+                    //groupBox2500.ForeColor = Color.Red;
                 }
             }
             catch
             {
-                dgv2500.DataSource = null;
+                groupBox2500.Text = "2500制版线(停机)";
+                //groupBox2500.ForeColor = Color.Red;
             }
-
-            dt1800.Merge(dt2200, false);
-            dt1800.Merge(dt2500, false);
-            dgv24Hwangong.DataSource = dt1800;
-            foreach (DataGridViewColumn column in dgv24Hwangong.Columns)
-            {
-                if (column.HeaderText == "结束时间")
-                {
-                    dgv24Hwangong.Sort(column, ListSortDirection.Descending);
-                    break;
-                }
-            }
-            SetDgvBackColor(dgv1800);
-            SetDgvBackColor(dgv2200);
-            SetDgvBackColor(dgv2500);
-
+            //将制版线已经完成排程备份到中间数据库
             Get1800制版线完成信息1天();
             Get2200制版线完成信息1天();
             Get2500制版线完成信息1天();
+
+            //开始从中间数据库读取当前排程和已经完成的排程
+            dgv1800.DataSource=MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线1800';");
+            dgv2200.DataSource=MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线2200';");
+            dgv2500.DataSource=MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线2500';");
+            dgv24Hwangong.DataSource = MySqlDbHelper.ExecuteDataTable(
+             "SELECT `工单号`,`客户名`,`门幅`,`楞型`,`材质`,`长度`,`宽度`,`结束时间`,`瓦片线`"
+            +"FROM `slbz`.`瓦片完成情况`where 结束时间 >= (NOW() - interval 24 hour) and 工单号 like'C%'"
+            +"order by 结束时间 desc");            
+
+           
+            SetDgvBackColor(dgv1800);
+            SetDgvBackColor(dgv2200);
+            SetDgvBackColor(dgv2500);
+           
 
             this.groupBox1.Text = "当前队列(" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ")";
         }
@@ -261,6 +304,7 @@ namespace 工作数据分析.WinForm
                             row.DefaultCellStyle.SelectionBackColor = Color.Red;
                         }
                     }
+                   
                     break;
                 }
 

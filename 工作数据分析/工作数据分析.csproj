@@ -105,6 +105,7 @@
     <Compile Include="Data\DAL\SqlServer\SqlHelper_1800.cs" />
     <Compile Include="Data\DataBaseMethod.cs" />
     <Compile Include="Data\DAL\SQLite\SQLiteDbHelper.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="WinForm\FormShowData.cs">
       <SubType>Form</SubType>
     </Compile>
