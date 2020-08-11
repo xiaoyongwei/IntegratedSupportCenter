@@ -1,14 +1,14 @@
-SELECT *
-FROM (select t.serial as ¹¤µ¥ºÅ
+ï»¿SELECT *
+FROM (select t.serial as å·¥å•å·
 	,(select x.smpnme
 	from v_ord x
 	where  x.serial = t.serial
-	)as ¿Í»§¼ò³Æ
-	,trim(t.prdnme) as ²úÆ·Ãû³Æ
-	,(SELECT ACCNUM	FROM ord_ct  WHERE  ord_ct.serial =t.serial) AS ¶©µ¥Êý
-	,sum(t.ACCNUML)Èë¿âÊý
-	,(select sum(ACCNUM) FROM V_HR_PIECE_DATA WHERE SERIAL=t.serial AND prcnme like'%´ò°ü%')  AS ±¨¹¤Êý
-	,max(PTDATE)Èë¿âÊ±¼ä
+	)as å®¢æˆ·ç®€ç§°
+	,trim(t.prdnme) as äº§å“åç§°
+	,(SELECT ACCNUM	FROM ord_ct  WHERE  ord_ct.serial =t.serial) AS è®¢å•æ•°
+	,sum(t.ACCNUML)å…¥åº“æ•°
+	,(select sum(ACCNUM) FROM V_HR_PIECE_DATA WHERE SERIAL=t.serial AND prcnme like'%æ‰“åŒ…%')  AS æŠ¥å·¥æ•°
+	,max(PTDATE)å…¥åº“æ—¶é—´
 from v_pb_bcdr t
 where t.objtyp = 'CL'
 	and t.orgcde = 'KS03'
@@ -20,5 +20,5 @@ where t.objtyp = 'CL'
 		select to_char(sysdate, 'yyyy-mm-dd')
 		from dual)		
 group by t.serial,t.prdnme) a
-where a.Èë¿âÊý > a.¶©µ¥Êý 
-ORDER BY a.Èë¿âÊ±¼ä desc
+where a.å…¥åº“æ•° > a.è®¢å•æ•° 
+ORDER BY a.å…¥åº“æ—¶é—´ desc
