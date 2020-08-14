@@ -16,11 +16,11 @@ namespace 工作数据分析.WinForm
 {
     public partial class Form制版线实时 : Form
     {
+        
 
         public Form制版线实时()
         {
             InitializeComponent();
-            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
 
@@ -181,6 +181,17 @@ namespace 工作数据分析.WinForm
             从瓦片线载入数据ToolStripMenuItem.Enabled = false;
             this.dtPicker_s.Value = DateTime.Now.AddDays(-30);
             this.dtPicker_e.Value = DateTime.Now;
+
+            //初始化dgv的列
+            foreach (DataColumn col in MySqlDbHelper.ExecuteDataTable("SELECT * FROM `slbz`.`生产线当前排程` LIMIT 1").Columns)
+            {
+                dgv1800.Columns.Add("dgv1800"+col.ColumnName,col.ColumnName);
+                dgv2200.Columns.Add("dgv2200"+col.ColumnName,col.ColumnName);
+                dgv2500.Columns.Add("dgv2500"+col.ColumnName,col.ColumnName);
+            }
+
+
+
             InitShowData();
         }
 
@@ -192,12 +203,17 @@ namespace 工作数据分析.WinForm
                 InitShowData();
             }
         }
+
+
+
+
+
         /// <summary>
         /// 初始化刷新数据
         /// </summary>
         private void InitShowData()
         {
-            
+            this.timer1.Stop();
             //将制版线当前排程备份到中间数据库
             MySqlDbHelper.ExecuteSqlTran("TRUNCATE TABLE`slbz`.`生产线当前排程`;");
 
@@ -269,9 +285,18 @@ namespace 工作数据分析.WinForm
             Get2500制版线完成信息1天();
 
             //开始从中间数据库读取当前排程和已经完成的排程
-            dgv1800.DataSource=MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线1800';");
-            dgv2200.DataSource=MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线2200';");
-            dgv2500.DataSource=MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线2500';");
+            //dgv1800.DataSource=MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线1800';");
+            //dgv2200.DataSource=MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线2200';");
+            //dgv2500.DataSource=MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线2500';");
+
+            SqlToDgv(MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线1800';"), dgv1800, "订单号");
+            SqlToDgv(MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线2200';"), dgv2200, "订单号");
+            SqlToDgv(MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线2500';"), dgv2500, "订单号");
+
+            dgv1800.Sort(dgv1800.Columns["序号"],ListSortDirection.Ascending);
+            dgv2200.Sort(dgv2200.Columns["序号"],ListSortDirection.Ascending);
+            dgv2500.Sort(dgv2500.Columns["序号"], ListSortDirection.Ascending);
+
             dgv24Hwangong.DataSource = MySqlDbHelper.ExecuteDataTable(
              "SELECT `工单号`,`客户名`,`门幅`,`楞型`,`材质`,`长度`,`宽度`,`结束时间`,`瓦片线`"
             +"FROM `slbz`.`瓦片完成情况`where 结束时间 >= (NOW() - interval 24 hour) and 工单号 like'C%'"
@@ -284,9 +309,63 @@ namespace 工作数据分析.WinForm
            
 
             this.groupBox1.Text = "当前队列(" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ")";
+            dgv1800.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgv2200.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgv2500.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            this.timer1.Start();
         }
 
+        private void SqlToDgv(DataTable dt, DataGridView dgv, string keyColumnName)
+        {
+            foreach (DataRow dtRow in dt.Rows)
+            {
+                bool isExist = false;
+                foreach (DataGridViewRow dgvRow in dgv.Rows)
+                {
+                    if (dgvRow.Cells[keyColumnName].Value.ToString()==dtRow[keyColumnName].ToString())
+                    {
+                        isExist = true;
+                        break;
+                    }                   
+                }
+                if (isExist==false)
+                {
+                    DataGridViewRow newRow = dgv.Rows[dgv.Rows.Add()];
 
+                    newRow.Cells["订单号"].Value = dtRow["订单号"].ToString();
+                    newRow.Cells["客户"].Value = dtRow["客户"].ToString();
+                    newRow.Cells["楞型"].Value = dtRow["楞型"].ToString();
+                    newRow.Cells["订单数"].Value = dtRow["订单数"].ToString();
+                    newRow.Cells["宽度"].Value = dtRow["宽度"].ToString();
+                    newRow.Cells["长度"].Value = dtRow["长度"].ToString();
+                    newRow.Cells["材质"].Value = dtRow["材质"].ToString();
+                    newRow.Cells["门幅"].Value = dtRow["门幅"].ToString();
+                    newRow.Cells["序号"].Value = dtRow["序号"].ToString();
+                }
+            }
+
+            List<DataGridViewRow> dgvRowList = new List<DataGridViewRow>();
+            foreach (DataGridViewRow dgvRow in dgv.Rows)
+            {
+                bool isExist = false;
+                foreach (DataRow dtRow in dt.Rows)
+                {
+                    if (dgvRow.Cells[keyColumnName].Value.ToString() == dtRow[keyColumnName].ToString())
+                    {
+                        isExist = true;
+                        break;
+                    }
+                }
+                if (isExist == false)
+                {
+                    dgvRowList.Add(dgvRow);
+                }
+            }
+            foreach (DataGridViewRow item in dgvRowList)
+            {
+                dgv.Rows.Remove(item);
+            }
+        }
 
 
 
@@ -303,8 +382,7 @@ namespace 工作数据分析.WinForm
                             row.DefaultCellStyle.BackColor = Color.Yellow;
                             row.DefaultCellStyle.SelectionBackColor = Color.Red;
                         }
-                    }
-                   
+                    }                   
                     break;
                 }
 
@@ -324,5 +402,7 @@ namespace 工作数据分析.WinForm
             splitContainer1.SplitterDistance = splitContainer2.Width / 3;
             splitContainer3.SplitterDistance = splitContainer3.Width / 2;
         }
+
+       
     }
 }

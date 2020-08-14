@@ -195,8 +195,6 @@
             // 
             this.dgv1800.AllowUserToAddRows = false;
             this.dgv1800.AllowUserToDeleteRows = false;
-            this.dgv1800.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv1800.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv1800.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv1800.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv1800.Location = new System.Drawing.Point(3, 17);
@@ -240,8 +238,6 @@
             // 
             this.dgv2200.AllowUserToAddRows = false;
             this.dgv2200.AllowUserToDeleteRows = false;
-            this.dgv2200.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv2200.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv2200.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv2200.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv2200.Location = new System.Drawing.Point(3, 17);
@@ -267,8 +263,6 @@
             // 
             this.dgv2500.AllowUserToAddRows = false;
             this.dgv2500.AllowUserToDeleteRows = false;
-            this.dgv2500.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv2500.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv2500.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv2500.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv2500.Location = new System.Drawing.Point(3, 17);
