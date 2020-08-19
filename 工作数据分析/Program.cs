@@ -6,7 +6,7 @@ using 工作数据分析.WinForm.WuLiu;
 using 综合保障中心.Comm;
 using 综合保障中心.其它;
 
-namespace 甩纸数据
+namespace 工作数据分析
 {
     static class Program
     {

@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>工作数据分析</RootNamespace>
     <AssemblyName>制版线实时查询</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -38,6 +39,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -47,12 +49,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>g3.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>甩纸数据.Program</StartupObject>
+    <StartupObject>工作数据分析.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib">
@@ -104,7 +107,7 @@
     <Compile Include="Data\DAL\SqlServer\SqlHelper_2200.cs" />
     <Compile Include="Data\DAL\SqlServer\SqlHelper_1800.cs" />
     <Compile Include="Data\DataBaseMethod.cs" />
-    <Compile Include="Data\DAL\SQLite\SQLiteDbHelper.cs" />
+    <Compile Include="Data\DAL\SQLite\SQLiteDbHelper_ZBX.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="WinForm\FormShowData.cs">
       <SubType>Form</SubType>

@@ -11,14 +11,14 @@ namespace HandeJobManager.DAL
     /// <summary>
     /// 本类为SQLite数据库帮助静态类,使用时只需直接调用即可,无需实例化
     /// </summary>
-    public static class SQLiteDbHelper
+    public static class SQLiteDbHelper_ZBX
     {
 
 
         /// <summary>
         /// 连接字符串
         /// </summary>
-        public readonly static string ConnectionString = @"Data Source=" + Application.StartupPath + "\\Data\\数据.db;Version=3;";
+        public readonly static string ConnectionString = @"Data Source=" + Application.StartupPath + "\\Data\\zhibanxian.db;Version=3;";
 
 
 

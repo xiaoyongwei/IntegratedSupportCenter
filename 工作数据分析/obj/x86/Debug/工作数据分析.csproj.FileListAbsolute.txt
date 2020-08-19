@@ -1,4 +1,3 @@
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\System.Data.SQLite.dll
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.FormShowData.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\综合保障中心.其它.FormYijie_自动获取.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.Form制版线查询.resources
