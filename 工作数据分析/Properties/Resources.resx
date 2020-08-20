@@ -644,15 +644,11 @@ left join t_StockPlace t5 on u1.FStockPlaceID=t5.FSPID
 	,[wid]'宽度'
 	,[lenmm]'长度'
 	,[ordnum]'数量'
-	,[cutdata1]'压线'
 	,[lb]'楞型'
-	,[mem]'备注'
-	,CONVERT(CHAR,[begindate],120)'开始时间'
 	,CONVERT(CHAR,[finishdate],120)'结束时间'
-	,[prodtime]'生产时间'
 	,[瓦片线]='1.8米制版线'
 FROM [dbo].[finish]
-WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE())</value>
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) </value>
   </data>
   <data name="制版线完工1800当天" xml:space="preserve">
     <value>SELECT
@@ -696,12 +692,8 @@ WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVER
 	,[wid]'宽度'
 	,[lenmm]'长度'
 	,[ordnum]'数量'
-	,[cutdata1]'压线'
 	,[lb]'楞型'
-	,[mem]'备注'
-	,CONVERT(CHAR,[begindate],120)'开始时间'
 	,CONVERT(CHAR,[finishdate],120)'结束时间'
-	,[prodtime]'生产时间'
 	,[瓦片线]='2.2米制版线'
 FROM [dbo].[finish]
 WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE())</value>

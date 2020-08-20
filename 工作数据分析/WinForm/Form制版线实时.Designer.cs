@@ -57,7 +57,8 @@
             this.dtPicker_e = new System.Windows.Forms.DateTimePicker();
             this.dtPicker_s = new System.Windows.Forms.DateTimePicker();
             this.dgv_wg = new System.Windows.Forms.DataGridView();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerLocal = new System.Windows.Forms.Timer(this.components);
+            this.timerMySQL = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage当前排程.SuspendLayout();
@@ -416,11 +417,17 @@
             this.dgv_wg.Size = new System.Drawing.Size(910, 595);
             this.dgv_wg.TabIndex = 0;
             // 
-            // timer1
+            // timerLocal
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 60000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerLocal.Enabled = true;
+            this.timerLocal.Interval = 60000;
+            this.timerLocal.Tick += new System.EventHandler(this.timerLocal_Tick);
+            // 
+            // timerMySQL
+            // 
+            this.timerMySQL.Enabled = true;
+            this.timerMySQL.Interval = 600000;
+            this.timerMySQL.Tick += new System.EventHandler(this.timerMySQL_Tick);
             // 
             // Form制版线实时
             // 
@@ -499,6 +506,7 @@
         private System.Windows.Forms.DataGridView dgv2200;
         private System.Windows.Forms.GroupBox groupBox2500;
         private System.Windows.Forms.DataGridView dgv2500;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerLocal;
+        private System.Windows.Forms.Timer timerMySQL;
     }
 }

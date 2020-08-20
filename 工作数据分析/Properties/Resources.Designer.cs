@@ -291,15 +291,11 @@ namespace 工作数据分析.Properties {
         ///	,[wid]&apos;宽度&apos;
         ///	,[lenmm]&apos;长度&apos;
         ///	,[ordnum]&apos;数量&apos;
-        ///	,[cutdata1]&apos;压线&apos;
         ///	,[lb]&apos;楞型&apos;
-        ///	,[mem]&apos;备注&apos;
-        ///	,CONVERT(CHAR,[begindate],120)&apos;开始时间&apos;
         ///	,CONVERT(CHAR,[finishdate],120)&apos;结束时间&apos;
-        ///	,[prodtime]&apos;生产时间&apos;
         ///	,[瓦片线]=&apos;1.8米制版线&apos;
         ///FROM [dbo].[finish]
-        ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) 的本地化字符串。
+        ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE())  的本地化字符串。
         /// </summary>
         internal static string 制版线完工1800_1天 {
             get {
@@ -361,12 +357,8 @@ namespace 工作数据分析.Properties {
         ///	,[wid]&apos;宽度&apos;
         ///	,[lenmm]&apos;长度&apos;
         ///	,[ordnum]&apos;数量&apos;
-        ///	,[cutdata1]&apos;压线&apos;
         ///	,[lb]&apos;楞型&apos;
-        ///	,[mem]&apos;备注&apos;
-        ///	,CONVERT(CHAR,[begindate],120)&apos;开始时间&apos;
         ///	,CONVERT(CHAR,[finishdate],120)&apos;结束时间&apos;
-        ///	,[prodtime]&apos;生产时间&apos;
         ///	,[瓦片线]=&apos;2.2米制版线&apos;
         ///FROM [dbo].[finish]
         ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) 的本地化字符串。

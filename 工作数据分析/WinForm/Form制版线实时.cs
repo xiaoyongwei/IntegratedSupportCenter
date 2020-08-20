@@ -17,11 +17,13 @@ namespace 工作数据分析.WinForm
 {
     public partial class Form制版线实时 : Form
     {
-        
+
+        object lockObj = new object();
 
         public Form制版线实时()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
         }
 
 
@@ -57,7 +59,7 @@ namespace 工作数据分析.WinForm
             {
                 if (DataBaseList.sql制版线2500 != null)
                 {
-                    DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500_1天);
+                    DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500当天1);
                     SubmitZhiBanXianSQLite(dt);
                 }
             }
@@ -171,18 +173,18 @@ namespace 工作数据分析.WinForm
             return SQLiteDbHelper_ZBX.ExecuteSqlTran(sqlList);
         }
 
-        private void SubmitZhiBanXianMysql(DataTable dt)
+        private bool SubmitZhiBanXianMysql(DataTable dt)
         {
             List<string> sqlList = new List<string>();
             foreach (DataRow row in dt.Rows)
             {
-                sqlList.Add("INSERT ignore  INTO `slbz`.`瓦片完成情况` (`工单号`,`客户名`,`门幅`,`楞型`,`材质`,`长度`,`宽度`,`压线`,`开始时间`,`结束时间`,`生产时间`,`备注`,`瓦片线`) VALUES"
+                sqlList.Add("INSERT ignore  INTO `slbz`.`瓦片完成情况` (`工单号`,`客户名`,`门幅`,`楞型`,`材质`,`长度`,`宽度`,`压线`,`开始时间`,`结束时间`,`生产时间`,`备注`,`瓦片线`,`数量`) VALUES"
         + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}');"
         , row["工单号"], row["客户名"], row["门幅"], row["楞型"], row["材质"], row["长度"], row["宽度"]
-        , row["压线"], row["开始时间"], row["结束时间"].ToString(), row["生产时间"].ToString(), row["备注"], row["瓦片线"]));
+        , ' ', ' ', row["结束时间"].ToString(), ' ', ' ', row["瓦片线"], row["数量"]));
 
             }
-            MySqlDbHelper.ExecuteSqlTran(sqlList);
+          return   MySqlDbHelper.ExecuteSqlTran(sqlList);
             //File.AppendAllLines("D:\\sqllist.txt", sqlList);
         }
 
@@ -191,10 +193,10 @@ namespace 工作数据分析.WinForm
             List<string> sqlList = new List<string>();
             foreach (DataRow row in dt.Rows)
             {
-                sqlList.Add("Insert OR IGNORE into `published` (`工单号`,`客户名`,`门幅`,`楞型`,`材质`,`长度`,`宽度`,`压线`,`开始时间`,`结束时间`,`生产时间`,`备注`,`瓦片线`) VALUES"
-        + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',datetime('{8}'),datetime('{9}'),'{10}','{11}','{12}');"
+                sqlList.Add("Insert OR IGNORE into `published` (`工单号`,`客户名`,`门幅`,`楞型`,`材质`,`长度`,`宽度`,`结束时间`,`瓦片线`,`数量`) VALUES"
+        + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}',datetime('{7}'),'{8}',{9});"
         , row["工单号"], row["客户名"], row["门幅"], row["楞型"], row["材质"], row["长度"], row["宽度"]
-        , row["压线"], row["开始时间"], row["结束时间"].ToString(), row["生产时间"].ToString(), row["备注"], row["瓦片线"]));
+        ,  row["结束时间"].ToString(), row["瓦片线"],row["数量"]));
 
             }
             SQLiteDbHelper_ZBX.ExecuteSqlTran(sqlList);
@@ -220,11 +222,11 @@ namespace 工作数据分析.WinForm
             this.dtPicker_e.Value = DateTime.Now;
 
             ////初始化dgv的列
-            //foreach (DataColumn col in MySqlDbHelper.ExecuteDataTable("SELECT * FROM `slbz`.`生产线当前排程` LIMIT 1").Columns)
+            //foreach (DataColumn col in SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT * FROM `dangqianpaicheng` LIMIT 1").Columns)
             //{
-            //    dgv1800.Columns.Add(dgv1800 .Name+ col.ColumnName,col.ColumnName);
-            //    dgv2200.Columns.Add(dgv2200.Name + col.ColumnName,col.ColumnName);
-            //    dgv2500.Columns.Add(dgv2500.Name + col.ColumnName,col.ColumnName);
+            //    dgv1800.Columns.Add(dgv1800.Name + col.ColumnName, col.ColumnName);
+            //    dgv2200.Columns.Add(dgv2200.Name + col.ColumnName, col.ColumnName);
+            //    dgv2500.Columns.Add(dgv2500.Name + col.ColumnName, col.ColumnName);
             //}
 
 
@@ -250,109 +252,110 @@ namespace 工作数据分析.WinForm
         /// </summary>
         private void InitShowData()
         {
-            this.timer1.Stop();
+            this.timerLocal.Stop();
 
-            dgv1800.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            dgv2200.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            dgv2500.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                dgv1800.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                dgv2200.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                dgv2500.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
 
-            //将制版线当前排程备份到中间数据库
-            //MySqlDbHelper.ExecuteSqlTran("TRUNCATE TABLE [dangqianpaicheng];");
-            SQLiteDbHelper_ZBX.ExecuteSqlTran("delete from [dangqianpaicheng];");
+                //将制版线当前排程备份到中间数据库
+                //MySqlDbHelper.ExecuteSqlTran("TRUNCATE TABLE [dangqianpaicheng];");
+                SQLiteDbHelper_ZBX.ExecuteSqlTran("delete from [dangqianpaicheng];");
 
-            try
-            {
-                if (My.Ping(DataBaseList.IP_制版线1800) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800))
+                try
                 {
-                    DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
-                    Insert制版线当前排程SQLite(DataBaseList.sql制版线1800.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线1800");
-                    groupBox1800.Text = "1800制版线(运行中)";
-                    // groupBox1800.ForeColor = Color.Blue;
+                    if (My.Ping(DataBaseList.IP_制版线1800) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800))
+                    {
+                        DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
+                        Insert制版线当前排程SQLite(DataBaseList.sql制版线1800.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线1800");
+                        groupBox1800.Text = "1800制版线(运行中)";
+                        // groupBox1800.ForeColor = Color.Blue;
+                    }
+                    else
+                    {
+                        groupBox1800.Text = "1800制版线(停机)";
+                        //groupBox1800.ForeColor = Color.Red;
+                    }
                 }
-                else
+                catch
                 {
                     groupBox1800.Text = "1800制版线(停机)";
                     //groupBox1800.ForeColor = Color.Red;
                 }
-            }
-            catch
-            {
-                groupBox1800.Text = "1800制版线(停机)";
-                //groupBox1800.ForeColor = Color.Red;
-            }
-            try
-            {
-                if (My.Ping(DataBaseList.IP_制版线2200) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2200))
-
+                try
                 {
-                    DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
-                    Insert制版线当前排程SQLite(DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线2200");
-                    groupBox2200.Text = "2200制版线(运行中)";
-                    //groupBox2200.ForeColor = Color.Blue;
+                    if (My.Ping(DataBaseList.IP_制版线2200) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2200))
+
+                    {
+                        DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
+                        Insert制版线当前排程SQLite(DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线2200");
+                        groupBox2200.Text = "2200制版线(运行中)";
+                        //groupBox2200.ForeColor = Color.Blue;
+                    }
+                    else
+                    {
+                        groupBox2200.Text = "2200制版线(停机)";
+                        //groupBox2200.ForeColor = Color.Red;
+                    }
                 }
-                else
+                catch
                 {
                     groupBox2200.Text = "2200制版线(停机)";
                     //groupBox2200.ForeColor = Color.Red;
                 }
-            }
-            catch
-            {
-                groupBox2200.Text = "2200制版线(停机)";
-                //groupBox2200.ForeColor = Color.Red;
-            }
 
-            try
-            {
-                if (My.Ping(DataBaseList.IP_制版线2500) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2500))
+                try
                 {
-                    DataBaseList.sql制版线2500 = new SqlHelper(DataBaseList.ConnString_制版线2500);
-                    Insert制版线当前排程SQLite(DataBaseList.sql制版线2500.Querytable(Resources.制版线当前排程2500), "制版线2500");
-                    groupBox2500.Text = "2500制版线(运行中)";
-                    // groupBox2500.ForeColor = Color.Blue;
+                    if (My.Ping(DataBaseList.IP_制版线2500) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2500))
+                    {
+                        DataBaseList.sql制版线2500 = new SqlHelper(DataBaseList.ConnString_制版线2500);
+                        Insert制版线当前排程SQLite(DataBaseList.sql制版线2500.Querytable(Resources.制版线当前排程2500), "制版线2500");
+                        groupBox2500.Text = "2500制版线(运行中)";
+                        // groupBox2500.ForeColor = Color.Blue;
+                    }
+                    else
+                    {
+                        groupBox2500.Text = "2500制版线(停机)";
+                        //groupBox2500.ForeColor = Color.Red;
+                    }
                 }
-                else
+                catch
                 {
                     groupBox2500.Text = "2500制版线(停机)";
                     //groupBox2500.ForeColor = Color.Red;
                 }
-            }
-            catch
-            {
-                groupBox2500.Text = "2500制版线(停机)";
-                //groupBox2500.ForeColor = Color.Red;
-            }
-            ////将制版线已经完成排程备份到中间数据库
-            Get1800制版线完成信息1天();
-            Get2200制版线完成信息1天();
-            Get2500制版线完成信息1天();
-            //开始压缩数据库
-            SQLiteDbHelper_ZBX.ExecuteZip();
+                ////将制版线已经完成排程备份到中间数据库
+                Get1800制版线完成信息1天();
+                Get2200制版线完成信息1天();
+                Get2500制版线完成信息1天();
+                //开始压缩数据库
+                SQLiteDbHelper_ZBX.ExecuteZip();
 
             //开始从中间数据库读取当前排程和已经完成的排程
-            dgv1800.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT *FROM  `dangqianpaicheng` WHERE 生产线='制版线1800';");
-            dgv2200.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT *FROM  `dangqianpaicheng` WHERE 生产线='制版线2200';");
-            dgv2500.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT *FROM  `dangqianpaicheng` WHERE 生产线='制版线2500';");
+            dgv1800.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线1800' order by 序号;");
+            dgv2200.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线2200' order by 序号;");
+            dgv2500.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线2500' order by 序号;");
 
-            //SqlToDgv(MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线1800' order by 序号 desc;"), dgv1800);
-            //SqlToDgv(MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线2200' order by 序号 desc;"), dgv2200);
-            //SqlToDgv(MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`生产线当前排程` WHERE 生产线='制版线2500' order by 序号 desc;"), dgv2500);
+            //SqlToDgv(SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT *FROM  `dangqianpaicheng` WHERE 生产线='制版线1800' order by 序号;"), dgv1800);
+            //SqlToDgv(SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT *FROM  `dangqianpaicheng` WHERE 生产线='制版线2200' order by 序号;"), dgv2200);
+            //SqlToDgv(SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT *FROM  `dangqianpaicheng` WHERE 生产线='制版线2500' order by 序号;"), dgv2500);
 
             dgv24Hwangong.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable(
-             "SELECT [工单号],[客户名],[门幅],[楞型],[材质],[长度],[宽度],[压线],[开始时间],[结束时间],[生产时间],[备注],[瓦片线]FROM [published] "
-            + "where  substr([结束时间],1,10) >= substr(datetime('now','localtime','-24 hours'),1,10) and substr([结束时间],1,10)<=substr(datetime('now','localtime'),1,10) "
-            + "and [工单号]like 'C%' order by [结束时间] desc");
+                 "SELECT * FROM [published] "
+                + "where  substr([结束时间],1,10) >= substr(datetime('now','localtime','-24 hours'),1,10) and substr([结束时间],1,10)<=substr(datetime('now','localtime'),1,10) "
+                + "and [工单号]like 'C%' order by [结束时间] desc");
 
-            SetDgvBackColor(dgv1800);
-            SetDgvBackColor(dgv2200);
-            SetDgvBackColor(dgv2500);
-           
-            dgv1800.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv2200.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv2500.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            this.timer1.Start();
-            this.groupBox1.Text = "当前队列(" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ")";
+                SetDgvBackColor(dgv1800);
+                SetDgvBackColor(dgv2200);
+                SetDgvBackColor(dgv2500);
+
+                dgv1800.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgv2200.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgv2500.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                this.timerLocal.Start();
+                this.groupBox1.Text = "当前队列(" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ")"; 
+            
         }
 
         private void SqlToDgv(DataTable dt, DataGridView dgv)
@@ -362,8 +365,6 @@ namespace 工作数据分析.WinForm
             {
                 int newRowIndex = dgv.Rows.Add();
                 DataGridViewRow newRow = dgv.Rows[newRowIndex];
-
-                
 
                 newRow.Cells[dgv.Name+"订单号"].Value = dtRow["订单号"].ToString();
                 newRow.Cells[dgv.Name + "客户"].Value = dtRow["客户"].ToString();
@@ -436,7 +437,7 @@ namespace 工作数据分析.WinForm
         {
             foreach (DataGridViewColumn column in dgv.Columns)
             {
-                if (column.Name == "订单号" || column.Name == "工单" || column.Name == "Cust_OrderID")
+                if (column.Name .Contains( "订单号") || column.Name.Contains("工单" )|| column.Name.Contains("Cust_OrderID"))
                 {
                     foreach (DataGridViewRow row in dgv.Rows)
                     {
@@ -452,7 +453,7 @@ namespace 工作数据分析.WinForm
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timerLocal_Tick(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab == tabPage当前排程)
             {
@@ -466,6 +467,18 @@ namespace 工作数据分析.WinForm
             splitContainer3.SplitterDistance = splitContainer3.Width / 2;
         }
 
-       
+        private void timerMySQL_Tick(object sender, EventArgs e)
+        {
+            new Thread(new ThreadStart(BackupMySQL)).Start();
+        }
+
+        private void BackupMySQL()
+        {
+            SubmitZhiBanXianMysql(
+               SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT * FROM [published] where  "
+               +"substr([结束时间],1,10) >= substr(datetime('now','localtime','-24 hours'),1,10) "
+               +"and substr([结束时间],1,10)<=substr(datetime('now','localtime'),1,10) and [工单号]like 'C%' order by [结束时间] desc"));
+        }
+
     }
 }
