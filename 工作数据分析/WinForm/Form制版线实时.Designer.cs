@@ -57,8 +57,9 @@
             this.dtPicker_e = new System.Windows.Forms.DateTimePicker();
             this.dtPicker_s = new System.Windows.Forms.DateTimePicker();
             this.dgv_wg = new System.Windows.Forms.DataGridView();
-            this.timerLocal = new System.Windows.Forms.Timer(this.components);
+            this.timerSQLiteToDgv = new System.Windows.Forms.Timer(this.components);
             this.timerMySQL = new System.Windows.Forms.Timer(this.components);
+            this.timerBackupZbxToSQLite = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage当前排程.SuspendLayout();
@@ -417,17 +418,23 @@
             this.dgv_wg.Size = new System.Drawing.Size(910, 595);
             this.dgv_wg.TabIndex = 0;
             // 
-            // timerLocal
+            // timerSQLiteToDgv
             // 
-            this.timerLocal.Enabled = true;
-            this.timerLocal.Interval = 60000;
-            this.timerLocal.Tick += new System.EventHandler(this.timerLocal_Tick);
+            this.timerSQLiteToDgv.Enabled = true;
+            this.timerSQLiteToDgv.Interval = 60000;
+            this.timerSQLiteToDgv.Tick += new System.EventHandler(this.timerLocal_Tick);
             // 
             // timerMySQL
             // 
             this.timerMySQL.Enabled = true;
             this.timerMySQL.Interval = 600000;
             this.timerMySQL.Tick += new System.EventHandler(this.timerMySQL_Tick);
+            // 
+            // timerBackupZbxToSQLite
+            // 
+            this.timerBackupZbxToSQLite.Enabled = true;
+            this.timerBackupZbxToSQLite.Interval = 60000;
+            this.timerBackupZbxToSQLite.Tick += new System.EventHandler(this.timerBackupZbxToSQLite_Tick);
             // 
             // Form制版线实时
             // 
@@ -506,7 +513,8 @@
         private System.Windows.Forms.DataGridView dgv2200;
         private System.Windows.Forms.GroupBox groupBox2500;
         private System.Windows.Forms.DataGridView dgv2500;
-        private System.Windows.Forms.Timer timerLocal;
+        private System.Windows.Forms.Timer timerSQLiteToDgv;
         private System.Windows.Forms.Timer timerMySQL;
+        private System.Windows.Forms.Timer timerBackupZbxToSQLite;
     }
 }

@@ -13,3 +13,4 @@ SITCDE 库区
 FROM EJSH.V_BCDT_ZB t
 WHERE  ORGCDE = 'KS03'
 	and OBJTYP = 'ZB'
+    order by SERIAL
