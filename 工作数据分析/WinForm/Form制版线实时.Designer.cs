@@ -60,6 +60,7 @@
             this.timerSQLiteToDgv = new System.Windows.Forms.Timer(this.components);
             this.timerMySQL = new System.Windows.Forms.Timer(this.components);
             this.timerBackupZbxToSQLite = new System.Windows.Forms.Timer(this.components);
+            this.导出ExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage当前排程.SuspendLayout();
@@ -92,7 +93,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.刷新ToolStripMenuItem,
-            this.从瓦片线载入数据ToolStripMenuItem});
+            this.从瓦片线载入数据ToolStripMenuItem,
+            this.导出ExcelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(924, 25);
@@ -436,6 +438,13 @@
             this.timerBackupZbxToSQLite.Interval = 60000;
             this.timerBackupZbxToSQLite.Tick += new System.EventHandler(this.timerBackupZbxToSQLite_Tick);
             // 
+            // 导出ExcelToolStripMenuItem
+            // 
+            this.导出ExcelToolStripMenuItem.Name = "导出ExcelToolStripMenuItem";
+            this.导出ExcelToolStripMenuItem.Size = new System.Drawing.Size(73, 21);
+            this.导出ExcelToolStripMenuItem.Text = "导出Excel";
+            this.导出ExcelToolStripMenuItem.Click += new System.EventHandler(this.导出ExcelToolStripMenuItem_Click);
+            // 
             // Form制版线实时
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -516,5 +525,6 @@
         private System.Windows.Forms.Timer timerSQLiteToDgv;
         private System.Windows.Forms.Timer timerMySQL;
         private System.Windows.Forms.Timer timerBackupZbxToSQLite;
+        private System.Windows.Forms.ToolStripMenuItem 导出ExcelToolStripMenuItem;
     }
 }

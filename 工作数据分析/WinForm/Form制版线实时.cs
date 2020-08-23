@@ -1,9 +1,11 @@
 ﻿using DBUtility;
+using excelToTable_NPOI;
 using HandeJobManager.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -555,6 +557,33 @@ namespace 工作数据分析.WinForm
         private void timerBackupZbxToSQLite_Tick(object sender, EventArgs e)
         {
             new Thread(new ThreadStart(GetZbxToSQLite)).Start();
+        }
+
+        private void 导出ExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            SaveFileDialog save = new SaveFileDialog();
+            save.DefaultExt = ".xls";
+            save.FileName = this.Text + "_" + DateTime.Now.ToString("yyyyMMdd");
+            save.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            save.Filter = "Excel(.xls)|*.xls";
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                
+                    if (My.ExceptToExcel(save.FileName, SQLiteDbHelper_ZBX.ExecuteDataTable(
+                        "SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[序号],[生产线]"
+                        +"FROM[dangqianpaicheng] WHERE 订单号 like 'C2%' ORDER  BY 生产线, 序号")))
+                    {
+                        if (MessageBox.Show("保存成功!\n是否直接打开?", "打开?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            Process.Start(save.FileName);
+                        }
+                    }
+                    else
+                    {
+                        My.ShowErrorMessage("导出失败!");
+                    }
+            }
         }
     }
 }
