@@ -18,7 +18,7 @@
                 <asp:GridView ID="GridView1_31jiyishang" runat="server" Caption="31天及以上库存情况(1期)">
                 </asp:GridView>
             <br />  
-                <asp:GridView ID="GridView2_0_7" runat="server" Caption="0-7天库存情况(1期)">
+                <asp:GridView ID="GridView2_0_7" runat="server" Caption="0-7天库存情况(2期)">
                 </asp:GridView>
             <br />  
                 <asp:GridView ID="GridView2_8_14" runat="server" Caption="8-14天库存情况(2期)">

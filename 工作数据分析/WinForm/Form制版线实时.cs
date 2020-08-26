@@ -220,10 +220,9 @@ namespace 工作数据分析.WinForm
         {
             try
             {
-                刷新ToolStripMenuItem.Enabled = false;
-                从瓦片线载入数据ToolStripMenuItem.Enabled = false;
                 this.dtPicker_s.Value = DateTime.Now.AddDays(-30);
                 this.dtPicker_e.Value = DateTime.Now;
+                this.自动刷新ToolStripMenuItem.Checked = true;
 
                 ////初始化dgv的列
                 //foreach (DataColumn col in SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT * FROM `dangqianpaicheng` LIMIT 1").Columns)
@@ -248,6 +247,7 @@ namespace 工作数据分析.WinForm
         {
             if (tabControl1.SelectedTab == tabPage当前排程)
             {
+                GetZbxToSQLite();
                 InitShowData();
             }
         }
@@ -584,6 +584,21 @@ namespace 工作数据分析.WinForm
                         My.ShowErrorMessage("导出失败!");
                     }
             }
+        }
+
+        private void 自动刷新ToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (自动刷新ToolStripMenuItem.Checked)
+            {
+                自动刷新ToolStripMenuItem.Text = "自动刷新√";
+            }
+            else
+            {
+                自动刷新ToolStripMenuItem.Text = "自动刷新×";
+            }
+            timerBackupZbxToSQLite.Enabled = 自动刷新ToolStripMenuItem.Checked;
+            timerSQLiteToDgv.Enabled = 自动刷新ToolStripMenuItem.Checked;
+            timerBackupSQLiteToMySQL.Enabled = 自动刷新ToolStripMenuItem.Checked;
         }
     }
 }

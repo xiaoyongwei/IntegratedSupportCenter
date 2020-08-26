@@ -68,7 +68,7 @@ public partial class WebPage_wuliaorukujinezoushi : System.Web.UI.Page
         Chart1.ChartAreas["ChartArea1"].AxisY.TitleForeColor = Color.FromName("Black");
         Chart1.ChartAreas["ChartArea1"].AxisX.TitleFont = new Font("微软雅黑", float.Parse("8"), FontStyle.Regular);
         Chart1.ChartAreas["ChartArea1"].AxisX.TitleForeColor = Color.FromName("Black");
-        Chart1.ChartAreas["ChartArea1"].AxisX.Title = "含税单价-入库时间";
+        Chart1.ChartAreas["ChartArea1"].AxisX.Title = TreeView1.SelectedValue+"-含税单价-入库时间";
         Chart1.ChartAreas["ChartArea1"].AxisX.MajorGrid.Enabled = false;
         Chart1.ChartAreas["ChartArea1"].AxisX.LabelStyle.Angle = (listX.Count>12?60:0);
         Chart1.ChartAreas["ChartArea1"].AxisY.MajorGrid.Enabled = false;

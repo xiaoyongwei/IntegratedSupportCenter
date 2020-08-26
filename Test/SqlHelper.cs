@@ -8,11 +8,11 @@ namespace DBUtility
     public class SqlHelper
     {
 
-
         //数据库连接字符串(web.config来配置)，可以动态更改SQLString支持多数据库.        
         public string connectionString = "Data Source=128.1.127.127\\JSDCS;Initial Catalog=test1;User ID=sa;Password=83360009;";
 
         public SqlHelper(string connStr) { this.connectionString = connStr; }
+        public SqlHelper() {  }
 
         #region 公用方法
 
