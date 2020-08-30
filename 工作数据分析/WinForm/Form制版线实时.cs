@@ -22,6 +22,8 @@ namespace 工作数据分析.WinForm
 
         object lockObj = new object();
 
+        string RegexPatternString = "^C\\d+";
+
         public Form制版线实时()
         {
             InitializeComponent();
@@ -33,7 +35,6 @@ namespace 工作数据分析.WinForm
         {
             if (MessageBox.Show("此过程需要5-10分钟,确定要加载吗?", "加载?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-
                 Get1800制版线完成信息();
                 Get2200制版线完成信息();
                 Get2500制版线完成信息();
@@ -209,10 +210,16 @@ namespace 工作数据分析.WinForm
             this.dtPicker_s.Value = this.dtPicker_s.Value.Date;
             this.dtPicker_e.Value = this.dtPicker_e.Value.Date.AddDays(1).AddSeconds(-1);
 
-            dgv_wg.DataSource = MySqlDbHelper.ExecuteDataTable(string.Format("select * from `slbz`.`瓦片完成情况` where "
-             + "`工单号`like'%{0}%' and `客户名`like'%{1}%' and `开始时间` between str_to_date('{2}','%Y-%m-%d %H:%i:%s') "
-            + " and str_to_date('{3}','%Y-%m-%d %H:%i:%s') limit 1000;", textBox工单.Text.Trim(), textBox客户.Text.Trim()
+            dgv_wg.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable(string.Format("select * from `published` where "
+             + "`工单号`like'%{0}%' and `客户名`like'%{1}%' and `结束时间` between datetime('{2}') "
+            + " and datetime('{3}') order by `结束时间`desc limit 1000;", textBox工单.Text.Trim(), textBox客户.Text.Trim()
             , dtPicker_s.Value.ToString("yyyy-MM-dd HH:mm:ss"), dtPicker_e.Value.ToString("yyyy-MM-dd HH:mm:ss")));
+
+
+            //dgv_wg.DataSource = MySqlDbHelper.ExecuteDataTable(string.Format("select * from `slbz`.`瓦片完成情况` where "
+            // + "`工单号`like'%{0}%' and `客户名`like'%{1}%' and `结束时间` between str_to_date('{2}','%Y-%m-%d %H:%i:%s') "
+            //+ " and str_to_date('{3}','%Y-%m-%d %H:%i:%s') limit 1000;", textBox工单.Text.Trim(), textBox客户.Text.Trim()
+            //, dtPicker_s.Value.ToString("yyyy-MM-dd HH:mm:ss"), dtPicker_e.Value.ToString("yyyy-MM-dd HH:mm:ss")));
             dgv_wg.AutoResizeColumns();
         }
 
@@ -220,6 +227,13 @@ namespace 工作数据分析.WinForm
         {
             try
             {
+                string txtFile="Data\\focusRegexPattern.txt";
+
+                if (File.Exists(txtFile)&&!string.IsNullOrWhiteSpace(File.ReadAllText(txtFile)))
+                {
+                    RegexPatternString = File.ReadAllText(txtFile);
+                }
+
                 this.dtPicker_s.Value = DateTime.Now.AddDays(-30);
                 this.dtPicker_e.Value = DateTime.Now;
                 this.自动刷新ToolStripMenuItem.Checked = true;
@@ -271,7 +285,7 @@ namespace 工作数据分析.WinForm
                 if (My.Ping(DataBaseList.IP_制版线1800) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800))
                 {
                     DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
-                    Insert制版线当前排程SQLite(DataBaseList.sql制版线1800.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线1800");
+                    Insert制版线当前排程SQLite(DataBaseList.sql制版线1800.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],[mem]'备注',[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线1800");
                   
                 }
             //AppendTextToTxt("1800");
@@ -286,7 +300,7 @@ namespace 工作数据分析.WinForm
 
                 {
                     DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
-                    Insert制版线当前排程SQLite(DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线2200");
+                    Insert制版线当前排程SQLite(DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],[mem]'备注',[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线2200");
                 }
             //AppendTextToTxt("2200");
             //}
@@ -407,20 +421,29 @@ namespace 工作数据分析.WinForm
                 //SQLiteDbHelper_ZBX.ExecuteZip();
 
             //开始从中间数据库读取当前排程和已经完成的排程
-            dgv1800.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线1800' order by 序号;");
-            dgv2200.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线2200' order by 序号;");
-            dgv2500.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线2500' order by 序号;");
+            dgv1800.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线1800' order by 序号;");
+            dgv2200.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线2200' order by 序号;");
+            dgv2500.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线2500' order by 序号;");
 
             //SqlToDgv(SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT *FROM  `dangqianpaicheng` WHERE 生产线='制版线1800' order by 序号;"), dgv1800);
             //SqlToDgv(SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT *FROM  `dangqianpaicheng` WHERE 生产线='制版线2200' order by 序号;"), dgv2200);
             //SqlToDgv(SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT *FROM  `dangqianpaicheng` WHERE 生产线='制版线2500' order by 序号;"), dgv2500);
 
-            dgv24Hwangong.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable(
-                 "SELECT * FROM [published] "
-                + "where  substr([结束时间],1,10) >= substr(datetime('now','localtime','-24 hours'),1,10) and substr([结束时间],1,10)<=substr(datetime('now','localtime'),1,10) "
-                + "and [工单号]like 'C%' order by [结束时间] desc");
+            //dgv24Hwangong.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable(
+            //     "SELECT * FROM [published] "
+            //    + "where  substr([结束时间],1,10) >= substr(datetime('now','localtime','-24 hours'),1,10) and substr([结束时间],1,10)<=substr(datetime('now','localtime'),1,10) "
+            //    + "and  [工单号] regexp '^C\\d+' order by [结束时间] desc");
+            //+"and ([工单号]like 'A%' OR [工单号]like 'Z%') order by [结束时间] desc");
 
-                SetDgvBackColor(dgv1800);
+            dgv24Hwangong.DataSource = RegexDataTable(
+                SQLiteDbHelper_ZBX.ExecuteDataTable(
+                 "SELECT * FROM [published] where  substr([结束时间],1,10) >= substr(datetime('now','localtime','-24 hours'),1,10) "
+                 +" and substr([结束时间],1,10)<=substr(datetime('now','localtime'),1,10) order by [结束时间] desc")
+                ,"工单号", RegexPatternString);
+
+
+
+            SetDgvBackColor(dgv1800);
                 SetDgvBackColor(dgv2200);
                 SetDgvBackColor(dgv2500);
 
@@ -430,6 +453,39 @@ namespace 工作数据分析.WinForm
                 this.timerSQLiteToDgv.Start();
                 this.groupBox1.Text = "当前队列(" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ")"; 
             
+        }
+
+
+        private DataTable RegexDataTable(DataTable dt, string columnName, string regexPattern)
+        {
+            try
+            {
+                if (dt.Columns.Contains(columnName))
+                {
+                    List<DataRow> delRowList = new List<DataRow>();
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        if (!Regex.IsMatch(row[columnName].ToString(),regexPattern,RegexOptions.IgnoreCase))
+                        {
+                            delRowList.Add(row);
+                        }
+                    }
+                    foreach (DataRow row1 in delRowList)
+                    {
+                        dt.Rows.Remove(row1);
+                    }
+                }
+                else
+                {
+                    throw new Exception("列名:" + columnName + " 不存在!");
+                }
+            }
+            catch (Exception ex)
+            {
+                My.ShowErrorMessage("方法[RegexDataTable]中出现错误: "+ex.Message);
+            }
+
+            return dt;
         }
 
         private void SqlToDgv(DataTable dt, DataGridView dgv)
@@ -515,7 +571,7 @@ namespace 工作数据分析.WinForm
                 {
                     foreach (DataGridViewRow row in dgv.Rows)
                     {
-                        if (Regex.IsMatch(row.Cells[column.Name].Value.ToString(), "C\\d+"))
+                        if (Regex.IsMatch(row.Cells[column.Name].Value.ToString(), RegexPatternString))
                         {
                             row.DefaultCellStyle.BackColor = Color.Yellow;
                             row.DefaultCellStyle.SelectionBackColor = Color.Red;
@@ -543,10 +599,10 @@ namespace 工作数据分析.WinForm
 
         private void timerMySQL_Tick(object sender, EventArgs e)
         {
-            new Thread(new ThreadStart(BackupMySQL)).Start();
+            //new Thread(new ThreadStart(BackupToMySQL)).Start();
         }
 
-        private void BackupMySQL()
+        private void BackupToMySQL()
         {
             SubmitZhiBanXianMysql(
                SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT * FROM [published] where  "
@@ -570,9 +626,10 @@ namespace 工作数据分析.WinForm
             if (save.ShowDialog() == DialogResult.OK)
             {
                 
-                    if (My.ExceptToExcel(save.FileName, SQLiteDbHelper_ZBX.ExecuteDataTable(
-                        "SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[序号],[生产线]"
-                        +"FROM[dangqianpaicheng] WHERE 订单号 like 'C2%' ORDER  BY 生产线, 序号")))
+                    if (My.ExceptToExcel(save.FileName, RegexDataTable(
+                        SQLiteDbHelper_ZBX.ExecuteDataTable(
+                        "SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号],[生产线]"
+                        + "FROM[dangqianpaicheng] ORDER  BY 生产线, 序号"),"订单号",RegexPatternString)))
                     {
                         if (MessageBox.Show("保存成功!\n是否直接打开?", "打开?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {

@@ -679,7 +679,8 @@ WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVER
 	,[wid]'宽度'
 	,[lenmm]'长度'
 	,[ordnum]'数量'
-	,,CONVERT(CHAR,[finishdate],120)'结束时间'
+	,CONVERT(CHAR,[finishdate],120)'结束时间'|
+,[mem]'备注'
 	,[瓦片线]='1.8米制版线'
 FROM [dbo].[finish]
 WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) and [orderno] like'C%'  ORDER BY [finishdate]desc</value>
@@ -981,7 +982,7 @@ Item.Cust_OrderID
 delete from #TmpR where Cust_OrderID is null or SN is null
 
 select Cust_OrderID as '工单号',CustomName'客户名',WEB'门幅',Flute'楞型',mass'材质',secwidth'宽度',length'长度',sec*planqty '数量',
-CONVERT(CHAR,EndTime,120)'结束时间',[瓦片线]='2.5米制版线' from #TmpR where Cust_OrderID like 'C%' order by endtime desc
+CONVERT(CHAR,EndTime,120)'结束时间',remark'备注',[瓦片线]='2.5米制版线' from #TmpR where Cust_OrderID like 'C%' order by endtime desc
 drop table #TmpR</value>
   </data>
   <data name="制版线完工_1800" xml:space="preserve">
@@ -1167,6 +1168,7 @@ if @ProdLineLevelCnt = 1
         Ord.PaperMass_fid as '材质',
               
         Ord.Web as '门幅',
+remark'备注',
         orderSN '序号'
          from orderitems A,Orders as Ord,Customs as Cust,--PaperMasses as Mass,
          Flutes as Flute

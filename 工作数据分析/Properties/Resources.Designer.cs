@@ -338,7 +338,8 @@ namespace 工作数据分析.Properties {
         ///	,[wid]&apos;宽度&apos;
         ///	,[lenmm]&apos;长度&apos;
         ///	,[ordnum]&apos;数量&apos;
-        ///	,,CONVERT(CHAR,[finishdate],120)&apos;结束时间&apos;
+        ///	,CONVERT(CHAR,[finishdate],120)&apos;结束时间&apos;|
+        ///,[mem]&apos;备注&apos;
         ///	,[瓦片线]=&apos;1.8米制版线&apos;
         ///FROM [dbo].[finish]
         ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) and [orderno] like&apos;C%&apos;  ORDER BY [finishdate]desc 的本地化字符串。

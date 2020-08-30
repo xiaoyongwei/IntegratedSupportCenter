@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.从瓦片线载入数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.导出当前排程ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -61,7 +62,6 @@
             this.timerSQLiteToDgv = new System.Windows.Forms.Timer(this.components);
             this.timerBackupSQLiteToMySQL = new System.Windows.Forms.Timer(this.components);
             this.timerBackupZbxToSQLite = new System.Windows.Forms.Timer(this.components);
-            this.从瓦片线载入数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage当前排程.SuspendLayout();
@@ -94,9 +94,9 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.刷新ToolStripMenuItem,
-            this.从瓦片线载入数据ToolStripMenuItem,
             this.导出当前排程ToolStripMenuItem,
-            this.自动刷新ToolStripMenuItem});
+            this.自动刷新ToolStripMenuItem,
+            this.从瓦片线载入数据ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(924, 25);
@@ -109,6 +109,15 @@
             this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.刷新ToolStripMenuItem.Text = "刷新";
             this.刷新ToolStripMenuItem.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
+            // 
+            // 从瓦片线载入数据ToolStripMenuItem
+            // 
+            this.从瓦片线载入数据ToolStripMenuItem.Enabled = false;
+            this.从瓦片线载入数据ToolStripMenuItem.Name = "从瓦片线载入数据ToolStripMenuItem";
+            this.从瓦片线载入数据ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.从瓦片线载入数据ToolStripMenuItem.Text = "备份到数据库";
+            this.从瓦片线载入数据ToolStripMenuItem.Visible = false;
+            this.从瓦片线载入数据ToolStripMenuItem.Click += new System.EventHandler(this.从瓦片线载入数据ToolStripMenuItem_Click);
             // 
             // 导出当前排程ToolStripMenuItem
             // 
@@ -439,7 +448,6 @@
             // 
             // timerBackupSQLiteToMySQL
             // 
-            this.timerBackupSQLiteToMySQL.Enabled = true;
             this.timerBackupSQLiteToMySQL.Interval = 600000;
             this.timerBackupSQLiteToMySQL.Tick += new System.EventHandler(this.timerMySQL_Tick);
             // 
@@ -448,13 +456,6 @@
             this.timerBackupZbxToSQLite.Enabled = true;
             this.timerBackupZbxToSQLite.Interval = 60000;
             this.timerBackupZbxToSQLite.Tick += new System.EventHandler(this.timerBackupZbxToSQLite_Tick);
-            // 
-            // 从瓦片线载入数据ToolStripMenuItem
-            // 
-            this.从瓦片线载入数据ToolStripMenuItem.Name = "从瓦片线载入数据ToolStripMenuItem";
-            this.从瓦片线载入数据ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
-            this.从瓦片线载入数据ToolStripMenuItem.Text = "备份到数据库";
-            this.从瓦片线载入数据ToolStripMenuItem.Click += new System.EventHandler(this.从瓦片线载入数据ToolStripMenuItem_Click);
             // 
             // Form制版线实时
             // 
@@ -533,10 +534,10 @@
         private System.Windows.Forms.GroupBox groupBox2500;
         private System.Windows.Forms.DataGridView dgv2500;
         private System.Windows.Forms.Timer timerSQLiteToDgv;
-        private System.Windows.Forms.Timer timerBackupSQLiteToMySQL;
         private System.Windows.Forms.Timer timerBackupZbxToSQLite;
         private System.Windows.Forms.ToolStripMenuItem 导出当前排程ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 自动刷新ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 从瓦片线载入数据ToolStripMenuItem;
+        protected internal System.Windows.Forms.ToolStripMenuItem 从瓦片线载入数据ToolStripMenuItem;
+        protected internal System.Windows.Forms.Timer timerBackupSQLiteToMySQL;
     }
 }
