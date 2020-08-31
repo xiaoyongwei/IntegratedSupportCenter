@@ -20,7 +20,9 @@ namespace 纸箱纸板性能分析.WinForm
         private string Da_Sql = "";
 
         private bool IsReadOnly = false;
-
+        private SQLiteDataAdapter Da;
+        private DataSet Ds;
+        private DataTable Dt;
 
 
         public FormWeihu(string title, string da_sql, bool isReadOnly = false)
@@ -49,9 +51,14 @@ namespace 纸箱纸板性能分析.WinForm
         /// </summary>
         private void InitDgv()
         {
-
-            this.dgv.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable(Da_Sql);
-
+            dgv.ReadOnly = IsReadOnly;
+            SQLiteConnection myConn = new SQLiteConnection(SQLiteDbHelper_ZBX.ConnectionString, true);
+            Da = new SQLiteDataAdapter(Da_Sql, myConn);
+            Ds = new DataSet();
+            Da.Fill(Ds);
+            myConn.Close();
+            this.dgv.DataSource = Ds.Tables[0];
+            Dt = Ds.Tables[0];
             if (dgv.Columns.Contains("Key"))
             {
                 dgv.Columns["Key"].ReadOnly = true;
@@ -65,14 +72,15 @@ namespace 纸箱纸板性能分析.WinForm
         {
             try
             {
-                List<string> sqlList = new List<string>();
-                foreach (DataGridViewRow row in dgv.Rows)
-                {
-                    sqlList.Add(string.Format("UPDATE [setting]SET [Value] ='{0}' WHERE [key]='{1}'"
-                        , row.Cells["Value"].Value.ToString(), row.Cells["Key"].Value.ToString()));
-                }
-                if (SQLiteDbHelper_ZBX.ExecuteSqlTran(sqlList))
-                { InitDgv(); }
+                ////剔除空行并将正在编辑的行标记为已完成
+                //if (this.dgv.CurrentCell != null && this.dgv.CurrentCell.IsInEditMode)
+                //{
+                //    this.dgv.CurrentCell.Value = this.dgv.CurrentCell.EditedFormattedValue;
+                //}
+
+                SQLiteCommandBuilder ocb = new SQLiteCommandBuilder(Da);
+                if (Da.Update(Ds) > 0) InitDgv();
+
             }
             catch (Exception ex)
             {
@@ -128,7 +136,14 @@ namespace 纸箱纸板性能分析.WinForm
             InitDgv();
         }
 
-
+        private void dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Text.Contains("选择"))
+            {
+                selectText = My.GetCellDefault(dgv["ID", e.RowIndex]);
+                this.DialogResult = DialogResult.OK;
+            }
+        }
 
         private void 关闭ToolStripMenuItem_Click(object sender, EventArgs e)
         {
