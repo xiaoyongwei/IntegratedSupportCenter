@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using 综合保障中心.Comm;
 
 namespace excelToTable_NPOI
@@ -309,6 +310,101 @@ namespace excelToTable_NPOI
         //        disposed = true;
         //    }
         //}
+
+        /// <summary>
+        /// 将DataGridView数据导入到excel中
+        /// </summary>
+        /// <param name="dgv">要导入的数据</param>
+        /// <param name="sheetName">要导入的excel的sheet的名称</param>
+        /// <returns>导入数据行数(包含列名那一行)</returns>
+        public int DataGridViewToExcel(DataGridView dgv, string sheetName)
+        {
+
+            int i = 0;
+            int j = 0;
+            int count = 0;
+            ISheet sheet = null;
+            FileStream fs = null;
+            DataTable dt = new DataTable();
+
+            try
+            {
+
+                //将datagridview转换为datatable
+                foreach (DataGridViewColumn column in dgv.Columns)
+                {
+                    dt.Columns.Add(column.Name);
+                }
+                foreach (DataGridViewRow dgvRow in dgv.Rows)
+                {
+                    DataRow dr = dt.NewRow();
+                    foreach (DataColumn column in dt.Columns)
+                    {
+                        dr[column] = dgvRow.Cells[column.ColumnName].Value;
+                    }
+                    dt.Rows.Add(dr);
+                }
+
+
+
+                fs = new FileStream(fileFullName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                if (fileFullName.IndexOf(".xlsx") > 0) // 2007版本
+                    workbook = new XSSFWorkbook();
+                else if (fileFullName.IndexOf(".xls") > 0) // 2003版本
+                    workbook = new HSSFWorkbook();
+                if (workbook != null)
+                {
+                    if (string.IsNullOrWhiteSpace(sheetName))
+                    {
+                        sheet = workbook.CreateSheet("sheet1");
+                    }
+                    else
+                    {
+                        sheet = workbook.CreateSheet(sheetName);
+                    }
+
+                }
+                else
+                {
+                    return -1;
+                }
+
+                //写入列名
+                IRow row = sheet.CreateRow(0);
+                for (j = 0; j < dt.Columns.Count; ++j)
+                {
+                    row.CreateCell(j).SetCellValue(dt.Columns[j].ColumnName);
+                }
+                count = 1;
+
+
+                for (i = 0; i < dt.Rows.Count; ++i)
+                {
+                    row = sheet.CreateRow(count);
+                    for (j = 0; j < dt.Columns.Count; ++j)
+                    {
+                        row.CreateCell(j).SetCellValue(dt.Rows[i][j].ToString());
+                    }
+                    ++count;
+                }
+                workbook.Write(fs); //写入到excel
+                return count;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception: " + ex.Message);
+                return -1;
+            }
+            finally
+            {
+                if (fs != null)
+                {
+                    fs.Dispose();
+                }
+            }
+        }
+
+
 
 
         /// <summary>

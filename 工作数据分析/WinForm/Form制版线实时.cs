@@ -13,6 +13,7 @@ using System.Threading;
 using System.Windows.Forms;
 using 工作数据分析.Data.DAL;
 using 工作数据分析.Properties;
+using 纸箱纸板性能分析.WinForm;
 using 综合保障中心.Comm;
 
 namespace 工作数据分析.WinForm
@@ -160,7 +161,7 @@ namespace 工作数据分析.WinForm
             foreach (DataRow row in dt.Rows)
             {
                 string sql = "INSERT INTO [dangqianpaicheng]([订单号],[客户],[楞型],[订单数]"
-                + ",[宽度],[长度],[材质],[门幅],[序号],[生产线])VALUES("
+                + ",[宽度],[长度],[材质],[门幅],[序号],[备注],[生产线])VALUES("
                 + "'" + row["订单号"].ToString() + "',"
                 + "'" + row["客户"].ToString() + "',"
                 + "'" + row["楞型"].ToString() + "',"
@@ -170,6 +171,7 @@ namespace 工作数据分析.WinForm
                 + "'" + row["材质"].ToString() + "',"
                 + "'" + row["门幅"].ToString() + "',"
                 + "'" + row["序号"].ToString() + "',"
+                + "'" + row["备注"].ToString() + "',"
                 + "'" + zhibanxian + "');";
                 sqlList.Add(sql);
             }
@@ -225,14 +227,9 @@ namespace 工作数据分析.WinForm
 
         private void Form制版线查询_Load(object sender, EventArgs e)
         {
-            try
-            {
-                string txtFile="Data\\focusRegexPattern.txt";
-
-                if (File.Exists(txtFile)&&!string.IsNullOrWhiteSpace(File.ReadAllText(txtFile)))
-                {
-                    RegexPatternString = File.ReadAllText(txtFile);
-                }
+            //try
+            //{
+            
 
                 this.dtPicker_s.Value = DateTime.Now.AddDays(-30);
                 this.dtPicker_e.Value = DateTime.Now;
@@ -249,11 +246,11 @@ namespace 工作数据分析.WinForm
                 //AppendTextToTxt("开始");
                 GetZbxToSQLite();
                 InitShowData();
-            }
-            catch (Exception ex)
-            {
-                My.ShowErrorMessage(ex.ToString());
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    My.ShowErrorMessage(ex.ToString());
+            //}
         }
 
 
@@ -285,7 +282,7 @@ namespace 工作数据分析.WinForm
                 if (My.Ping(DataBaseList.IP_制版线1800) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800))
                 {
                     DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
-                    Insert制版线当前排程SQLite(DataBaseList.sql制版线1800.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],[mem]'备注',[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线1800");
+                    Insert制版线当前排程SQLite(DataBaseList.sql制版线1800.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],rtrim([生产备注])'备注',[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线1800");
                   
                 }
             //AppendTextToTxt("1800");
@@ -300,7 +297,7 @@ namespace 工作数据分析.WinForm
 
                 {
                     DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
-                    Insert制版线当前排程SQLite(DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],[mem]'备注',[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线2200");
+                    Insert制版线当前排程SQLite(DataBaseList.sql制版线2200.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],rtrim([生产备注])'备注',[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线2200");
                 }
             //AppendTextToTxt("2200");
             //}
@@ -342,7 +339,9 @@ namespace 工作数据分析.WinForm
         {
             this.timerSQLiteToDgv.Stop();
 
-                dgv1800.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            RegexPatternString = SQLiteDbHelper_ZBX.ExecuteScalar("SELECT [Value]FROM [setting]where KEY='焦点匹配'").ToString();
+
+            dgv1800.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
                 dgv2200.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
                 dgv2500.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
@@ -656,6 +655,11 @@ namespace 工作数据分析.WinForm
             timerBackupZbxToSQLite.Enabled = 自动刷新ToolStripMenuItem.Checked;
             timerSQLiteToDgv.Enabled = 自动刷新ToolStripMenuItem.Checked;
             timerBackupSQLiteToMySQL.Enabled = 自动刷新ToolStripMenuItem.Checked;
+        }
+
+        private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FormWeihu("系统设置", "SELECT [Key],[Value]FROM [setting]").ShowDialog();
         }
     }
 }

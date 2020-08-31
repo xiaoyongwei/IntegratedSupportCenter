@@ -58,7 +58,6 @@
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(0, 29);
             this.dgv.Name = "dgv";
-            this.dgv.ReadOnly = true;
             this.dgv.RowTemplate.Height = 23;
             this.dgv.Size = new System.Drawing.Size(596, 406);
             this.dgv.TabIndex = 0;
