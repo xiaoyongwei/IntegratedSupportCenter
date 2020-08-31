@@ -18,7 +18,7 @@ namespace HandeJobManager.DAL
         /// <summary>
         /// 连接字符串
         /// </summary>
-        public readonly static string ConnectionString = @"Data Source=" + Application.StartupPath + "\\Data\\zhibanxian.db;Version=3;";
+        public readonly static string ConnectionString = "Data Source=\\\\192.168.110.115\\综合保障中心\\App\\工作数据分析\\Data\\zhibanxian.db;Version=3;";
 
 
 
@@ -669,7 +669,7 @@ namespace HandeJobManager.DAL
             SQLiteTransaction tran = null;//事务
             try
             {
-                conn = new SQLiteConnection(ConnectionString, true);
+                conn = new SQLiteConnection(ConnectionString,true);
                 conn.Open();
                 tran = conn.BeginTransaction();//先实例SqlTransaction类，使用这个事务使用的是con 这个连接，使用BeginTransaction这个方法来开始执行这个事务
                 SQLiteCommand cmd = new SQLiteCommand();

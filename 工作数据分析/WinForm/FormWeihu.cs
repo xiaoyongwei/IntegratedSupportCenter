@@ -20,12 +20,10 @@ namespace 纸箱纸板性能分析.WinForm
         private string Da_Sql = "";
 
         private bool IsReadOnly = false;
-        private SQLiteDataAdapter Da;
-        private DataSet Ds;
-        private DataTable Dt;
 
 
-        public FormWeihu(string title, string da_sql, bool isReadOnly=false)
+
+        public FormWeihu(string title, string da_sql, bool isReadOnly = false)
         {
             InitializeComponent();
             Da_Sql = da_sql;
@@ -43,7 +41,6 @@ namespace 纸箱纸板性能分析.WinForm
             //        f.Dispose();
             //    }
             //}
-            this.Text = SQLiteDbHelper_ZBX.ConnectionString;
             InitDgv();
 
         }
@@ -52,15 +49,9 @@ namespace 纸箱纸板性能分析.WinForm
         /// </summary>
         private void InitDgv()
         {
-            dgv.ReadOnly = IsReadOnly;
-            dgv.AllowUserToAddRows = !IsReadOnly;
-            SQLiteConnection myConn = new SQLiteConnection(SQLiteDbHelper_ZBX.ConnectionString);
-            Da = new SQLiteDataAdapter(Da_Sql, myConn);
-            Ds = new DataSet();
-            Da.Fill(Ds);
-            myConn.Close();
-            this.dgv.DataSource = Ds.Tables[0];
-            Dt = Ds.Tables[0];
+
+            this.dgv.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable(Da_Sql);
+
             if (dgv.Columns.Contains("Key"))
             {
                 dgv.Columns["Key"].ReadOnly = true;
@@ -74,15 +65,14 @@ namespace 纸箱纸板性能分析.WinForm
         {
             try
             {
-                ////剔除空行并将正在编辑的行标记为已完成
-                //if (this.dgv.CurrentCell != null && this.dgv.CurrentCell.IsInEditMode)
-                //{
-                //    this.dgv.CurrentCell.Value = this.dgv.CurrentCell.EditedFormattedValue;
-                //}
-
-                SQLiteCommandBuilder ocb = new SQLiteCommandBuilder(Da);
-                if (Da.Update(Ds) > 0) InitDgv();
-
+                List<string> sqlList = new List<string>();
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    sqlList.Add(string.Format("UPDATE [setting]SET [Value] ='{0}' WHERE [key]='{1}'"
+                        , row.Cells["Value"].Value.ToString(), row.Cells["Key"].Value.ToString()));
+                }
+                if (SQLiteDbHelper_ZBX.ExecuteSqlTran(sqlList))
+                { InitDgv(); }
             }
             catch (Exception ex)
             {
@@ -99,7 +89,7 @@ namespace 纸箱纸板性能分析.WinForm
 
         //true表示无效.false表示有效.
         //此函数为全局更改(慎用!!!)
-        protected override bool ProcessCmdKey(ref　Message msg, Keys keyData)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             //this.Text = keyData.GetHashCode().ToString();
 
@@ -112,7 +102,7 @@ namespace 纸箱纸板性能分析.WinForm
             {
                 InitDgv();
             }
-            else if (keyData==(Keys.Control|Keys.S))
+            else if (keyData == (Keys.Control | Keys.S))
             {
                 Save();
             }
@@ -124,12 +114,12 @@ namespace 纸箱纸板性能分析.WinForm
         {
             SaveFileDialog save = new SaveFileDialog();
             save.DefaultExt = ".xls";
-            save.FileName = this.Text+"_" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            save.FileName = this.Text + "_" + DateTime.Now.ToString("yyyyMMddHHmmss");
             save.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             save.Filter = "Excel(.xls)|*.xls";
-            if (save.ShowDialog()==DialogResult.OK)
+            if (save.ShowDialog() == DialogResult.OK)
             {
-               new  ExcelHelper(save.FileName).DataGridViewToExcel(dgv,"sheet1");
+                new ExcelHelper(save.FileName).DataGridViewToExcel(dgv, "sheet1");
             }
         }
 
@@ -138,14 +128,7 @@ namespace 纸箱纸板性能分析.WinForm
             InitDgv();
         }
 
-        private void dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (Text.Contains("选择"))
-            {
-                selectText = My.GetCellDefault(dgv["ID", e.RowIndex]);
-                this.DialogResult = DialogResult.OK;
-            }
-        }
+
 
         private void 关闭ToolStripMenuItem_Click(object sender, EventArgs e)
         {
