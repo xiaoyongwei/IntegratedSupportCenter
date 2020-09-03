@@ -18,8 +18,8 @@ namespace HandeJobManager.DAL
         /// <summary>
         /// 连接字符串
         /// </summary>
-        public readonly static string ConnectionString = "Data Source=\\\\192.168.110.115\\综合保障中心\\App\\工作数据分析\\Data\\zhibanxian.db;Version=3;";
-
+        //public readonly static string ConnectionString = "Data Source=\\\\192.168.110.115\\综合保障中心\\App\\工作数据分析\\Data\\zhibanxian.db;Version=3;";
+       public readonly static string ConnectionString = @"Data Source=" + Application.StartupPath + "\\Data\\zhibanxian.db;Version=3;";
 
 
         #region ExecuteNonQuery

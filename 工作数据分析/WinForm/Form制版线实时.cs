@@ -36,13 +36,13 @@ namespace 工作数据分析.WinForm
         {
             if (MessageBox.Show("此过程需要5-10分钟,确定要加载吗?", "加载?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Get1800制版线完成信息();
-                Get2200制版线完成信息();
-                Get2500制版线完成信息();
+                BackupToMySQL();
                 My.ShowMessage("完成!\n" + DateTime.Now.ToString());
             }
         }
 
+
+       
         private void Get2500制版线完成信息()
         {
             try
@@ -50,7 +50,7 @@ namespace 工作数据分析.WinForm
                 if (DataBaseList.sql制版线2500 != null)
                 {
                     DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工_2500);
-                    SubmitZhiBanXianMysql(dt);
+                    SubmitZhiBanXianPublishedMysql(dt);
                 }
             }
             catch
@@ -81,7 +81,7 @@ namespace 工作数据分析.WinForm
                 if (DataBaseList.sql制版线2200 != null)
                 {
                     DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工_2200);
-                    SubmitZhiBanXianMysql(dt);
+                    SubmitZhiBanXianPublishedMysql(dt);
                 }
             }
             catch
@@ -111,7 +111,7 @@ namespace 工作数据分析.WinForm
                 if (DataBaseList.sql制版线1800 != null)
                 {
                     DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800);
-                    SubmitZhiBanXianMysql(dt);
+                    SubmitZhiBanXianPublishedMysql(dt);
                 }
             }
             catch
@@ -178,7 +178,7 @@ namespace 工作数据分析.WinForm
             return SQLiteDbHelper_ZBX.ExecuteSqlTran(sqlList);
         }
 
-        private bool SubmitZhiBanXianMysql(DataTable dt)
+        private bool SubmitZhiBanXianPublishedMysql(DataTable dt)
         {
             List<string> sqlList = new List<string>();
             foreach (DataRow row in dt.Rows)
@@ -234,7 +234,15 @@ namespace 工作数据分析.WinForm
                 this.dtPicker_s.Value = DateTime.Now.AddDays(-30);
                 this.dtPicker_e.Value = DateTime.Now;
                 this.自动刷新ToolStripMenuItem.Checked = true;
-
+            if (SQLiteDbHelper_ZBX.ExecuteScalar("SELECT [Value]FROM [setting]where key='备份到云'").ToString()=="1")
+            {
+                timerBackupSQLiteToMySQL.Enabled = true;
+                timerBackupSQLiteToMySQL.Interval = 10 * 60 * 1000;//10分钟
+            }
+            else
+            {
+                timerBackupSQLiteToMySQL.Enabled = false;
+            }
                 ////初始化dgv的列
                 //foreach (DataColumn col in SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT * FROM `dangqianpaicheng` LIMIT 1").Columns)
                 //{
@@ -598,15 +606,44 @@ namespace 工作数据分析.WinForm
 
         private void timerMySQL_Tick(object sender, EventArgs e)
         {
-            //new Thread(new ThreadStart(BackupToMySQL)).Start();
+            if (SQLiteDbHelper_ZBX.ExecuteScalar("SELECT [Value]FROM [setting]where key='备份到云'").ToString() == "1")
+            {
+                timerBackupSQLiteToMySQL.Enabled = true;
+                timerBackupSQLiteToMySQL.Interval = 10 * 60 * 1000;//10分钟
+                new Thread(new ThreadStart(BackupToMySQL)).Start();
+            }
+            else
+            {
+                timerBackupSQLiteToMySQL.Enabled = false; 
+            }
+
+            
         }
 
         private void BackupToMySQL()
         {
-            SubmitZhiBanXianMysql(
+            SubmitZhiBanXianPublishedMysql(
                SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT * FROM [published] where  "
                +"substr([结束时间],1,10) >= substr(datetime('now','localtime','-24 hours'),1,10) "
                +"and substr([结束时间],1,10)<=substr(datetime('now','localtime'),1,10) and [工单号]like 'C%' order by [结束时间] desc"));
+            SubmitZhiBanXianCurrentMysql(SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT *FROM [dangqianpaicheng] "));
+
+
+        }
+
+        private bool SubmitZhiBanXianCurrentMysql(DataTable dt)
+        {
+            List<string> sqlList = new List<string>();
+            sqlList.Add("truncate table `slbz`.`瓦片当前排程`;");
+            foreach (DataRow row in dt.Rows)
+            {
+                sqlList.Add("INSERT INTO `slbz`.`瓦片当前排程` (`订单号`,`客户`,`楞型`,`订单数`,`宽度`,`长度`,`材质`,`门幅`,`序号`,`备注`,`生产线`) VALUES"
+        + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}');"
+        , row["订单号"], row["客户"], row["楞型"], row["订单数"], row["宽度"], row["长度"], row["材质"]
+        , row["门幅"],  row["序号"], row["备注"], row["生产线"]));
+
+            }
+            return MySqlDbHelper.ExecuteSqlTran(sqlList);
         }
 
         private void timerBackupZbxToSQLite_Tick(object sender, EventArgs e)
