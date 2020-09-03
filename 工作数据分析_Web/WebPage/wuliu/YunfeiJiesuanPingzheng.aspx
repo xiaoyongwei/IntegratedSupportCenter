@@ -7,11 +7,11 @@
         <tr>
             <td>开始时间:<asp:TextBox ID="TextBox_time_S" runat="server"></asp:TextBox></td>
             <td>结束时间:<asp:TextBox ID="TextBox_time_E" runat="server"></asp:TextBox></td>
-            <td>驾驶员:<asp:DropDownList ID="DropDownListJiashiyuan" runat="server" DataSourceID="SqlDataSource1"></asp:DropDownList>&nbsp;</td>            
+            <td>驾驶员:<asp:DropDownList ID="DropDownListJiashiyuan" runat="server"></asp:DropDownList>&nbsp;</td>            
         </tr>
         <tr><td> <asp:Button ID="ButtonSubmit" runat="server" Text="查询" OnClick="ButtonSubmit_Click" /></td></tr>
     </table>
     <%@ Register TagPrefix="yunfei" TagName="Yunfeidan" Src="~/UserControl/Yunfeidan.ascx" %>
-   
+    <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
 </asp:Content>
 

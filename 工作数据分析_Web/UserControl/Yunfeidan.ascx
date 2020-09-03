@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Yunfeidan.ascx.cs" Inherits="WebPage_wuliu_WebUserControl_Yunfeidan" %>
-<table style="width:100%;">
+<table >
     <tr  ><td colspan="4"></td></tr>
     <tr>
         <td>日期:<asp:Label ID="LabelRiqi" runat="server"></asp:Label>
@@ -13,13 +13,13 @@
     </tr>
     <tr>
         <td colspan="4">
-            <asp:GridView ID="GridView1" runat="server" Width="100%">
+            <asp:GridView ID="GridViewQingdan" runat="server" Width="100%">
             </asp:GridView>
         </td>
     </tr>
     <tr>
         <td>&nbsp;</td>
-        <td>平方合计:<asp:Label ID="LabelHejipingfang" runat="server" Text="Label"></asp:Label>
+        <td>平方合计:<asp:Label ID="LabelHejipingfang" runat="server"></asp:Label>
             <br />
         </td>
         <td>&nbsp;</td>

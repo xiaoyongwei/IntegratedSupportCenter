@@ -24,6 +24,9 @@ public partial class WebPage_wuliu_YunfeiJiesuanPingzheng : System.Web.UI.Page
 
     protected void ButtonSubmit_Click(object sender, EventArgs e)
     {
-        
+       WebPage_wuliu_WebUserControl_Yunfeidan yunfeidan =(WebPage_wuliu_WebUserControl_Yunfeidan) LoadControl("~/UserControl/Yunfeidan.ascx");
+        yunfeidan.zcdh = "ZX00037862";
+        yunfeidan.ponoList = new List<string>();
+        PlaceHolder1.Controls.Add(yunfeidan);
     }
 }
