@@ -41,6 +41,7 @@
             this.自动计算运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.手动计算运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.拼车距离ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.文信1区2区拼车ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.二次堆码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.平方运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.导出数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,7 @@
             this.清零补运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.为此客户设置地区ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看客户区域对应表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.文信1区2区拼车ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出PDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -150,9 +151,10 @@
             this.二次堆码ToolStripMenuItem,
             this.平方运费ToolStripMenuItem,
             this.导出数据ToolStripMenuItem,
+            this.导出PDFToolStripMenuItem,
             this.更多ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 202);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 224);
             // 
             // 自动计算运费ToolStripMenuItem
             // 
@@ -174,6 +176,13 @@
             this.拼车距离ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.拼车距离ToolStripMenuItem.Text = "拼车距离";
             this.拼车距离ToolStripMenuItem.Click += new System.EventHandler(this.拼车距离ToolStripMenuItem_Click);
+            // 
+            // 文信1区2区拼车ToolStripMenuItem
+            // 
+            this.文信1区2区拼车ToolStripMenuItem.Name = "文信1区2区拼车ToolStripMenuItem";
+            this.文信1区2区拼车ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.文信1区2区拼车ToolStripMenuItem.Text = "文信1区2区拼车";
+            this.文信1区2区拼车ToolStripMenuItem.Click += new System.EventHandler(this.文信1区2区拼车ToolStripMenuItem_Click);
             // 
             // 二次堆码ToolStripMenuItem
             // 
@@ -235,12 +244,12 @@
             this.查看客户区域对应表ToolStripMenuItem.Text = "查看客户区域对应表";
             this.查看客户区域对应表ToolStripMenuItem.Click += new System.EventHandler(this.查看客户区域对应表ToolStripMenuItem_Click);
             // 
-            // 文信1区2区拼车ToolStripMenuItem
+            // 导出PDFToolStripMenuItem
             // 
-            this.文信1区2区拼车ToolStripMenuItem.Name = "文信1区2区拼车ToolStripMenuItem";
-            this.文信1区2区拼车ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.文信1区2区拼车ToolStripMenuItem.Text = "文信1区2区拼车";
-            this.文信1区2区拼车ToolStripMenuItem.Click += new System.EventHandler(this.文信1区2区拼车ToolStripMenuItem_Click);
+            this.导出PDFToolStripMenuItem.Name = "导出PDFToolStripMenuItem";
+            this.导出PDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.导出PDFToolStripMenuItem.Text = "导出PDF";
+            this.导出PDFToolStripMenuItem.Click += new System.EventHandler(this.导出PDFToolStripMenuItem_Click);
             // 
             // Form运费结算
             // 
@@ -290,5 +299,6 @@
         private System.Windows.Forms.ToolStripMenuItem 查看客户区域对应表ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 自动计算运费ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 文信1区2区拼车ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 导出PDFToolStripMenuItem;
     }
 }

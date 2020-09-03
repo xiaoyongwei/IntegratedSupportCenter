@@ -280,5 +280,10 @@ namespace 工作数据分析.WinForm.WuLiu
 
             return OracleHelper.ExecuteNonQuery(SQL) > 0;
         }
+
+        private void 导出PDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Aspose.Pdf.Forms
+        }
     }
 }

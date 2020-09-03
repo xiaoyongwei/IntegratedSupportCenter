@@ -143,6 +143,20 @@ public static class OracleHelper
     /// <param name="cmdText">Oracle存储过程名称或PL/SQL命令</param>
     /// <param name="cmdParms">命令参数集合</param>
     /// <returns>当前查询操作返回的DataTable类型的结果集</returns>
+    public static DataTable ExecuteDataTable( string cmdText)
+    {
+        return ExecuteDataTable(CommandType.Text, cmdText, null);
+    }
+
+
+    /// <summary>
+    /// 执行数据库查询操作,返回DataTable类型的结果集
+    /// </summary>
+    /// <param name="connectionString">数据库连接字符串</param>
+    /// <param name="cmdType">命令的类型</param>
+    /// <param name="cmdText">Oracle存储过程名称或PL/SQL命令</param>
+    /// <param name="cmdParms">命令参数集合</param>
+    /// <returns>当前查询操作返回的DataTable类型的结果集</returns>
     public static DataTable ExecuteDataTable(CommandType cmdType, string cmdText, params OracleParameter[] cmdParms)
     {
         OracleCommand cmd = new OracleCommand();

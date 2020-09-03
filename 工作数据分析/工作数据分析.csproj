@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>工作数据分析</RootNamespace>
-    <AssemblyName>制版线实时查询</AssemblyName>
+    <AssemblyName>物流管理</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -60,6 +60,9 @@
     <StartupObject>工作数据分析.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.PDF">
+      <HintPath>..\YBF\bin\Debug\Aspose.PDF.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -279,6 +282,12 @@
     </Compile>
     <Compile Include="WinForm\WuLiu\yunfei\Form计算运费弹窗.Designer.cs">
       <DependentUpon>Form计算运费弹窗.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\yunfei\Form运费PDF导出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\yunfei\Form运费PDF导出.Designer.cs">
+      <DependentUpon>Form运费PDF导出.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\WuLiu\yunfei\Form运费结算.cs">
       <SubType>Form</SubType>
