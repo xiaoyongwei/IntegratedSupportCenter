@@ -2,7 +2,7 @@
 FROM (select t.serial as 工单号
 	,(select x.smpnme
 	from v_ord x
-	where  x.serial = t.serial
+	where  x.serial = t.serial and rownum=1
 	)as 客户简称
 	,trim(t.prdnme) as 产品名称
 	,min(ptdate)as 最早入库时间
