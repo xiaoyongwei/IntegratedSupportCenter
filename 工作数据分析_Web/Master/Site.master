@@ -82,6 +82,7 @@
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=31" Text="纸板出库分析" Value="纸板出库分析" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=32" Text="纸板库存情况" Value="纸板库存情况" />
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowCurrentZhibanxian.aspx" Text="瓦片当前排程" Value="瓦片当前排程" />
+                            <asp:MenuItem NavigateUrl="~/WebPage/wuliu/YunfeiJiesuanPingzheng.aspx" Text="运费核对单" Value="运费核对单" />
                             <%--<asp:MenuItem NavigateUrl="~/WebPage/Kaidan.aspx" Text="开单数据" Value="开单数据"></asp:MenuItem>--%>
                             <asp:MenuItem NavigateUrl="~/WebPage/ShowResult.aspx?sqlcode=22" Text="日志" Value="日志" />
                             <asp:MenuItem NavigateUrl="~/About.aspx" Text="关于" />
