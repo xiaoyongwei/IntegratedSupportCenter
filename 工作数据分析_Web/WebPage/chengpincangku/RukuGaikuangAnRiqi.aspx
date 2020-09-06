@@ -3,10 +3,10 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    开始时间:<date></date>
-   <%-- <asp:TextBox ID="TextBoxDateS" runat="server"></asp:TextBox>
-<asp:TextBox ID="TextBoxDateE" runat="server"></asp:TextBox>--%>
-    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="确  认" />
+    <asp:TextBox ID="TextBoxDateS" runat="server"></asp:TextBox>
+    -&gt;<asp:TextBox ID="TextBoxDateE" runat="server"></asp:TextBox>
+&nbsp;<%-- <asp:TextBox ID="TextBoxDateS" runat="server"></asp:TextBox>
+<asp:TextBox ID="TextBoxDateE" runat="server"></asp:TextBox>--%><asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="确  认" />
     <br />
     <asp:GridView ID="GridView1" runat="server">
     </asp:GridView>

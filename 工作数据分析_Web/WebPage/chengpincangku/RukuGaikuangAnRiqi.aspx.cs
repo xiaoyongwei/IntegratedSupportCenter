@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.ServiceModel.Syndication;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -10,25 +12,44 @@ public partial class WebPage_RukuGaikuangAnRiqi : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Page.IsPostBack)
+        {
+
+        }
+        else
+        {
+            this.TextBoxDateS.Text = DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd");
+            this.TextBoxDateE.Text = DateTime.Now.ToString("yyyy-MM-dd");
+        }
+       
         Search();
     }
 
     private void Search()
     {
+        string sqlTemplate = new StreamReader(
+                new FileStream(
+                  Server.MapPath("~\\sqltxt\\入库明细.txt"),
+                    FileMode.Open, FileAccess.Read, FileShare.Read)).ReadToEnd();
+
+
         if (string.IsNullOrWhiteSpace(this.TextBoxDateS.Text))
         {
             this.TextBoxDateS.Text = DateTime.Now.ToString("yyyy-MM-dd");
             this.TextBoxDateE.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
-        DataSet ds = MySqlDbHelper.ExecuteDataSet(string.Format("CALL `slbz`.`入库概况按日期`('{0}','{1}');"
-            ,this.TextBoxDateS.Text.Trim(), this.TextBoxDateE.Text.Trim()));
 
-        GridView1.DataSource = ds.Tables[0];
-        GridView1.Caption = this.TextBoxDateS.Text.Trim() + "_入库概况";
+        sqlTemplate=sqlTemplate.Replace("*开始时间*", TextBoxDateS.Text).Replace("*结束时间*", TextBoxDateE.Text);
+
+
+        GridView1.DataSource = OracleHelper.ExecuteDataTable(
+            "select nvl(a.入库类型,'总计:')总计,sum(a.总面积)面积,sum(a.金额)金额 from("+sqlTemplate
+            + ")a group by rollup( a.入库类型)");
+        GridView1.Caption = this.TextBoxDateS.Text+"到"+ this.TextBoxDateE.Text + "_入库概况";
         GridView1.DataBind();
 
-        GridView2.DataSource = ds.Tables[1];
-        GridView2.Caption = this.TextBoxDateS.Text.Trim() + "_入库明细";
+        GridView2.DataSource = OracleHelper.ExecuteDataTable(sqlTemplate);
+        GridView2.Caption = this.TextBoxDateS.Text + "到" + this.TextBoxDateE.Text + "_入库明细";
         GridView2.DataBind();
     }
 
