@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="../Master/Site.master"
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Master/Site.master"
     CodeFile="RukuGaikuangAnRiqi.aspx.cs" Inherits="WebPage_RukuGaikuangAnRiqi" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    
-    <asp:TextBox ID="TextBoxDateS" runat="server"></asp:TextBox>
-<asp:TextBox ID="TextBoxDateE" runat="server"></asp:TextBox>
+    开始时间:<date></date>
+   <%-- <asp:TextBox ID="TextBoxDateS" runat="server"></asp:TextBox>
+<asp:TextBox ID="TextBoxDateE" runat="server"></asp:TextBox>--%>
     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="确  认" />
     <br />
     <asp:GridView ID="GridView1" runat="server">

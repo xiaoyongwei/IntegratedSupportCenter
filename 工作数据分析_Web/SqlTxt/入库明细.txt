@@ -1,0 +1,111 @@
+﻿select 
+CASE 
+when (select to_char(x.ptdate, 'yyyy-mm-dd')from ord_ct x where x.serial = t.serial and x.orgcde = t.orgcde)<
+to_char(t.ptdate - interval '99' day, 'yyyy-mm-dd')
+then '超99天入库'--订单日期超过99天再入库的
+when pono like 'RG%' then '返修车间'--返修车间
+WHEN t.OBJTYP='CL' and t.CRRCDE='1Z' and (SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.SERIAL=t.serial  AND vh.ORGCDE=t.orgcde)>0 and
+(SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.SERIAL=t.serial AND vh.ORGCDE=t.orgcde)=
+(SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE PRCTYPNME IN('覆膜过胶','胶印凹印','甩切甩纸','彩印上油') and vh.SERIAL=t.SERIAL  AND vh.ORGCDE=t.orgcde)
+THEN '生产-面纸加工' --生产-面纸加工:类型CL,材质是1Z,并且有报工,并且只有前道工序的报工
+when t.OBJTYP='CL' and t.CRRCDE='1Z' and (SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.SERIAL=t.serial AND vh.ORGCDE=t.orgcde)=0 and
+(SELECT count(*) FROM EJSH.V_ORD_SCH vh WHERE vh.SERIAL=t.serial)=
+(SELECT count(*) FROM EJSH.V_ORD_SCH vh WHERE PRCTYPNME IN('覆膜过胶','胶印凹印','甩切甩纸','彩印上油') and vh.SERIAL=t.SERIAL)
+then '外购-面纸加工'--外购-面纸加工:类型CL,材质是1Z,并且无报工,并且只有前道工序
+when t.OBJTYP='CL'  and (SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.SERIAL=t.serial AND vh.ORGCDE=t.orgcde)>0 and
+(SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE 
+(PRCTYPNME IN('模切压痕','裱合贴面','粘箱粘合','钉箱装钉') or prcnme='取部件') and vh.SERIAL=t.SERIAL AND vh.ORGCDE=t.orgcde)>0
+then '生产-彩盒'--生产-彩盒:类型CL,材质不限,并且有报工,并且报工有压痕、裱胶、粘箱、钉箱或取部件
+when t.OBJTYP='CL'  and
+(SELECT count(*) FROM EJSH.V_ORD_SCH vh WHERE vh.SERIAL=t.serial)=
+(SELECT count(*) FROM EJSH.V_ORD_SCH vh WHERE PRCTYPNME IN('瓦楞制板','打包堆码') and vh.SERIAL=t.SERIAL)
+then '外购-瓦片'--外购-瓦片:类型CL,材质不限,只有制版线和打包的工序
+when t.OBJTYP='CL'  and (SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.SERIAL=t.serial AND vh.ORGCDE=t.orgcde)=0 
+then '外购-彩盒'--外购-彩盒:类型CL,材质不限,并且无报工
+when t.OBJTYP='CL'  and t.prdnme like '%护角%'
+then '外购-彩盒护角'--外购-彩盒护角:类型CL,材质不限,名称包含护角
+when t.OBJTYP='CD'  and (SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.SERIAL=t.serial AND vh.ORGCDE=t.orgcde)>0 and
+(SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE (PRCTYPNME ='模切压痕') and vh.SERIAL=t.SERIAL AND vh.ORGCDE=t.orgcde)>0
+then '生产-数码'--生产-数码:类型CD,材质不限,并且有报工,并且报工有压痕
+when t.OBJTYP='CD'  and (SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.SERIAL=t.serial AND vh.ORGCDE=t.orgcde)=0 
+then '外购-数码'--生产-数码:类型CD,材质不限,并且无报工
+
+
+
+ELSE '其他' END as 入库类型,
+
+--'覆膜过胶','胶印凹印','甩切甩纸'
+
+
+
+(select x.smpnme
+          from v_ord x
+         where x.orgcde = t.orgcde
+           and x.serial = t.serial) as 客户简称,      
+       t.pono as 入库单号,
+       t.serial as 生产单号,
+       to_char(t.ptdate, 'yyyy-mm-dd') as 最后入库,
+       t.ordnum as 订单数,
+       t.accnuml as 入库数,
+       t.prdnme as 产品名称,
+       t.crrcde as 楞型,
+       replace(regexp_substr(t.matcde, '[^-]+', 1, 1), '/', '') as 材质,       
+       t.prices as 单价,
+       t.prices*t.accnuml as 金额,
+       case objtyp 
+         when 'CB' then
+       round((select c.psizel from v_ord c where c.orgcde = t.orgcde and c.serial = t.serial)*(select c.psizew+20 from v_ord c where c.orgcde = t.orgcde and c.serial = t.serial)/1000000,4)
+         when 'CT' then
+       round(t.acreage,4)
+         when 'CL' then
+       round(t.acreage,4)
+         when 'CD' then
+       round(t.acreage,4)
+         when 'CC' then
+       round(t.acreage,4)           
+          end 单面积,
+       case t.objtyp
+         when 'CB' then
+       round(round((select c.psizel from v_ord c where c.orgcde = t.orgcde and c.serial = t.serial)*(select c.psizew+20 from v_ord c where c.orgcde = t.orgcde and c.serial = t.serial)/1000000,4) * t.accnuml,4)
+         when 'CT' then
+       round(round(t.acreage,4) * t.accnuml,4)
+         when 'CL' then
+       round(round(t.acreage,4) * t.accnuml,4)
+         when 'CD' then
+       round(round(t.acreage,4) * t.accnuml,4)
+         when 'CC' then
+       round(round(t.acreage,4) * t.accnuml,4)
+            end 总面积,
+       t.usrnme as 录入员,
+       t.SITLOC AS 库区, 
+       t.remark as 备注
+  from v_pb_bcdr t
+ where (t.objtyp ='CL' or(t.objtyp in ('CB','CT','CD') AND t.USRNME IN('肖永卫','叶耀红','颜玲敏','应燕华','董小浩')))
+   and t.orgcde = 'KS03'
+   and to_char(t.ptdate, 'yyyy-mm-dd') >= '*开始时间*'
+   and to_char(t.ptdate, 'yyyy-mm-dd') <= '*结束时间*'
+ group by t.objtyp,
+          t.orgcde,
+          t.clntnme,
+          t.serial,
+          t.mkpcde,
+          t.ptdate,
+          t.clntcde,
+          t.specs,
+          t.clientid,
+          t.prdnme,
+          t.sitloc,
+          t.prices,
+          t.accamt,
+          t.acreage,
+          t.crrcde,
+          t.matcde,
+          t.remark,
+          t.accnuml,
+          t.smpnme,
+          t.pono,
+          t.prdcde,
+          t.prdnme,
+          t.barcode,
+          t.usrnme,
+          t.ordnum
