@@ -227,10 +227,7 @@ namespace 工作数据分析.WinForm
 
         private void Form制版线查询_Load(object sender, EventArgs e)
         {
-            //try
-            //{
-            
-
+           
                 this.dtPicker_s.Value = DateTime.Now.AddDays(-30);
                 this.dtPicker_e.Value = DateTime.Now;
                 this.自动刷新ToolStripMenuItem.Checked = true;
@@ -243,31 +240,44 @@ namespace 工作数据分析.WinForm
             {
                 timerBackupSQLiteToMySQL.Enabled = false;
             }
-                ////初始化dgv的列
-                //foreach (DataColumn col in SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT * FROM `dangqianpaicheng` LIMIT 1").Columns)
-                //{
-                //    dgv1800.Columns.Add(dgv1800.Name + col.ColumnName, col.ColumnName);
-                //    dgv2200.Columns.Add(dgv2200.Name + col.ColumnName, col.ColumnName);
-                //    dgv2500.Columns.Add(dgv2500.Name + col.ColumnName, col.ColumnName);
-                //}
-
-                //AppendTextToTxt("开始");
-                GetZbxToSQLite();
+                GetZbxToSQLite();                        
                 InitShowData();
-            //}
-            //catch (Exception ex)
-            //{
-            //    My.ShowErrorMessage(ex.ToString());
-            //}
+           
         }
 
 
         private void 刷新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab == tabPage当前排程)
-            {
-                GetZbxToSQLite();
+            {               
+                 GetZbxToSQLite();
                 InitShowData();
+            }
+        }
+
+
+        /// <summary>
+        /// 获取备份资格
+        /// </summary>
+        /// <returns></returns>
+        private bool GetBackupSeniority()
+        {
+            //1.获取登记在SQLite中的最后一次备份时间
+            //2.如果登记的时间在1分钟内的则不备份
+            //3.如果登记的时间大于1分钟的话则:先更新登记时间为当前时间,然后开始备份
+
+            //1.
+            DateTime time =Convert.ToDateTime( SQLiteDbHelper_ZBX.ExecuteScalar("SELECT [LastBackupTime]FROM [SettingSystem]"));
+            //2.
+            if ((DateTime.Now-time).TotalSeconds>50)//50秒
+            {
+                //3.更新时间
+                SQLiteDbHelper_ZBX.ExecuteSqlTran("UPDATE [SettingSystem]SET [LastBackupTime] = datetime('now','localtime');");
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -282,6 +292,13 @@ namespace 工作数据分析.WinForm
         /// </summary>
         private void GetZbxToSQLite()
         {
+            //判断备份资格
+            if (!GetBackupSeniority())
+            {
+                return;
+            }
+
+
             //将制版线当前排程备份到中间数据库
             SQLiteDbHelper_ZBX.ExecuteSqlTran("delete from [dangqianpaicheng];");
 
@@ -458,7 +475,7 @@ namespace 工作数据分析.WinForm
                 dgv2200.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dgv2500.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 this.timerSQLiteToDgv.Start();
-                this.groupBox1.Text = "当前队列(" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ")"; 
+                this.groupBox1.Text = "当前队列(" + SQLiteDbHelper_ZBX.ExecuteScalar("SELECT [LastBackupTime]FROM [SettingSystem]") + ")"; 
             
         }
 

@@ -34,6 +34,7 @@
             this.导出当前排程ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.从瓦片线载入数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage当前排程 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -62,7 +63,6 @@
             this.timerSQLiteToDgv = new System.Windows.Forms.Timer(this.components);
             this.timerBackupSQLiteToMySQL = new System.Windows.Forms.Timer(this.components);
             this.timerBackupZbxToSQLite = new System.Windows.Forms.Timer(this.components);
-            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage当前排程.SuspendLayout();
@@ -136,6 +136,13 @@
             this.从瓦片线载入数据ToolStripMenuItem.Text = "备份到数据库";
             this.从瓦片线载入数据ToolStripMenuItem.Visible = false;
             this.从瓦片线载入数据ToolStripMenuItem.Click += new System.EventHandler(this.从瓦片线载入数据ToolStripMenuItem_Click);
+            // 
+            // 设置ToolStripMenuItem
+            // 
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.设置ToolStripMenuItem.Text = "设置";
+            this.设置ToolStripMenuItem.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -450,6 +457,7 @@
             // 
             // timerBackupSQLiteToMySQL
             // 
+            this.timerBackupSQLiteToMySQL.Enabled = true;
             this.timerBackupSQLiteToMySQL.Interval = 600000;
             this.timerBackupSQLiteToMySQL.Tick += new System.EventHandler(this.timerMySQL_Tick);
             // 
@@ -458,13 +466,6 @@
             this.timerBackupZbxToSQLite.Enabled = true;
             this.timerBackupZbxToSQLite.Interval = 60000;
             this.timerBackupZbxToSQLite.Tick += new System.EventHandler(this.timerBackupZbxToSQLite_Tick);
-            // 
-            // 设置ToolStripMenuItem
-            // 
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.设置ToolStripMenuItem.Text = "设置";
-            this.设置ToolStripMenuItem.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
             // 
             // Form制版线实时
             // 
