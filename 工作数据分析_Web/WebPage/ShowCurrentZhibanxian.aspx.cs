@@ -34,7 +34,21 @@ public partial class WebPage_ShowCurrentZhibanxian : System.Web.UI.Page
 
         foreach (GridViewRow row in GridView1800.Rows)
         {
-            if (Regex.IsMatch(row.Cells[0].Text, "C\\d+", RegexOptions.IgnoreCase))
+            if (Regex.IsMatch(row.Cells[0].Text, "^C\\d+", RegexOptions.IgnoreCase))
+            {
+                row.BackColor = Color.Yellow;
+            }
+        }
+        foreach (GridViewRow row in GridView2200.Rows)
+        {
+            if (Regex.IsMatch(row.Cells[0].Text, "^C\\d+", RegexOptions.IgnoreCase))
+            {
+                row.BackColor = Color.Yellow;
+            }
+        }
+        foreach (GridViewRow row in GridView2500.Rows)
+        {
+            if (Regex.IsMatch(row.Cells[0].Text, "^C\\d+", RegexOptions.IgnoreCase))
             {
                 row.BackColor = Color.Yellow;
             }
