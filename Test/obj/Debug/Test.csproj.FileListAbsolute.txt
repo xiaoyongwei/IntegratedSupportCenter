@@ -6,8 +6,4 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\obj\Debug\T
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\obj\Debug\Test.exe
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\obj\Debug\Test.pdb
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\obj\Debug\Test.csproj.CopyComplete
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\Spire.License.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\Spire.Pdf.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\Microsoft.mshtml.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\Spire.License.xml
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\Spire.Pdf.xml
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\Aspose.PDF.dll

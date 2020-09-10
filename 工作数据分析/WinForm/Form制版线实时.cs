@@ -660,6 +660,11 @@ namespace 工作数据分析.WinForm
         , row["门幅"],  row["序号"], row["备注"], row["生产线"]));
 
             }
+            if (sqlList.Count>0)
+            {
+                sqlList.Add(string.Format("UPDATE `slbz`.`settingall`SET `Value` ='{0}'  WHERE `Key` ='{1}' "
+                    , SQLiteDbHelper_ZBX.ExecuteScalar("SELECT [LastBackupTime]FROM [SettingSystem]"), "制版线当前排程更新时间"));
+            }
             return MySqlDbHelper.ExecuteSqlTran(sqlList);
         }
 

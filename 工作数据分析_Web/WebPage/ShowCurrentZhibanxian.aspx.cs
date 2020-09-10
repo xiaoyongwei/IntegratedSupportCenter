@@ -53,7 +53,7 @@ public partial class WebPage_ShowCurrentZhibanxian : System.Web.UI.Page
                 row.BackColor = Color.Yellow;
             }
         }
-        this.Lable1.Text = "数据更新时间:" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        this.Lable1.Text = "数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `Value`FROM `slbz`.`settingall`where `key`='制版线当前排程更新时间'");
     }
 
 }
