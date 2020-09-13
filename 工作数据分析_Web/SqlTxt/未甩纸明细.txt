@@ -1,0 +1,16 @@
+﻿SELECT 
+SERIAL 生产单号,
+matcde 材质,
+DECODE(matcde,'T','T','T230','T','T250','T','U','UV','V','UV',matcde) 代码合并,
+sitloc 品牌,
+SMPNME 客户,
+prdnme 产品,
+ssizew||'x'||ssizel 规格,
+accnum 数量,
+shdate 送货日期,
+(ceil(ssizew*(CASE WHEN ssizew>850 THEN 1 ELSE 2 END)/50)*50) 原纸门幅,
+round(SSIZEL*SSIZEW*accnum*DECODE(matcde,'T',230,'T230',230,'T250',230,'U',270,'V',300,'V1',350,0)/(ceil(ssizew*(CASE WHEN ssizew>850 THEN 1 ELSE 2 END)/50)*50)*0.000000001*1.05,2) 卷数
+FROM EJSH.V_ORD_SCH WHERE  ORGCDE='KS03' and OBJTYP='CL'and OSTATUS='Y' 
+AND BCPSTS ='N'  AND status IN ('2','3','4')  AND PRCNME='甩纸' 
+AND to_char( ptdate, 'yyyy-mm-dd' ) >=(select   to_char(sysdate - interval '90' day,'yyyy-mm-dd')  from dual)
+order BY matcde,ssizew,serial
