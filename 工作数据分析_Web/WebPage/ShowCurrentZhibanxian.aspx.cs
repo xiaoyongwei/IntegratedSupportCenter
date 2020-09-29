@@ -34,12 +34,26 @@ public partial class WebPage_ShowCurrentZhibanxian : System.Web.UI.Page
 
         foreach (GridViewRow row in GridView1800.Rows)
         {
-            if (Regex.IsMatch(row.Cells[0].Text, "C\\d+", RegexOptions.IgnoreCase))
+            if (Regex.IsMatch(row.Cells[0].Text, "^C\\d+", RegexOptions.IgnoreCase))
             {
                 row.BackColor = Color.Yellow;
             }
         }
-        this.Lable1.Text = "数据更新时间:" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        foreach (GridViewRow row in GridView2200.Rows)
+        {
+            if (Regex.IsMatch(row.Cells[0].Text, "^C\\d+", RegexOptions.IgnoreCase))
+            {
+                row.BackColor = Color.Yellow;
+            }
+        }
+        foreach (GridViewRow row in GridView2500.Rows)
+        {
+            if (Regex.IsMatch(row.Cells[0].Text, "^C\\d+", RegexOptions.IgnoreCase))
+            {
+                row.BackColor = Color.Yellow;
+            }
+        }
+        this.Lable1.Text = "数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `Value`FROM `slbz`.`settingall`where `key`='制版线当前排程更新时间'");
     }
 
 }

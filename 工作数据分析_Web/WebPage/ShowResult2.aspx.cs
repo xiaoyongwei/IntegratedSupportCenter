@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,15 +18,15 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
         switch (code)
         {
             case "5":
-                dt1 = MySqlDbHelper.ExecuteDataTable("SELECT*	FROM `slbz`.`未甩纸_原纸需求`");
+                dt1 = GetSqlTxt_Datatable("未甩纸明细");
                 dt1.TableName = "未甩纸明细";
-                dt2 = MySqlDbHelper.ExecuteDataTable("SELECT *FROM `slbz`.`未甩纸_原纸需求_纸类uv合并_汇总`");
+                dt2 = GetSqlTxt_Datatable("未甩纸总结");
                 dt2.TableName = "未甩纸原纸需求";
                 break;
             case "6":
-                dt1 = MySqlDbHelper.ExecuteDataTable("SELECT*	FROM `slbz`.`未覆膜_门幅米数`");
+                dt1 = GetSqlTxt_Datatable("未覆膜明细");
                 dt1.TableName = "未覆膜明细";
-                dt2 = MySqlDbHelper.ExecuteDataTable("SELECT *FROM `slbz`.`未覆膜_预涂膜需求`");
+                dt2 = GetSqlTxt_Datatable("未覆膜总结");
                 dt2.TableName = "未覆膜需求";
                 break;
             case "17":
@@ -61,6 +62,14 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
         this.GridView2.DataBind();
     }
 
+    protected DataTable GetSqlTxt_Datatable(string txtFileName)
+    {
+        return OracleHelper.ExecuteDataTable(CommandType.Text,
+        new StreamReader(
+                new FileStream(
+                  Server.MapPath("~\\sqltxt\\" + txtFileName + ".txt"),
+                    FileMode.Open, FileAccess.Read, FileShare.Read)).ReadToEnd(), null);
+    }
 
 
 }

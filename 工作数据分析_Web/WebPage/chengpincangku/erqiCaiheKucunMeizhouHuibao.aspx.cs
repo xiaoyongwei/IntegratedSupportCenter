@@ -96,7 +96,7 @@ public partial class WebPage_erqiCaiheKucunQingkuang : System.Web.UI.Page
         return OracleHelper.ExecuteDataTable(CommandType.Text,
         new StreamReader(
                 new FileStream(
-                  Server.MapPath("..\\sqltxt\\" + txtFileName + ".txt"),
+                  Server.MapPath("~\\sqltxt\\" + txtFileName + ".txt"),
                     FileMode.Open, FileAccess.Read, FileShare.Read)).ReadToEnd(), null);
     }
 }
