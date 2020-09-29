@@ -1,4 +1,4 @@
-using Aspose.Pdf;
+using ACRODISTXLib;
 using System;
 
 namespace Test
@@ -23,8 +23,9 @@ namespace Test
 
         private static void _Main()
         {
-            Document pdfDoc = new Document("E:\\∞Æ À¥ÔALG-3FP-4838613171-32-301Õ‚œ‰490X326X427.pdf");
-            Console.WriteLine(pdfDoc.Pages[1].TrimBox); 
+            PdfDistiller dis = new PdfDistiller();
+            dis.FileToPDF(@"D:\◊¿√Ê\ps\≤‚ ‘.ps","E:\\11.pdf","");
+  ;
         }
 
        

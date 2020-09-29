@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -51,6 +52,12 @@ public partial class WebUserControl_Yunfeidan : System.Web.UI.UserControl
             //绑定数据
             GridViewQingdan.DataSource = dt;
             GridViewQingdan.DataBind();
+
+            //给附加费加上颜色
+            foreach (GridViewRow row in GridViewQingdan.Rows)
+            {
+                row.Cells[5].ForeColor = Color.Magenta;
+            }
         }
     }
 }
