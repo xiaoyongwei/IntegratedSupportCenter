@@ -1,9 +1,0 @@
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\原纸用量评估系统\bin\Debug\原纸用量评估系统.exe
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\原纸用量评估系统\bin\Debug\原纸用量评估系统.pdb
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\原纸用量评估系统\bin\Debug\MySql.Data.dll
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\原纸用量评估系统\obj\x86\Debug\原纸用量评估系统.csprojResolveAssemblyReference.cache
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\原纸用量评估系统\obj\x86\Debug\原纸用量评估系统.Form1.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\原纸用量评估系统\obj\x86\Debug\原纸用量评估系统.Properties.Resources.resources
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\原纸用量评估系统\obj\x86\Debug\原纸用量评估系统.csproj.GenerateResource.Cache
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\原纸用量评估系统\obj\x86\Debug\原纸用量评估系统.exe
-D:\Visual Studio 2010\Projects\IntegratedSupportCenter\原纸用量评估系统\obj\x86\Debug\原纸用量评估系统.pdb
