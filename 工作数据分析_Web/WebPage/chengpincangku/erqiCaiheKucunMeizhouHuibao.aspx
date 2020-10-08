@@ -5,7 +5,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     
                 <asp:Label ID="LabelGenxinShijian" runat="server"></asp:Label>
-           <br />
+
+    <br />
+                <asp:GridView ID="GridView1_1qi" runat="server" Caption="库存情况(1期)">
+                </asp:GridView>
+
+    <br />
+                <asp:GridView ID="GridView1_2qi" runat="server" Caption="库存情况(2期)">
+                </asp:GridView>
+          <%-- <br />
                 <asp:GridView ID="GridView1_0_7" runat="server" Caption="0-7天库存情况(1期)">
                 </asp:GridView>
            <br />            
@@ -28,7 +36,7 @@
                 </asp:GridView>
             <br />  
                 <asp:GridView ID="GridView2_31jiyishang" runat="server" Caption="31天及以上库存情况(2期)">
-                </asp:GridView>
+                </asp:GridView>--%>
             
 </asp:Content>
 
