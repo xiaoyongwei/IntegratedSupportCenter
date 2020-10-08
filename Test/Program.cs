@@ -1,5 +1,6 @@
-using ACRODISTXLib;
+
 using System;
+using System.Linq;
 
 namespace Test
 {
@@ -23,12 +24,18 @@ namespace Test
 
         private static void _Main()
         {
-            PdfDistiller dis = new PdfDistiller();
-            dis.FileToPDF(@"D:\◊¿√Ê\ps\≤‚ ‘.ps","E:\\11.pdf","");
-  ;
+            string a = "456654564";
+            string b = "5665444";
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+
+           
+            Console.WriteLine();
+            Console.WriteLine("œ‡À∆∂»:" + Math.Round((100.0 * a.ToCharArray().Intersect(b).Count() / a.ToCharArray().Union(b).Count()), 3) + "%");
+
         }
 
-       
+
     }
 }
 

@@ -409,5 +409,8 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debu
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.application
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.exe
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.pdb
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.csprojAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.csproj.CopyComplete
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.WinForm.Job.FormJobManager1.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\YBF\obj\x86\Debug\YBF.csprojAssemblyReference.cache

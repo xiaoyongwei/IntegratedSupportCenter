@@ -227,6 +227,8 @@ namespace YBF
             //thSavePdf.Start();
 
             // InitTimer();
+
+            this.作业管理新ToolStripMenuItem_Click(this, new EventArgs());
         }
         /// <summary>
         /// 删除临时文件
@@ -778,5 +780,12 @@ namespace YBF
             new FormSelectIllustrator().ShowDialog();
         }
 
+        private void 作业管理新ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormJobManager1 jobManager = new FormJobManager1();
+            jobManager.WindowState = FormWindowState.Maximized;
+            jobManager.MdiParent = this;
+            jobManager.Show();
+        }
     }
 }

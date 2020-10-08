@@ -65,10 +65,13 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>YBF.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aspose.PDF">
@@ -93,12 +96,16 @@
     <Reference Include="NPOI.OpenXmlFormats">
       <HintPath>..\..\ConsoleApplication1\WindowsFormsApplication1\bin\Debug\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>..\工作数据分析_Web\Bin\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.105.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\System.Data.SQLite.dll</HintPath>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -119,6 +126,7 @@
     <Compile Include="Class\BestString\QueryHelper.cs" />
     <Compile Include="Class\BestString\SearchHelper.cs" />
     <Compile Include="Class\AppConfig\AppConfig.cs" />
+    <Compile Include="Class\Oracle\OracleHelper.cs" />
     <Compile Include="HanDe_ClassLibrary\Common\BaseHandle.cs" />
     <Compile Include="Class\Comm\Comm_Method.cs" />
     <Compile Include="HanDe_ClassLibrary\Common\ComputerComm.cs" />
@@ -283,6 +291,12 @@
     </Compile>
     <Compile Include="WinForm\Illustrator\FormSelectIllustrator.Designer.cs">
       <DependentUpon>FormSelectIllustrator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\Job\FormJobManager1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\Job\FormJobManager1.Designer.cs">
+      <DependentUpon>FormJobManager1.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\Job\FormSearch.cs">
       <SubType>Form</SubType>
@@ -466,6 +480,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\Illustrator\FormSelectIllustrator.resx">
       <DependentUpon>FormSelectIllustrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\Job\FormJobManager1.resx">
+      <DependentUpon>FormJobManager1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\Job\FormSearch.resx">
       <DependentUpon>FormSearch.cs</DependentUpon>

@@ -35,26 +35,19 @@
             this.tsmiYwj = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiConversion = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiManager = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiAccessories = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiChakanKucun = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiFuliaoManager = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiFuliaoLingLiao = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiFuliaoPandian = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiFuliaoLeixing = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiFuliaoKucunJilu = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSunhao = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPrint = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAbnormal = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiMaintain = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiHuibao = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi1bitTiff = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPublishedRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAppSetting = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_AppSetting_Local = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_AppSetting_illustrator = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiZipDataBase = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.timerBuckupDbToDisk = new System.Windows.Forms.Timer(this.components);
-            this.tsmiZipDataBase = new System.Windows.Forms.ToolStripMenuItem();
+            this.作业管理新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,11 +55,11 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiJobManager,
+            this.作业管理新ToolStripMenuItem,
             this.tsmiYwj,
             this.tsmiConversion,
             this.tsmiManager,
             this.tsmiHuibao,
-            this.tsmi1bitTiff,
             this.tsmiPublishedRecord,
             this.tsmiAppSetting,
             this.tsmiWindows});
@@ -100,7 +93,6 @@
             // tsmiManager
             // 
             this.tsmiManager.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiAccessories,
             this.tsmiSunhao,
             this.tsmiPrint,
             this.tsmiAbnormal,
@@ -109,88 +101,31 @@
             this.tsmiManager.Size = new System.Drawing.Size(41, 20);
             this.tsmiManager.Text = "管理";
             // 
-            // tsmiAccessories
-            // 
-            this.tsmiAccessories.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiChakanKucun,
-            this.tsmiFuliaoManager,
-            this.tsmiFuliaoLingLiao,
-            this.tsmiFuliaoPandian,
-            this.tsmiFuliaoLeixing,
-            this.tsmiFuliaoKucunJilu});
-            this.tsmiAccessories.Name = "tsmiAccessories";
-            this.tsmiAccessories.Size = new System.Drawing.Size(154, 22);
-            this.tsmiAccessories.Text = "辅料";
-            // 
-            // tsmiChakanKucun
-            // 
-            this.tsmiChakanKucun.Name = "tsmiChakanKucun";
-            this.tsmiChakanKucun.Size = new System.Drawing.Size(142, 22);
-            this.tsmiChakanKucun.Text = "查看库存余量";
-            this.tsmiChakanKucun.Click += new System.EventHandler(this.tsmiAllShowKucun_Click);
-            // 
-            // tsmiFuliaoManager
-            // 
-            this.tsmiFuliaoManager.Name = "tsmiFuliaoManager";
-            this.tsmiFuliaoManager.Size = new System.Drawing.Size(142, 22);
-            this.tsmiFuliaoManager.Text = "辅料管理";
-            this.tsmiFuliaoManager.Click += new System.EventHandler(this.tsmiAccessoriesManager_Click);
-            // 
-            // tsmiFuliaoLingLiao
-            // 
-            this.tsmiFuliaoLingLiao.Name = "tsmiFuliaoLingLiao";
-            this.tsmiFuliaoLingLiao.Size = new System.Drawing.Size(142, 22);
-            this.tsmiFuliaoLingLiao.Text = "领料和使用";
-            this.tsmiFuliaoLingLiao.Click += new System.EventHandler(this.tsmiFuliaoLingLiao_Click);
-            // 
-            // tsmiFuliaoPandian
-            // 
-            this.tsmiFuliaoPandian.Enabled = false;
-            this.tsmiFuliaoPandian.Name = "tsmiFuliaoPandian";
-            this.tsmiFuliaoPandian.Size = new System.Drawing.Size(142, 22);
-            this.tsmiFuliaoPandian.Text = "盘点";
-            this.tsmiFuliaoPandian.Visible = false;
-            this.tsmiFuliaoPandian.Click += new System.EventHandler(this.tsmiFuliaoPandian_Click);
-            // 
-            // tsmiFuliaoLeixing
-            // 
-            this.tsmiFuliaoLeixing.Name = "tsmiFuliaoLeixing";
-            this.tsmiFuliaoLeixing.Size = new System.Drawing.Size(142, 22);
-            this.tsmiFuliaoLeixing.Text = "类型登记";
-            this.tsmiFuliaoLeixing.Click += new System.EventHandler(this.tsmiFuliaoLeixing_Click);
-            // 
-            // tsmiFuliaoKucunJilu
-            // 
-            this.tsmiFuliaoKucunJilu.Name = "tsmiFuliaoKucunJilu";
-            this.tsmiFuliaoKucunJilu.Size = new System.Drawing.Size(142, 22);
-            this.tsmiFuliaoKucunJilu.Text = "辅料库存记录";
-            this.tsmiFuliaoKucunJilu.Click += new System.EventHandler(this.tsmiFuliaoKucunJilu_Click);
-            // 
             // tsmiSunhao
             // 
             this.tsmiSunhao.Name = "tsmiSunhao";
-            this.tsmiSunhao.Size = new System.Drawing.Size(154, 22);
+            this.tsmiSunhao.Size = new System.Drawing.Size(180, 22);
             this.tsmiSunhao.Text = "版材非正常使用";
             this.tsmiSunhao.Click += new System.EventHandler(this.tsmiSunhao_Click);
             // 
             // tsmiPrint
             // 
             this.tsmiPrint.Name = "tsmiPrint";
-            this.tsmiPrint.Size = new System.Drawing.Size(154, 22);
+            this.tsmiPrint.Size = new System.Drawing.Size(180, 22);
             this.tsmiPrint.Text = "印刷机";
             this.tsmiPrint.Click += new System.EventHandler(this.tsmiPrint_Click);
             // 
             // tsmiAbnormal
             // 
             this.tsmiAbnormal.Name = "tsmiAbnormal";
-            this.tsmiAbnormal.Size = new System.Drawing.Size(154, 22);
+            this.tsmiAbnormal.Size = new System.Drawing.Size(180, 22);
             this.tsmiAbnormal.Text = "异常记录表";
             this.tsmiAbnormal.Click += new System.EventHandler(this.tsmiAbnormal_Click);
             // 
             // tsmiMaintain
             // 
             this.tsmiMaintain.Name = "tsmiMaintain";
-            this.tsmiMaintain.Size = new System.Drawing.Size(154, 22);
+            this.tsmiMaintain.Size = new System.Drawing.Size(180, 22);
             this.tsmiMaintain.Text = "保养记录表";
             this.tsmiMaintain.Click += new System.EventHandler(this.tsmiMaintain_Click);
             // 
@@ -200,12 +135,6 @@
             this.tsmiHuibao.Size = new System.Drawing.Size(41, 20);
             this.tsmiHuibao.Text = "汇报";
             this.tsmiHuibao.Click += new System.EventHandler(this.tsmiHuibao_Click);
-            // 
-            // tsmi1bitTiff
-            // 
-            this.tsmi1bitTiff.Name = "tsmi1bitTiff";
-            this.tsmi1bitTiff.Size = new System.Drawing.Size(65, 20);
-            this.tsmi1bitTiff.Text = "1BitTiff";
             // 
             // tsmiPublishedRecord
             // 
@@ -227,16 +156,23 @@
             // tsmi_AppSetting_Local
             // 
             this.tsmi_AppSetting_Local.Name = "tsmi_AppSetting_Local";
-            this.tsmi_AppSetting_Local.Size = new System.Drawing.Size(160, 22);
+            this.tsmi_AppSetting_Local.Size = new System.Drawing.Size(180, 22);
             this.tsmi_AppSetting_Local.Text = "本地设置";
             this.tsmi_AppSetting_Local.Click += new System.EventHandler(this.tsmi_AppSetting_Local_Click);
             // 
             // tsmi_AppSetting_illustrator
             // 
             this.tsmi_AppSetting_illustrator.Name = "tsmi_AppSetting_illustrator";
-            this.tsmi_AppSetting_illustrator.Size = new System.Drawing.Size(160, 22);
+            this.tsmi_AppSetting_illustrator.Size = new System.Drawing.Size(180, 22);
             this.tsmi_AppSetting_illustrator.Text = "Illustrator设置";
             this.tsmi_AppSetting_illustrator.Click += new System.EventHandler(this.tsmi_AppSetting_illustrator_Click);
+            // 
+            // tsmiZipDataBase
+            // 
+            this.tsmiZipDataBase.Name = "tsmiZipDataBase";
+            this.tsmiZipDataBase.Size = new System.Drawing.Size(180, 22);
+            this.tsmiZipDataBase.Text = "压缩数据库";
+            this.tsmiZipDataBase.Click += new System.EventHandler(this.tsmiZipDataBase_Click);
             // 
             // tsmiWindows
             // 
@@ -251,12 +187,12 @@
             this.timerBuckupDbToDisk.Interval = 600000;
             this.timerBuckupDbToDisk.Tick += new System.EventHandler(this.timerBuckupDbToDisk_Tick);
             // 
-            // tsmiZipDataBase
+            // 作业管理新ToolStripMenuItem
             // 
-            this.tsmiZipDataBase.Name = "tsmiZipDataBase";
-            this.tsmiZipDataBase.Size = new System.Drawing.Size(160, 22);
-            this.tsmiZipDataBase.Text = "压缩数据库";
-            this.tsmiZipDataBase.Click += new System.EventHandler(this.tsmiZipDataBase_Click);
+            this.作业管理新ToolStripMenuItem.Name = "作业管理新ToolStripMenuItem";
+            this.作业管理新ToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.作业管理新ToolStripMenuItem.Text = "作业管理(新)";
+            this.作业管理新ToolStripMenuItem.Click += new System.EventHandler(this.作业管理新ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -285,18 +221,10 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiWindows;
         private System.Windows.Forms.ToolStripMenuItem tsmiConversion;
         private System.Windows.Forms.ToolStripMenuItem tsmiAppSetting;
-        private System.Windows.Forms.ToolStripMenuItem tsmi1bitTiff;
         private System.Windows.Forms.ToolStripMenuItem tsmiJobManager;
         private System.Windows.Forms.ToolStripMenuItem tsmiHuibao;
         private System.Windows.Forms.ToolStripMenuItem tsmiManager;
-        private System.Windows.Forms.ToolStripMenuItem tsmiAccessories;
-        private System.Windows.Forms.ToolStripMenuItem tsmiChakanKucun;
-        private System.Windows.Forms.ToolStripMenuItem tsmiFuliaoManager;
-        private System.Windows.Forms.ToolStripMenuItem tsmiFuliaoLingLiao;
-        private System.Windows.Forms.ToolStripMenuItem tsmiFuliaoPandian;
-        private System.Windows.Forms.ToolStripMenuItem tsmiFuliaoLeixing;
         private System.Windows.Forms.ToolStripMenuItem tsmiPrint;
-        private System.Windows.Forms.ToolStripMenuItem tsmiFuliaoKucunJilu;
         private System.Windows.Forms.Timer timerBuckupDbToDisk;
         private System.Windows.Forms.ToolStripMenuItem tsmiPublishedRecord;
         private System.Windows.Forms.ToolStripMenuItem tsmiAbnormal;
@@ -305,6 +233,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_AppSetting_Local;
         private System.Windows.Forms.ToolStripMenuItem tsmi_AppSetting_illustrator;
         private System.Windows.Forms.ToolStripMenuItem tsmiZipDataBase;
+        private System.Windows.Forms.ToolStripMenuItem 作业管理新ToolStripMenuItem;
     }
 }
 
