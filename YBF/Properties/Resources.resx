@@ -308,4 +308,23 @@ function getTargetFile(docName, ext, destFolder) {
 
 &lt;/JDF&gt;</value>
   </data>
+  <data name="SQLYijie" xml:space="preserve">
+    <value>SELECT OID ID,
+PLTSTS 审核,
+BCPSTS 甩纸,
+SPCSHW 稿袋号,
+MACNME 设备,
+SMPNME 客户,
+prdnme 产品,
+ssizew||'x'||ssizel 面纸尺寸, 
+DECODE( PRDTYP,'ST','新版','SU','旧版',' ')版类,
+SPCNUM 专色,
+COLNUM 颜色,
+COLSUM 版数量,
+to_char( SHDATE, 'yyyy-mm-dd' ) 交期,
+CTTECHES 要求
+
+FROM EJSH.V_ORD_SCH 
+WHERE  ORGCDE='KS03' and OBJTYP='CL'and OSTATUS='Y' AND status IN ('2','3','4')  AND PRCTYPNME='胶印凹印'</value>
+  </data>
 </root>

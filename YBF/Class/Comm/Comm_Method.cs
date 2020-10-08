@@ -400,6 +400,11 @@ namespace YBF.Class.Comm
             return strOuput;
         }
 
+        /// <summary>
+        /// 判断路径是否能连接到
+        /// </summary>
+        /// <param name="path">需要连接的路径</param>
+        /// <returns>true表示能连接到,false表示不能连接到</returns>
         public static bool IsConnectPath(string path)
         {
             try
@@ -571,6 +576,17 @@ namespace YBF.Class.Comm
                 //}
             }
             return returnBool;
+        }
+
+        /// <summary>
+        /// 用于比较两个字符串的相似度
+        /// </summary>
+        /// <param name="a">字符串1</param>
+        /// <param name="b">字符串2</param>
+        /// <returns>返回一个[0,1]之间的数值</returns>
+        public static double Similarity(string a, string b)
+        {
+           return Math.Round((100.0 * a.ToCharArray().Intersect(b).Count() / a.ToCharArray().Union(b).Count()), 3);
         }
     }
 }

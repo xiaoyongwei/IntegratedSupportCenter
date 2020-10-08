@@ -8,10 +8,11 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\obj\Debug\T
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\obj\Debug\Test.csproj.CopyComplete
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\System.Buffers.dll
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\System.Memory.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\System.Text.Encodings.Web.dll
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\System.Text.Encodings.Web.xml
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\obj\Debug\Test.csproj.ResolveComReference.cache
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\obj\Debug\Interop.ACRODISTXLib.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\PdfSharp.Charting.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\PdfSharp.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\PdfSharp.xml
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\PdfSharp.Charting.xml
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\de\PdfSharp.resources.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\Test\bin\Debug\de\PdfSharp.Charting.resources.dll
