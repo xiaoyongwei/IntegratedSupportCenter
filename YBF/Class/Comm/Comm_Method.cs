@@ -586,7 +586,7 @@ namespace YBF.Class.Comm
         /// <returns>返回一个[0,1]之间的数值</returns>
         public static double Similarity(string a, string b)
         {
-           return Math.Round((100.0 * a.ToCharArray().Intersect(b).Count() / a.ToCharArray().Union(b).Count()), 3);
+           return Math.Round((1.0* a.ToCharArray().Intersect(b).Count() / a.ToCharArray().Union(b).Count()), 3);
         }
     }
 }

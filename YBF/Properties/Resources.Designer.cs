@@ -146,7 +146,7 @@ namespace YBF.Properties {
         ///CTTECHES 要求
         ///
         ///FROM EJSH.V_ORD_SCH 
-        ///WHERE  ORGCDE=&apos;KS03&apos; and OBJTYP=&apos;CL&apos;and OSTATUS=&apos;Y&apos; AND status IN (&apos;2&apos;,&apos;3&apos;,&apos;4&apos;)  AND PRCTYPNME=&apos;胶印凹印&apos; 的本地化字符串。
+        ///WHERE  ORGCDE=&apos;KS03&apos; and OBJTYP=&apos;CL&apos;and OSTATUS=&apos;Y&apos;  AND PRCTYPNME=&apos;胶印凹印&apos; AND ISOUTS!=&apos;Y&apos; AND STATUS IN(3,4) 的本地化字符串。
         /// </summary>
         public static string SQLYijie {
             get {

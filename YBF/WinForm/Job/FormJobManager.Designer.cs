@@ -31,9 +31,27 @@ namespace YBF.WinForm
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormJobManager));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormJobManager));
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.暂停 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.出版 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.报废 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.工单号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.稿袋号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.机台 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.客户名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.文件名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.制造尺寸 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.下料尺寸 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.咬口印能捷 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.颜色 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.印版数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.印版类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.关联的文件 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsJob = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiPublished = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsiAbolish = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,24 +85,6 @@ namespace YBF.WinForm
             this.tsmiDingwei = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSubmitToPrinergyEvo = new System.Windows.Forms.ToolStripMenuItem();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.暂停 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.出版 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.报废 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.工单号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.稿袋号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.机台 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.客户名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.文件名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.制造尺寸 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.下料尺寸 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.咬口印能捷 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.颜色 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.印版数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.印版类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.关联的文件 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.cmsJob.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -140,6 +140,155 @@ namespace YBF.WinForm
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
             this.dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
             this.dgv.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.dgv_CellStateChanged);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 30;
+            // 
+            // 暂停
+            // 
+            this.暂停.DataPropertyName = "暂停";
+            this.暂停.FalseValue = "0";
+            this.暂停.HeaderText = "暂停";
+            this.暂停.IndeterminateValue = "0";
+            this.暂停.Name = "暂停";
+            this.暂停.ReadOnly = true;
+            this.暂停.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.暂停.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.暂停.TrueValue = "1";
+            this.暂停.Width = 35;
+            // 
+            // 出版
+            // 
+            this.出版.DataPropertyName = "出版";
+            this.出版.FalseValue = "0";
+            this.出版.HeaderText = "出版";
+            this.出版.IndeterminateValue = "0";
+            this.出版.Name = "出版";
+            this.出版.ReadOnly = true;
+            this.出版.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.出版.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.出版.TrueValue = "1";
+            this.出版.Width = 35;
+            // 
+            // 报废
+            // 
+            this.报废.DataPropertyName = "报废";
+            this.报废.FalseValue = "0";
+            this.报废.HeaderText = "报废";
+            this.报废.IndeterminateValue = "0";
+            this.报废.Name = "报废";
+            this.报废.ReadOnly = true;
+            this.报废.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.报废.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.报废.TrueValue = "1";
+            this.报废.Width = 35;
+            // 
+            // 时间
+            // 
+            this.时间.DataPropertyName = "时间";
+            dataGridViewCellStyle1.Format = "F";
+            dataGridViewCellStyle1.NullValue = null;
+            this.时间.DefaultCellStyle = dataGridViewCellStyle1;
+            this.时间.HeaderText = "时间";
+            this.时间.Name = "时间";
+            this.时间.ReadOnly = true;
+            // 
+            // 工单号
+            // 
+            this.工单号.DataPropertyName = "工单号";
+            this.工单号.HeaderText = "工单号";
+            this.工单号.Name = "工单号";
+            this.工单号.ReadOnly = true;
+            this.工单号.Visible = false;
+            // 
+            // 稿袋号
+            // 
+            this.稿袋号.DataPropertyName = "稿袋号";
+            this.稿袋号.HeaderText = "稿袋号";
+            this.稿袋号.Name = "稿袋号";
+            this.稿袋号.ReadOnly = true;
+            // 
+            // 机台
+            // 
+            this.机台.DataPropertyName = "机台";
+            this.机台.HeaderText = "机台";
+            this.机台.Name = "机台";
+            this.机台.ReadOnly = true;
+            // 
+            // 客户名
+            // 
+            this.客户名.DataPropertyName = "客户名";
+            this.客户名.HeaderText = "客户名";
+            this.客户名.Name = "客户名";
+            this.客户名.ReadOnly = true;
+            // 
+            // 文件名
+            // 
+            this.文件名.HeaderText = "文件名";
+            this.文件名.Name = "文件名";
+            this.文件名.ReadOnly = true;
+            // 
+            // 制造尺寸
+            // 
+            this.制造尺寸.DataPropertyName = "制造尺寸";
+            this.制造尺寸.HeaderText = "制造尺寸";
+            this.制造尺寸.Name = "制造尺寸";
+            this.制造尺寸.ReadOnly = true;
+            // 
+            // 下料尺寸
+            // 
+            this.下料尺寸.DataPropertyName = "下料尺寸";
+            this.下料尺寸.HeaderText = "下料尺寸";
+            this.下料尺寸.Name = "下料尺寸";
+            this.下料尺寸.ReadOnly = true;
+            // 
+            // 咬口印能捷
+            // 
+            this.咬口印能捷.DataPropertyName = "咬口印能捷";
+            this.咬口印能捷.HeaderText = "咬口印能捷";
+            this.咬口印能捷.Name = "咬口印能捷";
+            this.咬口印能捷.ReadOnly = true;
+            // 
+            // 颜色
+            // 
+            this.颜色.DataPropertyName = "颜色";
+            this.颜色.HeaderText = "颜色";
+            this.颜色.Name = "颜色";
+            this.颜色.ReadOnly = true;
+            // 
+            // 印版数量
+            // 
+            this.印版数量.DataPropertyName = "印版数量";
+            this.印版数量.HeaderText = "印版数量";
+            this.印版数量.Name = "印版数量";
+            this.印版数量.ReadOnly = true;
+            // 
+            // 印版类型
+            // 
+            this.印版类型.DataPropertyName = "印版类型";
+            this.印版类型.HeaderText = "印版类型";
+            this.印版类型.Name = "印版类型";
+            this.印版类型.ReadOnly = true;
+            // 
+            // 备注
+            // 
+            this.备注.DataPropertyName = "备注";
+            this.备注.HeaderText = "备注";
+            this.备注.Name = "备注";
+            this.备注.ReadOnly = true;
+            // 
+            // 关联的文件
+            // 
+            this.关联的文件.DataPropertyName = "关联的文件";
+            this.关联的文件.HeaderText = "关联的文件";
+            this.关联的文件.Name = "关联的文件";
+            this.关联的文件.ReadOnly = true;
+            this.关联的文件.Visible = false;
             // 
             // cmsJob
             // 
@@ -349,6 +498,7 @@ namespace YBF.WinForm
             this.listViewFile.FullRowSelect = true;
             this.listViewFile.GridLines = true;
             this.listViewFile.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listViewFile.HideSelection = false;
             this.listViewFile.Location = new System.Drawing.Point(0, 0);
             this.listViewFile.Name = "listViewFile";
             this.listViewFile.Size = new System.Drawing.Size(975, 111);
@@ -423,155 +573,6 @@ namespace YBF.WinForm
             this.tsmiSubmitToPrinergyEvo.Size = new System.Drawing.Size(160, 22);
             this.tsmiSubmitToPrinergyEvo.Text = "直接提交到出版";
             this.tsmiSubmitToPrinergyEvo.Click += new System.EventHandler(this.tsmiSubmitToPrinergyEvo_Click);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 30;
-            // 
-            // 暂停
-            // 
-            this.暂停.DataPropertyName = "暂停";
-            this.暂停.FalseValue = "0";
-            this.暂停.HeaderText = "暂停";
-            this.暂停.IndeterminateValue = "0";
-            this.暂停.Name = "暂停";
-            this.暂停.ReadOnly = true;
-            this.暂停.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.暂停.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.暂停.TrueValue = "1";
-            this.暂停.Width = 35;
-            // 
-            // 出版
-            // 
-            this.出版.DataPropertyName = "出版";
-            this.出版.FalseValue = "0";
-            this.出版.HeaderText = "出版";
-            this.出版.IndeterminateValue = "0";
-            this.出版.Name = "出版";
-            this.出版.ReadOnly = true;
-            this.出版.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.出版.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.出版.TrueValue = "1";
-            this.出版.Width = 35;
-            // 
-            // 报废
-            // 
-            this.报废.DataPropertyName = "报废";
-            this.报废.FalseValue = "0";
-            this.报废.HeaderText = "报废";
-            this.报废.IndeterminateValue = "0";
-            this.报废.Name = "报废";
-            this.报废.ReadOnly = true;
-            this.报废.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.报废.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.报废.TrueValue = "1";
-            this.报废.Width = 35;
-            // 
-            // 时间
-            // 
-            this.时间.DataPropertyName = "时间";
-            dataGridViewCellStyle1.Format = "F";
-            dataGridViewCellStyle1.NullValue = null;
-            this.时间.DefaultCellStyle = dataGridViewCellStyle1;
-            this.时间.HeaderText = "时间";
-            this.时间.Name = "时间";
-            this.时间.ReadOnly = true;
-            // 
-            // 工单号
-            // 
-            this.工单号.DataPropertyName = "工单号";
-            this.工单号.HeaderText = "工单号";
-            this.工单号.Name = "工单号";
-            this.工单号.ReadOnly = true;
-            this.工单号.Visible = false;
-            // 
-            // 稿袋号
-            // 
-            this.稿袋号.DataPropertyName = "稿袋号";
-            this.稿袋号.HeaderText = "稿袋号";
-            this.稿袋号.Name = "稿袋号";
-            this.稿袋号.ReadOnly = true;
-            // 
-            // 机台
-            // 
-            this.机台.DataPropertyName = "机台";
-            this.机台.HeaderText = "机台";
-            this.机台.Name = "机台";
-            this.机台.ReadOnly = true;
-            // 
-            // 客户名
-            // 
-            this.客户名.DataPropertyName = "客户名";
-            this.客户名.HeaderText = "客户名";
-            this.客户名.Name = "客户名";
-            this.客户名.ReadOnly = true;
-            // 
-            // 文件名
-            // 
-            this.文件名.HeaderText = "文件名";
-            this.文件名.Name = "文件名";
-            this.文件名.ReadOnly = true;
-            // 
-            // 制造尺寸
-            // 
-            this.制造尺寸.DataPropertyName = "制造尺寸";
-            this.制造尺寸.HeaderText = "制造尺寸";
-            this.制造尺寸.Name = "制造尺寸";
-            this.制造尺寸.ReadOnly = true;
-            // 
-            // 下料尺寸
-            // 
-            this.下料尺寸.DataPropertyName = "下料尺寸";
-            this.下料尺寸.HeaderText = "下料尺寸";
-            this.下料尺寸.Name = "下料尺寸";
-            this.下料尺寸.ReadOnly = true;
-            // 
-            // 咬口印能捷
-            // 
-            this.咬口印能捷.DataPropertyName = "咬口印能捷";
-            this.咬口印能捷.HeaderText = "咬口印能捷";
-            this.咬口印能捷.Name = "咬口印能捷";
-            this.咬口印能捷.ReadOnly = true;
-            // 
-            // 颜色
-            // 
-            this.颜色.DataPropertyName = "颜色";
-            this.颜色.HeaderText = "颜色";
-            this.颜色.Name = "颜色";
-            this.颜色.ReadOnly = true;
-            // 
-            // 印版数量
-            // 
-            this.印版数量.DataPropertyName = "印版数量";
-            this.印版数量.HeaderText = "印版数量";
-            this.印版数量.Name = "印版数量";
-            this.印版数量.ReadOnly = true;
-            // 
-            // 印版类型
-            // 
-            this.印版类型.DataPropertyName = "印版类型";
-            this.印版类型.HeaderText = "印版类型";
-            this.印版类型.Name = "印版类型";
-            this.印版类型.ReadOnly = true;
-            // 
-            // 备注
-            // 
-            this.备注.DataPropertyName = "备注";
-            this.备注.HeaderText = "备注";
-            this.备注.Name = "备注";
-            this.备注.ReadOnly = true;
-            // 
-            // 关联的文件
-            // 
-            this.关联的文件.DataPropertyName = "关联的文件";
-            this.关联的文件.HeaderText = "关联的文件";
-            this.关联的文件.Name = "关联的文件";
-            this.关联的文件.ReadOnly = true;
-            this.关联的文件.Visible = false;
             // 
             // FormJobManager
             // 

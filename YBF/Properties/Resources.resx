@@ -325,6 +325,6 @@ to_char( SHDATE, 'yyyy-mm-dd' ) 交期,
 CTTECHES 要求
 
 FROM EJSH.V_ORD_SCH 
-WHERE  ORGCDE='KS03' and OBJTYP='CL'and OSTATUS='Y' AND status IN ('2','3','4')  AND PRCTYPNME='胶印凹印'</value>
+WHERE  ORGCDE='KS03' and OBJTYP='CL'and OSTATUS='Y'  AND PRCTYPNME='胶印凹印' AND ISOUTS!='Y' AND STATUS IN(3,4)</value>
   </data>
 </root>

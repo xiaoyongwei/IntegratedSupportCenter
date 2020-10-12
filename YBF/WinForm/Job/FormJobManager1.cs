@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -125,12 +126,16 @@ namespace YBF.WinForm.Job
             dgvYijie.DataSource = OracleHelper.ExecuteDataTable(sql);
 
             //重新获取PDF文件集合
-            InitPdfList();
+            if (dgvYijie.Rows.Count>0)
+            {
+                InitPdfList();
+            }
+            
         }
 
         private void InitPdfList()
         {
-            string pdfPath = @"\\EvoServer\JobData\PDF\已下单PDF";
+            string pdfPath = @"\\EvoServer\JobData\PDF";
             if (Comm_Method.IsConnectPath(pdfPath))
             {
                 pdfFiles = new DirectoryInfo(pdfPath).GetFiles("*.pdf", System.IO.SearchOption.AllDirectories);
@@ -138,29 +143,31 @@ namespace YBF.WinForm.Job
 
         }
 
-        private void dgvYijie_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       
+
+        private void dgvYijie_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex<0||e.ColumnIndex<0)
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
             {
                 return;
             }
             //获取产品名称
-            string cpmc = dgvYijie.Rows[e.RowIndex].Cells["产品"].ToString();
+            string cpmc = dgvYijie.Rows[e.RowIndex].Cells["产品"].Value.ToString();
             //获取稿袋号
-            string gdh= dgvYijie.Rows[e.RowIndex].Cells["稿袋号"].ToString();
+            string gdh = dgvYijie.Rows[e.RowIndex].Cells["稿袋号"].Value.ToString();
             //****根据产品名称获取与其匹配度最高的PDF文件****
             //1.建立一个表格
             DataTable dt = new DataTable();
-            dt.Columns.Add("匹配");
+            dt.Columns.Add("匹配", System.Type.GetType("System.Decimal"));
             dt.Columns.Add("文件名");
             dt.Columns.Add("修改时间");
-            dt.Columns.Add("大小KB");
+            dt.Columns.Add("大小MB");
             dt.Columns.Add("路径");
             //2.遍历PDF并与之匹配,
             //匹配的条件1:如果文件名包含稿袋号则匹配度加0.5,并且继续第2步
             //条件2:字符串相似匹配度要在0.5(50%)以上的才能添加到候选表格中,匹配度按字符串相似度累加
 
-            
+
             //开始遍历
             foreach (FileInfo file in pdfFiles)
             {
@@ -170,30 +177,126 @@ namespace YBF.WinForm.Job
                 //1.先判断文件是否包含稿袋号
                 //如果稿袋号为空则直接第二步
                 if (!string.IsNullOrWhiteSpace(gdh)
-                    && Regex.IsMatch(Path.GetFileNameWithoutExtension(file.Name), "^" + gdh + "-"))
+                    && Regex.IsMatch(Path.GetFileNameWithoutExtension(file.Name), "^" + gdh))
                 {
                     ppd += 0.5;
                 }
 
                 //2.比较2个字符串的相似度
                 double xsd = Comm_Method.Similarity(cpmc, Path.GetFileNameWithoutExtension(file.Name));
-                //如果相似度在0.5以上则添加候选
-                if (xsd>0.5)
+                //匹配度累加
+                ppd += xsd;
+
+                //如果匹配度度在0.5以上则添加候选
+                if (ppd > 0.5)
                 {
-                    //匹配度累加
-                    ppd += xsd;
                     //新行
                     DataRow dr = dt.NewRow();
                     dr["匹配"] = ppd;
                     dr["文件名"] = file.Name;
                     dr["修改时间"] = file.LastWriteTime;
-                    dr["大小KB"] =Math.Round(1.0* file.Length/1024);
+                    dr["大小MB"] = Math.Round(1.0 * file.Length / 1024 / 1024, 3);
                     dr["路径"] = file.DirectoryName;
                     dt.Rows.Add(dr);//添加行                    
                 }
             }
+            //dt.DefaultView.Sort = "匹配 DESC";
+            ////dgvPdf.DataSource = dt;
+            ////dgvPdf.AutoResizeColumns();
 
-            dgvPdf.DataSource = dt;
+
+
+
+
+
+
+
+
+
+            //listViewFile
+            this.listViewFile.Items.Clear();
+
+
+            //开始遍历
+            foreach (DataRow dr in dt.Select("1=1", "匹配 DESC"))
+            {
+                //新行
+                    ListViewItem lvi = new ListViewItem(
+                        new string[]{
+                        dr["匹配"].ToString(),
+                        dr["文件名"].ToString(),
+                        dr["修改时间"].ToString(),
+                        dr["大小MB"].ToString(),
+                        dr["路径"].ToString()
+                    });
+                    this.listViewFile.Items.Add(lvi);
+                
+            }
+            this.listViewFile.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+        }
+
+        /// <summary>
+        /// 打开文件夹或文件
+        /// </summary>
+        private void OpenListViewTtem()
+        {
+
+            foreach (ListViewItem item in listViewFile.SelectedItems)
+            {
+                string newPath = item.Tag.ToString();
+                //判断是目录还是文件
+                if (File.Exists(newPath))
+                    Process.Start(newPath); //打开文件
+            }
+
+            //if (listViewFile.SelectedItems.Count > 0)
+            //{
+            //    string newPath = listViewFile.SelectedItems[0].Tag.ToString();
+            //    //判断是目录还是文件
+            //    if (File.Exists(newPath))
+            //        Process.Start(newPath); //打开文件
+            //}
+
+        }
+
+        #region Drag and drop
+        /// <summary>
+        /// Called when we start dragging an item out of our listview
+        /// </summary>
+        private void listViewFile_ItemDrag(object sender, System.Windows.Forms.ItemDragEventArgs e)
+        {
+            string[] files = GetSelection();
+            if (files != null)
+            {
+                DoDragDrop(new DataObject(DataFormats.FileDrop, files), DragDropEffects.Copy /* | DragDropEffects.Move | DragDropEffects.Link */);
+            }
+        }
+        /// <summary>
+        /// Routine to get the current selection from the listview
+        /// </summary>
+        /// <returns>Seletced items or null if no selection</returns>
+        private string[] GetSelection()
+        {
+            if (listViewFile.SelectedItems.Count == 0)
+                return null;
+
+            string[] files = new string[listViewFile.SelectedItems.Count];
+            int i = 0;
+            foreach (ListViewItem item in listViewFile.SelectedItems)
+            {
+                string fileFullName = item.Tag.ToString();
+                if (Comm_Method.IsConnectPath(fileFullName))
+                {
+                    files[i++] = fileFullName;
+                }
+            }
+            return files;
+        }
+        #endregion
+
+        private void listViewFile_ItemActivate(object sender, EventArgs e)
+        {
+            OpenListViewTtem();
         }
     }
 }

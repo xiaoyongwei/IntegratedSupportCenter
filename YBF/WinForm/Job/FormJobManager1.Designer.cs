@@ -47,8 +47,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvYijie = new System.Windows.Forms.DataGridView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.listViewFile = new System.Windows.Forms.ListView();
+            this.columnHeaderPpd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderWjm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderRiqi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderSize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dgvPdf = new System.Windows.Forms.DataGridView();
             this.dgvCtp = new System.Windows.Forms.DataGridView();
+            this.ColumnShuxing = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCanshu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -248,7 +256,7 @@
             this.dgvYijie.RowTemplate.Height = 23;
             this.dgvYijie.Size = new System.Drawing.Size(693, 240);
             this.dgvYijie.TabIndex = 0;
-            this.dgvYijie.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvYijie_CellContentClick);
+            this.dgvYijie.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvYijie_CellClick);
             // 
             // splitContainer2
             // 
@@ -258,14 +266,59 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.listViewFile);
             this.splitContainer2.Panel1.Controls.Add(this.dgvPdf);
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dgvCtp);
             this.splitContainer2.Size = new System.Drawing.Size(699, 138);
-            this.splitContainer2.SplitterDistance = 348;
+            this.splitContainer2.SplitterDistance = 347;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // listViewFile
+            // 
+            this.listViewFile.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderPpd,
+            this.columnHeaderWjm,
+            this.columnHeaderRiqi,
+            this.columnHeaderSize,
+            this.columnHeaderPath});
+            this.listViewFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewFile.FullRowSelect = true;
+            this.listViewFile.GridLines = true;
+            this.listViewFile.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listViewFile.HideSelection = false;
+            this.listViewFile.Location = new System.Drawing.Point(0, 0);
+            this.listViewFile.Name = "listViewFile";
+            this.listViewFile.Size = new System.Drawing.Size(347, 138);
+            this.listViewFile.TabIndex = 2;
+            this.listViewFile.UseCompatibleStateImageBehavior = false;
+            this.listViewFile.View = System.Windows.Forms.View.Details;
+            this.listViewFile.ItemActivate += new System.EventHandler(this.listViewFile_ItemActivate);
+            this.listViewFile.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.listViewFile_ItemDrag);
+            // 
+            // columnHeaderPpd
+            // 
+            this.columnHeaderPpd.Text = "匹配度";
+            // 
+            // columnHeaderWjm
+            // 
+            this.columnHeaderWjm.Text = "文件名称";
+            this.columnHeaderWjm.Width = 313;
+            // 
+            // columnHeaderRiqi
+            // 
+            this.columnHeaderRiqi.Text = "最后修改日期";
+            this.columnHeaderRiqi.Width = 140;
+            // 
+            // columnHeaderSize
+            // 
+            this.columnHeaderSize.Text = "大小";
+            // 
+            // columnHeaderPath
+            // 
+            this.columnHeaderPath.Text = "所在目录";
             // 
             // dgvPdf
             // 
@@ -277,21 +330,39 @@
             this.dgvPdf.Name = "dgvPdf";
             this.dgvPdf.ReadOnly = true;
             this.dgvPdf.RowTemplate.Height = 23;
-            this.dgvPdf.Size = new System.Drawing.Size(348, 138);
+            this.dgvPdf.Size = new System.Drawing.Size(347, 138);
             this.dgvPdf.TabIndex = 1;
             // 
             // dgvCtp
             // 
             this.dgvCtp.AllowUserToAddRows = false;
             this.dgvCtp.AllowUserToDeleteRows = false;
+            this.dgvCtp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCtp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvCtp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCtp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnShuxing,
+            this.ColumnCanshu});
             this.dgvCtp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCtp.Location = new System.Drawing.Point(0, 0);
             this.dgvCtp.Name = "dgvCtp";
             this.dgvCtp.ReadOnly = true;
+            this.dgvCtp.RowHeadersVisible = false;
             this.dgvCtp.RowTemplate.Height = 23;
-            this.dgvCtp.Size = new System.Drawing.Size(347, 138);
+            this.dgvCtp.Size = new System.Drawing.Size(348, 138);
             this.dgvCtp.TabIndex = 1;
+            // 
+            // ColumnShuxing
+            // 
+            this.ColumnShuxing.HeaderText = "属性";
+            this.ColumnShuxing.Name = "ColumnShuxing";
+            this.ColumnShuxing.ReadOnly = true;
+            // 
+            // ColumnCanshu
+            // 
+            this.ColumnCanshu.HeaderText = "参数";
+            this.ColumnCanshu.Name = "ColumnCanshu";
+            this.ColumnCanshu.ReadOnly = true;
             // 
             // FormJobManager1
             // 
@@ -301,6 +372,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormJobManager1";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "出版作业管理";
             this.Load += new System.EventHandler(this.FormJobManager1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -341,5 +413,13 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.DataGridView dgvPdf;
         private System.Windows.Forms.DataGridView dgvCtp;
+        private System.Windows.Forms.ListView listViewFile;
+        private System.Windows.Forms.ColumnHeader columnHeaderWjm;
+        private System.Windows.Forms.ColumnHeader columnHeaderRiqi;
+        private System.Windows.Forms.ColumnHeader columnHeaderSize;
+        private System.Windows.Forms.ColumnHeader columnHeaderPath;
+        private System.Windows.Forms.ColumnHeader columnHeaderPpd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnShuxing;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCanshu;
     }
 }
