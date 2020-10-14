@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "综合保障中心", "综�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{921BDE86-D536-4D84-9CB7-8B97358F4383}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppBackupWorkingData", "ConsoleAppBackupWorkingData\ConsoleAppBackupWorkingData.csproj", "{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,18 @@ Global
 		{921BDE86-D536-4D84-9CB7-8B97358F4383}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{921BDE86-D536-4D84-9CB7-8B97358F4383}.Release|x86.ActiveCfg = Release|Any CPU
 		{921BDE86-D536-4D84-9CB7-8B97358F4383}.Release|x86.Build.0 = Release|Any CPU
+		{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}.Debug|x86.Build.0 = Debug|Any CPU
+		{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}.Release|x86.ActiveCfg = Release|Any CPU
+		{5A8E8CF9-A1A1-45EE-8EE1-C55AF182611C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

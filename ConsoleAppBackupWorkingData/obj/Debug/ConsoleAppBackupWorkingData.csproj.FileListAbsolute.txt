@@ -1,0 +1,2 @@
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\obj\Debug\ConsoleAppBackupWorkingData.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\obj\Debug\ConsoleAppBackupWorkingData.csproj.CoreCompileInputs.cache
