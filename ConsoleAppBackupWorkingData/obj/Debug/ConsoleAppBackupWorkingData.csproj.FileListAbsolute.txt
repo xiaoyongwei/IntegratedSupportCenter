@@ -1,2 +1,17 @@
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\obj\Debug\ConsoleAppBackupWorkingData.csprojAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\obj\Debug\ConsoleAppBackupWorkingData.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\obj\Debug\ConsoleAppBackupWorkingData.Properties.Resources.resources
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\obj\Debug\ConsoleAppBackupWorkingData.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\bin\Debug\ConsoleAppBackupWorkingData.exe.config
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\bin\Debug\ConsoleAppBackupWorkingData.exe
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\bin\Debug\ConsoleAppBackupWorkingData.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\bin\Debug\MySql.Data.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\bin\Debug\NPOI.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\bin\Debug\NPOI.OOXML.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\bin\Debug\System.Data.SQLite.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\obj\Debug\ConsoleAppBackupWorkingData.csproj.CopyComplete
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\obj\Debug\ConsoleAppBackupWorkingData.exe
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\ConsoleAppBackupWorkingData\obj\Debug\ConsoleAppBackupWorkingData.pdb
