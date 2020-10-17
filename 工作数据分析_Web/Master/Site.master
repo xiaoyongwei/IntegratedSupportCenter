@@ -18,9 +18,9 @@
                     </h1>
                 </div>
                 <div class="loginDisplay">
-                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <asp:LoginView ID="HeadLoginView" runat="server">
                         <AnonymousTemplate>
-                            [ <a id="HeadLoginStatus" runat="server">登录</a> ]
+                            [ <a id="HeadLoginStatus" runat="server" href="~/Login.aspx">登录</a> ]
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             欢迎您，<span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" />
@@ -33,7 +33,7 @@
                 </div>
                 <div class="clear hideSkiplink">
                     <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
-                        IncludeStyleBlock="false" Orientation="Horizontal">
+                        IncludeStyleBlock="false" Orientation="Horizontal" OnInit="NavigationMenu_Init">
                         <Items>
                             <asp:MenuItem NavigateUrl="~/Default.aspx" Text="主页" />
                             <%--<asp:MenuItem NavigateUrl="~/WebPage/MeiriGuanzhu.aspx" Text="每日关注" />--%>

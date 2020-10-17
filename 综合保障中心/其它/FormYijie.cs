@@ -523,7 +523,27 @@ namespace 综合保障中心.其它
 
         }
 
-       
-        
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            this.contextMenuStrip1.Items.Clear();
+            //获取所有的按钮
+            foreach (HtmlElement ele in webBrowser.Document.GetElementsByTagName("input"))
+            {
+                if ("submitbutton".Contains(ele.GetAttribute("type")))
+                {
+                    ToolStripItem tsi = this.contextMenuStrip1.Items.Add(ele.GetAttribute("value"));
+                    tsi.Tag = ele.Id;
+                    tsi.Click += Tsi_Click;
+                }
+            }
+        }
+
+        private void Tsi_Click(object sender, EventArgs e)
+        {
+            ToolStripItem tsi = sender as ToolStripItem;
+
+            HtmlElement button = webBrowser.Document.GetElementById(tsi.Tag.ToString());
+            button.InvokeMember("click");
+        }
     }
 }

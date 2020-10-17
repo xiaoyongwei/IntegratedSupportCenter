@@ -40,6 +40,8 @@
             this.设置入库日期ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.获取入库单IDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.模拟ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -49,12 +51,17 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ddToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // webBrowser
             // 
+            this.webBrowser.ContextMenuStrip = this.contextMenuStrip1;
             this.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser.IsWebBrowserContextMenuEnabled = false;
             this.webBrowser.Location = new System.Drawing.Point(0, 0);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
@@ -128,30 +135,36 @@
             this.模拟ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(778, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(778, 25);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 设置入库日期ToolStripMenuItem
             // 
             this.设置入库日期ToolStripMenuItem.Name = "设置入库日期ToolStripMenuItem";
-            this.设置入库日期ToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.设置入库日期ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
             this.设置入库日期ToolStripMenuItem.Text = "设置入库日期";
             this.设置入库日期ToolStripMenuItem.Click += new System.EventHandler(this.设置入库日期ToolStripMenuItem_Click);
             // 
             // 获取入库单IDToolStripMenuItem
             // 
             this.获取入库单IDToolStripMenuItem.Name = "获取入库单IDToolStripMenuItem";
-            this.获取入库单IDToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.获取入库单IDToolStripMenuItem.Size = new System.Drawing.Size(93, 21);
             this.获取入库单IDToolStripMenuItem.Text = "获取入库单ID";
             this.获取入库单IDToolStripMenuItem.Click += new System.EventHandler(this.获取入库单IDToolStripMenuItem_Click);
             // 
             // 模拟ToolStripMenuItem
             // 
             this.模拟ToolStripMenuItem.Name = "模拟ToolStripMenuItem";
-            this.模拟ToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.模拟ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.模拟ToolStripMenuItem.Text = "模拟";
             this.模拟ToolStripMenuItem.Click += new System.EventHandler(this.模拟ToolStripMenuItem_Click);
+            // 
+            // ddToolStripMenuItem
+            // 
+            this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
+            this.ddToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ddToolStripMenuItem.Text = "dd";
             // 
             // FormYijie
             // 
@@ -170,6 +183,7 @@
             this.Text = "易捷按钮破解";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormYijiePojie_Load);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -194,5 +208,6 @@
         private System.Windows.Forms.ToolStripMenuItem 设置入库日期ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 获取入库单IDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 模拟ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ddToolStripMenuItem;
     }
 }

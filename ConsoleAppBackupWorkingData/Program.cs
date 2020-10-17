@@ -33,27 +33,27 @@ namespace ConsoleAppBackupWorkingData
                     DataBaseList.InitSqlhelper();
                     PrintToConsole("完成初始化数据库连接");
                     //1.备份制版线1800E的当前排程
-                    PrintToConsole("开始备份制版线1800E的当前排程");
+                    PrintToConsole("开始备份制版线1800E的当前排程",false);
                     if (My.Ping(DataBaseList.IP_制版线1800) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800))
                     {
                         DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
                         if (SubmitZhiBanXianCurrentMysql(DataBaseList.sql制版线1800.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],rtrim([生产备注])'备注',[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线1800"))
                         {
-                            PrintToConsole("备份制版线1800当前排程情况成功!");
+                            PrintToConsole("备份制版线1800E当前排程情况成功!");
                         }
                         else
                         {
-                            PrintToConsole("备份制版线1800当前排程情况失败!");
+                            PrintToConsole("备份制版线1800E当前排程情况失败!");
                         }
 
                     }
                     else
                     {
-                        PrintToConsole("制版线1800数据库连接失败!");
+                        PrintToConsole("制版线1800E数据库连接失败!");
                     }
                     //2.备份制版线1800F的当前排程
                     //3.备份制版线2200的当前排程
-                    PrintToConsole("开始备份制版线2200的当前排程");
+                    PrintToConsole("开始备份制版线2200的当前排程", false);
                     if (My.Ping(DataBaseList.IP_制版线2200) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2200))
                     {
                         DataBaseList.sql制版线2200 = new SqlHelper(DataBaseList.ConnString_制版线2200);
@@ -72,7 +72,7 @@ namespace ConsoleAppBackupWorkingData
                         PrintToConsole("制版线2200数据库连接失败!");
                     }
                     //4.备份制版线2500的当前排程
-                    PrintToConsole("开始备份制版线2500的当前排程");
+                    PrintToConsole("开始备份制版线2500的当前排程", false);
                     if (My.Ping(DataBaseList.IP_制版线2500) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2500))
                     {
                         DataBaseList.sql制版线2500 = new SqlHelper(DataBaseList.ConnString_制版线2500);
@@ -91,7 +91,7 @@ namespace ConsoleAppBackupWorkingData
                         PrintToConsole("制版线2500数据库连接失败!");
                     }
                     //5.备份制版线1800E的完成记录
-                    PrintToConsole("开始备份制版线1800E的完成记录");
+                    PrintToConsole("开始备份制版线1800E的完成记录", false);
                     if (DataBaseList.sql制版线1800 != null)
                     {
                         DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800);
@@ -104,7 +104,7 @@ namespace ConsoleAppBackupWorkingData
                     //6.备份制版线1800F的完成记录
 
                     //7.备份制版线2200的完成记录
-                    PrintToConsole("开始备份制版线2200的完成记录");
+                    PrintToConsole("开始备份制版线2200的完成记录", false);
                     if (DataBaseList.sql制版线2200 != null)
                     {
                         DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工_2200);
@@ -115,7 +115,7 @@ namespace ConsoleAppBackupWorkingData
                         PrintToConsole("制版线2200数据库连接失败!");
                     }
                     //8.备份制版线2500的完成记录
-                    PrintToConsole("开始备份制版线2500的完成记录");
+                    PrintToConsole("开始备份制版线2500的完成记录", false);
                     if (DataBaseList.sql制版线2500 != null)
                     {
                         DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工_2500);
@@ -131,9 +131,12 @@ namespace ConsoleAppBackupWorkingData
                     //10.备份金蝶生产领料明细(仓库代码从13到16,或领料部门是二期)
                     Get二期辅料仓库领料明细();
                     //11.备份金蝶原纸即时库存
+                    Get二期原纸仓库即时库存();
                     //12.备份金蝶辅料即时库存
+                    Get二期辅料仓库即时库存();
                     //13.备份金蝶胶印纸箱仓库即时库存
-                    //14.备份生产报工明细
+                    Get二期胶印纸箱仓库即时库存();
+                    
                 }
                 catch (Exception ex)
                 {
@@ -141,15 +144,121 @@ namespace ConsoleAppBackupWorkingData
                 }
 
                 //下一个循环提示
-                PrintToConsole("等待进入下一个循环",ConsoleColor.Blue);
+                PrintToConsole("等待进入下一个循环",true,ConsoleColor.Blue);
                 Thread.Sleep(60000);
             }
         }
 
 
-        private void Get二期辅料仓库领料明细()
+        private static void Get二期胶印纸箱仓库即时库存()
         {
+            PrintToConsole("开始获取二期胶印纸箱仓库即时库存", false);
+            if (DataBaseList.sql财务 != null)
+            {
+                DataTable dt = DataBaseList.sql财务.Querytable(Resources.二期胶印纸箱仓库即时库存);
+                List<string> sqlList = new List<string>();
+                sqlList.Add("TRUNCATE `slbz`.`二期胶印纸箱仓库即时库存`;");
+                foreach (DataRow row in dt.Rows)
+                {
+                    sqlList.Add("INSERT INTO `slbz`.`二期胶印纸箱仓库即时库存` (`物料长代码`,`物料名称`,`批号`,`基本单位`,`库存`,`换算率`,`辅助单位`,`辅助数量`,`仓库名称`,`仓库代码`) VALUES"
+            + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}');"
+            , row["物料长代码"], row["物料名称"], row["批号"], row["基本单位"], row["库存"], row["换算率"], row["辅助单位"], row["辅助数量"], row["仓库名称"], row["仓库代码"]));
 
+                }
+                MySqlDbHelper.ExecuteSqlTran(sqlList);
+                PrintToConsole("获取[二期胶印纸箱仓库即时库存]成功! ");
+
+            }
+            else
+            {
+                PrintToConsole("财务系统没有连接!");
+            }
+
+        }
+
+        private static void Get二期辅料仓库即时库存()
+        {
+            PrintToConsole("开始获取二期辅料仓库即时库存", false);
+            if (DataBaseList.sql财务 != null)
+            {
+                DataTable dt = DataBaseList.sql财务.Querytable(Resources.二期辅料仓库即时库存);
+                List<string> sqlList = new List<string>();
+
+                StringBuilder sb_Insert = new StringBuilder("INSERT INTO `slbz`.`金蝶_二期辅料仓库即时库存`(");
+                foreach (DataColumn dc in dt.Columns)//添加列
+                {
+                    sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
+                }
+                sb_Insert.Remove(sb_Insert.Length - 1, 1);
+                sb_Insert.AppendLine(")VALUES");
+                StringBuilder sb_values = new StringBuilder("(");
+                foreach (DataRow dr in dt.Rows)
+                {
+                    sb_values = new StringBuilder("(");
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        sb_values.AppendFormat("'{0}',", dr[dc].ToString());
+                    }
+                    sb_values.Remove(sb_values.Length - 1, 1);
+                    sb_values.AppendLine(");");
+                    sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
+                }
+                if (sqlList.Count > 0)
+                {
+                    sqlList.Insert(0, "truncate table `slbz`.`金蝶_二期辅料仓库即时库存`;");
+                }
+                if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
+                {
+                    PrintToConsole("获取[二期辅料仓库即时库存]失败×××××! ");
+                }
+                else
+                {
+                    PrintToConsole("获取[二期辅料仓库即时库存]成功! ");
+                }
+            }
+            else
+            {
+                PrintToConsole("财务系统没有连接!");
+
+            }
+        }
+
+        private static void Get二期原纸仓库即时库存()
+        {
+            PrintToConsole("开始获取二期原纸仓库即时库存", false);
+            if (DataBaseList.sql财务 != null)
+            {
+                DataTable dt = DataBaseList.sql财务.Querytable(Resources.二期原纸仓库即时库存);
+                List<string> sqlList = new List<string>();
+                sqlList.Add("TRUNCATE `slbz`.`二期原纸仓库即时库存`;");
+                foreach (DataRow row in dt.Rows)
+                {
+                    sqlList.Add("INSERT INTO `slbz`.`二期原纸仓库即时库存` (`物料长代码`,`物料名称`,`批号`,`门幅`,`单位`,`库存`,`仓库名称`) VALUES"
+            + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}');"
+            , row["物料长代码"], row["物料名称"], row["批号"], row["门幅"], row["单位"], row["库存"], row["仓库名称"]));
+
+                }
+                if (MySqlDbHelper.ExecuteSqlTran(sqlList))
+                {
+                    PrintToConsole("获取[二期原纸仓库即时库存]成功! ");
+                }
+                else
+                {
+                    PrintToConsole("获取[二期原纸仓库即时库存]失败! ");
+                }
+                
+            }
+            else
+            {
+                PrintToConsole("财务系统没有连接!");
+
+            }
+        }
+
+
+        private  static void Get二期辅料仓库领料明细()
+        {
+            PrintToConsole("开始获取二期辅料仓库领料明细", false);
             if (DataBaseList.sql财务 != null)
             {
                 //1.先读取60天内的所有明细(考虑到一个账期的时间为一个自然月)
@@ -189,16 +298,16 @@ namespace ConsoleAppBackupWorkingData
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
 
-                    AddtbShow("获取[二期辅料仓库领料明细]失败×××××! ");
+                    PrintToConsole("获取[二期辅料仓库领料明细]失败! ");
                 }
                 else
                 {
-                    AddtbShow("获取[二期辅料仓库领料明细]成功! ");
+                    PrintToConsole("获取[二期辅料仓库领料明细]成功! ");
                 }
             }
             else
             {
-                AddtbShow("财务系统没有连接!");
+                PrintToConsole("财务系统没有连接!");
 
             }
         }
@@ -206,6 +315,7 @@ namespace ConsoleAppBackupWorkingData
 
         private static void Get二期仓库入库明细()
         {
+            PrintToConsole("开始获取二期仓库入库明细", false);
             if (DataBaseList.sql财务 != null)
             {
                 //1.先读取60天内的所有明细(考虑到一个账期的时间为一个自然月)
@@ -260,10 +370,10 @@ namespace ConsoleAppBackupWorkingData
 
 
 
-        private static void PrintToConsole(string txt,ConsoleColor color=ConsoleColor.Gray)
+        private static void PrintToConsole(string txt,bool isNewLine=true,ConsoleColor color=ConsoleColor.Gray)
         {
             Console.ForegroundColor =color;
-            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss fff")+"\n"+txt+"\n");
+            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss fff")+"  "+txt+(isNewLine?"\n":""));
         }
 
       
@@ -274,7 +384,7 @@ namespace ConsoleAppBackupWorkingData
             foreach (DataRow row in dt.Rows)
             {
                 sqlList.Add("INSERT ignore  INTO `slbz`.`瓦片完成情况` (`工单号`,`客户名`,`门幅`,`楞型`,`材质`,`长度`,`宽度`,`压线`,`开始时间`,`结束时间`,`生产时间`,`备注`,`瓦片线`,`数量`) VALUES"
-        + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}');"
+        + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}');"
         , row["工单号"], row["客户名"], row["门幅"], row["楞型"], row["材质"], row["长度"], row["宽度"]
         , ' ', ' ', row["结束时间"].ToString(), ' ', ' ', row["瓦片线"], row["数量"]));
 
