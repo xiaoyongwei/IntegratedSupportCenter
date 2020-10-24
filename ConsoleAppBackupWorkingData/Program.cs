@@ -29,7 +29,7 @@ namespace ConsoleAppBackupWorkingData
                 try
                 {
                     //0.初始化数据库连接
-                    PrintToConsole("开始初始化数据库连接");
+                    PrintToConsole("开始初始化数据库连接",false);
                     DataBaseList.InitSqlhelper();
                     PrintToConsole("完成初始化数据库连接");
                     //1.备份制版线1800E的当前排程
@@ -94,7 +94,11 @@ namespace ConsoleAppBackupWorkingData
                     PrintToConsole("开始备份制版线1800E的完成记录", false);
                     if (DataBaseList.sql制版线1800 != null)
                     {
-                        DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800);
+                        //获取最后备份时间
+                        string lastBackupTime = MySqlDbHelper.ExecuteScalar(
+                            "SELECT date_sub(max(`结束时间`), interval 1 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='1.8米制版线'").ToString();
+
+                        DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800.Replace("dateadd(dd,-30,GETDATE())","'"+lastBackupTime+"'"));
                         PrintToConsole(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线1800完成情况成功!" : "备份制版线1800完成情况失败!");
                     }
                     else
@@ -107,7 +111,10 @@ namespace ConsoleAppBackupWorkingData
                     PrintToConsole("开始备份制版线2200的完成记录", false);
                     if (DataBaseList.sql制版线2200 != null)
                     {
-                        DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工_2200);
+                        //获取最后备份时间
+                        string lastBackupTime = MySqlDbHelper.ExecuteScalar(
+                            "SELECT date_sub(max(`结束时间`), interval 1 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='2.2米制版线'").ToString();
+                        DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工_2200.Replace("dateadd(dd,-30,GETDATE())", "'" + lastBackupTime + "'"));
                         PrintToConsole(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线2200完成情况成功!" : "备份制版线2200完成情况失败!");
                     }
                     else
@@ -118,8 +125,11 @@ namespace ConsoleAppBackupWorkingData
                     PrintToConsole("开始备份制版线2500的完成记录", false);
                     if (DataBaseList.sql制版线2500 != null)
                     {
-                        DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工_2500);
+                        //获取最后备份时间
+                        string lastBackupTime = MySqlDbHelper.ExecuteScalar(
+                            "SELECT date_sub(max(`结束时间`), interval 1 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='2.5米制版线'").ToString();
 
+                        DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工_2500.Replace("dateadd(dd,-30,GETDATE())", "'" + lastBackupTime + "'"));
                         PrintToConsole(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线2500完成情况成功!" : "备份制版线2500完成情况失败!");
                     }
                     else
