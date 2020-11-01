@@ -8,20 +8,20 @@
            t.prdnme as 产品名称,
        case objtyp
          when 'CB' then
-          (select replace(b.spcshw, 'x', '*')
+          (select b.spcshw
              from ord_ct b
             where b.serial = t.serial
               and b.orgcde = t.orgcde)
          when 'SP' then
-          (select b.fringl || '*' || b.fringw
+          (select b.fringl || 'x' || b.fringw
              from ord_ct_cal b
             where b.serial = t.serial
               and b.orgcde = t.orgcde)
          else
-          replace(max(replace(t.specs, 'x0', '')), 'x', '*')
+          max(replace(t.specs, 'x0', ''))
        end 规格,
        t.invnum as 数量,
-       round(t.accamt) as 金额,
+       t.accamt as 金额,
        round(t.invnum * t.acreage) as 总面积,  
         to_char(t.ptdate, 'yyyy-mm-dd') as 入库日期,
        (select TRUNC(sysdate) - TRUNC(t.ptdate)   FROM DUAL)库存天数,
@@ -34,6 +34,8 @@
        	(case when (select TRUNC(sysdate) - TRUNC(t.shdate)   FROM DUAL) between 7 and 14 then '07-14天'
        	when (select TRUNC(sysdate) - TRUNC(t.shdate)   FROM DUAL) between 15 and 30 then '15-30天'
        	else '31天及以上' end) else ' ' end 交货超期,
+       	(SELECT to_char(max(kk.ptdate),'yyyy-MM-dd')FROM EJSH.V_BCDX_CT kk 
+WHERE  kk.SERIAL=t.serial AND kk.objtyp='DL' and kk.invtyp ='XD' and kk.orgcde='KS03' and kk.clientid='KS' and kk.ordtyp='CL') 最后送货,
        (select r.agntnme
           from v_ord r
          where r.orgcde = t.orgcde

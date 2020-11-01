@@ -396,7 +396,7 @@ namespace ConsoleAppBackupWorkingData
                 sqlList.Add("INSERT ignore  INTO `slbz`.`瓦片完成情况` (`工单号`,`客户名`,`门幅`,`楞型`,`材质`,`长度`,`宽度`,`压线`,`开始时间`,`结束时间`,`生产时间`,`备注`,`瓦片线`,`数量`) VALUES"
         + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}');"
         , row["工单号"], row["客户名"], row["门幅"], row["楞型"], row["材质"], row["长度"], row["宽度"]
-        , ' ', ' ', row["结束时间"].ToString(), ' ', ' ', row["瓦片线"], row["数量"]));
+        , ' ', ' ', row["结束时间"].ToString(), ' ', row["备注"], row["瓦片线"], row["数量"]));
 
             }
             return MySqlDbHelper.ExecuteSqlTran(sqlList);
@@ -405,7 +405,7 @@ namespace ConsoleAppBackupWorkingData
         private static bool  SubmitZhiBanXianCurrentMysql(DataTable dt,string scx)
         {
             List<string> sqlList = new List<string>();
-            sqlList.Add("truncate table `slbz`.`瓦片当前排程`;");
+            sqlList.Add("delete from `slbz`.`瓦片当前排程` where `生产线`='"+scx+"';");
             foreach (DataRow row in dt.Rows)
             {
                 sqlList.Add("INSERT INTO `slbz`.`瓦片当前排程` (`订单号`,`客户`,`楞型`,`订单数`,`宽度`,`长度`,`材质`,`门幅`,`序号`,`备注`,`生产线`) VALUES"

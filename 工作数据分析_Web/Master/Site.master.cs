@@ -7,9 +7,6 @@ using System.Web.UI.WebControls;
 
 public partial class SiteMaster : System.Web.UI.MasterPage
 {
-
-
-
     protected void Page_Load(object sender, EventArgs e)
     {
             this.Label1.Text = "易捷:" + MySqlDbHelper.ExecuteScalar("SELECT `Value`	FROM `slbz`.`settingall`	where `Key`='LastGetTime'").ToString()

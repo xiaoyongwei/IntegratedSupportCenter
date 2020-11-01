@@ -1,0 +1,96 @@
+﻿select 
+(CASE WHEN t.agntnme IN(SELECT EMPNME
+FROM EJSH.V_HR_BASE
+WHERE  orgcde = 'KS03'
+   and clientid = 'KS'
+   and DUTNME='温岭二期'
+   and DPTNME='彩印销售部'
+   and STATUS='Y') then '二期' ELSE'一期' end )业务归属,
+CASE 
+WHEN  t.CRRCDE='1Z' and (SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.SERIAL=t.serial  and PRCTYPNME  IN('模切压痕','裱合贴面','粘箱粘合','钉箱装钉'))=0 
+THEN '面纸加工' --面纸加工:类型CL,材质是1Z,并且没有后道工序的报工
+when t.OBJTYP='CD' 
+then '数码'--数码:类型CD
+when length(replace(t.ctmatcde,'/',''))>1 then '彩盒'
+WHEN  t.OBJTYP='CL' and t.CRRCDE='1Z' and (SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.SERIAL=t.serial  and PRCTYPNME  IN('模切压痕','裱合贴面','粘箱粘合','钉箱装钉'))>0 
+THEN '面纸加工'
+ELSE '其他' END as 送货类型
+,t.smpnme  客户简称
+,t.clntnme 客户全称
+,t.pono    送货单号
+,t.serial  生产单号
+,to_char(t.ptdate,'yyyy-MM-dd') 送货日期
+,t.ptdate 送货时间
+,t.PRDNME     产品名称
+,t.agntnme    业务员
+,case  t.ordtyp 
+  when  'CB' then
+    replace(t.spcshw,'x','*')
+  else
+   replace(t.SPECS,'x','*') 
+  end         规格
+,t.ACCNUMR    送货数量
+,case  t.ordtyp 
+  when 'CB' then
+    round(t.ctinprice*t.pacreage,4)
+  else
+    t.PRICES
+  end        "销价(片价)"
+,case  t.ordtyp 
+   when 'CB' then 
+     round((t.ctinprice*round(t.pacreage,4) * t.ACCNUMR + nvl(t.dlvamt,0) + nvl(t.annamt,0) ),2)
+  else
+   round(t.prices * t.accnumr,2)
+   end       金额
+,(select i.prc1 from mk_pq_head i where i.orgcde=t.orgcde and 
+i.mkpcde=t.mkpcde) 报价单价
+,case  t.ordtyp 
+   when 'CB' then
+     round(t.ctinprice,4)
+   else
+   decode(t.acreage,0,0,round(t.PRICES/ t.acreage,2))
+ end 平方单价
+,case t.ordtyp
+  when 'CB' then
+    round(t.pacreage,4)
+  else
+    round(t.acreage,4)   
+end  箱片单位面积
+,case t.ordtyp
+  when 'CB' then
+    round(t.pacreage,4)
+  else
+    round(t.acreage,4)   
+end  纸箱单位面积
+,t.crrcde 楞型
+,replace(t.ctmatcde,'/','') 材质  --invcde  
+,t.smpnme ||' ' || t.PRDNME || ' ' || t.SPECS 型号
+,(select driver from dlv_auto where lnccde in (select lnccde from v_bcdx_ct b where b.id=t.id) and rownum = 1) 司机
+,case  t.ordtyp 
+   when 'CB' then
+     (select i.contact from pb_clnt_addr i where i.orgcde=t.ORGCDE and i.clientid=t.CLIENTID and i.clntcde=t.CLNTCDE and i.contact is not null  and rownum=1)
+   else
+   ''
+ end 联系人
+,t.address 地址
+,t.remark 备注
+,(select i.usrnme from sys_user i where  i.usrcde = t.CREATEDBY ) 排车员
+,(select r.lnccde from dlv_auto r,dlv_plan e where r.clientid=e.clientid and  r.clientid=t.CLIENTID and  r.orgcde=e.orgcde and e.orgcde=t.orgcde 
+                             and  t.serial = e.serial and r.plncde = e.plncde and rownum=1) 车牌号
+,t.prdnme 规格型号
+
+,(select e.accnum from dlv_plan e where e.orgcde=t.orgcde and t.serial = e.serial and e.plncde=t.srccde and rownum = 1) 装载量
+,(select e.plncde from dlv_plan e where e.orgcde=t.orgcde and t.serial = e.serial and e.plncde=t.srccde and rownum = 1) 装车单号
+,case t.ordtyp 
+   when 'CB' then
+    round(nvl(t.pacreage,0),4) * t.ACCNUMR 
+   else
+   round(nvl(t.acreage,0),4) * t.ACCNUMR
+end   箱片面积
+,nvl(t.annamt,0)  附加费
+,t.usrnme 操作人
+
+from v_bcdx_ct t where t.objtyp='DL' and t.invtyp ='XD' and t.orgcde='KS03' and t.clientid='KS' and t.ordtyp='CL'
+  and to_char(ptdate,'yyyy-MM-dd') >= '*开始时间*'
+  and to_char(ptdate,'yyyy-MM-dd') <= '*结束时间*' 
+ order by t.pono
