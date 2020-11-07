@@ -29,7 +29,7 @@ namespace ConsoleAppBackupWorkingData
                 try
                 {
                     //0.初始化数据库连接
-                    PrintToConsole("开始初始化数据库连接");
+                    PrintToConsole("开始初始化数据库连接",false);
                     DataBaseList.InitSqlhelper();
                     PrintToConsole("完成初始化数据库连接");
                     //1.备份制版线1800E的当前排程
@@ -94,7 +94,11 @@ namespace ConsoleAppBackupWorkingData
                     PrintToConsole("开始备份制版线1800E的完成记录", false);
                     if (DataBaseList.sql制版线1800 != null)
                     {
-                        DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800);
+                        //获取最后备份时间
+                        string lastBackupTime = MySqlDbHelper.ExecuteScalar(
+                            "SELECT date_sub(max(`结束时间`), interval 1 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='1.8米制版线'").ToString();
+
+                        DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800.Replace("dateadd(dd,-30,GETDATE())","'"+lastBackupTime+"'"));
                         PrintToConsole(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线1800完成情况成功!" : "备份制版线1800完成情况失败!");
                     }
                     else
@@ -107,7 +111,10 @@ namespace ConsoleAppBackupWorkingData
                     PrintToConsole("开始备份制版线2200的完成记录", false);
                     if (DataBaseList.sql制版线2200 != null)
                     {
-                        DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工_2200);
+                        //获取最后备份时间
+                        string lastBackupTime = MySqlDbHelper.ExecuteScalar(
+                            "SELECT date_sub(max(`结束时间`), interval 1 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='2.2米制版线'").ToString();
+                        DataTable dt = DataBaseList.sql制版线2200.Querytable(Resources.制版线完工_2200.Replace("dateadd(dd,-30,GETDATE())", "'" + lastBackupTime + "'"));
                         PrintToConsole(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线2200完成情况成功!" : "备份制版线2200完成情况失败!");
                     }
                     else
@@ -118,8 +125,11 @@ namespace ConsoleAppBackupWorkingData
                     PrintToConsole("开始备份制版线2500的完成记录", false);
                     if (DataBaseList.sql制版线2500 != null)
                     {
-                        DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工_2500);
+                        //获取最后备份时间
+                        string lastBackupTime = MySqlDbHelper.ExecuteScalar(
+                            "SELECT date_sub(max(`结束时间`), interval 1 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='2.5米制版线'").ToString();
 
+                        DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工_2500.Replace("dateadd(dd,-30,GETDATE())", "'" + lastBackupTime + "'"));
                         PrintToConsole(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线2500完成情况成功!" : "备份制版线2500完成情况失败!");
                     }
                     else
@@ -386,7 +396,7 @@ namespace ConsoleAppBackupWorkingData
                 sqlList.Add("INSERT ignore  INTO `slbz`.`瓦片完成情况` (`工单号`,`客户名`,`门幅`,`楞型`,`材质`,`长度`,`宽度`,`压线`,`开始时间`,`结束时间`,`生产时间`,`备注`,`瓦片线`,`数量`) VALUES"
         + string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}');"
         , row["工单号"], row["客户名"], row["门幅"], row["楞型"], row["材质"], row["长度"], row["宽度"]
-        , ' ', ' ', row["结束时间"].ToString(), ' ', ' ', row["瓦片线"], row["数量"]));
+        , ' ', ' ', row["结束时间"].ToString(), ' ', row["备注"], row["瓦片线"], row["数量"]));
 
             }
             return MySqlDbHelper.ExecuteSqlTran(sqlList);
@@ -395,7 +405,7 @@ namespace ConsoleAppBackupWorkingData
         private static bool  SubmitZhiBanXianCurrentMysql(DataTable dt,string scx)
         {
             List<string> sqlList = new List<string>();
-            sqlList.Add("truncate table `slbz`.`瓦片当前排程`;");
+            sqlList.Add("delete from `slbz`.`瓦片当前排程` where `生产线`='"+scx+"';");
             foreach (DataRow row in dt.Rows)
             {
                 sqlList.Add("INSERT INTO `slbz`.`瓦片当前排程` (`订单号`,`客户`,`楞型`,`订单数`,`宽度`,`长度`,`材质`,`门幅`,`序号`,`备注`,`生产线`) VALUES"

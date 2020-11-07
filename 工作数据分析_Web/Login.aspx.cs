@@ -11,7 +11,7 @@ public partial class WebPage_Login : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         FormsAuthentication.SignOut();
-        FormsAuthentication.RedirectToLoginPage();
+        //FormsAuthentication.RedirectToLoginPage();
     }
 
    
