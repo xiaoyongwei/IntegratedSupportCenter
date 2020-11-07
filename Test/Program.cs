@@ -1,6 +1,9 @@
 
 using System;
+using System.Data;
+using System.IO;
 using System.Linq;
+using 工作数据分析.Data.DAL.Oracle;
 
 namespace Test
 {
@@ -24,15 +27,23 @@ namespace Test
 
         private static void _Main()
         {
-            string a = "456654564";
-            string b = "5665444";
-            Console.WriteLine(a);
-            Console.WriteLine(b);
-
-           
-            Console.WriteLine();
-            Console.WriteLine("相似度:" + Math.Round((100.0 * a.ToCharArray().Intersect(b).Count() / a.ToCharArray().Union(b).Count()), 3) + "%");
-
+            foreach (DataRow dRow in 
+                OracleHelper.ExecuteDataTable("SELECT table_name FROM all_tables").Rows)
+            {
+                Console.WriteLine();
+                foreach (DataRow columnName in 
+                    OracleHelper.ExecuteDataTable(
+                        "SELECT column_name FROM all_tab_columns WHERE table_name='"+dRow[0].ToString()+"'").Rows)
+                {
+                    //if ("pkcode".Equals(columnName[0].ToString(),StringComparison.OrdinalIgnoreCase))
+                    //{
+                        File.AppendAllText("D:\\tableNames.txt", 
+                            dRow[0].ToString()+"\t"+columnName[0].ToString()+Environment.NewLine);
+                        Console.WriteLine(dRow[0].ToString() + "\t" + columnName[0].ToString());
+                    //    break;
+                    //}
+                }
+            }
         }
 
 
