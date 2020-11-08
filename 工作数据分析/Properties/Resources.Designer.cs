@@ -550,7 +550,7 @@ namespace 工作数据分析.Properties {
         }
         
         /// <summary>
-        ///   查找类似 SELECT ID,to_char(ptdate,&apos;yyyy-mm-dd hh:MM:ss&apos;) 时间,&quot;PAYSTS&quot; 结算
+        ///   查找类似 SELECT ID,to_char(ptdate,&apos;yyyy-mm-dd HH:MM:ss&apos;) 时间,&quot;PAYSTS&quot; 结算
         ///	,&quot;DRIVER&quot; 司机
         ///	,&quot;LNCCDE&quot; 车牌号
         ///	,nvl(&quot;DISTANCE&quot;,0) 距离
