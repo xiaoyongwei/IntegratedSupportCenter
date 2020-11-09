@@ -127,8 +127,7 @@ select v1.Fdate AS '日期'
 		when v1.FCheckerID &lt; 0
 			then 'Y'
 		else ''
-		end AS '审核'
-	
+		end AS '审核'	
 	,v1.FBillNo AS '单据编号'
 	,t4.FName AS '供应商'
 	,t7.FName AS '收料仓库'
@@ -146,16 +145,12 @@ select v1.Fdate AS '日期'
 	,t30.FName AS '基本单位'
 	,u1.Fauxqty AS '实收数量'
 	,t552.FName AS '辅助单位'
-	,u1.FSecQty AS'辅助数量'
-	
+	,u1.FSecQty AS'辅助数量'	
 	,u1.FEntrySelfA0156 AS '含税单价'
 	,u1.FEntrySelfA0159 AS '含税金额'
-
-	,u1.Fauxprice AS '单位成本'
-	
+	,u1.Fauxprice AS '单位成本'	
 	,u1.Famount AS '单位金额'
-	,u1.FNote AS '备注'
-	
+	,u1.FNote AS '备注'	
 from ICStockBill v1
 INNER JOIN ICStockBillEntry u1 ON v1.FInterID = u1.FInterID
 	AND u1.FInterID &lt;&gt; 0
@@ -163,29 +158,14 @@ INNER JOIN t_Supplier t4 ON v1.FSupplyID = t4.FItemID
 	AND t4.FItemID &lt;&gt; 0
 INNER JOIN t_Stock t7 ON u1.FDCStockID = t7.FItemID
 	AND t7.FItemID &lt;&gt; 0
-INNER JOIN t_User t10 ON v1.FBillerID = t10.FUserID
-	AND t10.FUserID &lt;&gt; 0
 INNER JOIN t_ICItem t13 ON u1.FItemID = t13.FItemID
 	AND t13.FItemID &lt;&gt; 0
-INNER JOIN t_MeasureUnit t17 ON u1.FUnitID = t17.FItemID
-	AND t17.FItemID &lt;&gt; 0
 INNER JOIN t_MeasureUnit t30 ON t13.FUnitID = t30.FItemID
 	AND t30.FItemID &lt;&gt; 0
 LEFT OUTER JOIN t_AuxItem t101 ON u1.FAuxPropID = t101.FItemid
 	AND t101.FItemid &lt;&gt; 0
-LEFT OUTER JOIN ICVoucherTpl t23 ON v1.FPlanVchTplID = t23.FInterID
-	AND t23.FInterID &lt;&gt; 0
-LEFT OUTER JOIN ICVoucherTpl t25 ON v1.FActualVchTplID = t25.FInterID
-	AND t25.FInterID &lt;&gt; 0
-LEFT OUTER JOIN t_MeasureUnit t500 ON t13.FStoreUnitID = t500.FItemID
-	AND t500.FItemID &lt;&gt; 0
-LEFT OUTER JOIN t_Currency t503 ON v1.FCurrencyID = t503.FCurrencyID
-	AND t503.FCurrencyID &lt;&gt; 0
-LEFT OUTER JOIN ZPStockBill t523 ON v1.FInterID = t523.FRelateBillInterID
-	AND t523.FRelateBillInterID &lt;&gt; 0
 LEFT OUTER JOIN t_MeasureUnit t552 ON t13.FSecUnitID = t552.FItemID
 	AND t552.FItemID &lt;&gt; 0
-
 where( t7.FNumber between 13 and 16 )and (v1.fdate between cast(dateadd(dd,-60,getdate()) as date) and cast(dateadd(dd,0,getdate()) as date))</value>
   </data>
   <data name="二期原纸仓库即时库存" xml:space="preserve">

@@ -1,4 +1,6 @@
 ﻿using DBUtility;
+using MySql.Data.MySqlClient;
+using 综合保障中心.Comm;
 
 namespace 工作数据分析.Data.DAL
 {
@@ -30,19 +32,19 @@ namespace 工作数据分析.Data.DAL
             sql制版线2500 = null;
 
 
-            if (SqlHelper.IsConnection(ConnString_财务))
+            if (My.Ping(IP_财务)&& SqlHelper.IsConnection(ConnString_财务))
             {
                 sql财务 = new SqlHelper(ConnString_财务);
             }
-            if (SqlHelper.IsConnection(ConnString_制版线1800))
+            if (My.Ping(IP_制版线1800) && SqlHelper.IsConnection(ConnString_制版线1800))
             {
                 sql制版线1800 = new SqlHelper(ConnString_制版线1800);
             }
-            if (SqlHelper.IsConnection(ConnString_制版线2200))
+            if (My.Ping(IP_制版线2200) && SqlHelper.IsConnection(ConnString_制版线2200))
             {
                 sql制版线2200 = new SqlHelper(ConnString_制版线2200);
             }
-            if (SqlHelper.IsConnection(ConnString_制版线2500))
+            if (My.Ping(IP_制版线2500) && SqlHelper.IsConnection(ConnString_制版线2500))
             {
                 sql制版线2500 = new SqlHelper(ConnString_制版线2500);
             }
