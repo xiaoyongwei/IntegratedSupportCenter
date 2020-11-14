@@ -15,15 +15,10 @@ public partial class WebPage_wuliu_YunfeiJiesuanPingzheng : System.Web.UI.Page
             Page.Title = "运费核对单";
             this.TextBox_time_S.Text = DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd");
             this.TextBox_time_E.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            this.DropDownListJiashiyuan.Items.Add("霍红海");
-            this.DropDownListJiashiyuan.Items.Add("郑二毛");
-            this.DropDownListJiashiyuan.Items.Add("郑荷伟");
-            this.DropDownListJiashiyuan.Items.Add("周晓军");
-            this.DropDownListJiashiyuan.Items.Add("杨冬冬");
-            this.DropDownListJiashiyuan.Items.Add("娄绍勇");
-            this.DropDownListJiashiyuan.Items.Add("郑华东");
-            this.DropDownListJiashiyuan.Items.Add("陶明凯");
-            this.DropDownListJiashiyuan.Items.Add("董美枝");
+            foreach (DataRow row in MySqlDbHelper.ExecuteDataTable("SELECT `司机`FROM `slbz`.`物流_司机信息`").Rows)
+            {
+                this.DropDownListJiashiyuan.Items.Add(row[0].ToString());
+            }
         }
         
         
