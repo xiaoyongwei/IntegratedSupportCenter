@@ -29,7 +29,7 @@ public partial class WebPage_FahuoGaikuangAnRiqi : System.Web.UI.Page
     {
         string sqlTemplate = new StreamReader(
                 new FileStream(
-                  Server.MapPath("~\\sqltxt\\发货明细.txt"),
+                  Server.MapPath("~\\sqltxt\\发货明细12部.txt"),
                     FileMode.Open, FileAccess.Read, FileShare.Read)).ReadToEnd();
 
 
@@ -41,12 +41,19 @@ public partial class WebPage_FahuoGaikuangAnRiqi : System.Web.UI.Page
 
         sqlTemplate=sqlTemplate.Replace("*开始时间*", TextBoxDateS.Text).Replace("*结束时间*", TextBoxDateE.Text);
 
+        GridView1.Caption = this.TextBoxDateS.Text + "到" + this.TextBoxDateE.Text + "_" +
+            "发货统计";
+        DataTable dt=
+         OracleHelper.ExecuteDataTable(
+            "SELECT aa.业务归属,aa.送货类型,sum(箱片面积)送货面积  from (" + sqlTemplate
+            + ")aa  GROUP BY aa.业务归属,aa.送货类型 ORDER BY aa.业务归属,aa.送货类型");
+        DataRow newRow=dt.NewRow();
+        newRow["业务归属"] = "合计:";
+        newRow["送货类型"] = "";
+        newRow["送货面积"] = dt.Compute("Sum(送货面积)", "1=1");
+        dt.Rows.Add(newRow);
 
-        GridView1.DataSource = OracleHelper.ExecuteDataTable(
-            "select aa.送货类型,sum(aa.箱片面积)送货面积 from(" + sqlTemplate
-            + ")aa where aa.业务归属='二期' group by rollup(aa.送货类型)");
-        GridView1.Caption = this.TextBoxDateS.Text+"到"+ this.TextBoxDateE.Text + "_" +
-            "销售12部发货统计";
+        GridView1.DataSource = dt;
         GridView1.DataBind();
 
         GridView2.DataSource = OracleHelper.ExecuteDataTable(sqlTemplate);

@@ -70,8 +70,7 @@ namespace ConsoleAppBackupWorkingData.Properties {
         ///		when v1.FCheckerID &lt; 0
         ///			then &apos;Y&apos;
         ///		else &apos;&apos;
-        ///		end AS &apos;审核&apos;
-        ///	
+        ///		end AS &apos;审核&apos;	
         ///	,v1.FBillNo AS &apos;单据编号&apos;
         ///	,t4.FName AS &apos;供应商&apos;
         ///	,t7.FName AS &apos;收料仓库&apos;
@@ -88,7 +87,7 @@ namespace ConsoleAppBackupWorkingData.Properties {
         ///	,u1.FBatchNo&apos;批号&apos;
         ///	,t30.FName AS &apos;基本单位&apos;
         ///	,u1.Fauxqty AS &apos;实收数量&apos;
-        ///	,t552.FName AS &apos;辅助单位 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	,t552.FName AS &apos;辅助单位&apos;        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 二期仓库入库 {
             get {

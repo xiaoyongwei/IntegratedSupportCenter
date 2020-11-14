@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using 工作数据分析.Data.DAL;
@@ -16,16 +17,9 @@ namespace ConsoleAppBackupWorkingData
     {
         static void Main(string[] args)
         {
-            int num = 0;
             PrintToConsole("启动程序");
             while (true)
-            {
-                //达到一定次数则清空原来的输出
-                if (num++ > 100)
-                {
-                    num = 0;
-                    Console.Clear();
-                }
+            {               
                 try
                 {
                     //0.初始化数据库连接
@@ -33,7 +27,7 @@ namespace ConsoleAppBackupWorkingData
                     DataBaseList.InitSqlhelper();
                     PrintToConsole("完成初始化数据库连接");
                     //1.备份制版线1800E的当前排程
-                    PrintToConsole("开始备份制版线1800E的当前排程",false);
+                    PrintToConsole("开始备份制版线1800E的当前排程", false);
                     if (My.Ping(DataBaseList.IP_制版线1800) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800))
                     {
                         DataBaseList.sql制版线1800 = new SqlHelper(DataBaseList.ConnString_制版线1800);
@@ -98,7 +92,7 @@ namespace ConsoleAppBackupWorkingData
                         string lastBackupTime = MySqlDbHelper.ExecuteScalar(
                             "SELECT date_sub(max(`结束时间`), interval 1 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='1.8米制版线'").ToString();
 
-                        DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800.Replace("dateadd(dd,-30,GETDATE())","'"+lastBackupTime+"'"));
+                        DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800.Replace("dateadd(dd,-30,GETDATE())", "'" + lastBackupTime + "'"));
                         PrintToConsole(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线1800完成情况成功!" : "备份制版线1800完成情况失败!");
                     }
                     else
@@ -138,7 +132,7 @@ namespace ConsoleAppBackupWorkingData
                     }
                     //9.备份金蝶外购入库明细(仓库代码从13到16)
                     Get二期仓库入库明细();
-                    //10.备份金蝶生产领料明细(仓库代码从13到16,或领料部门是二期)
+                    //10.备份金蝶生产领料明细(仓库代码从13到16, 或领料部门是二期)
                     Get二期辅料仓库领料明细();
                     //11.备份金蝶原纸即时库存
                     Get二期原纸仓库即时库存();
@@ -146,7 +140,7 @@ namespace ConsoleAppBackupWorkingData
                     Get二期辅料仓库即时库存();
                     //13.备份金蝶胶印纸箱仓库即时库存
                     Get二期胶印纸箱仓库即时库存();
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -269,18 +263,56 @@ namespace ConsoleAppBackupWorkingData
         private  static void Get二期辅料仓库领料明细()
         {
             PrintToConsole("开始获取二期辅料仓库领料明细", false);
+            List<string> sqlList = new List<string>();
             if (DataBaseList.sql财务 != null)
             {
-                //1.先读取60天内的所有明细(考虑到一个账期的时间为一个自然月)
-                //2.删除mysql中这个时间段内的所有数据(防止有删除或较大的变动)
-                //3.删除读取过来的明细里面的所领料单号(防止有改动)
-                //4.插入到mysql中
-                //开始添加到sql中
-                DataTable dt = DataBaseList.sql财务.Querytable(Resources.二期原纸辅料领料明细);
-                List<string> sqlList = new List<string>();
+                //1.确定更新的时间(MYSQL中的时间往前一天)
+                //2.从金蝶LOG中读取时间范围内的有变动的单号
+                //3.从MYSQL中删除有变动的单号
+                //4.从金蝶数据库中读取有变动的领料明细
+                //5.正常插入到MYSQL中
 
+                //-------------------------------------------------
 
-
+                //1.确定更新的时间(MYSQL中的时间往前一天)
+                DateTime dTime = Convert.ToDateTime(MySqlDbHelper.ExecuteScalar("SELECT date_add(max(`日期`),interval -1 day)FROM `slbz`.`金蝶_生产领料`"));
+                //2.从金蝶LOG中读取时间范围内的有变动的单号
+                List<string> danhaoList = new List<string>();
+                foreach (DataRow dataRow in DataBaseList.sql财务.Querytable(
+                    "SELECT [FDescription]FROM [dbo].[t_Log]WHERE FDescription LIKE'%单据%' and FDescription LIKE'%SOUT%' and  FStatement=3 and fdate>='" + dTime.ToString("yyyy-MM-dd") + "'").Rows)
+                {
+                    string danhao = Regex.Match(dataRow[0].ToString(), "SOUT\\d+").Value;
+                    if (!danhaoList.Contains(danhao))
+                    {
+                        danhaoList.Add(danhao);
+                    }
+                }
+                //3.从MYSQL中删除有变动的单号
+                foreach (string danhao in danhaoList)
+                {
+                    sqlList.Add("DELETE FROM `slbz`.`金蝶_生产领料`	WHERE `单据编号`='" + danhao + "';");
+                }
+                if (MySqlDbHelper.ExecuteSqlTran(sqlList))
+                {
+                    PrintToConsole("删除有变动的单据编号成功! ", false);
+                }
+                else
+                {
+                    PrintToConsole("删除有变动的单据编号失败!", false, ConsoleColor.Red);
+                    return;
+                }
+                sqlList.Clear();
+                //4.从金蝶数据库中读取有变动的领料明细
+                //SQL语句
+                StringBuilder sb = new StringBuilder(Resources.二期原纸辅料领料明细.Replace(")llfx",""));
+                sb.Append(" and v1.FBillNo in(''");
+                foreach (string danhao in danhaoList)
+                {
+                    sb.Append(",'" + danhao + "'");
+                }
+                sb.Append(") )llfx");
+                //5.正常插入到MYSQL中
+                DataTable dt = DataBaseList.sql财务.Querytable(sb.ToString());    
                 StringBuilder sb_Insert = new StringBuilder("INSERT INTO `slbz`.`金蝶_生产领料`(");
                 foreach (DataColumn dc in dt.Columns)//添加列
                 {
@@ -300,11 +332,11 @@ namespace ConsoleAppBackupWorkingData
                     sb_values.AppendLine(");");
                     sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
                 }
-                if (sqlList.Count > 0)
-                {
-                    sqlList.Insert(0, "DELETE FROM `slbz`.`金蝶_生产领料`	WHERE `日期`  "
-                    + "BETWEEN date_format(date_add(now(), interval -60 day), '%Y-%m-%d') AND  date_format(now(), '%Y-%m-%d');");
-                }
+                //if (sqlList.Count > 0)
+                //{
+                //    sqlList.Insert(0, "DELETE FROM `slbz`.`金蝶_生产领料`	WHERE `日期`  "
+                //    + "BETWEEN date_format(date_add(now(), interval -60 day), '%Y-%m-%d') AND  date_format(now(), '%Y-%m-%d');");
+                //}
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
 
@@ -328,13 +360,55 @@ namespace ConsoleAppBackupWorkingData
             PrintToConsole("开始获取二期仓库入库明细", false);
             if (DataBaseList.sql财务 != null)
             {
-                //1.先读取60天内的所有明细(考虑到一个账期的时间为一个自然月)
-                //2.删除mysql中这个时间段内的所有数据(防止有删除或较大的变动)
-                //3.删除读取过来的明细里面的所有入库单号(防止有改动)
-                //4.插入到mysql中
-                DataTable dt = DataBaseList.sql财务.Querytable(Resources.二期仓库入库);
                 List<string> sqlList = new List<string>();
 
+                //1.确定更新的时间(MYSQL中的时间往前一天)
+                //2.从金蝶LOG中读取时间范围内的有变动的单号
+                //3.从MYSQL中删除有变动的单号
+                //4.从金蝶数据库中读取有变动的入库明细
+                //5.正常插入到MYSQL中
+
+                //-------------------------------------------------
+                //1.确定更新的时间(MYSQL中的时间往前一天)
+                DateTime dTime = Convert.ToDateTime(MySqlDbHelper.ExecuteScalar("SELECT date_add(max(`日期`),interval -1 day)FROM `slbz`.`金蝶_外购入库`"));
+                //2.从金蝶LOG中读取时间范围内的有变动的单号
+                List<string> danhaoList = new List<string>();
+                foreach (DataRow dataRow in DataBaseList.sql财务.Querytable(
+                    "SELECT [FDescription]FROM [dbo].[t_Log]WHERE FDescription LIKE'%单据%' and  FStatement=3 and fdate>='" + dTime.ToString("yyyy-MM-dd") + "'").Rows)
+                {
+                    string danhao = Regex.Match(dataRow[0].ToString(), "\\d{8,}").Value;
+                    if (!danhaoList.Contains(danhao))
+                    {
+                        danhaoList.Add(danhao);
+                    }
+                }
+                //3.从MYSQL中删除有变动的单号
+                foreach (string danhao in danhaoList)
+                {
+                    sqlList.Add("DELETE FROM `slbz`.`金蝶_外购入库`	WHERE `单据编号`='" + danhao + "';");
+                }
+                if (MySqlDbHelper.ExecuteSqlTran(sqlList))
+                {
+                    PrintToConsole("删除有变动的单据编号成功! ",false);
+                }
+                else
+                {
+                    PrintToConsole("删除有变动的单据编号失败!", false, ConsoleColor.Red);
+                    return;
+                }
+                sqlList.Clear();
+                //4.从金蝶数据库中读取有变动的入库明细
+                //SQL语句
+                StringBuilder sb = new StringBuilder(Resources.二期仓库入库);
+                sb.Append(" and v1.FBillNo in(''");
+                foreach (string danhao in danhaoList)
+                {
+                    sb.Append(",'"+danhao+"'");
+                }
+                sb.Append(")");
+                //连接金蝶数据库
+                DataTable dt = DataBaseList.sql财务.Querytable(sb.ToString());
+                //5.正常插入到MYSQL中
                 StringBuilder sb_Insert = new StringBuilder("INSERT INTO `slbz`.`金蝶_外购入库`(");
                 foreach (DataColumn dc in dt.Columns)//添加列
                 {
@@ -354,11 +428,7 @@ namespace ConsoleAppBackupWorkingData
                     sb_values.AppendLine(");");
                     sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
                 }
-                if (sqlList.Count > 0)
-                {
-                    sqlList.Insert(0, "DELETE FROM `slbz`.`金蝶_外购入库`	WHERE `日期`  "
-                    + "BETWEEN   date_format(date_add(now(), interval -60 day), '%Y-%m-%d')AND   date_format(now(), '%Y-%m-%d') ");
-                }
+
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
 
@@ -374,8 +444,6 @@ namespace ConsoleAppBackupWorkingData
                 PrintToConsole("财务系统没有连接!");
 
             }
-
-
         }
 
 
