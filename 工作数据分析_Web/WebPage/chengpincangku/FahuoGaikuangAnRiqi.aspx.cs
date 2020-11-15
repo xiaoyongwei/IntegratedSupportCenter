@@ -10,6 +10,10 @@ using System.Web.UI.WebControls;
 
 public partial class WebPage_FahuoGaikuangAnRiqi : System.Web.UI.Page
 {
+
+    private DataTable dt_huizong = new DataTable(); 
+    private DataTable dt_mingxi = new DataTable();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Page.IsPostBack)
@@ -43,26 +47,54 @@ public partial class WebPage_FahuoGaikuangAnRiqi : System.Web.UI.Page
 
         GridView1.Caption = this.TextBoxDateS.Text + "到" + this.TextBoxDateE.Text + "_" +
             "发货统计";
-        DataTable dt=
+        dt_huizong =
          OracleHelper.ExecuteDataTable(
             "SELECT aa.业务归属,aa.送货类型,sum(箱片面积)送货面积  from (" + sqlTemplate
             + ")aa  GROUP BY aa.业务归属,aa.送货类型 ORDER BY aa.业务归属,aa.送货类型");
-        DataRow newRow=dt.NewRow();
+        DataRow newRow=dt_huizong.NewRow();
         newRow["业务归属"] = "合计:";
         newRow["送货类型"] = "";
-        newRow["送货面积"] = dt.Compute("Sum(送货面积)", "1=1");
-        dt.Rows.Add(newRow);
-
-        GridView1.DataSource = dt;
+        newRow["送货面积"] = dt_huizong.Compute("Sum(送货面积)", "1=1");
+        dt_huizong.Rows.Add(newRow);
+        GridView1.DataSource = dt_huizong;
         GridView1.DataBind();
+        dt_huizong.TableName = "发货汇总";
 
-        GridView2.DataSource = OracleHelper.ExecuteDataTable(sqlTemplate);
+        dt_mingxi= OracleHelper.ExecuteDataTable(sqlTemplate);
+        GridView2.DataSource = dt_mingxi;
         GridView2.Caption = this.TextBoxDateS.Text + "到" + this.TextBoxDateE.Text + "_发货明细";
         GridView2.DataBind();
+        dt_mingxi.TableName = "发货明细";
+
+        this.Button1.Enabled = this.TextBoxDateE.Text.Equals(this.TextBoxDateS.Text);
+        this.Button1.Visible = this.Button1.Enabled;
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
         Search();
+    }
+
+    protected void ButtonDownLoad_Click(object sender, EventArgs e)
+    {
+        string[] dateArray = this.TextBoxDateE.Text.Split('-');
+        string strServerPath = Server.MapPath("~") + "/TmpDownFile/销售12部彩盒发货" +
+            string.Format("{0}年{1}月{2}日",
+            dateArray[0], dateArray[1], dateArray[2]) + ".xls";//待下载服务器文件路径
+        ExcelHelper excel = new ExcelHelper(strServerPath);
+        List<DataTable> dtList = new List<DataTable>();
+        dtList.Add(dt_huizong);
+        dtList.Add(dt_mingxi);
+        excel.DataTableListToExcel(dtList);
+
+        FileInfo f = new FileInfo(strServerPath);
+        Response.Clear();
+        Response.Charset = "GB2312";
+        Response.ContentEncoding = System.Text.Encoding.UTF8;
+        Response.AddHeader("Content-Disposition", "attachment;filename=" + Server.UrlEncode(f.Name));
+        Response.AddHeader("Content-Length", f.Length.ToString());
+        Response.ContentType = "application/x-bittorrent";
+        Response.WriteFile(f.FullName);
+        Response.End();
     }
 }

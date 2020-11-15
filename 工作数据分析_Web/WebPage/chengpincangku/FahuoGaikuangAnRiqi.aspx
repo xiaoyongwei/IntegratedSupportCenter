@@ -8,7 +8,7 @@
 &nbsp;<%-- <asp:TextBox ID="TextBoxDateS" runat="server"></asp:TextBox>
 <asp:TextBox ID="TextBoxDateE" runat="server"></asp:TextBox>--%><asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="确  认" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="ButtonDownLoad" runat="server" Text="下载Excel" />
+    <asp:Button ID="ButtonDownLoad" runat="server" Text="下载Excel" OnClick="ButtonDownLoad_Click"/>
     <br />
     <asp:GridView ID="GridView1" runat="server">
     </asp:GridView>
