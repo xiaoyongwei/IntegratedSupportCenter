@@ -7,7 +7,7 @@ using System.IO;
 using Oracle.ManagedDataAccess.Client;
 
 /// <summary>
-/// Oracle数据库操作类
+/// Oracle数据库操作类(静态类)
 /// </summary>
 public static class OracleHelper
 {

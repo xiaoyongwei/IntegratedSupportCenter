@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Simple.master.cs" Inherits="工作数据分析Web_FineUI.Master.Simple" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="headCPH" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <f:PageManager ID="PageManager1" AutoSizePanelID="Panel1" runat="server" />
+        <f:Panel ID="Panel1" CssClass="toppanel" runat="server" ShowBorder="true" ShowHeader="true" Title="母版页" Margin="20px"
+            Layout="HBox" BoxConfigAlign="Stretch" BoxConfigPosition="Start" BoxConfigChildMargin="0 5 0 0" BodyPadding="5">
+            <Items>
+                <f:Tree ID="Tree1" Width="200px" ShowHeader="true" Title="位于母版页中" OnNodeCommand="Tree1_NodeCommand" runat="server">
+                    <Nodes>
+                        <f:TreeNode Text="中国" Expanded="true" EnableClickEvent="true">
+                            <f:TreeNode Text="河南省" Expanded="true" EnableClickEvent="true">
+                                <f:TreeNode Text="驻马店市" NodeID="zhumadian" EnableClickEvent="true">
+                                </f:TreeNode>
+                                <f:TreeNode Text="漯河市" NodeID="luohe" EnableClickEvent="true" />
+                            </f:TreeNode>
+                            <f:TreeNode Text="安徽省" Expanded="true" NodeID="anhui" EnableClickEvent="true">
+                                <f:TreeNode Text="合肥市" Expanded="true" NodeID="hefei" EnableClickEvent="true">
+                                </f:TreeNode>
+                            </f:TreeNode>
+                        </f:TreeNode>
+                    </Nodes>
+                </f:Tree>
+                <f:CPHConnector ID="CPHConnector1" runat="server">
+                    <asp:ContentPlaceHolder ID="mainCPH" runat="server">
+                    </asp:ContentPlaceHolder>
+                </f:CPHConnector>
+            </Items>
+        </f:Panel>
+    </form>
+    <asp:ContentPlaceHolder ID="scriptCPH" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
