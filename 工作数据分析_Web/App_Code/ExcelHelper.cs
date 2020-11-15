@@ -176,7 +176,10 @@ using System.Windows.Forms;
                         count++;
                     }
                 }
-
+            if (File.Exists(fileFullName))
+            {
+                File.Delete(fileFullName);
+            }
                 fs = new FileStream(fileFullName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
                 workbook.Write(fs); //写入到excel
                 return count;

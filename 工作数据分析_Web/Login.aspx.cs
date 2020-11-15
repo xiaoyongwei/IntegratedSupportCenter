@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+
 
 public partial class WebPage_Login : System.Web.UI.Page
 {
@@ -12,6 +14,16 @@ public partial class WebPage_Login : System.Web.UI.Page
     {
         FormsAuthentication.SignOut();
         //FormsAuthentication.RedirectToLoginPage();
+
+        //每次登陆的时候删除超过1个小时的临时文件
+        string path = Server.MapPath("~") + "TmpDownFile";
+        foreach (string file in Directory.EnumerateFiles(path))
+        {
+            if (File.GetLastWriteTime(file)<DateTime.Now.AddHours(-1))
+            {
+                File.Delete(file);
+            }
+        }
     }
 
    

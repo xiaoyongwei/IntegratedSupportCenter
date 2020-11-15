@@ -95,6 +95,10 @@ public partial class WebPage_FahuoGaikuangAnRiqi : System.Web.UI.Page
         Response.AddHeader("Content-Length", f.Length.ToString());
         Response.ContentType = "application/x-bittorrent";
         Response.WriteFile(f.FullName);
-        Response.End();
+        // Response.End();
+        ApplicationInstance.CompleteRequest();
+
+
+       
     }
 }
