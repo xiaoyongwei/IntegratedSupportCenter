@@ -55,12 +55,13 @@ namespace YBF.WinForm
 
         private void InitPdfList()
         {
-            string pdfPath = @"\\EvoServer\JobData\PDF\已下单PDF";
+            
+            //string pdfPath = @"\\EvoServer\JobData\PDF\已下单PDF";
+            string pdfPath = @"\\192.168.110.32\JobData\PDF\已下单PDF";
             if (Comm_Method.IsConnectPath(pdfPath))
             {
                 pdfFiles = new DirectoryInfo(pdfPath).GetFiles("*.pdf", System.IO.SearchOption.AllDirectories);
             }
-
         }
 
         public void InitDgv()

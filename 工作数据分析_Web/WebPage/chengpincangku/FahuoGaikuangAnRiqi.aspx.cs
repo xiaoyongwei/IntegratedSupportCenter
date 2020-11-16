@@ -66,8 +66,8 @@ public partial class WebPage_FahuoGaikuangAnRiqi : System.Web.UI.Page
         GridView2.DataBind();
         dt_mingxi.TableName = "发货明细";
 
-        this.Button1.Enabled = this.TextBoxDateE.Text.Equals(this.TextBoxDateS.Text);
-        this.Button1.Visible = this.Button1.Enabled;
+        this.ButtonDownLoad.Enabled = this.TextBoxDateE.Text.Equals(this.TextBoxDateS.Text);
+        this.ButtonDownLoad.Visible = this.Button1.Enabled;
     }
 
     protected void Button1_Click(object sender, EventArgs e)

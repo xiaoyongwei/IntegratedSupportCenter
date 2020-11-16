@@ -37,6 +37,8 @@ namespace YBF
 
         //private Thread thSavePdf;//进程
         private Thread thBuckupToDisk;//进程,定时备份数据库到硬盘
+        private List<string> pdfFiles;
+
 
         public MainForm()
         {
@@ -193,9 +195,12 @@ namespace YBF
 
         private void fileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
+
+            string fileFullName = e.FullPath;
             switch (e.ChangeType)
             {
                 case WatcherChangeTypes.Created:
+                    
                     break;
                 case WatcherChangeTypes.Deleted:
                     break;
@@ -216,6 +221,8 @@ namespace YBF
                 BuckupDateBaseToDisk();
                 //清空临时文件
                 DeleteTemp();
+                //初始化PDF文件列表
+                InitPdfList();
             }
             catch (Exception ex)
             {
@@ -230,6 +237,21 @@ namespace YBF
 
             this.作业管理新ToolStripMenuItem_Click(this, new EventArgs());
         }
+
+        /// <summary>
+        /// 初始化PDF文件列表
+        /// </summary>
+        private void InitPdfList()
+        {
+            fileSystemWatcher1.EnableRaisingEvents = false;
+            string pdfPath = @"\\EvoServer\JobData\PDF\已下单PDF";
+            if (Comm_Method.IsConnectPath(pdfPath))
+            {
+                pdfFiles =  Directory.EnumerateFiles(pdfPath,"*.pdf", System.IO.SearchOption.AllDirectories).ToList();
+            }
+            fileSystemWatcher1.EnableRaisingEvents = true;
+        }
+
         /// <summary>
         /// 删除临时文件
         /// </summary>
@@ -697,6 +719,8 @@ namespace YBF
         }
 
         FormFuliaoKucunJilu cukunJilu = null;
+        
+
         private void tsmiFuliaoKucunJilu_Click(object sender, EventArgs e)
         {
             if (cukunJilu == null || cukunJilu.IsDisposed)
