@@ -37,7 +37,6 @@ namespace YBF
 
         //private Thread thSavePdf;//进程
         private Thread thBuckupToDisk;//进程,定时备份数据库到硬盘
-        private List<string> pdfFiles;
 
 
         public MainForm()
@@ -193,22 +192,7 @@ namespace YBF
             findOld.Focus();
         }
 
-        private void fileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
-        {
-
-            string fileFullName = e.FullPath;
-            switch (e.ChangeType)
-            {
-                case WatcherChangeTypes.Created:
-                    
-                    break;
-                case WatcherChangeTypes.Deleted:
-                    break;
-                case WatcherChangeTypes.Renamed:
-                    break;
-            }
-        }
-
+        
 
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -235,7 +219,7 @@ namespace YBF
 
             // InitTimer();
 
-            this.作业管理新ToolStripMenuItem_Click(this, new EventArgs());
+           // this.作业管理新ToolStripMenuItem_Click(this, new EventArgs());
         }
 
         /// <summary>
@@ -244,10 +228,11 @@ namespace YBF
         private void InitPdfList()
         {
             fileSystemWatcher1.EnableRaisingEvents = false;
-            string pdfPath = @"\\EvoServer\JobData\PDF\已下单PDF";
+            //string pdfPath = @"\\EvoServer\JobData\PDF\已下单PDF";
+            string pdfPath = @"\\192.168.110.32\JobData\PDF\已下单PDF";
             if (Comm_Method.IsConnectPath(pdfPath))
             {
-                pdfFiles =  Directory.EnumerateFiles(pdfPath,"*.pdf", System.IO.SearchOption.AllDirectories).ToList();
+                Comm_Method.PdfFileList =  Directory.EnumerateFiles(pdfPath,"*.pdf", System.IO.SearchOption.AllDirectories).ToList();
             }
             fileSystemWatcher1.EnableRaisingEvents = true;
         }
@@ -293,18 +278,18 @@ namespace YBF
 
 
 
-        private FileSystemWatcher GetFileSystemWatcher(string path)
-        {
-            FileSystemWatcher watcher = null;
-            if (Directory.Exists(path))
-            {
-                watcher = new FileSystemWatcher(path, "*.pdf");
-                watcher.EnableRaisingEvents = false;
-                watcher.IncludeSubdirectories = true;
-                watcher.NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName;
-            }
-            return watcher;
-        }
+        //private FileSystemWatcher GetFileSystemWatcher(string path)
+        //{
+        //    FileSystemWatcher watcher = null;
+        //    if (Directory.Exists(path))
+        //    {
+        //        watcher = new FileSystemWatcher(path, "*.pdf");
+        //        watcher.EnableRaisingEvents = false;
+        //        watcher.IncludeSubdirectories = true;
+        //        watcher.NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName;
+        //    }
+        //    return watcher;
+        //}
 
         //统计出版记录
         FormPublishProcess publishProcess = null;
@@ -810,6 +795,24 @@ namespace YBF
             jobManager.WindowState = FormWindowState.Maximized;
             jobManager.MdiParent = this;
             jobManager.Show();
+        }
+
+        private void fileSystemWatcher1_Created(object sender, FileSystemEventArgs e)
+        {
+            Comm_Method.PdfFileList.Add(e.FullPath);
+            Comm_Method.LogTxt(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "\t新建\t" + e.FullPath);
+        }
+
+        private void fileSystemWatcher1_Deleted(object sender, FileSystemEventArgs e)
+        {
+            Comm_Method.PdfFileList.Remove(e.FullPath);
+            Comm_Method.LogTxt(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "\t删除\t" + e.FullPath);
+        }
+
+        private void fileSystemWatcher1_Renamed(object sender, RenamedEventArgs e)
+        {
+            Comm_Method.PdfFileList[Comm_Method.PdfFileList.FindIndex(pdf => pdf.Equals(e.OldFullPath))]=e.FullPath;
+            Comm_Method.LogTxt(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "\t重命名\t" + e.FullPath+"\t旧名称:"+e.OldFullPath);
         }
     }
 }

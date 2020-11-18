@@ -588,5 +588,11 @@ namespace YBF.Class.Comm
         {
            return Math.Round((1.0* a.ToCharArray().Intersect(b).Count() / a.ToCharArray().Union(b).Count()), 3);
         }
+
+
+        public static void LogTxt(string con)
+        {
+            File.AppendAllText("Log\\PdfFileLog_" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt", con);
+        }
     }
 }

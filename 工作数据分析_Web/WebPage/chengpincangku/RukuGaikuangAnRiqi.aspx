@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Master/Site.master"
     CodeFile="RukuGaikuangAnRiqi.aspx.cs" Inherits="WebPage_RukuGaikuangAnRiqi" %>
-<%@ Register assembly="FineUIPro" namespace="FineUIPro" tagprefix="f" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">

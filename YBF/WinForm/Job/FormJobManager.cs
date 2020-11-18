@@ -32,7 +32,7 @@ namespace YBF.WinForm
         private string OrderBy = "[时间] DESC";
         private int Limit = 500;
         private int Offset = 0;
-        private FileInfo[] pdfFiles;//所有PDF
+        //private FileInfo[] pdfFiles;//所有PDF
         public FormJobManager()
         {
             InitializeComponent();
@@ -53,16 +53,16 @@ namespace YBF.WinForm
             InitDgv();
         }
 
-        private void InitPdfList()
-        {
+        //private void InitPdfList()
+        //{
             
-            //string pdfPath = @"\\EvoServer\JobData\PDF\已下单PDF";
-            string pdfPath = @"\\192.168.110.32\JobData\PDF\已下单PDF";
-            if (Comm_Method.IsConnectPath(pdfPath))
-            {
-                pdfFiles = new DirectoryInfo(pdfPath).GetFiles("*.pdf", System.IO.SearchOption.AllDirectories);
-            }
-        }
+        //    //string pdfPath = @"\\EvoServer\JobData\PDF\已下单PDF";
+        //    string pdfPath = @"\\192.168.110.32\JobData\PDF\已下单PDF";
+        //    if (Comm_Method.IsConnectPath(pdfPath))
+        //    {
+        //        pdfFiles = new DirectoryInfo(pdfPath).GetFiles("*.pdf", System.IO.SearchOption.AllDirectories);
+        //    }
+        //}
 
         public void InitDgv()
         {
@@ -73,7 +73,7 @@ namespace YBF.WinForm
             str = obj + "Order By " + OrderBy + " Limit " + Limit + " Offset " + Offset + ";";
             DataTableTodgv(SQLiteList.YBF.ExecuteDataTable(str), true);
             dgv.Sort(时间, ListSortDirection.Descending);
-            InitPdfList();
+            //InitPdfList();
         }
 
         public void UpdateRow(List<string> idList)
@@ -569,7 +569,7 @@ namespace YBF.WinForm
             //}
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            //dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             //ID.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             //暂停.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             //出版.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -886,15 +886,19 @@ namespace YBF.WinForm
             {
                 guanlian.AddRange(obj.ToString().Split('*'));
             }
-            if (pdfFiles != null && pdfFiles.Length > 0)
+            if (Comm_Method.PdfFileList != null && Comm_Method.PdfFileList.Count > 0)
             {
-                foreach (FileInfo file in pdfFiles)
+                List<string> delPdfFle = new List<string>();
+                foreach (string file in Comm_Method.PdfFileList)
                 {
-                    if (guanlian.Contains(Path.GetFileNameWithoutExtension(file.FullName)) ||
-                        file.Name.IndexOf(fileName, StringComparison.OrdinalIgnoreCase) > -1
-                        && file.Name.IndexOf(gaodaihao, StringComparison.OrdinalIgnoreCase) > -1)
+                    if (guanlian.Contains(Path.GetFileNameWithoutExtension(Path.GetFileNameWithoutExtension(file))) ||
+                        Path.GetFileNameWithoutExtension(file).IndexOf(fileName, StringComparison.OrdinalIgnoreCase) > -1
+                        && Path.GetFileNameWithoutExtension(file).IndexOf(gaodaihao, StringComparison.OrdinalIgnoreCase) > -1)
                     {
-                        fileList.Add(file);
+                        if (File.Exists(file))
+                        {
+                            fileList.Add(new FileInfo(file));
+                        }
                     }
                 }
                 if (fileList.Count > 0)

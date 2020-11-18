@@ -9,8 +9,8 @@ case when t.PRCNME like'%哑光%' then '★哑光膜★' when t.PRCNME like'%亮
 shdate 送货日期,
 case--确定膜的门幅:如果最大值超过1270,则另外一边做膜门幅
 when ssizew>1270 and ssizel >1270 then 9999 
-when greatest(ssizew,ssizel) >1270 then (ceil((least(ssizew,ssizel)-10)/10)-1)*10
-when greatest(ssizew,ssizel) <=1270 then (ceil((greatest(ssizew,ssizel)-10)/10)-1)*10
+when greatest(ssizew,ssizel) >1270 then (ceil(least(ssizew,ssizel)/10))*10-10
+when greatest(ssizew,ssizel) <=1270 then (ceil(greatest(ssizew,ssizel)/10))*10-10
 else 9999 end 膜门幅,
 case --确定米数:长+宽-膜门幅
 when ssizew>1270 and ssizel >1270 then 0 
@@ -24,7 +24,7 @@ and NOT EXISTS(select SERIAL  from v_pb_bcdr where objtyp ='CL' AND  v_pb_bcdr.s
 AND NOT EXISTS(SELECT serial FROM EJSH.V_HR_PIECE_DATA vh WHERE PRCTYPNME IN('覆膜过胶','裱合贴面','模切压痕','粘箱粘合','钉箱装订','打包堆码') and vh.SERIAL=t.serial)
 AND ((SELECT CMPSTS FROM EJSH.ORD_CT_STS WHERE  EJSH.ORD_CT_STS.SERIAL=t.serial AND rownum=1 )='N')
 AND to_char( ptdate, 'yyyy-mm-dd' ) >=(select to_char(sysdate - interval '90' day,'yyyy-mm-dd')  from dual)
-order BY ssizew,SMPNME,serial
+order BY serial,ssizew,SMPNME
 --没有入库并且没有裱胶\压痕\钉箱\粘箱\打包的报工
 )a
 group by 类型,a.膜门幅
