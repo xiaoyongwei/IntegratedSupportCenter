@@ -17,6 +17,8 @@ namespace ConsoleAppBackupWorkingData
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(70, 40);
+
             PrintToConsole("启动程序");
             while (true)
             {               

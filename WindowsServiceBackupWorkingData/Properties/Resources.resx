@@ -1,0 +1,1281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="二期仓库入库" xml:space="preserve">
+    <value>SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+
+select v1.Fdate AS '日期'
+	,case 
+		when v1.FCheckerID &gt; 0
+			then 'Y'
+		when v1.FCheckerID &lt; 0
+			then 'Y'
+		else ''
+		end AS '审核'	
+	,v1.FBillNo AS '单据编号'
+	,t4.FName AS '供应商'
+	,t7.FName AS '收料仓库'
+	,t13.FNumber AS '物料长代码'
+	,t13.Fname AS '物料名称'
+	,t13.Fmodel AS'规格型号'
+	,(
+		CASE t101.FName
+			WHEN '*'
+				THEN ''
+			ELSE t101.FName
+			END
+		) AS '辅助属性'
+	,u1.FBatchNo'批号'
+	,t30.FName AS '基本单位'
+	,u1.Fauxqty AS '实收数量'
+	,t552.FName AS '辅助单位'
+	,u1.FSecQty AS'辅助数量'	
+	,u1.FEntrySelfA0156 AS '含税单价'
+	,u1.FEntrySelfA0159 AS '含税金额'
+	,u1.Fauxprice AS '单位成本'	
+	,u1.Famount AS '单位金额'
+	,u1.FNote AS '备注'	
+from ICStockBill v1
+INNER JOIN ICStockBillEntry u1 ON v1.FInterID = u1.FInterID
+	AND u1.FInterID &lt;&gt; 0
+INNER JOIN t_Supplier t4 ON v1.FSupplyID = t4.FItemID
+	AND t4.FItemID &lt;&gt; 0
+INNER JOIN t_Stock t7 ON u1.FDCStockID = t7.FItemID
+	AND t7.FItemID &lt;&gt; 0
+INNER JOIN t_ICItem t13 ON u1.FItemID = t13.FItemID
+	AND t13.FItemID &lt;&gt; 0
+INNER JOIN t_MeasureUnit t30 ON t13.FUnitID = t30.FItemID
+	AND t30.FItemID &lt;&gt; 0
+LEFT OUTER JOIN t_AuxItem t101 ON u1.FAuxPropID = t101.FItemid
+	AND t101.FItemid &lt;&gt; 0
+LEFT OUTER JOIN t_MeasureUnit t552 ON t13.FSecUnitID = t552.FItemID
+	AND t552.FItemID &lt;&gt; 0
+where( t7.FNumber between 13 and 16 )and (v1.fdate between cast(dateadd(dd,-60,getdate()) as date) and cast(dateadd(dd,0,getdate()) as date))</value>
+  </data>
+  <data name="二期原纸仓库即时库存" xml:space="preserve">
+    <value>Set Nocount on
+
+Create Table #TempInventory (
+	[FBrNo] [varchar](10) NOT NULL
+	,[FItemID] [int] NOT NULL
+	,[FBatchNo] [varchar](200) NOT NULL
+	,[FMTONo] [varchar](200) NOT NULL
+	,[FSupplyID] [int] NOT NULL
+	,[FStockID] [int] NOT NULL
+	,[FQty] [decimal](28, 10) NOT NULL
+	,[FBal] [decimal](20, 2) NOT NULL
+	,[FStockPlaceID] [int] NULL
+	,[FKFPeriod] [int] NOT NULL Default(0)
+	,[FKFDate] [varchar](255) NOT NULL
+	,[FMyKFDate] [varchar](255)
+	,[FStockTypeID] [Int] NOT NULL
+	,[FQtyLock] [decimal](28, 10) NOT NULL
+	,[FAuxPropID] [int] NOT NULL
+	,[FSecQty] [decimal](28, 10) NOT NULL
+	,[FHelpCode] [varchar](200) NOT NULL
+	,[FProperty] [int] NOT NULL Default(0)
+	,[FChartNumber] [varchar](255) NOT NULL
+	,[FBatchNo2] [VarChar](200) NOT NULL Default('')
+	,[FStockID2] [int] NOT NULL Default(0)
+	)
+
+INSERT INTO #TempInventory
+Select u1.FBrNo
+	,u1.FItemID
+	,u1.FBatchNo
+	,u1.FMTONo
+	,u1.FSupplyID
+	,u1.FStockID
+	,u1.FQty
+	,u1.FBal
+	,u1.FStockPlaceID
+	,u1.FKFPeriod
+	,ISNULL(u1.FKFDate, '')
+	,ISNULL(u1.FKFDate, '')
+	,500
+	,u1.FQtyLock
+	,u1.FAuxPropID
+	,u1.FSecQty
+	,''
+	,s.FProperty
+	,''
+	,''
+	,0
+From ICInventory u1
+LEFT JOIN t_stock s on u1.FStockID = s.FItemID
+where u1.FQty &lt;&gt; 0
+
+INSERT INTO #TempInventory
+Select u1.FBrNo
+	,u1.FItemID
+	,u1.FBatchNo
+	,u1.FMTONo
+	,u1.FSupplyID
+	,u1.FStockID
+	,u1.FQty
+	,u1.FBal
+	,u1.FStockPlaceID
+	,u1.FKFPeriod
+	,ISNULL(u1.FKFDate, '')
+	,ISNULL(u1.FKFDate, '')
+	,u1.FStockTypeID
+	,0
+	,u1.FAuxPropID
+	,u1.FSecQty
+	,''
+	,s.FProperty
+	,''
+	,''
+	,0
+From POInventory u1
+LEFT JOIN t_stock s on u1.FStockID = s.FItemID
+where u1.FQty &lt;&gt; 0
+
+DECLARE @CalculateType AS INT
+
+SELECT @CalculateType = FValue
+FROM t_SystemProfile
+WHERE FCategory = 'IC'
+	AND FKey = 'CalculateType'
+
+UPDATE t1
+SET FBatchNo2 = (
+		SELECT CASE t2.FTrack
+				WHEN 80
+					THEN t1.FBatchNo
+				WHEN 20309
+					THEN t1.FBatchNo
+				ELSE ''
+				END
+		)
+	,FStockID2 = (
+		SELECT CASE @CalculateType
+				WHEN 0
+					THEN 0
+				WHEN 1
+					THEN t1.FStockID
+				ELSE t3.FGroupID
+				END
+		)
+FROM #TempInventory t1
+INNER JOIN t_ICItem t2 ON t1.FItemID = t2.FItemID
+INNER JOIN t_Stock t3 ON t1.FStockID = t3.FItemID
+
+Select distinct t1.FNumber AS '物料长代码'
+	,t1.FName as '物料名称'
+	,u1.FBatchNo '批号'
+	,t9.FName as '门幅'
+	,t3.FName as '单位'
+	,ROUND(u1.FQty / t4.FCoefficient, t1.FQtyDecimal) as '库存'
+	,t2.FName as '仓库名称'
+--	,u1.FMTONo
+--	,t2.FProperty as FProperty
+--	,u1.FAuxPropID
+--	,case 
+--		when u1.FSecQty = 0
+--			then 0
+--		else ROUND(u1.FQty / u1.FSecQty, t1.FQtyDecimal)
+--		end as FConvRate
+--	,u1.FStockTypeID
+--	,t1.FModel as FMaterialModel
+--	,t19.FName as FSecUnitName
+--	,t19.FNumber as FSecUnitNumber
+--	,u1.FSupplyID
+--	,t_8.FName AS FSupplyName
+--	,t_8.FNumber AS FSupplyNumber
+--	,u1.FQtyLock as FBUQtyLock
+--	,u1.FQtyLock / t4.FCoefficient as FCUUQtyLock
+--	,t5.FName as FSPName
+--	,u1.FKFPeriod
+--	,case 
+--		when isdate(u1.FKFDate) = 1
+--			then Convert(datetime, u1.FKFDate)
+--		else null
+--		end as FKFDate
+--	,case 
+--		when isdate(u1.FMyKFDate) = 1
+--			then Convert(datetime, u1.FMyKFDate)
+--		else null
+--		end as FMyKFDate
+--	,t3.FNumber as FBUUnitNumber
+--	,ROUND(u1.FQty, t1.FQtydecimal) as FBUQty
+--	,t4.FName as FCUUnitName
+--	,t1.FQtyDecimal
+--	,t1.FPriceDecimal
+--	,0 as FSumSort
+--	,Case 
+--		when isdate(u1.FKFDate) = 0
+--			then NULL
+--		else Convert(datetime, u1.FKFDate) + u1.FKFPeriod
+--		END AS FMaturityDate
+--	,t2.FNumber AS FStockNumber
+--	,t1.FNumber AS FMaterialNumber
+--	,t2.FNumber
+--	,t5.FNumber as FSPNumber
+--	,t4.FNumber as FCUUnitCode
+--	,t4.FMeasureunitID as FCUUnitID
+--	,t1.FitemID
+--	,T2.FitemID FStockID
+--	,t2.FIncludeAccounting
+--	,T5.FSPID FSPID
+--	,t9.FNumber as FAuxPropNumber
+--	,ROUND(u1.FSecQty, t1.FQtyDecimal) AS FSecQty
+--	,t1.FSecCoefficient AS FItemSecCoefficient
+--	,t1.FHelpCode as FHelpCode
+--	,t1.FChartNumber
+--	,CASE 
+--		WHEN t2.FIncludeAccounting = 1
+--			THEN ISNULL(t20.FPrice, 0)
+--		ELSE 0
+--		END as FPrice
+--	,CASE 
+--		WHEN t2.FIncludeAccounting = 1
+--			THEN ISNULL(t20.FPrice * t4.FCoefficient, 0)
+--		ELSE 0
+--		END as FCUPrice
+--	,CASE 
+--		WHEN t2.FIncludeAccounting = 1
+--			THEN ISNULL(ROUND(t20.FPrice * u1.FQty, 2), 0)
+--		ELSE 0
+--		END as FAmount
+From #TempInventory u1
+LEFT JOIN t_ICItem t1 on u1.FItemID = t1.FItemID
+LEFT JOIN t_Stock t2 on u1.FStockID = t2.FItemID
+LEFT JOIN t_Supplier t_8 on u1.FSupplyID = t_8.FItemID
+LEFT JOIN t_MeasureUnit t3 on t1.FUnitID = t3.FMeasureUnitID
+LEFT JOIN t_MeasureUnit t4 on t1.FStoreUnitID = t4.FMeasureUnitID
+LEFT JOIN t_StockPlace t5 on u1.FStockPlaceID = t5.FSPID
+LEFT JOIN t_AuxItem t9 on u1.FAuxPropID = t9.FItemID
+LEFT JOIN t_Measureunit t19 on t1.FSecUnitID = t19.FMeasureunitID
+LEFT JOIN ICRealtimeCost t20 ON u1.FItemID = t20.FItemID
+	AND u1.FBatchNo2 = t20.FBatchNo
+	AND u1.FStockID2 = t20.FStockID
+where (
+		Round(u1.FQty, t1.FQtyDecimal) &lt;&gt; 0
+		OR Round(u1.FQty / t4.FCoefficient, t1.FQtyDecimal) &lt;&gt; 0
+		)
+	and t1.FDeleted = 0
+	AND t2.FItemID = 134724
+Order By t1.FNumber
+	,u1.FBatchNo
+	--,u1.FMTONo
+
+Drop Table #TempInventory</value>
+    <comment>获取二期原纸仓库即时库存</comment>
+  </data>
+  <data name="二期原纸辅料领料明细" xml:space="preserve">
+    <value>select llfx.*
+,case when llfx.金额 !=0 then llfx.金额 
+when llfx.估算单价!=0 then llfx.估算单价*llfx.实发数量
+else 0 end  as '估算金额'
+
+	from	
+	(
+	SELECT v1.Fdate as '日期'
+	,case 
+		when v1.FCheckerID &gt; 0
+			then 'Y'
+		when v1.FCheckerID &lt; 0
+			then 'Y'
+		else ''
+		end as '审核'
+	,v1.FBillNo as '单据编号'
+	,vw.FNumber '物料长代码'
+	,vw.FItemID '物料名称'
+	,t13.Fmodel AS '规格型号'
+	,(
+		CASE t34.FName
+			WHEN '*'
+				THEN ''
+			ELSE t34.FName
+			END
+		) AS '辅助属性'
+	,u1.FBatchNo AS '批号'
+	,t23.Fname '基本单位'
+	,vw.Fauxqty '实发数量'
+	,t512.FName AS '辅助单位'
+	,u1.FSecQty AS '辅助数量'
+	,vw.Fauxprice '单价'	
+	,vw.Famount '金额'
+	,vw.FDeptID '领料部门'
+	,t9.FName AS '领料人'
+	,t8.FName '发料仓库'
+	,t11.FName AS '发料人'
+	,v1.Fnote'备注'
+	,ISNULL(case 
+			when vw.Fauxprice = 0
+				then isnull((
+							SELECT TOP 1 Fauxprice * 1.13
+							FROM [dbo].[vwICBill_11]
+							WHERE FNumber = vw.FNumber
+								AND Fauxprice != 0
+							ORDER BY fdate DESC
+							), (
+							SELECT TOP 1 Fauxprice * 1.13 AS '单价'
+							FROM [dbo].[vwICBill_1]
+							WHERE [Fauxprice] &gt; 0
+								and FNumber = vw.FNumber
+							ORDER by fdate desc
+							))
+			else vw.Fauxprice
+			end, 0) AS '估算单价'
+			
+from ICStockBill v1
+INNER JOIN ICStockBillEntry u1 ON v1.FInterID = u1.FInterID
+	AND u1.FInterID &lt;&gt; 0
+LEFT OUTER JOIN t_Department t4 ON v1.FDeptID = t4.FItemID
+	AND t4.FItemID &lt;&gt; 0
+INNER JOIN t_Stock t8 ON u1.FSCStockID = t8.FItemID
+	AND t8.FItemID &lt;&gt; 0
+LEFT OUTER JOIN t_Emp t9 ON v1.FSManagerID = t9.FItemID
+	AND t9.FItemID &lt;&gt; 0
+LEFT OUTER JOIN t_Emp t10 ON v1.FFManagerID = t10.FItemID
+	AND t10.FItemID &lt;&gt; 0
+INNER JOIN t_User t11 ON v1.FBillerID = t11.FUserID
+	AND t11.FUserID &lt;&gt; 0
+INNER JOIN t_ICItem t13 ON u1.FItemID = t13.FItemID
+	AND t13.FItemID &lt;&gt; 0
+INNER JOIN t_MeasureUnit t16 ON u1.FUnitID = t16.FItemID
+	AND t16.FItemID &lt;&gt; 0
+INNER JOIN t_MeasureUnit t23 ON t13.FUnitID = t23.FItemID
+	AND t23.FItemID &lt;&gt; 0
+LEFT OUTER JOIN t_User t24 ON v1.Fcheckerid = t24.FUserID
+	AND t24.FUserID &lt;&gt; 0
+LEFT OUTER JOIN t_MeasureUnit t30 ON t13.FUnitID = t30.FMeasureUnitID
+	AND t30.FMeasureUnitID &lt;&gt; 0
+LEFT OUTER JOIN t_AuxItem t34 ON u1.FAuxPropID = t34.FItemid
+	AND t34.FItemid &lt;&gt; 0
+LEFT OUTER JOIN ICMO tic ON u1.FICMOInterID = tic.FInterID
+	AND tic.FInterID &lt;&gt; 0
+LEFT OUTER JOIN ICVoucherTpl t14 ON v1.FPlanVchTplID = t14.FInterID
+	AND t14.FInterID &lt;&gt; 0
+LEFT OUTER JOIN ICVoucherTpl t15 ON v1.FActualVchTplID = t15.FInterID
+	AND t15.FInterID &lt;&gt; 0
+LEFT OUTER JOIN t_MeasureUnit t500 ON t13.FStoreUnitID = t500.FItemID
+	AND t500.FItemID &lt;&gt; 0
+LEFT OUTER JOIN t_Currency t503 ON v1.FCurrencyID = t503.FCurrencyID
+	AND t503.FCurrencyID &lt;&gt; 0
+LEFT OUTER JOIN t_MeasureUnit t512 ON t13.FSecUnitID = t512.FItemID
+	AND t512.FItemID &lt;&gt; 0
+INNER JOIN [dbo].[vwICBill_11] vw ON u1.FInterID = vw.FInterID
+	AND u1.FEntryID = vw.FEntryID
+where (ISNULL(t8.FName, '') in ('二期辅料仓库','二期原纸仓库'))
+	AND (v1.FTranType = 24)
+	AND(v1.fdate between cast(dateadd(dd,-60,getdate()) as date) and cast(dateadd(dd,0,getdate()) as date))
+	)llfx</value>
+  </data>
+  <data name="二期未完工订单" xml:space="preserve">
+    <value>select * from (
+SELECT *
+FROM `slbz`.`订单_生产单`
+WHERE  `slbz`.`订单_生产单`.完工=0 AND `slbz`.`订单_生产单`.入库=0 and `slbz`.`订单_生产单`.所属='二期'
+)a
+where ((SELECT sum(入库数量) from slbz.成品_入库明细 where slbz.成品_入库明细.生产单号=a.生产单号)&lt;a.`订单`)</value>
+  </data>
+  <data name="二期胶印纸箱仓库即时库存" xml:space="preserve">
+    <value>Set Nocount on
+Create Table #TempInventory( 
+                            [FBrNo] [varchar] (10)  NOT NULL ,
+                            [FItemID] [int] NOT NULL ,
+                            [FBatchNo] [varchar] (200)  NOT NULL ,
+                            [FMTONo] [varchar] (200)  NOT NULL ,
+                            [FSupplyID] [int] NOT NULL ,
+                            [FStockID] [int] NOT NULL ,
+                            [FQty] [decimal](28, 10) NOT NULL ,
+                            [FBal] [decimal](20, 2) NOT NULL ,
+                            [FStockPlaceID] [int] NULL ,
+                            [FKFPeriod] [int] NOT NULL Default(0),
+                            [FKFDate] [varchar] (255)  NOT NULL ,
+                            [FMyKFDate] [varchar] (255), 
+                            [FStockTypeID] [Int] NOT NULL,
+                            [FQtyLock] [decimal](28, 10) NOT NULL,
+                            [FAuxPropID] [int] NOT NULL,
+                            [FSecQty] [decimal](28, 10) NOT NULL,
+                            [FHelpCode] [varchar](200) NOT NULL,
+                            [FProperty] [int] NOT NULL Default(0),
+                            [FChartNumber] [varchar](255) NOT NULL,
+                            [FBatchNo2] [VarChar] (200) NOT NULL Default(''),
+                            [FStockID2] [int]  NOT NULL Default(0)
+                             )
+Insert Into #TempInventory Select u1.FBrNo,u1.FItemID,u1.FBatchNo,u1.FMTONo,u1.FSupplyID,u1.FStockID,u1.FQty,u1.FBal,u1.FStockPlaceID,
+u1.FKFPeriod,ISNULL(u1.FKFDate,''),ISNULL(u1.FKFDate,''),500,u1.FQtyLock,u1.FAuxPropID,u1.FSecQty,'',s.FProperty ,'','',0 From ICInventory u1 left join t_stock s on u1.FStockID=s.FItemID  where u1.FQty&lt;&gt;0 
+
+Insert Into #TempInventory Select u1.FBrNo,u1.FItemID,u1.FBatchNo,u1.FMTONo,u1.FSupplyID,u1.FStockID,u1.FQty,u1.FBal,u1.FStockPlaceID,
+u1.FKFPeriod,ISNULL(u1.FKFDate,''),ISNULL(u1.FKFDate,''),u1.FStockTypeID,0,u1.FAuxPropID,u1.FSecQty,'',s.FProperty,'' ,'',0 From POInventory u1 left join t_stock s on u1.FStockID=s.FItemID  where u1.FQty&lt;&gt;0 
+
+DECLARE @CalculateType AS INT 
+SELECT @CalculateType=FValue FROM t_SystemProfile WHERE FCategory='IC' AND FKey='CalculateType'
+UPDATE t1 SET FBatchNo2=(SELECT CASE t2.FTrack WHEN 80 THEN t1.FBatchNo WHEN 20309 THEN t1.FBatchNo ELSE '' END ), 
+FStockID2=(SELECT CASE @CalculateType 
+WHEN 0 THEN 0 WHEN 1 THEN t1.FStockID ELSE t3.FGroupID END)
+FROM  #TempInventory t1 
+INNER JOIN t_ICItem t2 ON t1.FItemID=t2.FItemID 
+INNER JOIN t_Stock  t3 ON t1.FStockID=t3.FItemID 
+--Select distinct t2.FProperty as FProperty,u1.FAuxPropID,case when u1.FSecQty=0 then 0 else ROUND(u1.FQty/u1.FSecQty,t1.FQtyDecimal) end as '换算率',u1.FStockTypeID,t1.FName as '物料名称',t1.FModel as FMaterialModel,t19.FName as '辅助单位',t19.FNumber as FSecUnitNumber,
+--u1.FBatchNo as '批号',u1.FMTONo,u1.FSupplyID,t_8.FName AS FSupplyName,t_8.FNumber AS FSupplyNumber,t2.FName as '仓库名称' ,u1.FQtyLock as FBUQtyLock,u1.FQtyLock/t4.FCoefficient as FCUUQtyLock,
+--t5.FName as FSPName,u1.FKFPeriod,case when isdate(u1.FKFDate)=1 then Convert(datetime,u1.FKFDate) else null end as FKFDate,
+-- case when isdate(u1.FMyKFDate)=1 then Convert(datetime,u1.FMyKFDate) else null end as FMyKFDate, t3.FName as FBUUnitName,t3.FNumber as FBUUnitNumber,ROUND(u1.FQty,t1.FQtydecimal) as '库存',
+--t4.FName as FCUUnitName ,ROUND(u1.FQty/t4.FCoefficient,t1.FQtyDecimal) as FCUUQty,t1.FQtyDecimal, t1.FPriceDecimal,0 as FSumSort,
+--Case when isdate(u1.FKFDate)=0 then NULL else Convert(datetime,u1.FKFDate) + u1.FKFPeriod END AS FMaturityDate,
+-- t2.FNumber AS '仓库代码', t2.FNumber AS '物料长代码' ,t1.FNumber AS FMaterialNumber,t1.FNumber AS FLongNumber,t5.FNumber as FSPNumber,t4.FNumber as FCUUnitCode,t4.FMeasureunitID as FCUUnitID
+--,t1.FitemID ,T2.FitemID FStockID,t2.FIncludeAccounting,T5.FSPID FSPID,t9.FName as FAuxPropName,t9.FNumber as FAuxPropNumber,ROUND(u1.FSecQty,t1.FQtyDecimal) AS '辅助数量',t1.FSecCoefficient AS FItemSecCoefficient,t1.FHelpCode as FHelpCode,t1.FChartNumber 
+-- ,CASE WHEN  t2.FIncludeAccounting=1 THEN ISNULL(t20.FPrice,0) ELSE 0 END as FPrice,CASE WHEN t2.FIncludeAccounting=1 THEN ISNULL(t20.FPrice * t4.FCoefficient,0) ELSE 0 END as FCUPrice,CASE WHEN t2.FIncludeAccounting=1 THEN ISNULL(ROUND(t20.FPrice * u1.FQty,2),0) ELSE 0 END as FAmount  
+--From #TempInventory u1 left join t_ICItem t1 on u1.FItemID = t1.FItemID
+Select 
+ t1.FNumber AS '物料长代码',
+t1.FName as '物料名称',
+u1.FBatchNo as '批号',
+ t3.FName as '基本单位',
+ROUND(u1.FQty,t1.FQtydecimal) as '库存',
+case when u1.FSecQty=0 then 0 else ROUND(u1.FQty/u1.FSecQty,t1.FQtyDecimal) end as '换算率',
+t19.FName as '辅助单位',
+ ROUND(u1.FSecQty,t1.FQtyDecimal) AS '辅助数量',
+t2.FName as '仓库名称' ,
+ t2.FNumber AS '仓库代码'
+From #TempInventory u1 
+left join t_ICItem t1 on u1.FItemID = t1.FItemID
+left join t_Stock t2 on u1.FStockID=t2.FItemID
+left join t_Supplier t_8 on u1.FSupplyID=t_8.FItemID
+left join t_MeasureUnit t3 on t1.FUnitID=t3.FMeasureUnitID
+left join t_MeasureUnit t4 on t1.FStoreUnitID=t4.FMeasureUnitID
+left join t_StockPlace t5 on u1.FStockPlaceID=t5.FSPID
+left join t_AuxItem t9 on u1.FAuxPropID=t9.FItemID 
+left join t_Measureunit t19 on t1.FSecUnitID=t19.FMeasureunitID   
+Left Join ICRealtimeCost t20 ON u1.FItemID=t20.FItemID AND u1.FBatchNo2=t20.FBatchNo AND u1.FStockID2=t20.FStockID  
+where (Round(u1.FQty,t1.FQtyDecimal)&lt;&gt;0 OR Round(u1.FQty/t4.FCoefficient,t1.FQtyDecimal)&lt;&gt;0) 
+and t1.FDeleted=0  AND t2.FItemID=133062
+Order By t1.FNumber,u1.FBatchNo,u1.FMTONo 
+Drop Table #TempInventory</value>
+  </data>
+  <data name="二期辅料仓库即时库存" xml:space="preserve">
+    <value>Set Nocount on
+Create Table #TempInventory( 
+                            [FBrNo] [varchar] (10)  NOT NULL ,
+                            [FItemID] [int] NOT NULL ,
+                            [FBatchNo] [varchar] (200)  NOT NULL ,
+                            [FMTONo] [varchar] (200)  NOT NULL ,
+                            [FSupplyID] [int] NOT NULL ,
+                            [FStockID] [int] NOT NULL ,
+                            [FQty] [decimal](28, 10) NOT NULL ,
+                            [FBal] [decimal](20, 2) NOT NULL ,
+                            [FStockPlaceID] [int] NULL ,
+                            [FKFPeriod] [int] NOT NULL Default(0),
+                            [FKFDate] [varchar] (255)  NOT NULL ,
+                            [FMyKFDate] [varchar] (255), 
+                            [FStockTypeID] [Int] NOT NULL,
+                            [FQtyLock] [decimal](28, 10) NOT NULL,
+                            [FAuxPropID] [int] NOT NULL,
+                            [FSecQty] [decimal](28, 10) NOT NULL,
+                            [FHelpCode] [varchar](200) NOT NULL,
+                            [FProperty] [int] NOT NULL Default(0),
+                            [FChartNumber] [varchar](255) NOT NULL,
+                            [FBatchNo2] [VarChar] (200) NOT NULL Default(''),
+                            [FStockID2] [int]  NOT NULL Default(0)
+                             )
+Insert Into #TempInventory Select u1.FBrNo,u1.FItemID,u1.FBatchNo,u1.FMTONo,u1.FSupplyID,u1.FStockID,u1.FQty,u1.FBal,u1.FStockPlaceID,
+u1.FKFPeriod,ISNULL(u1.FKFDate,''),ISNULL(u1.FKFDate,''),500,u1.FQtyLock,u1.FAuxPropID,u1.FSecQty,'',s.FProperty ,'','',0 From ICInventory u1 left join t_stock s on u1.FStockID=s.FItemID  where u1.FQty&lt;&gt;0 
+
+Insert Into #TempInventory Select u1.FBrNo,u1.FItemID,u1.FBatchNo,u1.FMTONo,u1.FSupplyID,u1.FStockID,u1.FQty,u1.FBal,u1.FStockPlaceID,
+u1.FKFPeriod,ISNULL(u1.FKFDate,''),ISNULL(u1.FKFDate,''),u1.FStockTypeID,0,u1.FAuxPropID,u1.FSecQty,'',s.FProperty,'' ,'',0 From POInventory u1 left join t_stock s on u1.FStockID=s.FItemID  where u1.FQty&lt;&gt;0 
+
+DECLARE @CalculateType AS INT 
+SELECT @CalculateType=FValue FROM t_SystemProfile WHERE FCategory='IC' AND FKey='CalculateType'
+UPDATE t1 SET FBatchNo2=(SELECT CASE t2.FTrack WHEN 80 THEN t1.FBatchNo WHEN 20309 THEN t1.FBatchNo ELSE '' END ), 
+FStockID2=(SELECT CASE @CalculateType 
+WHEN 0 THEN 0 WHEN 1 THEN t1.FStockID ELSE t3.FGroupID END)
+FROM  #TempInventory t1 
+INNER JOIN t_ICItem t2 ON t1.FItemID=t2.FItemID 
+INNER JOIN t_Stock  t3 ON t1.FStockID=t3.FItemID 
+Select t1.FNumber AS '物料长代码',t1.FName as '物料名称', t3.FName as '单位',ROUND(u1.FQty,t1.FQtydecimal) as '数量'
+From #TempInventory u1 left join t_ICItem t1 on u1.FItemID = t1.FItemID
+left join t_Stock t2 on u1.FStockID=t2.FItemID
+left join t_Supplier t_8 on u1.FSupplyID=t_8.FItemID
+left join t_MeasureUnit t3 on t1.FUnitID=t3.FMeasureUnitID
+left join t_MeasureUnit t4 on t1.FStoreUnitID=t4.FMeasureUnitID
+left join t_StockPlace t5 on u1.FStockPlaceID=t5.FSPID
+ left join t_AuxItem t9 on u1.FAuxPropID=t9.FItemID left join t_Measureunit t19 on t1.FSecUnitID=t19.FMeasureunitID   Left Join ICRealtimeCost t20 ON u1.FItemID=t20.FItemID AND u1.FBatchNo2=t20.FBatchNo AND u1.FStockID2=t20.FStockID  where (Round(u1.FQty,t1.FQtyDecimal)&lt;&gt;0 OR Round(u1.FQty/t4.FCoefficient,t1.FQtyDecimal)&lt;&gt;0) 
+ and t1.FDeleted=0 
+ AND t2.FItemID=133773
+ Order By t1.FNumber,u1.FBatchNo
+,u1.FMTONo Drop Table #TempInventory</value>
+  </data>
+  <data name="制版线完工1800_1天" xml:space="preserve">
+    <value>SELECT
+[orderno]'工单号'
+	,[custname]'客户名'
+	,[paper]'材质'
+	,[prodwid]'门幅'
+	,[wid]'宽度'
+	,[lenmm]'长度'
+	,[ordnum]'数量'
+	,[lb]'楞型'
+	,CONVERT(CHAR,[finishdate],120)'结束时间'
+	,[瓦片线]='1.8米制版线'
+FROM [dbo].[finish]
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) </value>
+  </data>
+  <data name="制版线完工1800当天" xml:space="preserve">
+    <value>SELECT
+[orderno]'工单号'
+	,[custname]'客户名'
+	,[paper]'材质'
+	,[prodwid]'门幅'
+	,[wid]'宽度'
+	,[lenmm]'长度'
+	,[ordnum]'数量'
+	,[cutdata1]'压线'
+	,[lb]'楞型'
+	,[mem]'备注'
+	,CONVERT(CHAR,[begindate],120)'开始时间'
+	,CONVERT(CHAR,[finishdate],120)'结束时间'
+	,[prodtime]'生产时间'
+	,[瓦片线]='1.8米制版线'
+FROM [dbo].[finish]
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) and [orderno] like'C%'  ORDER BY [finishdate]desc</value>
+  </data>
+  <data name="制版线完工1800当天1" xml:space="preserve">
+    <value>SELECT
+[orderno]'工单号'
+	,[custname]'客户名'	
+	,[prodwid]'门幅'
+	,[lb]'楞型'
+	,[paper]'材质'
+	,[wid]'宽度'
+	,[lenmm]'长度'
+	,[ordnum]'数量'
+	,CONVERT(CHAR,[finishdate],120)'结束时间'|
+,[mem]'备注'
+	,[瓦片线]='1.8米制版线'
+FROM [dbo].[finish]
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) and [orderno] like'C%'  ORDER BY [finishdate]desc</value>
+  </data>
+  <data name="制版线完工2200_1天" xml:space="preserve">
+    <value>SELECT  [orderno]'工单号'
+	,[custname]'客户名'
+	,[paper]'材质'
+	,[prodwid]'门幅'
+	,[wid]'宽度'
+	,[lenmm]'长度'
+	,[ordnum]'数量'
+	,[lb]'楞型'
+	,CONVERT(CHAR,[finishdate],120)'结束时间'
+	,[瓦片线]='2.2米制版线'
+FROM [dbo].[finish]
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE())</value>
+  </data>
+  <data name="制版线完工2500_1天" xml:space="preserve">
+    <value>select 
+DP.[Name] as GroupName,
+Item.Cust_OrderID,
+Cust.[Name] as CustomName,
+ORD.WEB,
+F.[Name] as Flute,
+Mass.fid as Mass,
+Item.Sec as sec,
+Item.Length as Length,
+case when Item.sec=0 then 0 else
+cast(item.width/item.sec as int) end as secwidth,
+Item.Lines as Lines,
+min(ComOrd.StartTime) as StartTime,
+max(ComOrd.EndTime) as EndTime,
+CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),'00:00:00'),108) as ProdTime,
+sum(ComOrd.StopTimes) as StopTimes,--停车次数
+sum(ComOrd.StopTime) as StopTime,
+convert(varchar(11),dateadd(ss,sum(ComOrd.StopTime),'00:00:00'),108) as 'StopTimeChar',
+avg(ComOrd.AvgSpd) as AvgSpd,
+(Item.qty) as Planqty,
+CONVERT(DECIMAL(18,1),(comOrd.id*Item.qty*Item.Length*1.0/1000))as OrdLen,
+sum(convert(int,comOrd.id*Item.qty*Item.Length*1.0/1000*(ord.web-ord.trim)/1000)) as OrdArea,
+avg(ComOrd.AvgSpd) as RunAvgSpd,
+sum(ComOrd.ProdQty) as Prodqty,
+sum(CONVERT(INT,comOrd.id*ComOrd.ProdQty*Item.Length*1.0/1000)) as ProdLen,
+sum(convert(int,comOrd.id*ComOrd.ProdQty*Item.Length*1.0/1000*(ord.web-ord.trim)/1000)) as ProdArea,
+sum(ComOrd.Wastqty) as wastqty,
+sum(convert(int,comOrd.id*ComOrd.wastqty*Item.length*1.0/1000)) as WastLen,
+sum(convert(int,comOrd.id*ComOrd.wastqty*Item.Length*1.0/1000*((ord.web-ord.trim)/1000)))as WastArea,
+sum(convert(int,comOrd.id*comord.prodqty* item.length*1.0/1000* (ord.trim* 1.0/1000))) as TrimArea,
+sum(ComOrd.wastrate) as WastRate,
+convert(decimal(18,2),sum(comOrd.id*ord.trim*100/ord.web))  as TrimRate,
+convert(decimal(18,2),sum(comOrd.id*comOrd.wastqty/ComOrd.prodqty+comOrd.id*ord.trim/ord.web)) as prodrate,
+sum(ComOrd.ProdQty*Item.Sec)  as Qtysecs,
+ord.lineType_fid,
+(select name from StkModels where fid = Item.StkModel_fid) as StkModle,
+Item.STK,
+Ord.Remark as Remark,
+avg(steam)as steam,
+sum(accsteam)as accsteam,
+avg(airpressure)as Airpressure,
+sum(accAirpressure)as accAirpressure,
+avg(kw)as kw,
+sum(kwh)as kwh,
+Item.NextStation as NextStation,
+id,
+comOrd.OrderItemOrderSN,
+Ord.Cust_SN as SN,--工号
+Ord.Cust_SchNo as SchNo,
+Ord.Cust_ProdNo as ProdNo,
+datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime))AS ProdTimeSS
+into #TmpR
+from completeOrders ComOrd,
+OrderItems as Item,
+Orders as Ord,
+Departments as Dp,
+Customs as Cust,
+Flutes as F,
+PaperMasses as Mass
+where 
+comord.OrderItem_fID=item.fid
+and comord.OrderItemOrder_fID=ord.fid
+and comord.OrderItemOrderSN=ord.sn
+and item.Order_fID=Ord.fid
+and item.OrderSN=Ord.sn
+and  ComOrd.starttime between CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE())
+and ComOrd.Department_fid = Dp.fid
+and item.Custom_fID=Cust.FID
+and Mass.Flute_fid = F.fid
+and Ord.PaperMass_fid = Mass.fid
+and Ord.PaperMassFlute_fid = F.fid
+and ComOrd.prodqty&gt;0 
+and ord.web&gt;0
+
+group by comOrd.OrderItemOrderSN,DP.[Name],Cust.[Name],ORD.WEB,F.[Name]
+,Mass.fid,Item.Sec,Item.Length
+,Item.qty
+,Item.Width
+,Item.Lines
+,Ord.Cust_SN 
+,Ord.Remark 
+,Ord.Cust_SchNo 
+,Ord.Cust_ProdNo 
+,id
+,ord.lineType_fid
+,StkModel_fid
+,STK
+,Item.NextStation,
+Item.Cust_OrderID
+delete from #TmpR where Cust_OrderID is null or SN is null
+select Cust_OrderID as '工单号',CustomName'客户名',WEB'门幅',Flute'楞型',mass'材质',length'长度',
+secwidth'宽度',lines'压线',CONVERT(char,starttime,120)'开始时间',CONVERT(char,endtime,120)'结束时间',prodtime'生产时间',remark'备注',[瓦片线]='2.5米制版线' from #TmpR where Cust_OrderID like 'C%' order by endtime desc
+drop table #TmpR</value>
+  </data>
+  <data name="制版线完工2500当天" xml:space="preserve">
+    <value>select 
+DP.[Name] as GroupName,
+Item.Cust_OrderID,
+Cust.[Name] as CustomName,
+ORD.WEB,
+F.[Name] as Flute,
+Mass.fid as Mass,
+Item.Sec as sec,
+Item.Length as Length,
+case when Item.sec=0 then 0 else
+cast(item.width/item.sec as int) end as secwidth,
+Item.Lines as Lines,
+min(ComOrd.StartTime) as StartTime,
+max(ComOrd.EndTime) as EndTime,
+CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),'00:00:00'),108) as ProdTime,
+sum(ComOrd.StopTimes) as StopTimes,--停车次数
+sum(ComOrd.StopTime) as StopTime,
+convert(varchar(11),dateadd(ss,sum(ComOrd.StopTime),'00:00:00'),108) as 'StopTimeChar',
+avg(ComOrd.AvgSpd) as AvgSpd,
+(Item.qty) as Planqty,
+CONVERT(DECIMAL(18,1),(comOrd.id*Item.qty*Item.Length*1.0/1000))as OrdLen,
+sum(convert(int,comOrd.id*Item.qty*Item.Length*1.0/1000*(ord.web-ord.trim)/1000)) as OrdArea,
+avg(ComOrd.AvgSpd) as RunAvgSpd,
+sum(ComOrd.ProdQty) as Prodqty,
+sum(CONVERT(INT,comOrd.id*ComOrd.ProdQty*Item.Length*1.0/1000)) as ProdLen,
+sum(convert(int,comOrd.id*ComOrd.ProdQty*Item.Length*1.0/1000*(ord.web-ord.trim)/1000)) as ProdArea,
+sum(ComOrd.Wastqty) as wastqty,
+sum(convert(int,comOrd.id*ComOrd.wastqty*Item.length*1.0/1000)) as WastLen,
+sum(convert(int,comOrd.id*ComOrd.wastqty*Item.Length*1.0/1000*((ord.web-ord.trim)/1000)))as WastArea,
+sum(convert(int,comOrd.id*comord.prodqty* item.length*1.0/1000* (ord.trim* 1.0/1000))) as TrimArea,
+sum(ComOrd.wastrate) as WastRate,
+convert(decimal(18,2),sum(comOrd.id*ord.trim*100/ord.web))  as TrimRate,
+convert(decimal(18,2),sum(comOrd.id*comOrd.wastqty/ComOrd.prodqty+comOrd.id*ord.trim/ord.web)) as prodrate,
+sum(ComOrd.ProdQty*Item.Sec)  as Qtysecs,
+ord.lineType_fid,
+(select name from StkModels where fid = Item.StkModel_fid) as StkModle,
+Item.STK,
+Ord.Remark as Remark,
+avg(steam)as steam,
+sum(accsteam)as accsteam,
+avg(airpressure)as Airpressure,
+sum(accAirpressure)as accAirpressure,
+avg(kw)as kw,
+sum(kwh)as kwh,
+Item.NextStation as NextStation,
+id,
+comOrd.OrderItemOrderSN,
+Ord.Cust_SN as SN,--工号
+Ord.Cust_SchNo as SchNo,
+Ord.Cust_ProdNo as ProdNo,
+datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime))AS ProdTimeSS
+into #TmpR
+from completeOrders ComOrd,
+OrderItems as Item,
+Orders as Ord,
+Departments as Dp,
+Customs as Cust,
+Flutes as F,
+PaperMasses as Mass
+where 
+comord.OrderItem_fID=item.fid
+and comord.OrderItemOrder_fID=ord.fid
+and comord.OrderItemOrderSN=ord.sn
+and item.Order_fID=Ord.fid
+and item.OrderSN=Ord.sn
+and  ComOrd.starttime between CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE())
+and ComOrd.Department_fid = Dp.fid
+and item.Custom_fID=Cust.FID
+and Mass.Flute_fid = F.fid
+and Ord.PaperMass_fid = Mass.fid
+and Ord.PaperMassFlute_fid = F.fid
+and ComOrd.prodqty&gt;0 
+and ord.web&gt;0
+
+group by comOrd.OrderItemOrderSN,DP.[Name],Cust.[Name],ORD.WEB,F.[Name]
+,Mass.fid,Item.Sec,Item.Length
+,Item.qty
+,Item.Width
+,Item.Lines
+,Ord.Cust_SN 
+,Ord.Remark 
+,Ord.Cust_SchNo 
+,Ord.Cust_ProdNo 
+,id
+,ord.lineType_fid
+,StkModel_fid
+,STK
+,Item.NextStation,
+Item.Cust_OrderID
+delete from #TmpR where Cust_OrderID is null or SN is null
+select Cust_OrderID as '工单号',CustomName'客户名',WEB'门幅',Flute'楞型',mass'材质',length'长度',
+secwidth'宽度',lines'压线',CONVERT(CHAR,starttime,120)'开始时间',CONVERT(CHAR,endtime,120)'结束时间',prodtime'生产时间',remark'备注',[瓦片线]='2.5米制版线' from #TmpR where Cust_OrderID like 'C%' order by endtime desc
+drop table #TmpR</value>
+  </data>
+  <data name="制版线完工2500当天1" xml:space="preserve">
+    <value>select 
+DP.[Name] as GroupName,
+Item.Cust_OrderID,
+Cust.[Name] as CustomName,
+ORD.WEB,
+F.[Name] as Flute,
+Mass.fid as Mass,
+Item.Sec as sec,
+Item.Length as Length,
+case when Item.sec=0 then 0 else
+cast(item.width/item.sec as int) end as secwidth,
+Item.Lines as Lines,
+min(ComOrd.StartTime) as StartTime,
+max(ComOrd.EndTime) as EndTime,
+CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),'00:00:00'),108) as ProdTime,
+sum(ComOrd.StopTimes) as StopTimes,--停车次数
+sum(ComOrd.StopTime) as StopTime,
+convert(varchar(11),dateadd(ss,sum(ComOrd.StopTime),'00:00:00'),108) as 'StopTimeChar',
+avg(ComOrd.AvgSpd) as AvgSpd,
+(Item.qty) as Planqty,
+CONVERT(DECIMAL(18,1),(comOrd.id*Item.qty*Item.Length*1.0/1000))as OrdLen,
+sum(convert(int,comOrd.id*Item.qty*Item.Length*1.0/1000*(ord.web-ord.trim)/1000)) as OrdArea,
+avg(ComOrd.AvgSpd) as RunAvgSpd,
+sum(ComOrd.ProdQty) as Prodqty,
+sum(CONVERT(INT,comOrd.id*ComOrd.ProdQty*Item.Length*1.0/1000)) as ProdLen,
+sum(convert(int,comOrd.id*ComOrd.ProdQty*Item.Length*1.0/1000*(ord.web-ord.trim)/1000)) as ProdArea,
+sum(ComOrd.Wastqty) as wastqty,
+sum(convert(int,comOrd.id*ComOrd.wastqty*Item.length*1.0/1000)) as WastLen,
+sum(convert(int,comOrd.id*ComOrd.wastqty*Item.Length*1.0/1000*((ord.web-ord.trim)/1000)))as WastArea,
+sum(convert(int,comOrd.id*comord.prodqty* item.length*1.0/1000* (ord.trim* 1.0/1000))) as TrimArea,
+sum(ComOrd.wastrate) as WastRate,
+convert(decimal(18,2),sum(comOrd.id*ord.trim*100/ord.web))  as TrimRate,
+convert(decimal(18,2),sum(comOrd.id*comOrd.wastqty/ComOrd.prodqty+comOrd.id*ord.trim/ord.web)) as prodrate,
+sum(ComOrd.ProdQty*Item.Sec)  as Qtysecs,
+ord.lineType_fid,
+(select name from StkModels where fid = Item.StkModel_fid) as StkModle,
+Item.STK,
+Ord.Remark as Remark,
+avg(steam)as steam,
+sum(accsteam)as accsteam,
+avg(airpressure)as Airpressure,
+sum(accAirpressure)as accAirpressure,
+avg(kw)as kw,
+sum(kwh)as kwh,
+Item.NextStation as NextStation,
+id,
+comOrd.OrderItemOrderSN,
+Ord.Cust_SN as SN,--工号
+Ord.Cust_SchNo as SchNo,
+Ord.Cust_ProdNo as ProdNo,
+datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime))AS ProdTimeSS
+into #TmpR
+from completeOrders ComOrd,
+OrderItems as Item,
+Orders as Ord,
+Departments as Dp,
+Customs as Cust,
+Flutes as F,
+PaperMasses as Mass
+where 
+comord.OrderItem_fID=item.fid
+and comord.OrderItemOrder_fID=ord.fid
+and comord.OrderItemOrderSN=ord.sn
+and item.Order_fID=Ord.fid
+and item.OrderSN=Ord.sn
+and  ComOrd.starttime between CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE())
+and ComOrd.Department_fid = Dp.fid
+and item.Custom_fID=Cust.FID
+and Mass.Flute_fid = F.fid
+and Ord.PaperMass_fid = Mass.fid
+and Ord.PaperMassFlute_fid = F.fid
+and ComOrd.prodqty&gt;0 
+and ord.web&gt;0
+
+group by comOrd.OrderItemOrderSN,DP.[Name],Cust.[Name],ORD.WEB,F.[Name]
+,Mass.fid,Item.Sec,Item.Length
+,Item.qty
+,Item.Width
+,Item.Lines
+,Ord.Cust_SN 
+,Ord.Remark 
+,Ord.Cust_SchNo 
+,Ord.Cust_ProdNo 
+,id
+,ord.lineType_fid
+,StkModel_fid
+,STK
+,Item.NextStation,
+Item.Cust_OrderID
+delete from #TmpR where Cust_OrderID is null or SN is null
+
+select Cust_OrderID as '工单号',CustomName'客户名',WEB'门幅',Flute'楞型',mass'材质',secwidth'宽度',length'长度',sec*planqty '数量',
+CONVERT(CHAR,EndTime,120)'结束时间',remark'备注',[瓦片线]='2.5米制版线' from #TmpR where Cust_OrderID like 'C%' order by endtime desc
+drop table #TmpR</value>
+  </data>
+  <data name="制版线完工_1800" xml:space="preserve">
+    <value>SELECT
+[orderno]'工单号'
+	,[custname]'客户名'
+	,[paper]'材质'
+	,[prodwid]'门幅'
+	,[wid]'宽度'
+	,[lenmm]'长度'
+	,[ordnum]'数量'
+	,[cutdata1]'压线'
+	,[lb]'楞型'
+	,[mem]'备注'
+	,CONVERT(CHAR,[begindate],120)'开始时间'
+	,CONVERT(CHAR,[finishdate],120)'结束时间'
+	,[prodtime]'生产时间'
+	,[瓦片线]='1.8米制版线'
+FROM [dbo].[finish]
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-30,GETDATE())) and CONVERT(DATETIME,GETDATE())</value>
+  </data>
+  <data name="制版线完工_2200" xml:space="preserve">
+    <value>SELECT  [orderno]'工单号'
+	,[custname]'客户名'
+	,[paper]'材质'
+	,[prodwid]'门幅'
+	,[wid]'宽度'
+	,[lenmm]'长度'
+	,[ordnum]'数量'
+	,[cutdata1]'压线'
+	,[lb]'楞型'
+	,[mem]'备注'
+	,CONVERT(CHAR,[begindate],120)'开始时间'
+	,CONVERT(CHAR,[finishdate],120)'结束时间'
+	,[prodtime]'生产时间'
+	,[瓦片线]='2.2米制版线'
+FROM [dbo].[finish]
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-30,GETDATE())) and CONVERT(DATETIME,GETDATE())</value>
+  </data>
+  <data name="制版线完工_2500" xml:space="preserve">
+    <value>select 
+DP.[Name] as GroupName,
+Item.Cust_OrderID,
+Cust.[Name] as CustomName,
+ORD.WEB,
+F.[Name] as Flute,
+Mass.fid as Mass,
+Item.Sec as sec,
+Item.Length as Length,
+case when Item.sec=0 then 0 else
+cast(item.width/item.sec as int) end as secwidth,
+Item.Lines as Lines,
+min(ComOrd.StartTime) as StartTime,
+max(ComOrd.EndTime) as EndTime,
+CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),'00:00:00'),108) as ProdTime,
+sum(ComOrd.StopTimes) as StopTimes,--停车次数
+sum(ComOrd.StopTime) as StopTime,
+convert(varchar(11),dateadd(ss,sum(ComOrd.StopTime),'00:00:00'),108) as 'StopTimeChar',
+avg(ComOrd.AvgSpd) as AvgSpd,
+(Item.qty) as Planqty,
+CONVERT(DECIMAL(18,1),(comOrd.id*Item.qty*Item.Length*1.0/1000))as OrdLen,
+sum(convert(int,comOrd.id*Item.qty*Item.Length*1.0/1000*(ord.web-ord.trim)/1000)) as OrdArea,
+avg(ComOrd.AvgSpd) as RunAvgSpd,
+sum(ComOrd.ProdQty) as Prodqty,
+sum(CONVERT(INT,comOrd.id*ComOrd.ProdQty*Item.Length*1.0/1000)) as ProdLen,
+sum(convert(int,comOrd.id*ComOrd.ProdQty*Item.Length*1.0/1000*(ord.web-ord.trim)/1000)) as ProdArea,
+sum(ComOrd.Wastqty) as wastqty,
+sum(convert(int,comOrd.id*ComOrd.wastqty*Item.length*1.0/1000)) as WastLen,
+sum(convert(int,comOrd.id*ComOrd.wastqty*Item.Length*1.0/1000*((ord.web-ord.trim)/1000)))as WastArea,
+sum(convert(int,comOrd.id*comord.prodqty* item.length*1.0/1000* (ord.trim* 1.0/1000))) as TrimArea,
+sum(ComOrd.wastrate) as WastRate,
+convert(decimal(18,2),sum(comOrd.id*ord.trim*100/ord.web))  as TrimRate,
+convert(decimal(18,2),sum(comOrd.id*comOrd.wastqty/ComOrd.prodqty+comOrd.id*ord.trim/ord.web)) as prodrate,
+sum(ComOrd.ProdQty*Item.Sec)  as Qtysecs,
+ord.lineType_fid,
+(select name from StkModels where fid = Item.StkModel_fid) as StkModle,
+Item.STK,
+Ord.Remark as Remark,
+avg(steam)as steam,
+sum(accsteam)as accsteam,
+avg(airpressure)as Airpressure,
+sum(accAirpressure)as accAirpressure,
+avg(kw)as kw,
+sum(kwh)as kwh,
+Item.NextStation as NextStation,
+id,
+comOrd.OrderItemOrderSN,
+Ord.Cust_SN as SN,--工号
+Ord.Cust_SchNo as SchNo,
+Ord.Cust_ProdNo as ProdNo,
+datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime))AS ProdTimeSS
+into #TmpR
+from completeOrders ComOrd,
+OrderItems as Item,
+Orders as Ord,
+Departments as Dp,
+Customs as Cust,
+Flutes as F,
+PaperMasses as Mass
+where 
+comord.OrderItem_fID=item.fid
+and comord.OrderItemOrder_fID=ord.fid
+and comord.OrderItemOrderSN=ord.sn
+and item.Order_fID=Ord.fid
+and item.OrderSN=Ord.sn
+and  ComOrd.starttime between CONVERT(DATETIME,dateadd(dd,-30,GETDATE())) and CONVERT(DATETIME,GETDATE())
+and ComOrd.Department_fid = Dp.fid
+and item.Custom_fID=Cust.FID
+and Mass.Flute_fid = F.fid
+and Ord.PaperMass_fid = Mass.fid
+and Ord.PaperMassFlute_fid = F.fid
+and ComOrd.prodqty&gt;0 
+and ord.web&gt;0
+
+group by comOrd.OrderItemOrderSN,DP.[Name],Cust.[Name],ORD.WEB,F.[Name]
+,Mass.fid,Item.Sec,Item.Length
+,Item.qty
+,Item.Width
+,Item.Lines
+,Ord.Cust_SN 
+,Ord.Remark 
+,Ord.Cust_SchNo 
+,Ord.Cust_ProdNo 
+,id
+,ord.lineType_fid
+,StkModel_fid
+,STK
+,Item.NextStation,
+Item.Cust_OrderID
+delete from #TmpR where Cust_OrderID is null or SN is null
+select Cust_OrderID as '工单号',CustomName'客户名',WEB'门幅',Flute'楞型',mass'材质',length'长度',
+secwidth'宽度',lines'压线',starttime'开始时间',endtime'结束时间',prodtime'生产时间',remark'备注',[瓦片线]='2.5米制版线',sec*planqty '数量' from #TmpR where Cust_OrderID like 'C%' order by endtime desc
+drop table #TmpR</value>
+  </data>
+  <data name="制版线当前排程2500" xml:space="preserve">
+    <value>declare @ProdLineLevelCnt INT,@size INT,@Page int
+	SET @ProdLineLevelCnt=2
+   set  @size=2000
+   set  @Page=1
+	
+	SET NOCOUNT ON;
+    --异常单分压资料
+     
+    
+    create table #OrderItemLines (orderitem_fid varchar(100),
+                                  Lines varchar(100))
+    create table #TmpM (OrderSN int,
+                        fid varchar(100),
+                        Length int,
+                        Qty int
+                        )
+   insert into #OrderItemLines exec GetNoNomalLines 
+if @ProdLineLevelCnt = 1 
+    begin
+        insert into #TmpM 
+        select OrderSN,fid,length,Qty        
+        from orderitems 
+        where level = '下层' and
+        order_fid+convert(varchar(20),OrderSN) in (
+        select fid+convert(varchar(20),SN) from orders where finished = 0)
+        order by ordersn,fid
+    end else
+    begin
+        insert into #TmpM
+        select OrderSN,fid,length,Qty
+        from orderitems 
+        where order_fid+convert(varchar(20),OrderSN) in (
+        select fid+convert(varchar(20),SN) from orders where finished = 0)
+        order by ordersn,fid
+    end
+ 
+
+    begin
+        select top (@size) 
+        A.Cust_OrderID '订单号',
+        Cust.Name as '客户',
+        Qty*SEC '订单数',
+        --楞型
+        rtrim(Flute.[Name]) as '楞型',
+        convert(int,Width)/SEC as '宽度',
+        Length'长度',  
+        --Mass.fid as Mass,
+        Ord.PaperMass_fid as '材质',
+              
+        Ord.Web as '门幅',
+remark'备注',
+        orderSN '序号'
+         from orderitems A,Orders as Ord,Customs as Cust,--PaperMasses as Mass,
+         Flutes as Flute
+         where A.Order_fid = Ord.fid
+         and A.OrderSN = Ord.SN
+         and Ord.Finished = 0
+         and A.Custom_fid = Cust.fid
+         --and Ord.PaperMass_fid = Mass.fid
+         and Ord.PaperMassFlute_fid = Flute.fid
+        and(ord.sn NOT IN (SELECT TOP (@size*(@page-1))  ord.sn  
+    from orderitems A,Orders as Ord,Customs as Cust,Flutes as Flute 
+    where  
+   A.Order_fid = Ord.fid
+    and A.OrderSN = Ord.SN
+    and Ord.Finished = 0
+    and A.Custom_fid = Cust.fid
+    and Ord.PaperMassFlute_fid = Flute.fid
+ORDER BY ord.sn ))
+         order by A.ordersn,A.Level,A.fid
+     end
+drop table #OrderItemLines
+drop table #TmpM</value>
+  </data>
+  <data name="提前入库明细" xml:space="preserve">
+    <value>SELECT *
+FROM (select t.serial as 工单号
+	,(select x.smpnme
+	from v_ord x
+	where  x.serial = t.serial
+	)as 客户简称
+	,trim(t.prdnme) as 产品名称
+	,min(ptdate)as 最早入库时间
+	,min(t.UPDATED) as 最早入库操作时间
+	,(
+		SELECT min(ta.CREATED)
+		FROM V_HR_PIECE_DATA ta
+		WHERE ta.serial = t.serial AND ta.PRCTYPNME like'%打包%' 
+		) as 最早报工时间
+from v_pb_bcdr t
+where t.objtyp = 'CL'
+	and t.orgcde = 'KS03'
+	AND to_char(t.ptdate, 'yyyy-mm-dd') &gt;= (
+		select to_char(sysdate - 10, 'yyyy-mm-dd')
+		from dual
+		)
+	AND to_char(t.ptdate, 'yyyy-mm-dd') &lt;= (
+		select to_char(sysdate, 'yyyy-mm-dd')
+		from dual)		
+group by t.serial,t.prdnme) a
+where a.最早报工时间 &gt; a.最早入库操作时间 
+ORDER BY a.最早入库操作时间 desc</value>
+  </data>
+  <data name="提前入库明细当天" xml:space="preserve">
+    <value>SELECT *
+FROM (select t.serial as 工单号
+	,(select x.smpnme
+	from v_ord x
+	where  x.serial = t.serial
+	)as 客户简称
+	,trim(t.prdnme) as 产品名称
+	,min(ptdate)as 最早入库时间
+	,min(t.UPDATED) as 最早入库操作时间
+	,(
+		SELECT min(ta.CREATED)
+		FROM V_HR_PIECE_DATA ta
+		WHERE ta.serial = t.serial AND ta.PRCTYPNME like'%打包%' 
+		) as 最早报工时间
+from v_pb_bcdr t
+where t.objtyp = 'CL'
+	and t.orgcde = 'KS03'
+	and to_char(t.UPDATED, 'yyyy-mm-dd')=(
+		select to_char(sysdate, 'yyyy-mm-dd')
+		from dual)
+	AND to_char(t.ptdate, 'yyyy-mm-dd') &gt;= (
+		select to_char(sysdate - 10, 'yyyy-mm-dd')
+		from dual
+		)
+	AND to_char(t.ptdate, 'yyyy-mm-dd') &lt;= (
+		select to_char(sysdate, 'yyyy-mm-dd')
+		from dual)		
+group by t.serial,t.prdnme) a
+where a.最早报工时间 &gt; a.最早入库操作时间 
+ORDER BY a.最早入库操作时间 desc</value>
+  </data>
+  <data name="获取送货单回单信息" xml:space="preserve">
+    <value>select * from(select 
+to_char(t.ptdate,'yyyy-MM-dd') 送货日期
+,t.pono    送货单号
+,t.smpnme  客户简称
+,t.agntnme    业务员
+,(select driver from dlv_auto where lnccde in (select lnccde from v_bcdx_ct b where b.id=t.id) and rownum = 1) 司机
+,t.usrnme 操作人
+from v_bcdx_ct t where t.objtyp='DL' and t.invtyp ='XD' and t.orgcde='KS03' and t.clientid='KS'
+  and to_char(ptdate,'yyyy-MM-dd') &gt;= '@starttime'
+  and to_char(ptdate,'yyyy-MM-dd') &lt;= '@endtime' 
+  and t.usrnme in('肖永卫','颜玲敏','应燕华','刘正利','董小浩','叶耀红'))a
+group by 送货日期,送货单号,客户简称,业务员,司机,操作人
+order by 送货日期,送货单号</value>
+  </data>
+  <data name="运费结算" xml:space="preserve">
+    <value>SELECT ID,to_char(ptdate,'yyyy-mm-dd hh:MM:ss') 时间,"PAYSTS" 结算
+	,"DRIVER" 司机
+	,"LNCCDE" 车牌号
+	,nvl("DISTANCE",0) 距离
+	,"CLNTNME" 客户
+	,nvl("PLNCDE",' ') 装车单
+	,"PONO" 送货单
+	,(select nvl(sum(i.ratios * i.acreage * i.ACCNUMR),0) from v_bcdx_ct i where i.clientid = t.clientid and i.orgcde = t.orgcde
+          and i.PONO = t.pono) as 运费面积
+	,nvl("ACCAMT",0) 运费
+	,nvl("ANNAMT",0) 补运费			
+	,nvl("USMARK",' ') 备注
+	,t.ADDRESS 送货地址
+FROM "EJSH"."DLV_FARE" t
+WHERE   orgcde = 'KS03'
+	AND DRIVER IN (
+		'霍红海'
+		,'郑二毛'
+		,'郑荷伟'
+		,'娄绍勇'
+		,'周晓军'
+		,'郑华东'
+		,'杨冬冬'
+		,'董美枝'
+		,'颜海军.'
+		,'周晓军.'
+		,'陶明凯'
+		)</value>
+  </data>
+</root>
