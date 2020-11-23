@@ -10,3 +10,4 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\WindowsServiceBa
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\WindowsServiceBackupWorkingData\obj\Debug\WindowsServiceBackupWorkingData.csproj.CopyComplete
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\WindowsServiceBackupWorkingData\obj\Debug\WindowsServiceBackupWorkingData.exe
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\WindowsServiceBackupWorkingData\obj\Debug\WindowsServiceBackupWorkingData.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\WindowsServiceBackupWorkingData\obj\Debug\WindowsServiceBackupWorkingData.csprojAssemblyReference.cache

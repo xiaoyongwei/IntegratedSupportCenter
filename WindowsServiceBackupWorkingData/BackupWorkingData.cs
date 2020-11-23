@@ -26,7 +26,7 @@ namespace WindowsServiceBackupWorkingData
 
         protected override void OnStart(string[] args)
         {
-            Console.SetWindowSize(70, 40);
+            
 
             WriteTxtLog("启动程序");
             while (true)
@@ -464,7 +464,7 @@ namespace WindowsServiceBackupWorkingData
 
         private static void WriteTxtLog(string txt)
         {
-            File.AppendAllText("D:\\Log_WindowsServiceBackupWorkingData_"+DateTime.Now.ToString("yyyy-MM-dd")+".txt",
+            File.AppendAllText("D:\\Log_WindowsServiceBackupWorkingData\\"+DateTime.Now.ToString("yyyy-MM-dd")+".txt",
                 DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss fff")+"\t"+txt + Environment.NewLine);
         }
 
