@@ -19,7 +19,7 @@ when greatest(ssizew,ssizel) <=1270 then round((ssizew+ssizel-greatest(ssizew,ss
 else 0 end 米数
 
 
-FROM EJSH.V_ORD_SCH t WHERE ROWNUM<=50 AND ORGCDE='KS03' and OBJTYP='CL'and OSTATUS='Y'  AND PRCTYPNME='覆膜过胶' 
+FROM EJSH.V_ORD_SCH t WHERE  ORGCDE='KS03' and OBJTYP='CL'and OSTATUS='Y'  AND PRCTYPNME='覆膜过胶' 
 and NOT EXISTS(select SERIAL  from v_pb_bcdr where objtyp ='CL' AND  v_pb_bcdr.serial =t.serial )
 AND NOT EXISTS(SELECT serial FROM EJSH.V_HR_PIECE_DATA vh WHERE PRCTYPNME IN('覆膜过胶','裱合贴面','模切压痕','粘箱粘合','钉箱装订','打包堆码') and vh.SERIAL=t.serial)
 AND ((SELECT CMPSTS FROM EJSH.ORD_CT_STS WHERE  EJSH.ORD_CT_STS.SERIAL=t.serial AND rownum=1 )='N')
