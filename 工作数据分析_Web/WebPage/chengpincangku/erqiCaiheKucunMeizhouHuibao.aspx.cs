@@ -12,37 +12,7 @@ public partial class WebPage_erqiCaiheKucunQingkuang : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        DataTable dt = GetSqlTxt_Datatable("彩盒库存明细");
-
-        //    开始添加到sql中
-        List<string> sqlList = new List<string>();
-
-        StringBuilder sb_Insert = new StringBuilder(" INSERT  INTO `slbz`.`二期彩盒库存明细`(");
-        foreach (DataColumn dc in dt.Columns)//添加列
-        {
-            sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
-        }
-        sb_Insert.Remove(sb_Insert.Length - 1, 1);
-        sb_Insert.AppendLine(")VALUES");
-        StringBuilder sb_values = new StringBuilder("(");
-        foreach (DataRow dr in dt.Rows)
-        {
-            sb_values = new StringBuilder("(");
-            foreach (DataColumn dc in dt.Columns)
-            {
-                sb_values.AppendFormat("'{0}',", dr[dc].ToString());
-            }
-            sb_values.Remove(sb_values.Length - 1, 1);
-            sb_values.AppendLine(");");
-            sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
-        }
-        if (sqlList.Count > 0)
-        {
-            sqlList.Insert(0, "truncate table `slbz`.`二期彩盒库存明细`;");
-        }
-
-
-        if (MySqlDbHelper.ExecuteSqlTran(sqlList))
+        if (My.更新成品库存())
         {
             //开始分配
             LabelGenxinShijian.Text = "未发货彩盒库存,统计时间为:" + DateTime.Now.ToString("yyyy年MM月dd日HH时");
@@ -130,12 +100,5 @@ public partial class WebPage_erqiCaiheKucunQingkuang : System.Web.UI.Page
 
     }
 
-    protected DataTable GetSqlTxt_Datatable(string txtFileName)
-    {
-        return OracleHelper.ExecuteDataTable(CommandType.Text,
-        new StreamReader(
-                new FileStream(
-                  Server.MapPath("~\\sqltxt\\" + txtFileName + ".txt"),
-                    FileMode.Open, FileAccess.Read, FileShare.Read)).ReadToEnd(), null);
-    }
+    
 }

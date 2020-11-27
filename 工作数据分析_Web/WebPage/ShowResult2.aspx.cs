@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text;
 
 public partial class WebPage_ShowResult : System.Web.UI.Page
 {
@@ -45,11 +46,14 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
                 dt2.TableName = "异常出库明细";
                 break;
             case "21":
-                 ds = MySqlDbHelper.ExecuteDataSet(string.Format("CALL `slbz`.`二期业务员交货超期`('{0}')",DateTime.Now.ToString("yyyy-MM-dd")));
-                dt1 = ds.Tables[0];
-                dt1.TableName = "二期业务员交货超期明细";
-                dt2 = ds.Tables[1];
-                dt2.TableName = "二期业务员交货超期汇总";
+                if (My.更新成品库存())
+                {
+                    ds = MySqlDbHelper.ExecuteDataSet(string.Format("CALL `slbz`.`二期业务员交货超期`('{0}')", DateTime.Now.ToString("yyyy-MM-dd")));
+                    dt1 = ds.Tables[0];
+                    dt1.TableName = "二期业务员交货超期明细";
+                    dt2 = ds.Tables[1];
+                    dt2.TableName = "二期业务员交货超期汇总";
+                }
                 break;
            
             default:

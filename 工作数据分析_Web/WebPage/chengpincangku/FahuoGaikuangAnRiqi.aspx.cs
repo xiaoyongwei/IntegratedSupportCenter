@@ -49,12 +49,13 @@ public partial class WebPage_FahuoGaikuangAnRiqi : System.Web.UI.Page
             "发货统计";
         dt_huizong =
          OracleHelper.ExecuteDataTable(
-            "SELECT aa.业务归属,aa.送货类型,sum(箱片面积)送货面积  from (" + sqlTemplate
+            "SELECT aa.业务归属,aa.送货类型,sum(箱片面积)送货面积,sum(金额)金额  from (" + sqlTemplate
             + ")aa  GROUP BY aa.业务归属,aa.送货类型 ORDER BY aa.业务归属,aa.送货类型");
         DataRow newRow=dt_huizong.NewRow();
         newRow["业务归属"] = "合计:";
         newRow["送货类型"] = "";
         newRow["送货面积"] = dt_huizong.Compute("Sum(送货面积)", "1=1");
+        newRow["金额"] = dt_huizong.Compute("Sum(金额)", "1=1");
         dt_huizong.Rows.Add(newRow);
         GridView1.DataSource = dt_huizong;
         GridView1.DataBind();

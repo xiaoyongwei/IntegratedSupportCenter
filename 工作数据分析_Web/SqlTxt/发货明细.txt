@@ -1,11 +1,8 @@
 ﻿select 
-(CASE WHEN t.agntnme IN(SELECT EMPNME
-FROM EJSH.V_HR_BASE
-WHERE  orgcde = 'KS03'
-   and clientid = 'KS'
-   and DUTNME='温岭二期'
-   and DPTNME='彩印销售部'
-   and STATUS='Y') then '二期' ELSE'一期' end )业务归属,
+(SELECT
+CASE 
+when t.clntnme ='森林包装集团股份有限公司' then '老厂' 
+else DECODE( DUTNME,'温岭森林','温森一期',DUTNME) end FROM EJSH.V_HR_BASE vh WHERE clientid = 'KS' AND STATUS='Y' and DPTNME like'%销售%' AND vh.EMPNME=t.agntnme)业务归属,
 CASE 
 WHEN  t.CRRCDE='1Z' and (SELECT count(*) FROM EJSH.V_HR_PIECE_DATA vh WHERE vh.SERIAL=t.serial  and PRCTYPNME  IN('模切压痕','裱合贴面','粘箱粘合','钉箱装钉'))=0 
 THEN '面纸加工' --面纸加工:类型CL,材质是1Z,并且没有后道工序的报工

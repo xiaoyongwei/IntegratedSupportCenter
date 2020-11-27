@@ -274,47 +274,47 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
             }
             else if (code == "23")
             {
-                this.GridView1.DataSource = GetSqlTxt_Datatable("报工但未入库");
+                this.GridView1.DataSource = My.GetSqlTxt_Datatable("报工但未入库");
                 this.GridView1.DataBind();
             }
             else if (code == "29")
             {
-                this.GridView1.DataSource = GetSqlTxt_Datatable("送货检查预警");
+                this.GridView1.DataSource = My.GetSqlTxt_Datatable("送货检查预警");
                 this.GridView1.DataBind();
             }
             else if (code == "31")
             {
-                this.GridView1.DataSource = GetSqlTxt_Datatable("纸板出库分析");
+                this.GridView1.DataSource = My.GetSqlTxt_Datatable("纸板出库分析");
                 this.GridView1.DataBind();
             } 
             else if (code == "26")
             {
-                this.GridView1.DataSource = GetSqlTxt_Datatable("退货数与退库数不符");
+                this.GridView1.DataSource = My.GetSqlTxt_Datatable("退货数与退库数不符");
                 this.GridView1.DataBind();
             }
             else if (code == "8")
             {
-                this.GridView1.DataSource = GetSqlTxt_Datatable("特殊工艺订单");
+                this.GridView1.DataSource = My.GetSqlTxt_Datatable("特殊工艺订单");
                 this.GridView1.DataBind();
             }
             else if (code == "16")
             {
-                this.GridView1.DataSource = GetSqlTxt_Datatable("彩盒库存明细");
+                this.GridView1.DataSource = My.GetSqlTxt_Datatable("彩盒库存明细");
                 this.GridView1.DataBind();
             }
             else if (code == "32")
             {
-                this.GridView1.DataSource = GetSqlTxt_Datatable("纸板库存情况");
+                this.GridView1.DataSource = My.GetSqlTxt_Datatable("纸板库存情况");
                 this.GridView1.DataBind();
             }
             else if (code == "33")
             {
-                this.GridView1.DataSource = GetSqlTxt_Datatable("提前入库明细");
+                this.GridView1.DataSource = My.GetSqlTxt_Datatable("提前入库明细");
                 this.GridView1.DataBind();
             }
             else if (code == "24")
             {
-                this.GridView1.DataSource = GetSqlTxt_Datatable("超订单入库明细");
+                this.GridView1.DataSource = My.GetSqlTxt_Datatable("超订单入库明细");
                 this.GridView1.DataBind();
             }
             else
@@ -349,12 +349,12 @@ public partial class WebPage_ShowResult : System.Web.UI.Page
     }
 
 
-    protected DataTable GetSqlTxt_Datatable(string txtFileName)
-    {
-        return OracleHelper.ExecuteDataTable(CommandType.Text,
-        new StreamReader(
-                new FileStream(
-                  Server.MapPath("~\\sqltxt\\" + txtFileName + ".txt"),
-                    FileMode.Open, FileAccess.Read, FileShare.Read)).ReadToEnd(), null);
-    }
+    //protected DataTable GetSqlTxt_Datatable(string txtFileName)
+    //{
+    //    return OracleHelper.ExecuteDataTable(CommandType.Text,
+    //    new StreamReader(
+    //            new FileStream(
+    //              Server.MapPath("~\\sqltxt\\" + txtFileName + ".txt"),
+    //                FileMode.Open, FileAccess.Read, FileShare.Read)).ReadToEnd(), null);
+    //}
 }

@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.IO;
 using System.Text;
 using System.Data;
+using System.Web.UI;
 
 /// <summary>
 ///My 的摘要说明
@@ -36,6 +37,49 @@ public class My
         }
         return ds;
     }
+
+    public static DataTable GetSqlTxt_Datatable(string mingCheng)
+    {
+        return OracleHelper.ExecuteDataTable(CommandType.Text,
+                 MySqlDbHelper.ExecuteScalar("SELECT `SQL语句` FROM  `slbz`.`系统_易捷oracle语句`where 名称='"+ mingCheng + "'").ToString()
+                 , null);
+    }
+
+    public static bool 更新成品库存()
+    {
+        DataTable dt = GetSqlTxt_Datatable("彩盒库存明细");
+
+        //    开始添加到sql中
+        List<string> sqlList = new List<string>();
+
+        StringBuilder sb_Insert = new StringBuilder(" INSERT  INTO `slbz`.`二期彩盒库存明细`(");
+        foreach (DataColumn dc in dt.Columns)//添加列
+        {
+            sb_Insert.AppendFormat("`{0}`,", dc.ColumnName);
+        }
+        sb_Insert.Remove(sb_Insert.Length - 1, 1);
+        sb_Insert.AppendLine(")VALUES");
+        StringBuilder sb_values = new StringBuilder("(");
+        foreach (DataRow dr in dt.Rows)
+        {
+            sb_values = new StringBuilder("(");
+            foreach (DataColumn dc in dt.Columns)
+            {
+                sb_values.AppendFormat("'{0}',", dr[dc].ToString());
+            }
+            sb_values.Remove(sb_values.Length - 1, 1);
+            sb_values.AppendLine(");");
+            sqlList.Add(sb_Insert.ToString() + sb_values.ToString());
+        }
+        if (sqlList.Count > 0)
+        {
+            sqlList.Insert(0, "truncate table `slbz`.`二期彩盒库存明细`;");
+        }
+
+
+        return MySqlDbHelper.ExecuteSqlTran(sqlList);
+    }
+
 
     public static DataTable Table_deletezero(DataTable dt)
     {
