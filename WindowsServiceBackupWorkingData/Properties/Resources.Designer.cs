@@ -47,8 +47,8 @@ namespace WindowsServiceBackupWorkingData.Properties {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
-        ///   重写当前线程的 CurrentUICulture 属性。
+        ///   重写当前线程的 CurrentUICulture 属性，对
+        ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
@@ -87,8 +87,7 @@ namespace WindowsServiceBackupWorkingData.Properties {
         ///	,u1.FBatchNo&apos;批号&apos;
         ///	,t30.FName AS &apos;基本单位&apos;
         ///	,u1.Fauxqty AS &apos;实收数量&apos;
-        ///	,t552.FName AS &apos;辅助单位&apos;
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	,t552.FName AS &apos;辅助单位&apos;        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 二期仓库入库 {
             get {
@@ -230,6 +229,31 @@ namespace WindowsServiceBackupWorkingData.Properties {
         internal static string 制版线完工_1800 {
             get {
                 return ResourceManager.GetString("制版线完工_1800", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 SELECT
+        ///[orderno]&apos;工单号&apos;
+        ///	,[custname]&apos;客户名&apos;
+        ///	,[paper]&apos;材质&apos;
+        ///	,[prodwid]&apos;门幅&apos;
+        ///	,[wid]&apos;宽度&apos;
+        ///	,[lenmm]&apos;长度&apos;
+        ///	,[ordnum]&apos;数量&apos;
+        ///	,[cutdata1]&apos;压线&apos;
+        ///	,[lb]&apos;楞型&apos;
+        ///	,[mem]&apos;备注&apos;
+        ///	,CONVERT(CHAR,[begindate],120)&apos;开始时间&apos;
+        ///	,CONVERT(CHAR,[finishdate],120)&apos;结束时间&apos;
+        ///	,[prodtime]&apos;生产时间&apos;
+        ///	,[瓦片线]=&apos;1.8米制版线F&apos;
+        ///FROM [dbo].[finish]
+        ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-30,GETDATE())) and CONVERT(DATETIME,GETDATE()) 的本地化字符串。
+        /// </summary>
+        internal static string 制版线完工_1800F {
+            get {
+                return ResourceManager.GetString("制版线完工_1800F", resourceCulture);
             }
         }
         
@@ -462,8 +486,7 @@ namespace WindowsServiceBackupWorkingData.Properties {
         ///                        Length int,
         ///                        Qty int
         ///                        )
-        ///   insert into #OrderItemLines exec GetNoNomalLines 
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   insert into #OrderItemLines exec GetNoNomalLines         /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线当前排程2500 {
             get {

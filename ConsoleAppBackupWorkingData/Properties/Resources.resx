@@ -984,6 +984,25 @@ drop table #TmpR</value>
 FROM [dbo].[finish]
 WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-30,GETDATE())) and CONVERT(DATETIME,GETDATE())</value>
   </data>
+  <data name="制版线完工_1800F" xml:space="preserve">
+    <value>SELECT
+[orderno]'工单号'
+	,[custname]'客户名'
+	,[paper]'材质'
+	,[prodwid]'门幅'
+	,[wid]'宽度'
+	,[lenmm]'长度'
+	,[ordnum]'数量'
+	,[cutdata1]'压线'
+	,[lb]'楞型'
+	,[mem]'备注'
+	,CONVERT(CHAR,[begindate],120)'开始时间'
+	,CONVERT(CHAR,[finishdate],120)'结束时间'
+	,[prodtime]'生产时间'
+	,[瓦片线]='1.8米制版线F'
+FROM [dbo].[finish]
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-30,GETDATE())) and CONVERT(DATETIME,GETDATE())</value>
+  </data>
   <data name="制版线完工_2200" xml:space="preserve">
     <value>SELECT  [orderno]'工单号'
 	,[custname]'客户名'

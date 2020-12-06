@@ -1,19 +1,17 @@
 ﻿using DBUtility;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using WindowsServiceBackupWorkingData.Properties;
 using 工作数据分析.Data.DAL;
 using 综合保障中心.Comm;
+
 
 namespace WindowsServiceBackupWorkingData
 {
@@ -26,8 +24,7 @@ namespace WindowsServiceBackupWorkingData
 
         protected override void OnStart(string[] args)
         {
-            
-
+           
             WriteTxtLog("启动程序");
             while (true)
             {
@@ -57,6 +54,25 @@ namespace WindowsServiceBackupWorkingData
                         WriteTxtLog("制版线1800E数据库连接失败!");
                     }
                     //2.备份制版线1800F的当前排程
+                    WriteTxtLog("开始备份制版线1800F的当前排程");
+                    if (My.Ping(DataBaseList.IP_制版线1800F) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800F))
+                    {
+                        DataBaseList.sql制版线1800F = new SqlHelper(DataBaseList.ConnString_制版线1800F);
+                        if (SubmitZhiBanXianCurrentMysql(DataBaseList.sql制版线1800F.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],rtrim([生产备注])'备注',[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线1800F"))
+                        {
+                            WriteTxtLog("备份制版线1800F当前排程情况成功!");
+                        }
+                        else
+                        {
+                            WriteTxtLog("备份制版线1800F当前排程情况失败!");
+                        }
+
+                    }
+                    else
+                    {
+                        WriteTxtLog("制版线1800F数据库连接失败!");
+                    }
+
                     //3.备份制版线2200的当前排程
                     WriteTxtLog("开始备份制版线2200的当前排程");
                     if (My.Ping(DataBaseList.IP_制版线2200) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2200))
@@ -111,6 +127,20 @@ namespace WindowsServiceBackupWorkingData
                         WriteTxtLog("制版线1800E数据库连接失败!");
                     }
                     //6.备份制版线1800F的完成记录
+                    WriteTxtLog("开始备份制版线1800F的完成记录");
+                    if (DataBaseList.sql制版线1800F != null)
+                    {
+                        //获取最后备份时间
+                        string lastBackupTime = MySqlDbHelper.ExecuteScalar(
+                            "SELECT date_sub(max(`结束时间`), interval 1 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='1.8米制版线F'").ToString();
+
+                        DataTable dt = DataBaseList.sql制版线1800F.Querytable(Resources.制版线完工_1800F.Replace("dateadd(dd,-30,GETDATE())", "'" + lastBackupTime + "'"));
+                        WriteTxtLog(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线1800F完成情况成功!" : "备份制版线1800F完成情况失败!");
+                    }
+                    else
+                    {
+                        WriteTxtLog("制版线1800F数据库连接失败!");
+                    }
 
                     //7.备份制版线2200的完成记录
                     WriteTxtLog("开始备份制版线2200的完成记录");
@@ -464,7 +494,8 @@ namespace WindowsServiceBackupWorkingData
 
         private static void WriteTxtLog(string txt)
         {
-            File.AppendAllText("D:\\Log_WindowsServiceBackupWorkingData\\"+DateTime.Now.ToString("yyyy-MM-dd")+".txt",
+            File.AppendAllText(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) 
+                + "\\Log\\"+DateTime.Now.ToString("yyyy-MM-dd")+".txt",
                 DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss fff")+"\t"+txt + Environment.NewLine);
         }
 

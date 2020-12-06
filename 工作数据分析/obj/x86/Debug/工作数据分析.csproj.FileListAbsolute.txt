@@ -30,11 +30,11 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分�
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.WuLiu.yunfei.Form为客户设置地区.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.Form警告提示.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.WuLiu.Form物流Main.resources
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\制版线实时查询.exe.config
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\制版线实时查询.exe
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\制版线实时查询.pdb
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\制版线实时查询.exe
-C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\制版线实时查询.pdb
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\纸箱纸板性能分析.WinForm.FormWeihu.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\Aspose.PDF.dll
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.exe.config
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.exe
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\物流数据.exe
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\物流数据.pdb

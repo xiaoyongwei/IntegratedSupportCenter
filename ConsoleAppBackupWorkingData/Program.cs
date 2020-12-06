@@ -48,6 +48,27 @@ namespace ConsoleAppBackupWorkingData
                         PrintToConsole("制版线1800E数据库连接失败!");
                     }
                     //2.备份制版线1800F的当前排程
+                    PrintToConsole("开始备份制版线1800F的当前排程", false);
+                    if (My.Ping(DataBaseList.IP_制版线1800F) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800F))
+                    {
+                        DataBaseList.sql制版线1800F = new SqlHelper(DataBaseList.ConnString_制版线1800F);
+                        if (SubmitZhiBanXianCurrentMysql(DataBaseList.sql制版线1800F.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],rtrim([生产备注])'备注',[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线1800F"))
+                        {
+                            PrintToConsole("备份制版线1800F当前排程情况成功!");
+                        }
+                        else
+                        {
+                            PrintToConsole("备份制版线1800F当前排程情况失败!");
+                        }
+
+                    }
+                    else
+                    {
+                        PrintToConsole("制版线1800F数据库连接失败!");
+                    }
+
+
+
                     //3.备份制版线2200的当前排程
                     PrintToConsole("开始备份制版线2200的当前排程", false);
                     if (My.Ping(DataBaseList.IP_制版线2200) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2200))
@@ -95,14 +116,27 @@ namespace ConsoleAppBackupWorkingData
                             "SELECT date_sub(max(`结束时间`), interval 1 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='1.8米制版线'").ToString();
 
                         DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800.Replace("dateadd(dd,-30,GETDATE())", "'" + lastBackupTime + "'"));
-                        PrintToConsole(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线1800完成情况成功!" : "备份制版线1800完成情况失败!");
+                        PrintToConsole(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线1800E完成情况成功!" : "备份制版线1800E完成情况失败!");
                     }
                     else
                     {
                         PrintToConsole("制版线1800E数据库连接失败!");
                     }
                     //6.备份制版线1800F的完成记录
+                    PrintToConsole("开始备份制版线1800F的完成记录", false);
+                    if (DataBaseList.sql制版线1800F != null)
+                    {
+                        //获取最后备份时间
+                        string lastBackupTime = MySqlDbHelper.ExecuteScalar(
+                            "SELECT date_sub(max(`结束时间`), interval 1 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='1.8米制版线F'").ToString();
 
+                        DataTable dt = DataBaseList.sql制版线1800F.Querytable(Resources.制版线完工_1800F.Replace("dateadd(dd,-30,GETDATE())", "'" + lastBackupTime + "'"));
+                        PrintToConsole(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线1800F完成情况成功!" : "备份制版线1800F完成情况失败!");
+                    }
+                    else
+                    {
+                        PrintToConsole("制版线1800F数据库连接失败!");
+                    }
                     //7.备份制版线2200的完成记录
                     PrintToConsole("开始备份制版线2200的完成记录", false);
                     if (DataBaseList.sql制版线2200 != null)

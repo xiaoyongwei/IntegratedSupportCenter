@@ -47,8 +47,8 @@ namespace 工作数据分析.Properties {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
-        ///   重写当前线程的 CurrentUICulture 属性。
+        ///   重写当前线程的 CurrentUICulture 属性，对
+        ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
@@ -550,7 +550,7 @@ namespace 工作数据分析.Properties {
         }
         
         /// <summary>
-        ///   查找类似 SELECT ID,to_char(ptdate,&apos;yyyy-mm-dd HH:MM:ss&apos;) 时间,&quot;PAYSTS&quot; 结算
+        ///   查找类似 SELECT ID,to_char(ptdate,&apos;yyyy-mm-dd HH24:MM:ss&apos;) 时间,&quot;PAYSTS&quot; 结算
         ///	,&quot;DRIVER&quot; 司机
         ///	,&quot;LNCCDE&quot; 车牌号
         ///	,nvl(&quot;DISTANCE&quot;,0) 距离
@@ -567,7 +567,7 @@ namespace 工作数据分析.Properties {
         ///WHERE   orgcde = &apos;KS03&apos;
         ///	AND DRIVER IN (
         ///		&apos;霍红海&apos;
-        ///		, [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	 [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 运费结算 {
             get {

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBancaiSunhaoInformation));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiSave = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,10 +58,10 @@
             this.备注});
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgv.Location = new System.Drawing.Point(0, 24);
+            this.dgv.Location = new System.Drawing.Point(0, 25);
             this.dgv.Name = "dgv";
             this.dgv.RowTemplate.Height = 23;
-            this.dgv.Size = new System.Drawing.Size(812, 426);
+            this.dgv.Size = new System.Drawing.Size(812, 425);
             this.dgv.TabIndex = 3;
             this.dgv.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgv_DefaultValuesNeeded);
             // 
@@ -75,7 +75,7 @@
             this.tsmiClear});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(812, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(812, 25);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -85,28 +85,28 @@
             this.tsmiSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmiSave.Name = "tsmiSave";
             this.tsmiSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.tsmiSave.Size = new System.Drawing.Size(75, 20);
+            this.tsmiSave.Size = new System.Drawing.Size(75, 21);
             this.tsmiSave.Text = "保存(&S)";
             this.tsmiSave.Click += new System.EventHandler(this.tsmiSave_Click);
             // 
             // tsmiSaveQuit
             // 
             this.tsmiSaveQuit.Name = "tsmiSaveQuit";
-            this.tsmiSaveQuit.Size = new System.Drawing.Size(95, 20);
+            this.tsmiSaveQuit.Size = new System.Drawing.Size(98, 21);
             this.tsmiSaveQuit.Text = "保存并退出(&Q)";
             this.tsmiSaveQuit.Click += new System.EventHandler(this.tsmiSaveQuit_Click);
             // 
             // tsmiExit
             // 
             this.tsmiExit.Name = "tsmiExit";
-            this.tsmiExit.Size = new System.Drawing.Size(83, 20);
+            this.tsmiExit.Size = new System.Drawing.Size(84, 21);
             this.tsmiExit.Text = "直接退出(&X)";
             this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
             // tsmiClear
             // 
             this.tsmiClear.Name = "tsmiClear";
-            this.tsmiClear.Size = new System.Drawing.Size(41, 20);
+            this.tsmiClear.Size = new System.Drawing.Size(44, 21);
             this.tsmiClear.Text = "清空";
             this.tsmiClear.Click += new System.EventHandler(this.tsmiClear_Click);
             // 
@@ -120,6 +120,7 @@
             // 机台
             // 
             this.机台.DataPropertyName = "机台";
+            this.机台.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.机台.HeaderText = "机台";
             this.机台.Items.AddRange(new object[] {
             "高宝145",
@@ -132,9 +133,9 @@
             // 数量
             // 
             this.数量.DataPropertyName = "数量";
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = "0";
-            this.数量.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.数量.DefaultCellStyle = dataGridViewCellStyle1;
             this.数量.HeaderText = "数量";
             this.数量.Name = "数量";
             this.数量.Width = 54;
