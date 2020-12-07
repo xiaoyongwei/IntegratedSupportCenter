@@ -799,18 +799,31 @@ namespace YBF
 
         private void fileSystemWatcher1_Created(object sender, FileSystemEventArgs e)
         {
+            if (e.FullPath.Contains("refining") || e.FullPath.Contains("remp"))
+            {
+                return;
+            }
             Comm_Method.PdfFileList.Add(e.FullPath);
             Comm_Method.LogTxt(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "\t新建\t" + e.FullPath);
         }
 
         private void fileSystemWatcher1_Deleted(object sender, FileSystemEventArgs e)
         {
+            if (e.FullPath.Contains("refining") || e.FullPath.Contains("remp"))
+            {
+                return;
+            }
             Comm_Method.PdfFileList.Remove(e.FullPath);
             Comm_Method.LogTxt(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "\t删除\t" + e.FullPath);
         }
 
         private void fileSystemWatcher1_Renamed(object sender, RenamedEventArgs e)
         {
+            if (e.FullPath.Contains("refining")|| e.FullPath.Contains("remp")
+                || e.OldFullPath.Contains("refining") || e.OldFullPath.Contains("remp"))
+            {
+                return;
+            }
             Comm_Method.PdfFileList[Comm_Method.PdfFileList.FindIndex(pdf => pdf.Equals(e.OldFullPath))]=e.FullPath;
             Comm_Method.LogTxt(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "\t重命名\t" + e.FullPath+"\t旧名称:"+e.OldFullPath);
         }

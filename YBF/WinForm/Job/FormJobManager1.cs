@@ -135,7 +135,7 @@ namespace YBF.WinForm.Job
 
         private void InitPdfList()
         {
-            string pdfPath = @"\\EvoServer\JobData\PDF";
+            string pdfPath = @"\\192.168.110.32\JobData\PDF";
             if (Comm_Method.IsConnectPath(pdfPath))
             {
                 pdfFiles = new DirectoryInfo(pdfPath).GetFiles("*.pdf", System.IO.SearchOption.AllDirectories);
