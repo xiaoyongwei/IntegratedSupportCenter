@@ -21,6 +21,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "工作数据分析_Web", ".
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "2824"
+		SlnRelativePath = "..\工作数据分析_Web\"
 	EndProjectSection
 EndProject
 Global

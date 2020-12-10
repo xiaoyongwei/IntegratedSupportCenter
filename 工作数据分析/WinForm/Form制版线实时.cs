@@ -315,6 +315,15 @@ namespace 工作数据分析.WinForm
             //catch
             //{
 
+
+            if (My.Ping(DataBaseList.IP_制版线1800F) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线1800F))
+            {
+                DataBaseList.sql制版线1800F = new SqlHelper(DataBaseList.ConnString_制版线1800F);
+                Insert制版线当前排程SQLite(DataBaseList.sql制版线1800F.Querytable("SELECT [订单号],[客户名称]'客户',rtrim([楞别])'楞型',[订单数],[纸宽]'宽度',[纸长]'长度',rtrim([生产纸质])'材质',[门幅],rtrim([生产备注])'备注',[序号] FROM [dbo].[bc]ORDER BY [序号]"), "制版线1800F");
+
+            }
+
+
             //}
             //try
             //{
@@ -349,10 +358,26 @@ namespace 工作数据分析.WinForm
             //}
             ////将制版线已经完成排程备份到中间数据库
             Get1800制版线完成信息1天();
+            Get1800F制版线完成信息1天();
             Get2200制版线完成信息1天();
             Get2500制版线完成信息1天();
             //开始压缩数据库
             SQLiteDbHelper_ZBX.ExecuteZip();
+        }
+
+        private void Get1800F制版线完成信息1天()
+        {
+            try
+            {
+                if (DataBaseList.sql制版线1800F != null)
+                {
+                    DataTable dt = DataBaseList.sql制版线1800F.Querytable(Resources.制版线完工1800F_1天);
+                    SubmitZhiBanXianSQLite(dt);
+                }
+            }
+            catch
+            {
+            }
         }
 
 
@@ -366,7 +391,8 @@ namespace 工作数据分析.WinForm
 
             RegexPatternString = SQLiteDbHelper_ZBX.ExecuteScalar("SELECT [Value]FROM [setting]where KEY='焦点匹配'").ToString();
 
-            dgv1800.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            dgv1800E.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            dgv1800F.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dgv2200.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dgv2500.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
@@ -445,7 +471,8 @@ namespace 工作数据分析.WinForm
             //SQLiteDbHelper_ZBX.ExecuteZip();
 
             //开始从中间数据库读取当前排程和已经完成的排程
-            dgv1800.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线1800' order by 序号;");
+            dgv1800E.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线1800' order by 序号;");
+            dgv1800F.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线1800F' order by 序号;");
             dgv2200.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线2200' order by 序号;");
             dgv2500.DataSource = SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号] FROM  `dangqianpaicheng` WHERE 生产线='制版线2500' order by 序号;");
 
@@ -467,11 +494,13 @@ namespace 工作数据分析.WinForm
 
 
 
-            SetDgvBackColor(dgv1800);
+            SetDgvBackColor(dgv1800E);
+            SetDgvBackColor(dgv1800F);
             SetDgvBackColor(dgv2200);
             SetDgvBackColor(dgv2500);
 
-            dgv1800.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv1800E.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv1800F.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv2200.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv2500.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
@@ -619,7 +648,7 @@ namespace 工作数据分析.WinForm
 
         private void Form制版线实时_SizeChanged(object sender, EventArgs e)
         {
-            splitContainer1.SplitterDistance = splitContainer2.Width / 3;
+            splitContainer1.SplitterDistance = splitContainer2.Width / 2;
             splitContainer3.SplitterDistance = splitContainer3.Width / 2;
 
 

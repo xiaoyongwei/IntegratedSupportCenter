@@ -1,33 +1,34 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="工作数据分析Web_FineUI.WebForm1" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
 <body>
-     <form id="form1" runat="server">
+    <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:SimpleForm ID="SimpleForm1" IsFluid="true" CssClass="blockpanel" BodyPadding="10px" EnableCollapse="false"
-            Title="简单表单" runat="server">
-            <Items>
-                <f:DatePicker runat="server" Required="true" DateFormatString="yyyy-MM-dd" Label="开始日期" EmptyText="请选择开始日期"
-                    ID="DatePicker1" ShowRedStar="true">
-                </f:DatePicker>
-                <f:DatePicker ID="DatePicker2" Required="true" Readonly="false" CompareControl="DatePicker1" DateFormatString="yyyy-MM-dd"
-                    CompareOperator="GreaterThan" CompareMessage="结束日期应该大于开始日期" Label="结束日期"
-                    runat="server" ShowRedStar="true">
-                </f:DatePicker>
-                <f:Button ID="btnSubmit" runat="server" ValidateForms="SimpleForm1" Text="提交表单"
-                    OnClick="btnSubmit_Click">
-                </f:Button>
-            </Items>
-        </f:SimpleForm>
-        <br />
-        <f:Label ID="labResult" ShowLabel="false" runat="server">
-        </f:Label>
+        <f:Grid ID="Grid1" IsFluid="true" CssClass="blockpanel" ShowBorder="true" ShowHeader="true" Title="表格"  PageSize="20" runat="server" 
+            AllowPaging="true" IsDatabasePaging="true"  EnableCollapse="false"
+            DataKeyNames="Id">
+            <Columns>
+               <%-- <f:RowNumberField />--%>
+                <f:BoundField Width="100px" DataField="订单号" DataFormatString="{0}" HeaderText="订单号" />
+                <f:BoundField Width="100px" DataField="客户" DataFormatString="{0}" HeaderText="客户" />
+                <f:BoundField Width="100px" DataField="楞型" DataFormatString="{0}" HeaderText="楞型" />
+                <f:BoundField Width="100px" DataField="订单数" DataFormatString="{0}" HeaderText="订单数" />
+                <f:BoundField Width="100px" DataField="宽度" DataFormatString="{0}" HeaderText="宽度" />
+                <f:BoundField Width="100px" DataField="长度" DataFormatString="{0}" HeaderText="长度" />
+                <f:BoundField Width="100px" DataField="材质" DataFormatString="{0}" HeaderText="材质" />
+                <f:BoundField Width="100px" DataField="门幅" DataFormatString="{0}" HeaderText="门幅" />
+                <f:BoundField Width="100px" DataField="序号" DataFormatString="{0}" HeaderText="序号" />
+                <f:BoundField Width="100px" DataField="备注" DataFormatString="{0}" HeaderText="备注" />
+                <f:BoundField Width="100px" DataField="生产线" DataFormatString="{0}" HeaderText="生产线" />
+            </Columns>
+        </f:Grid>
+
     </form>
+    
+
 </body>
 </html>

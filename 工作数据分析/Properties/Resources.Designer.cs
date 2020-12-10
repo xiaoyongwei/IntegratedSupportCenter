@@ -312,6 +312,27 @@ namespace 工作数据分析.Properties {
         ///	,[wid]&apos;宽度&apos;
         ///	,[lenmm]&apos;长度&apos;
         ///	,[ordnum]&apos;数量&apos;
+        ///	,[lb]&apos;楞型&apos;
+        ///	,CONVERT(CHAR,[finishdate],120)&apos;结束时间&apos;
+        ///	,[瓦片线]=&apos;1.8米制版线F&apos;
+        ///FROM [dbo].[finish]
+        ///WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE()) 的本地化字符串。
+        /// </summary>
+        internal static string 制版线完工1800F_1天 {
+            get {
+                return ResourceManager.GetString("制版线完工1800F_1天", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 SELECT
+        ///[orderno]&apos;工单号&apos;
+        ///	,[custname]&apos;客户名&apos;
+        ///	,[paper]&apos;材质&apos;
+        ///	,[prodwid]&apos;门幅&apos;
+        ///	,[wid]&apos;宽度&apos;
+        ///	,[lenmm]&apos;长度&apos;
+        ///	,[ordnum]&apos;数量&apos;
         ///	,[cutdata1]&apos;压线&apos;
         ///	,[lb]&apos;楞型&apos;
         ///	,[mem]&apos;备注&apos;

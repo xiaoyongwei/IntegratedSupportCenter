@@ -33,48 +33,12 @@ namespace 工作数据分析Web_FineUI
         protected global::FineUIPro.PageManager PageManager1;
 
         /// <summary>
-        /// SimpleForm1 控件。
+        /// Grid1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUIPro.SimpleForm SimpleForm1;
-
-        /// <summary>
-        /// DatePicker1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUIPro.DatePicker DatePicker1;
-
-        /// <summary>
-        /// DatePicker2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUIPro.DatePicker DatePicker2;
-
-        /// <summary>
-        /// btnSubmit 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUIPro.Button btnSubmit;
-
-        /// <summary>
-        /// labResult 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUIPro.Label labResult;
+        protected global::FineUIPro.Grid Grid1;
     }
 }

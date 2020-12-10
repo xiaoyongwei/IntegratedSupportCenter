@@ -635,6 +635,21 @@ left join t_StockPlace t5 on u1.FStockPlaceID=t5.FSPID
  Order By t1.FNumber,u1.FBatchNo
 ,u1.FMTONo Drop Table #TempInventory</value>
   </data>
+  <data name="制版线完工1800F_1天" xml:space="preserve">
+    <value>SELECT
+[orderno]'工单号'
+	,[custname]'客户名'
+	,[paper]'材质'
+	,[prodwid]'门幅'
+	,[wid]'宽度'
+	,[lenmm]'长度'
+	,[ordnum]'数量'
+	,[lb]'楞型'
+	,CONVERT(CHAR,[finishdate],120)'结束时间'
+	,[瓦片线]='1.8米制版线F'
+FROM [dbo].[finish]
+WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-1,GETDATE())) and CONVERT(DATETIME,GETDATE())</value>
+  </data>
   <data name="制版线完工1800_1天" xml:space="preserve">
     <value>SELECT
 [orderno]'工单号'
