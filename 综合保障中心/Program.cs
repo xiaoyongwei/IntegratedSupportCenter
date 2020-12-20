@@ -20,7 +20,7 @@ namespace 综合保障中心
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormYijie());
+            Application.Run(new FormYunfei20200501());
         }
     }
 }

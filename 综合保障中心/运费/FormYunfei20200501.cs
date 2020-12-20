@@ -264,16 +264,19 @@ namespace 综合保障中心
         private void ToolStripMenuItemSonghuo_Click(object sender, EventArgs e)
         {
             dgvYunfei.Rows.Clear();
+            TongjiYunfei();
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
             this.dgvPinche.Rows.Clear();
+            TongjiYunfei();
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
             this.dgv2ci.Rows.Clear();
+            TongjiYunfei();
         }
 
         private void dgvYunfei_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -362,15 +365,30 @@ namespace 综合保障中心
             StringBuilder sb = new StringBuilder("平方:" + zongmianji);
             if (zongpinchefei>0)
             {
-                sb.Append(",拼车:" + zongpinchefei);
+                sb.Append(",拼车:" + Math.Round(zongpinchefei,2));
             }
             if (zong2ciduimafei>0)
             {
-                sb.Append(",二次:" + zong2ciduimafei);
+                sb.Append(",二次:" + Math.Round(zong2ciduimafei,2));
             }
-            sb.Append(",总运费:" + (zongsonghuoyunfei + zongpinchefei + zong2ciduimafei));
+            sb.Append(",总运费:" + Math.Round(zongsonghuoyunfei + zongpinchefei + zong2ciduimafei,2));
             sb.Append(",平方价:" + Math.Round((zongsonghuoyunfei + zongpinchefei + zong2ciduimafei)/zongmianji,3));
             this.textBoxHuizong.Text = sb.ToString();
+        }
+
+        private void dgvPinche_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            TongjiYunfei();
+        }
+
+        private void dgv2ci_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            TongjiYunfei();
+        }
+
+        private void dgvYunfei_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            TongjiYunfei();
         }
     }
 }
