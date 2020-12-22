@@ -1269,10 +1269,11 @@ where a.最早报工时间 &gt; a.最早入库操作时间
 ORDER BY a.最早入库操作时间 desc</value>
   </data>
   <data name="获取送货单回单信息" xml:space="preserve">
-    <value>select * from(select 
+    <value>select 送货日期,送货单号,客户简称,业务员,司机,操作人,SUM(a.金额)as 金额  from(select 
 to_char(t.ptdate,'yyyy-MM-dd') 送货日期
 ,t.pono    送货单号
 ,t.smpnme  客户简称
+,round(t.prices * t.accnumr,2)金额
 ,t.agntnme    业务员
 ,(select driver from dlv_auto where lnccde in (select lnccde from v_bcdx_ct b where b.id=t.id) and rownum = 1) 司机
 ,t.usrnme 操作人
