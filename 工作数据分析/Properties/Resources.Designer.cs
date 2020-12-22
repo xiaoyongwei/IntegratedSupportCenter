@@ -47,8 +47,8 @@ namespace 工作数据分析.Properties {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性，对
-        ///   使用此强类型资源类的所有资源查找执行重写。
+        ///   重写当前线程的 CurrentUICulture 属性
+        ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
@@ -205,6 +205,28 @@ namespace 工作数据分析.Properties {
         internal static string 二期辅料仓库即时库存 {
             get {
                 return ResourceManager.GetString("二期辅料仓库即时库存", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 select      &apos; &apos; as 入库类型,
+        ///to_char(t.ptdate, &apos;yyyy-mm-dd hh24:mi:ss&apos;) as 入库时间,
+        ///       t.pono as 入库单号,
+        ///       t.serial as 生产单号,       
+        ///       t.ordnum as 订单数,
+        ///       t.accnuml as 入库数,
+        ///       (select x.smpnme
+        ///          from v_ord x
+        ///         where x.orgcde = t.orgcde
+        ///           and x.serial = t.serial)||&apos; &apos;||t.prdnme as 产品名称,      
+        ///       t.prices*t.accnuml as 金额,
+        ///       case t.objtyp
+        ///         when &apos;CB&apos; then
+        ///       round(round((select c.psizel from v_ord c where c.orgcde = t.orgcde and c.serial = t. [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string 入库查询 {
+            get {
+                return ResourceManager.GetString("入库查询", resourceCulture);
             }
         }
         

@@ -635,6 +635,64 @@ left join t_StockPlace t5 on u1.FStockPlaceID=t5.FSPID
  Order By t1.FNumber,u1.FBatchNo
 ,u1.FMTONo Drop Table #TempInventory</value>
   </data>
+  <data name="入库查询" xml:space="preserve">
+    <value>select      ' ' as 入库类型,
+to_char(t.ptdate, 'yyyy-mm-dd hh24:mi:ss') as 入库时间,
+       t.pono as 入库单号,
+       t.serial as 生产单号,       
+       t.ordnum as 订单数,
+       t.accnuml as 入库数,
+       (select x.smpnme
+          from v_ord x
+         where x.orgcde = t.orgcde
+           and x.serial = t.serial)||' '||t.prdnme as 产品名称,      
+       t.prices*t.accnuml as 金额,
+       case t.objtyp
+         when 'CB' then
+       round(round((select c.psizel from v_ord c where c.orgcde = t.orgcde and c.serial = t.serial)*(select c.psizew+20 from v_ord c where c.orgcde = t.orgcde and c.serial = t.serial)/1000000,4) * t.accnuml,4)
+         when 'CT' then
+       round(round(t.acreage,4) * t.accnuml,4)
+         when 'CL' then
+       round(round(t.acreage,4) * t.accnuml,4)
+         when 'CD' then
+       round(round(t.acreage,4) * t.accnuml,4)
+         when 'CC' then
+       round(round(t.acreage,4) * t.accnuml,4)
+            end 总面积,
+       t.usrnme as 录入员,
+       t.SITLOC AS 库区, 
+       t.remark as 备注
+  from v_pb_bcdr t
+ where (t.objtyp ='CL' or(t.objtyp in ('CB','CT','CD') AND t.USRNME IN('肖永卫','叶耀红','颜玲敏','应燕华','董小浩')))
+   and t.orgcde = 'KS03' and t.SERIAL like'%工单%' and t.CLNTNME like'%客户%' and t.prdnme like'%产品%'
+   and to_char(t.ptdate, 'yyyy-mm-dd') &gt;= '*开始时间*'
+   and to_char(t.ptdate, 'yyyy-mm-dd') &lt;= '*结束时间*'
+ group by t.objtyp,
+          t.orgcde,
+          t.clntnme,
+          t.serial,
+          t.mkpcde,
+          t.ptdate,
+          t.clntcde,
+          t.specs,
+          t.clientid,
+          t.prdnme,
+          t.sitloc,
+          t.prices,
+          t.accamt,
+          t.acreage,
+          t.crrcde,
+          t.matcde,
+          t.remark,
+          t.accnuml,
+          t.smpnme,
+          t.pono,
+          t.prdcde,
+          t.prdnme,
+          t.barcode,
+          t.usrnme,
+          t.ordnum</value>
+  </data>
   <data name="制版线完工1800F_1天" xml:space="preserve">
     <value>SELECT
 [orderno]'工单号'

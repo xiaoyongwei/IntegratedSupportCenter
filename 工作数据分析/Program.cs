@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using 工作数据分析.WinForm;
+using 工作数据分析.WinForm.ChengPin;
 using 工作数据分析.WinForm.WuLiu;
 using 综合保障中心.Comm;
 using 综合保障中心.其它;
@@ -32,7 +33,7 @@ namespace 工作数据分析
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormYijie_自动获取());
             //Application.Run(new Form制版线实时());
-            Application.Run(new Form物流Main());
+            Application.Run(new Form成品分类());
         }
     }
 }
