@@ -33,7 +33,7 @@ namespace 工作数据分析
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormYijie_自动获取());
             //Application.Run(new Form制版线实时());
-            Application.Run(new Form成品分类());
+            Application.Run(new FormMain());
         }
     }
 }

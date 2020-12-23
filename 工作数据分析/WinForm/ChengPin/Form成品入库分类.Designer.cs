@@ -1,7 +1,7 @@
 ﻿
 namespace 工作数据分析.WinForm.ChengPin
 {
-    partial class Form成品分类
+    partial class Form成品入库分类
     {
         /// <summary>
         /// Required designer variable.
@@ -32,9 +32,14 @@ namespace 工作数据分析.WinForm.ChengPin
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvRukuMingxi = new System.Windows.Forms.DataGridView();
+            this.contextMenuStripRukuMingxi = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.选择入库类型ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dgvGongdan = new System.Windows.Forms.DataGridView();
             this.dgvRukuJilu = new System.Windows.Forms.DataGridView();
+            this.contextMenuStripRukuJilu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dateTimePickerS = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerE = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,20 +48,21 @@ namespace 工作数据分析.WinForm.ChengPin
             this.textBoxKehuChanpin = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.选择入库类型ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonRest = new System.Windows.Forms.Button();
+            this.总入库数ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRukuMingxi)).BeginInit();
+            this.contextMenuStripRukuMingxi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGongdan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRukuJilu)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStripRukuJilu.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -84,7 +90,7 @@ namespace 工作数据分析.WinForm.ChengPin
             this.dgvRukuMingxi.AllowUserToAddRows = false;
             this.dgvRukuMingxi.AllowUserToDeleteRows = false;
             this.dgvRukuMingxi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRukuMingxi.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvRukuMingxi.ContextMenuStrip = this.contextMenuStripRukuMingxi;
             this.dgvRukuMingxi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRukuMingxi.Location = new System.Drawing.Point(0, 0);
             this.dgvRukuMingxi.Name = "dgvRukuMingxi";
@@ -94,6 +100,28 @@ namespace 工作数据分析.WinForm.ChengPin
             this.dgvRukuMingxi.TabIndex = 0;
             this.dgvRukuMingxi.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRukuMingxi_CellContentDoubleClick);
             this.dgvRukuMingxi.SelectionChanged += new System.EventHandler(this.dgvRukuMingxi_SelectionChanged);
+            // 
+            // contextMenuStripRukuMingxi
+            // 
+            this.contextMenuStripRukuMingxi.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.选择入库类型ToolStripMenuItem,
+            this.导出明细ToolStripMenuItem});
+            this.contextMenuStripRukuMingxi.Name = "contextMenuStrip1";
+            this.contextMenuStripRukuMingxi.Size = new System.Drawing.Size(143, 48);
+            // 
+            // 选择入库类型ToolStripMenuItem
+            // 
+            this.选择入库类型ToolStripMenuItem.Name = "选择入库类型ToolStripMenuItem";
+            this.选择入库类型ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.选择入库类型ToolStripMenuItem.Text = "选择入库类型";
+            this.选择入库类型ToolStripMenuItem.Click += new System.EventHandler(this.选择入库类型ToolStripMenuItem_Click);
+            // 
+            // 导出明细ToolStripMenuItem
+            // 
+            this.导出明细ToolStripMenuItem.Name = "导出明细ToolStripMenuItem";
+            this.导出明细ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.导出明细ToolStripMenuItem.Text = "导出明细";
+            this.导出明细ToolStripMenuItem.Click += new System.EventHandler(this.导出明细ToolStripMenuItem_Click);
             // 
             // splitContainer2
             // 
@@ -130,6 +158,7 @@ namespace 工作数据分析.WinForm.ChengPin
             this.dgvRukuJilu.AllowUserToAddRows = false;
             this.dgvRukuJilu.AllowUserToDeleteRows = false;
             this.dgvRukuJilu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRukuJilu.ContextMenuStrip = this.contextMenuStripRukuJilu;
             this.dgvRukuJilu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRukuJilu.Location = new System.Drawing.Point(0, 0);
             this.dgvRukuJilu.Name = "dgvRukuJilu";
@@ -137,6 +166,21 @@ namespace 工作数据分析.WinForm.ChengPin
             this.dgvRukuJilu.RowTemplate.Height = 23;
             this.dgvRukuJilu.Size = new System.Drawing.Size(374, 108);
             this.dgvRukuJilu.TabIndex = 0;
+            // 
+            // contextMenuStripRukuJilu
+            // 
+            this.contextMenuStripRukuJilu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.总入库数ToolStripMenuItem});
+            this.contextMenuStripRukuJilu.Name = "contextMenuStrip1";
+            this.contextMenuStripRukuJilu.Size = new System.Drawing.Size(181, 70);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "选择入库类型";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // dateTimePickerS
             // 
@@ -192,9 +236,9 @@ namespace 工作数据分析.WinForm.ChengPin
             // 
             this.buttonSearch.Location = new System.Drawing.Point(594, 2);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(59, 23);
             this.buttonSearch.TabIndex = 4;
-            this.buttonSearch.Text = "查  询";
+            this.buttonSearch.Text = "查 询";
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
@@ -207,25 +251,29 @@ namespace 工作数据分析.WinForm.ChengPin
             this.label3.TabIndex = 5;
             this.label3.Text = "->";
             // 
-            // contextMenuStrip1
+            // buttonRest
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.选择入库类型ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(143, 26);
+            this.buttonRest.Location = new System.Drawing.Point(659, 3);
+            this.buttonRest.Name = "buttonRest";
+            this.buttonRest.Size = new System.Drawing.Size(59, 23);
+            this.buttonRest.TabIndex = 6;
+            this.buttonRest.Text = "重 置";
+            this.buttonRest.UseVisualStyleBackColor = true;
+            this.buttonRest.Click += new System.EventHandler(this.button1_Click);
             // 
-            // 选择入库类型ToolStripMenuItem
+            // 总入库数ToolStripMenuItem
             // 
-            this.选择入库类型ToolStripMenuItem.Name = "选择入库类型ToolStripMenuItem";
-            this.选择入库类型ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.选择入库类型ToolStripMenuItem.Text = "选择入库类型";
-            this.选择入库类型ToolStripMenuItem.Click += new System.EventHandler(this.选择入库类型ToolStripMenuItem_Click);
+            this.总入库数ToolStripMenuItem.Name = "总入库数ToolStripMenuItem";
+            this.总入库数ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.总入库数ToolStripMenuItem.Text = "总入库数";
+            this.总入库数ToolStripMenuItem.Click += new System.EventHandler(this.总入库数ToolStripMenuItem_Click);
             // 
-            // Form成品分类
+            // Form成品入库分类
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 406);
+            this.Controls.Add(this.buttonRest);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.textBoxKehuChanpin);
@@ -235,21 +283,23 @@ namespace 工作数据分析.WinForm.ChengPin
             this.Controls.Add(this.dateTimePickerE);
             this.Controls.Add(this.dateTimePickerS);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Form成品分类";
+            this.Name = "Form成品入库分类";
             this.ShowIcon = false;
             this.Text = "成品分类";
+            this.Load += new System.EventHandler(this.Form成品入库分类_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRukuMingxi)).EndInit();
+            this.contextMenuStripRukuMingxi.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGongdan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRukuJilu)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStripRukuJilu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,7 +320,12 @@ namespace 工作数据分析.WinForm.ChengPin
         private System.Windows.Forms.TextBox textBoxKehuChanpin;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripRukuMingxi;
         private System.Windows.Forms.ToolStripMenuItem 选择入库类型ToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripRukuJilu;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 导出明细ToolStripMenuItem;
+        private System.Windows.Forms.Button buttonRest;
+        private System.Windows.Forms.ToolStripMenuItem 总入库数ToolStripMenuItem;
     }
 }

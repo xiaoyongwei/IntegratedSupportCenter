@@ -123,11 +123,17 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="WinForm\ChengPin\Form成品分类.cs">
+    <Compile Include="WinForm\ChengPin\Form成品入库分类.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\ChengPin\Form成品分类.Designer.cs">
-      <DependentUpon>Form成品分类.cs</DependentUpon>
+    <Compile Include="WinForm\ChengPin\Form成品入库分类.Designer.cs">
+      <DependentUpon>Form成品入库分类.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\ChengPin\Form选择入库类型.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\ChengPin\Form选择入库类型.Designer.cs">
+      <DependentUpon>Form选择入库类型.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\FormShowData.cs">
       <SubType>Form</SubType>
@@ -310,8 +316,11 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\ChengPin\Form成品分类.resx">
-      <DependentUpon>Form成品分类.cs</DependentUpon>
+    <EmbeddedResource Include="WinForm\ChengPin\Form成品入库分类.resx">
+      <DependentUpon>Form成品入库分类.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\ChengPin\Form选择入库类型.resx">
+      <DependentUpon>Form选择入库类型.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\FormShowData.resx">
       <DependentUpon>FormShowData.cs</DependentUpon>
