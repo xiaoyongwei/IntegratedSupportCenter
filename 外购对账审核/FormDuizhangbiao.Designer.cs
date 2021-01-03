@@ -36,6 +36,7 @@
             this.从对账簿移除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.输入工单号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.金蝶入库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.金蝶入库取消ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.checkBoxJingque = new System.Windows.Forms.CheckBox();
@@ -47,10 +48,11 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.输入工单号ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelgongji = new System.Windows.Forms.Label();
-            this.金蝶入库取消ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.金蝶入库确认ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.金蝶入库取消ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelgongji = new System.Windows.Forms.Label();
+            this.提取工单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.彩盒工单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -84,14 +86,15 @@
             this.从对账簿移除ToolStripMenuItem,
             this.输入工单号ToolStripMenuItem,
             this.金蝶入库ToolStripMenuItem,
-            this.金蝶入库取消ToolStripMenuItem});
+            this.金蝶入库取消ToolStripMenuItem,
+            this.提取工单ToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(170, 136);
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 180);
             // 
             // 选择类型ToolStripMenuItem
             // 
             this.选择类型ToolStripMenuItem.Name = "选择类型ToolStripMenuItem";
-            this.选择类型ToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.选择类型ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.选择类型ToolStripMenuItem.Text = "选择类型(F8)";
             this.选择类型ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
@@ -99,7 +102,7 @@
             // 
             this.添加到对账簿ToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
             this.添加到对账簿ToolStripMenuItem.Name = "添加到对账簿ToolStripMenuItem";
-            this.添加到对账簿ToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.添加到对账簿ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.添加到对账簿ToolStripMenuItem.Text = "添加到对账簿(F1)";
             this.添加到对账簿ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
@@ -107,23 +110,30 @@
             // 
             this.从对账簿移除ToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
             this.从对账簿移除ToolStripMenuItem.Name = "从对账簿移除ToolStripMenuItem";
-            this.从对账簿移除ToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.从对账簿移除ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.从对账簿移除ToolStripMenuItem.Text = "从对账簿移除(F2)";
             this.从对账簿移除ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // 输入工单号ToolStripMenuItem
             // 
             this.输入工单号ToolStripMenuItem.Name = "输入工单号ToolStripMenuItem";
-            this.输入工单号ToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.输入工单号ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.输入工单号ToolStripMenuItem.Text = "输入工单号";
             this.输入工单号ToolStripMenuItem.Click += new System.EventHandler(this.输入工单号ToolStripMenuItem_Click);
             // 
             // 金蝶入库ToolStripMenuItem
             // 
             this.金蝶入库ToolStripMenuItem.Name = "金蝶入库ToolStripMenuItem";
-            this.金蝶入库ToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.金蝶入库ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.金蝶入库ToolStripMenuItem.Text = "金蝶入库-确认";
             this.金蝶入库ToolStripMenuItem.Click += new System.EventHandler(this.金蝶入库ToolStripMenuItem_Click);
+            // 
+            // 金蝶入库取消ToolStripMenuItem
+            // 
+            this.金蝶入库取消ToolStripMenuItem.Name = "金蝶入库取消ToolStripMenuItem";
+            this.金蝶入库取消ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.金蝶入库取消ToolStripMenuItem.Text = "金蝶入库-取消";
+            this.金蝶入库取消ToolStripMenuItem.Click += new System.EventHandler(this.金蝶入库取消ToolStripMenuItem_Click);
             // 
             // textBoxSearch
             // 
@@ -164,9 +174,9 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(2, 30);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -205,7 +215,7 @@
             this.金蝶入库确认ToolStripMenuItem,
             this.金蝶入库取消ToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(170, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(170, 136);
             // 
             // toolStripMenuItem1
             // 
@@ -237,21 +247,6 @@
             this.输入工单号ToolStripMenuItem1.Text = "输入工单号";
             this.输入工单号ToolStripMenuItem1.Click += new System.EventHandler(this.输入工单号ToolStripMenuItem1_Click);
             // 
-            // labelgongji
-            // 
-            this.labelgongji.AutoSize = true;
-            this.labelgongji.Location = new System.Drawing.Point(511, 10);
-            this.labelgongji.Name = "labelgongji";
-            this.labelgongji.Size = new System.Drawing.Size(0, 12);
-            this.labelgongji.TabIndex = 8;
-            // 
-            // 金蝶入库取消ToolStripMenuItem
-            // 
-            this.金蝶入库取消ToolStripMenuItem.Name = "金蝶入库取消ToolStripMenuItem";
-            this.金蝶入库取消ToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.金蝶入库取消ToolStripMenuItem.Text = "金蝶入库-取消";
-            this.金蝶入库取消ToolStripMenuItem.Click += new System.EventHandler(this.金蝶入库取消ToolStripMenuItem_Click);
-            // 
             // 金蝶入库确认ToolStripMenuItem
             // 
             this.金蝶入库确认ToolStripMenuItem.Name = "金蝶入库确认ToolStripMenuItem";
@@ -265,6 +260,29 @@
             this.金蝶入库取消ToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
             this.金蝶入库取消ToolStripMenuItem1.Text = "金蝶入库-取消";
             this.金蝶入库取消ToolStripMenuItem1.Click += new System.EventHandler(this.金蝶入库取消ToolStripMenuItem1_Click);
+            // 
+            // labelgongji
+            // 
+            this.labelgongji.AutoSize = true;
+            this.labelgongji.Location = new System.Drawing.Point(511, 10);
+            this.labelgongji.Name = "labelgongji";
+            this.labelgongji.Size = new System.Drawing.Size(0, 12);
+            this.labelgongji.TabIndex = 8;
+            // 
+            // 提取工单ToolStripMenuItem
+            // 
+            this.提取工单ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.彩盒工单ToolStripMenuItem});
+            this.提取工单ToolStripMenuItem.Name = "提取工单ToolStripMenuItem";
+            this.提取工单ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.提取工单ToolStripMenuItem.Text = "提取工单";
+            // 
+            // 彩盒工单ToolStripMenuItem
+            // 
+            this.彩盒工单ToolStripMenuItem.Name = "彩盒工单ToolStripMenuItem";
+            this.彩盒工单ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.彩盒工单ToolStripMenuItem.Text = "彩盒工单";
+            this.彩盒工单ToolStripMenuItem.Click += new System.EventHandler(this.彩盒工单ToolStripMenuItem_Click);
             // 
             // FormDuizhangbiao
             // 
@@ -320,5 +338,7 @@
         private System.Windows.Forms.ToolStripMenuItem 金蝶入库取消ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 金蝶入库确认ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 金蝶入库取消ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 提取工单ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 彩盒工单ToolStripMenuItem;
     }
 }
