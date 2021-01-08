@@ -19,6 +19,9 @@ public partial class WebPage_ShowCurrentZhibanxian : System.Web.UI.Page
         GridView1800.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`瓦片当前排程` where 生产线='制版线1800' ORDER by 序号");
         GridView1800.DataBind();
 
+        GridView1800F.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`瓦片当前排程` where 生产线='制版线1800F' ORDER by 序号");
+        GridView1800F.DataBind();
+
         GridView2200.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT *FROM  `slbz`.`瓦片当前排程` where 生产线='制版线2200' ORDER by 序号");
         GridView2200.DataBind();
 
@@ -39,6 +42,15 @@ public partial class WebPage_ShowCurrentZhibanxian : System.Web.UI.Page
                 row.BackColor = Color.Yellow;
             }
         }
+
+        foreach (GridViewRow row in GridView1800F.Rows)
+        {
+            if (Regex.IsMatch(row.Cells[0].Text, "^C\\d+", RegexOptions.IgnoreCase))
+            {
+                row.BackColor = Color.Yellow;
+            }
+        }
+
         foreach (GridViewRow row in GridView2200.Rows)
         {
             if (Regex.IsMatch(row.Cells[0].Text, "^C\\d+", RegexOptions.IgnoreCase))
@@ -56,4 +68,9 @@ public partial class WebPage_ShowCurrentZhibanxian : System.Web.UI.Page
         this.Lable1.Text = "数据更新时间:" + MySqlDbHelper.ExecuteScalar("SELECT `Value`FROM `slbz`.`settingall`where `key`='制版线当前排程更新时间'");
     }
 
+
+    protected void Timer1_Tick(object sender, EventArgs e)
+    {
+        InitShowData();
+    }
 }

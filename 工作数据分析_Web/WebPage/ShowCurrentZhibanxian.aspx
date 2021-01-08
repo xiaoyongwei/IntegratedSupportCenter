@@ -11,12 +11,20 @@
 
     <asp:ScriptManager runat="server" ID="ScriptManager1">
     </asp:ScriptManager>    
+            <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick">
+    </asp:Timer>
             <asp:Label ID="Lable1" runat="server"></asp:Label>
             <table style="width: 100%;">
                 <tr>
                     <td class="auto-style1">
                         <asp:Panel ID="Panel1" runat="server" ScrollBars="Both" Height="500px" Width="100%">
                             <asp:GridView ID="GridView1800" runat="server" Caption="制版线1800" Font-Size="10pt">                               
+                            </asp:GridView>
+                        </asp:Panel>
+                    </td>
+                    <td class="auto-style1">
+                        <asp:Panel ID="Panel4" runat="server" ScrollBars="Both" Height="500px" Width="100%">
+                            <asp:GridView ID="GridView1800F" runat="server" Caption="制版线1800F" Font-Size="10pt">                               
                             </asp:GridView>
                         </asp:Panel>
                     </td>
@@ -34,7 +42,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="4">
                         <asp:GridView ID="GridViewPublished" runat="server" Caption="24小时内完成" Font-Size="10pt">
                         </asp:GridView>
                     </td>
