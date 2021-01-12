@@ -3,16 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    
-                <asp:Label ID="LabelGenxinShijian" runat="server"></asp:Label>
-
-    <br />
-                <asp:GridView ID="GridView1_1qi" runat="server" Caption="库存情况(1期)">
+    <table>
+        <tr>
+            <td>
+                <asp:GridView ID="GridView1_1qi" runat="server" Caption="未发货彩盒库存(1期)">
                 </asp:GridView>
-
-    <br />
-                <asp:GridView ID="GridView1_2qi" runat="server" Caption="库存情况(2期)">
+                
+                <asp:Label ID="LabelGenxinShijian2" runat="server" ></asp:Label>
+            </td>
+            <td>
+                 <asp:GridView ID="GridView1_2qi" runat="server" Caption="未发货彩盒库存(2期)">
                 </asp:GridView>
+               
+                <asp:Label ID="LabelGenxinShijian" runat="server" ></asp:Label>
+            </td>
+        </tr>        
+    </table>
+               
           <%-- <br />
                 <asp:GridView ID="GridView1_0_7" runat="server" Caption="0-7天库存情况(1期)">
                 </asp:GridView>

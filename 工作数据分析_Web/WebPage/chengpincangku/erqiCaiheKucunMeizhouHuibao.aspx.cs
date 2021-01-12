@@ -16,6 +16,7 @@ public partial class WebPage_erqiCaiheKucunQingkuang : System.Web.UI.Page
         {
             //开始分配
             LabelGenxinShijian.Text = "未发货彩盒库存,统计时间为:" + DateTime.Now.ToString("yyyy年MM月dd日HH时");
+            LabelGenxinShijian2.Text = "未发货彩盒库存,统计时间为:" + DateTime.Now.ToString("yyyy年MM月dd日HH时");
             #region 第1版
             // GridView1_0_7.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT * from ((SELECT`客户`,sum(`总面积`)'面积',sum(`金额`)'金额',`业务员`FROM `slbz`.`二期彩盒库存明细` where 库存天数范围='00-07天' and 业务归属='一期' group by 客户 ,业务员)"
             // + "union"
