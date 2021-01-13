@@ -11,6 +11,7 @@
                 
                 <asp:Label ID="LabelGenxinShijian2" runat="server" ></asp:Label>
             </td>
+            <td></td>
             <td>
                  <asp:GridView ID="GridView1_2qi" runat="server" Caption="未发货彩盒库存(2期)">
                 </asp:GridView>
