@@ -14,3 +14,4 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\WindowsServiceBa
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\WindowsServiceBackupWorkingData\bin\Debug\WindowsServiceBackupWorkingData.application
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\WindowsServiceBackupWorkingData\obj\Debug\WindowsServiceBackupWorkingData.exe.manifest
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\WindowsServiceBackupWorkingData\obj\Debug\WindowsServiceBackupWorkingData.application
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\WindowsServiceBackupWorkingData\obj\Debug\WindowsServiceBackupWorkingData.csprojAssemblyReference.cache
