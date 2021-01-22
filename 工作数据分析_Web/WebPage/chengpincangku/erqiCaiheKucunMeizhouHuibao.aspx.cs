@@ -73,22 +73,26 @@ public partial class WebPage_erqiCaiheKucunQingkuang : System.Web.UI.Page
             #region 第3版
             GridView1_1qi.DataSource = MySqlDbHelper.ExecuteDataTable("(SELECT `业务员`,`客户`,sum(`总面积`)as '总库存(㎡)',(select sum(`总面积`) "
             + " FROM `slbz`.`二期彩盒库存明细`k WHERE k.`交货日期`<DATE_FORMAT(SYSDATE(), '%Y-%m-%d') and k.客户=t.客户)'到交期库存(㎡)',"
+            + "(SELECT sum(`总面积`) from `slbz`.`二期彩盒库存明细` l where l.`库存天数`>=60 and l.客户=t.客户) '60天以上库存(㎡)', "
             + "(SELECT sum(`总面积`) from `slbz`.`二期彩盒库存明细` l where l.`库存天数`>=80 and l.客户=t.客户) '80天以上库存(㎡)' "
             + " FROM `slbz`.`二期彩盒库存明细`t where `业务归属`='一期' GROUP BY `业务员`,`客户`order by 业务员)"
             + "union"
             + "(select ' ' as 业务员,'汇总'as 客户,sum(`总面积`)as '总库存(㎡)',(select sum(`总面积`) FROM `slbz`.`二期彩盒库存明细`k "
             + " WHERE k.`交货日期`< DATE_FORMAT(SYSDATE(), '%Y-%m-%d') and `业务归属`='一期')'到交期库存(㎡)', "
+            + "(SELECT sum(`总面积`) from `slbz`.`二期彩盒库存明细` l where l.`库存天数`>=60 and `业务归属`='一期') '60天以上库存(㎡)',"
             + "(SELECT sum(`总面积`) from `slbz`.`二期彩盒库存明细` l where l.`库存天数`>=80 and `业务归属`='一期') '80天以上库存(㎡)'"
             + "FROM `slbz`.`二期彩盒库存明细` where `业务归属`= '一期')");
             GridView1_1qi.DataBind();
 
             GridView1_2qi.DataSource = MySqlDbHelper.ExecuteDataTable("(SELECT `业务员`,`客户`,sum(`总面积`)as '总库存(㎡)',(select sum(`总面积`) "
             + " FROM `slbz`.`二期彩盒库存明细`k WHERE k.`交货日期`<DATE_FORMAT(SYSDATE(), '%Y-%m-%d') and k.客户=t.客户)'到交期库存(㎡)',"
+            + "(SELECT sum(`总面积`) from `slbz`.`二期彩盒库存明细` l where l.`库存天数`>=60 and l.客户=t.客户) '60天以上库存(㎡)', "
             + "(SELECT sum(`总面积`) from `slbz`.`二期彩盒库存明细` l where l.`库存天数`>=80 and l.客户=t.客户) '80天以上库存(㎡)' "
             + " FROM `slbz`.`二期彩盒库存明细`t where `业务归属`='二期' GROUP BY `业务员`,`客户`order by 业务员)"
             + "union"
             + "(select ' ' as 业务员,'汇总'as 客户,sum(`总面积`)as '总库存(㎡)',(select sum(`总面积`) FROM `slbz`.`二期彩盒库存明细`k "
             + " WHERE k.`交货日期`< DATE_FORMAT(SYSDATE(), '%Y-%m-%d') and `业务归属`='二期')'到交期库存(㎡)', "
+            + "(SELECT sum(`总面积`) from `slbz`.`二期彩盒库存明细` l where l.`库存天数`>=60  and `业务归属`='二期') '60天以上库存(㎡)',"
             + "(SELECT sum(`总面积`) from `slbz`.`二期彩盒库存明细` l where l.`库存天数`>=80  and `业务归属`='二期') '80天以上库存(㎡)'"
             + "FROM `slbz`.`二期彩盒库存明细` where `业务归属`= '二期')");
             GridView1_2qi.DataBind();
