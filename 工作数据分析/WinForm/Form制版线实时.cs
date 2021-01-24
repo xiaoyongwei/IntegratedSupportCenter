@@ -706,34 +706,6 @@ namespace 工作数据分析.WinForm
             new Thread(new ThreadStart(GetZbxToSQLite)).Start();
         }
 
-        private void 导出ExcelToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            SaveFileDialog save = new SaveFileDialog();
-            save.DefaultExt = ".xls";
-            save.FileName = this.Text + "_" + DateTime.Now.ToString("yyyyMMdd");
-            save.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            save.Filter = "Excel(.xls)|*.xls";
-            if (save.ShowDialog() == DialogResult.OK)
-            {
-                
-                    if (My.ExceptToExcel(save.FileName, RegexDataTable(
-                        SQLiteDbHelper_ZBX.ExecuteDataTable(
-                        "SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号],[生产线]"
-                        + "FROM[dangqianpaicheng] ORDER  BY 生产线, 序号"),"订单号",RegexPatternString)))
-                    {
-                        if (MessageBox.Show("保存成功!\n是否直接打开?", "打开?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            Process.Start(save.FileName);
-                        }
-                    }
-                    else
-                    {
-                        My.ShowErrorMessage("导出失败!");
-                    }
-            }
-        }
-
         private void 自动刷新ToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
             if (自动刷新ToolStripMenuItem.Checked)
@@ -752,6 +724,89 @@ namespace 工作数据分析.WinForm
         private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FormWeihu("系统设置", "SELECT [Key],[Value]FROM [setting]").ShowDialog();
+        }
+
+        private void 导出彩盒排程ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string fileName = (GetSaveFileFullName());
+            if (!string.IsNullOrWhiteSpace(fileName))
+            {
+                if (My.ExceptToExcel(fileName, RegexDataTable(
+                    SQLiteDbHelper_ZBX.ExecuteDataTable(
+                    "SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号],[生产线]"
+                    + "FROM[dangqianpaicheng] ORDER  BY 生产线, 序号"), "订单号", RegexPatternString)))
+                {
+                    if (MessageBox.Show("保存成功!\n是否直接打开?", "打开?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        Process.Start(fileName);
+                    }
+                }
+                else
+                {
+                    My.ShowErrorMessage("导出失败!");
+                }
+            }
+        }
+
+        private string GetSaveFileFullName()
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            save.DefaultExt = ".xls";
+            save.FileName = this.Text + "_" + DateTime.Now.ToString("yyyyMMdd");
+            save.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            save.Filter = "Excel(.xls)|*.xls";
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                return save.FileName;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        private void 导出彩盒排程隔行ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string fileName = (GetSaveFileFullName());
+            if (!string.IsNullOrWhiteSpace(fileName))
+            {
+                if (My.ExceptToExcelInsertNewRow(fileName, RegexDataTable(
+                    SQLiteDbHelper_ZBX.ExecuteDataTable(
+                    "SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号],[生产线]"
+                    + "FROM[dangqianpaicheng] ORDER  BY 生产线, 序号"), "订单号", RegexPatternString)))
+                {
+                    if (MessageBox.Show("保存成功!\n是否直接打开?", "打开?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        Process.Start(fileName);
+                    }
+                }
+                else
+                {
+                    My.ShowErrorMessage("导出失败!");
+                }
+            }
+        }
+
+        private void 导出全部排程ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string fileName = (GetSaveFileFullName());
+            if (!string.IsNullOrWhiteSpace(fileName))
+            {
+                if (My.ExceptToExcel(fileName, RegexDataTable(
+                    SQLiteDbHelper_ZBX.ExecuteDataTable(
+                    "SELECT [订单号],[客户],[楞型],[订单数],[宽度],[长度],[材质],[门幅],[备注],[序号],[生产线]"
+                    + "FROM[dangqianpaicheng] ORDER  BY 生产线, 序号"), "订单号", ".")))
+                {
+                    if (MessageBox.Show("保存成功!\n是否直接打开?", "打开?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        Process.Start(fileName);
+                    }
+                }
+                else
+                {
+                    My.ShowErrorMessage("导出失败!");
+                }
+            }
         }
     }
 }
