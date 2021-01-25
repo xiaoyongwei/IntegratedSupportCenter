@@ -40,6 +40,16 @@ namespace 综合保障中心.Comm
             return new ExcelHelper(fileFullName).DataTableToExcel(table, null, true) > 0;
         }
 
+        public static bool ExceptToExcelInsertNewRow(string fileFullName, DataTable table)
+        {
+            DataRow newRow = table.NewRow();
+            int rowNum = table.Rows.Count;
+            for (int i = 0; i < rowNum; i++)
+            {
+                table.Rows.InsertAt(table.NewRow(), i * 2 + 1);
+            }
+            return new ExcelHelper(fileFullName).DataTableToExcel(table, null, true) > 0;
+        }
 
 
 
