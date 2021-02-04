@@ -14,7 +14,8 @@ public static class MySqlDbHelper
     /// 连接字符串
     /// </summary>
     private static string ConnectionString =
-        "Server=sh-cdb-0fqx23nq.sql.tencentcdb.com;Port=62897;Database=slbz;userid=wan_001;password=w12345678;Character Set=utf8;Convert Zero Datetime=True; Allow Zero Datetime=True;connect timeout=1000";
+        "Server=localhost;Port=3306;Database=slbz;userid=wan_001;password=123456;Character Set=utf8;Convert Zero Datetime=True; Allow Zero Datetime=True;connect timeout=1000";
+        //"Server=sh-cdb-0fqx23nq.sql.tencentcdb.com;Port=62897;Database=slbz;userid=wan_001;password=w12345678;Character Set=utf8;Convert Zero Datetime=True; Allow Zero Datetime=True;connect timeout=1000";
     public static string GetConnectionString()
     {
         return ConnectionString;
@@ -655,7 +656,7 @@ public static class MySqlDbHelper
             tran.Commit();
             return true;
         }
-        catch
+        catch(Exception ex)
         {
             if (tran != null) tran.Rollback();
             return false;

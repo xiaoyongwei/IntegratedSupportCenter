@@ -249,7 +249,7 @@ namespace ConsoleAppBackupWorkingData
                 }
                 if (!MySqlDbHelper.ExecuteSqlTran(sqlList))
                 {
-                    PrintToConsole("获取[二期辅料仓库即时库存]失败×××××! ");
+                    PrintToConsole("获取[二期辅料仓库即时库存]失败×××××! ", false, ConsoleColor.Red);
                 }
                 else
                 {
@@ -258,7 +258,7 @@ namespace ConsoleAppBackupWorkingData
             }
             else
             {
-                PrintToConsole("财务系统没有连接!");
+                PrintToConsole("财务系统没有连接!", false, ConsoleColor.Red);
 
             }
         }
@@ -284,13 +284,13 @@ namespace ConsoleAppBackupWorkingData
                 }
                 else
                 {
-                    PrintToConsole("获取[二期原纸仓库即时库存]失败! ");
+                    PrintToConsole("获取[二期原纸仓库即时库存]失败! ", false, ConsoleColor.Red);
                 }
                 
             }
             else
             {
-                PrintToConsole("财务系统没有连接!");
+                PrintToConsole("财务系统没有连接!",false, ConsoleColor.Red);
 
             }
         }
