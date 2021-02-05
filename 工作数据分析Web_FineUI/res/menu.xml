@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Tree>
+  <TreeNode Text="主页" IconFont="_Home" NavigateUrl="~/About.aspx"> 
+  </TreeNode> 
+  <TreeNode Text="原纸仓库" IconFont="_Edit">
+   
+    <TreeNode Text="备料计划" NavigateUrl="~/yuanzhi/yuanzhi2.aspx" >
+      </TreeNode>
+      <TreeNode Text="库存明细" NavigateUrl="~/yuanzhi/yuanzhi1.aspx" >
+      </TreeNode>
+      <TreeNode Text="库存分类" NavigateUrl="~/yuanzhi/yuanzhi2.aspx" >
+      </TreeNode>
+	  <TreeNode Text="按品牌分类" NavigateUrl="~/yuanzhi/yuanzhi2.aspx" >
+      </TreeNode>
+	  <TreeNode Text="UV合并分类" NavigateUrl="~/yuanzhi/yuanzhi2.aspx" >
+      </TreeNode>
+	  <TreeNode Text="汇总分类" NavigateUrl="~/yuanzhi/yuanzhi2.aspx" >
+      </TreeNode>
+	  <TreeNode Text="各类占比" NavigateUrl="~/yuanzhi/yuanzhi2.aspx" >
+      </TreeNode>
+	  <TreeNode Text="已订未到" NavigateUrl="~/yuanzhi/yuanzhi2.aspx" >
+      </TreeNode>
+	 
+	  
+      
+    </TreeNode>
+    <TreeNode Text="基本元素">
+      <TreeNode Text="文本标签" NavigateUrl="~/form/label.aspx" >
+      </TreeNode>
+      <TreeNode Text="超链接" NavigateUrl="~/form/hyperlink.aspx" >
+      </TreeNode>
+      <TreeNode Text="图片控件" NavigateUrl="~/form/image.aspx" >
+      </TreeNode>
+      <TreeNode Text="图片控件（注册点击事件）" NavigateUrl="~/form/image_click.aspx">
+      </TreeNode>
+      <TreeNode Text="提示信息" NavigateUrl="~/form/tooltip.aspx" >
+      </TreeNode>
+      <TreeNode Text="提示信息（显示位置）" NavigateUrl="~/form/tooltip_position.aspx" >
+      </TreeNode>
+      <TreeNode Text="日期控件" NavigateUrl="~/form/calendar.aspx" >
+      </TreeNode>
+      <TreeNode Text="日期控件（最小日期和最大日期）" NavigateUrl="~/form/calendar_mindate.aspx" >
+      </TreeNode>
+      <TreeNode Text="日期控件（固定高度）" NavigateUrl="~/form/calendar_height.aspx">
+      </TreeNode>
+      <TreeNode Text="日期控件（选择时间）" NavigateUrl="~/form/calendar_time.aspx" IsCorp="true">
+      </TreeNode>
+      <TreeNode Text="日期控件（选择时间，不显示秒钟）" NavigateUrl="~/form/calendar_time_showsecond.aspx" IsCorp="true">
+      </TreeNode>
+      <TreeNode Text="日期控件（只显示年份）" NavigateUrl="~/form/calendar_display_year.aspx" IsCorp="true">
+      </TreeNode>
+      <TreeNode Text="日期控件（只显示年月）" NavigateUrl="~/form/calendar_display_month.aspx" IsCorp="true">
+      </TreeNode>
+      <TreeNode Text="日期控件（只显示时间）" NavigateUrl="~/form/calendar_display_time.aspx" IsCorp="true">
+      </TreeNode>
+    </TreeNode>
+	
+	<TreeNode Text="用户" >
+	<TreeNode Text="修改密码" NavigateUrl="~/User/ChangePassword.aspx" >
+      </TreeNode>
+      <TreeNode Text="用户反馈" NavigateUrl="~/User/FanKui.aspx" >
+      </TreeNode>
+	</TreeNode>
+	
+</Tree>

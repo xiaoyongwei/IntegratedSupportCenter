@@ -656,7 +656,7 @@ public static class MySqlDbHelper
             tran.Commit();
             return true;
         }
-        catch(Exception ex)
+        catch
         {
             if (tran != null) tran.Rollback();
             return false;

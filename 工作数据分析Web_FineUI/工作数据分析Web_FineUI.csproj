@@ -92,18 +92,66 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Login\Login.aspx" />
+    <Content Include="WebMain.aspx" />
+    <Content Include="User\ChangePassword.aspx" />
+    <Content Include="User\FanKui.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="YuanZhi\yuanzhiKucunMingxi.aspx" />
+    <Content Include="YuanZhi\yuanzhi2.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\MySqlDbHelper.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebMain.aspx.cs">
+      <DependentUpon>WebMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMain.aspx.designer.cs">
+      <DependentUpon>WebMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\MySqlDbHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\FanKui.aspx.cs">
+      <DependentUpon>FanKui.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\FanKui.aspx.designer.cs">
+      <DependentUpon>FanKui.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YuanZhi\yuanzhiKucunMingxi.aspx.cs">
+      <DependentUpon>yuanzhiKucunMingxi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YuanZhi\yuanzhiKucunMingxi.aspx.designer.cs">
+      <DependentUpon>yuanzhiKucunMingxi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YuanZhi\yuanzhi2.aspx.cs">
+      <DependentUpon>yuanzhi2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YuanZhi\yuanzhi2.aspx.designer.cs">
+      <DependentUpon>yuanzhi2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +163,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
