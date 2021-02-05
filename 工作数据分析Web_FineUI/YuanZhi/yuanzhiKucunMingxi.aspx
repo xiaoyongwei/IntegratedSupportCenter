@@ -10,11 +10,10 @@
 <body>
    <form id="form1" runat="server">
         <f:PageManager ID="PageManager1" runat="server" />
-        <f:Grid ID="Grid1" IsFluid="true" CssClass="blockpanel" Title="表格" EnableCollapse="false" PageSize="5" ShowBorder="true" ShowHeader="true"
-            AllowPaging="true" IsDatabasePaging="true" runat="server" EnableCheckBoxSelect="true" ShowPagingMessage="false"
-            DataKeyNames="Id,Name" OnPageIndexChange="Grid1_PageIndexChange">
+        <f:Grid ID="Grid1" IsFluid="true" CssClass="blockpanel" Title="表格"  EnableCollapse="false"  ForceFit="true" ShowBorder="true" ShowHeader="true"
+             AllowPaging="true" IsDatabasePaging="true" runat="server"  ShowPagingMessage="false" >
             <Columns>
-                <f:RowNumberField />
+               <%-- <f:RowNumberField />
                 <f:BoundField Width="100px" DataField="Name" DataFormatString="{0}" HeaderText="姓名" />
                 <f:TemplateField Width="100px" HeaderText="性别">
                     <ItemTemplate>
@@ -28,18 +27,9 @@
                     Target="_blank" ExpandUnusedSpace="true" MinWidth="150px" />
                 <f:ImageField Width="100px" DataImageUrlField="Group" DataImageUrlFormatString="~/res/images/16/{0}.png"
                     HeaderText="分组">
-                </f:ImageField>
+                </f:ImageField>--%>
             </Columns>
         </f:Grid>
-        <br />
-        <f:Button ID="Button1" runat="server" Text="选中了哪些行" OnClick="Button1_Click">
-        </f:Button>
-        <br />
-        <f:Label ID="labResult" EncodeText="false" runat="server">
-        </f:Label>
-        <br />
-        <br />
-        注：表格设置了 ShowPagingMessage=false，没有显示分页信息。
-    </form>
+        </form>
 </body>
 </html>

@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    
+   
     
     <form id="form1" runat="server">
         <asp:Label ID="userName" runat="server">欢迎您:XXX,</asp:Label><asp:LinkButton runat="server" ID="changePassword">[注销]</asp:LinkButton>
