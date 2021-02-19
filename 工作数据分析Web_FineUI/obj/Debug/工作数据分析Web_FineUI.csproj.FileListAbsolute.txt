@@ -83,8 +83,8 @@ C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_F
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\bin\NPOI.OpenXmlFormats.dll
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\bin\Newtonsoft.Json.xml
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.csprojAssemblyReference.cache
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.csproj.CoreCompileInputs.cache
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.csproj.CopyComplete
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.dll
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.pdb
+C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.csprojAssemblyReference.cache

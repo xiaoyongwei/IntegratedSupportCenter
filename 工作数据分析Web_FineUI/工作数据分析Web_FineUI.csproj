@@ -69,6 +69,8 @@
       <HintPath>..\工作数据分析\bin\Debug\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -93,13 +95,37 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Login\Login.aspx" />
+    <Content Include="building.aspx" />
+    <Content Include="WebPage\Chengpin\ChengpinChaoDingdanRuku.aspx" />
+    <Content Include="WebPage\Chengpin\ChengpinChurukuYiChang.aspx" />
+    <Content Include="WebPage\Chengpin\ChengpinFahuoAnRiqi.aspx" />
+    <Content Include="WebPage\Chengpin\ChengpinJiaohuoChaoqiKaohe.aspx" />
+    <Content Include="WebPage\Chengpin\ChengpinKucunHuibao.aspx" />
+    <Content Include="WebPage\Chengpin\ChengpinKucunMingxi.aspx" />
+    <Content Include="WebPage\Chengpin\ChengpinRukuAnRiqi.aspx" />
+    <Content Include="WebPage\Chengpin\ChengpinTiqianRuku.aspx" />
+    <Content Include="WebPage\Chengpin\ChengpinTuihuoBufu.aspx" />
+    <Content Include="WebPage\FuLiao\FuliaoBeiliao.aspx" />
+    <Content Include="WebPage\FuLiao\FuliaoJishiKucun.aspx" />
+    <Content Include="WebPage\FuLiao\FuliaoLingliaoFenxi.aspx" />
+    <Content Include="WebPage\FuLiao\K3FuliaoLingliao.aspx" />
+    <Content Include="WebPage\FuLiao\K3RukuJineZoushi.aspx" />
+    <Content Include="WebPage\FuLiao\K3WaigouRuku.aspx" />
+    <Content Include="WebPage\Login\Login.aspx" />
     <Content Include="WebMain.aspx" />
-    <Content Include="User\ChangePassword.aspx" />
-    <Content Include="User\FanKui.aspx" />
+    <Content Include="WebPage\ShengchanJIhua\ShengChanBaogongDanWeiRuku.aspx" />
+    <Content Include="WebPage\User\ChangePassword.aspx" />
+    <Content Include="WebPage\User\FanKui.aspx" />
     <Content Include="Web.config" />
-    <Content Include="YuanZhi\yuanzhiKucunMingxi.aspx" />
-    <Content Include="YuanZhi\yuanzhi2.aspx" />
+    <Content Include="WebPage\WuliaoJihua.aspx" />
+    <Content Include="WebPage\YuanZhi\YuanzhiFeileiHuizong.aspx" />
+    <Content Include="WebPage\YuanZhi\YuanzhiGeleiZhanbi.aspx" />
+    <Content Include="WebPage\YuanZhi\YuanzhiKucunFenlei.aspx" />
+    <Content Include="WebPage\YuanZhi\YuanzhiKucunMingxi.aspx" />
+    <Content Include="WebPage\YuanZhi\YuanzhiBeiliaoJihua.aspx" />
+    <Content Include="WebPage\YuanZhi\YuanzhiLast180daysDemand.aspx" />
+    <Content Include="WebPage\YuanZhi\YuanzhiPinpaiFenlei.aspx" />
+    <Content Include="WebPage\YuanZhi\YuanzhiUVHebingFenlei.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -109,11 +135,125 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login\Login.aspx.cs">
+    <Compile Include="App_Code\My.cs" />
+    <Compile Include="App_Code\OracleHelper.cs" />
+    <Compile Include="building.aspx.cs">
+      <DependentUpon>building.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="building.aspx.designer.cs">
+      <DependentUpon>building.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinChaoDingdanRuku.aspx.cs">
+      <DependentUpon>ChengpinChaoDingdanRuku.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinChaoDingdanRuku.aspx.designer.cs">
+      <DependentUpon>ChengpinChaoDingdanRuku.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinChurukuYiChang.aspx.cs">
+      <DependentUpon>ChengpinChurukuYiChang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinChurukuYiChang.aspx.designer.cs">
+      <DependentUpon>ChengpinChurukuYiChang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinFahuoAnRiqi.aspx.cs">
+      <DependentUpon>ChengpinFahuoAnRiqi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinFahuoAnRiqi.aspx.designer.cs">
+      <DependentUpon>ChengpinFahuoAnRiqi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinJiaohuoChaoqiKaohe.aspx.cs">
+      <DependentUpon>ChengpinJiaohuoChaoqiKaohe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinJiaohuoChaoqiKaohe.aspx.designer.cs">
+      <DependentUpon>ChengpinJiaohuoChaoqiKaohe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinKucunHuibao.aspx.cs">
+      <DependentUpon>ChengpinKucunHuibao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinKucunHuibao.aspx.designer.cs">
+      <DependentUpon>ChengpinKucunHuibao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinKucunMingxi.aspx.cs">
+      <DependentUpon>ChengpinKucunMingxi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinKucunMingxi.aspx.designer.cs">
+      <DependentUpon>ChengpinKucunMingxi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinRukuAnRiqi.aspx.cs">
+      <DependentUpon>ChengpinRukuAnRiqi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinRukuAnRiqi.aspx.designer.cs">
+      <DependentUpon>ChengpinRukuAnRiqi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinTiqianRuku.aspx.cs">
+      <DependentUpon>ChengpinTiqianRuku.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinTiqianRuku.aspx.designer.cs">
+      <DependentUpon>ChengpinTiqianRuku.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinTuihuoBufu.aspx.cs">
+      <DependentUpon>ChengpinTuihuoBufu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Chengpin\ChengpinTuihuoBufu.aspx.designer.cs">
+      <DependentUpon>ChengpinTuihuoBufu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\FuLiao\FuliaoBeiliao.aspx.cs">
+      <DependentUpon>FuliaoBeiliao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\FuLiao\FuliaoBeiliao.aspx.designer.cs">
+      <DependentUpon>FuliaoBeiliao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\FuLiao\FuliaoJishiKucun.aspx.cs">
+      <DependentUpon>FuliaoJishiKucun.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\FuLiao\FuliaoJishiKucun.aspx.designer.cs">
+      <DependentUpon>FuliaoJishiKucun.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\FuLiao\FuliaoLingliaoFenxi.aspx.cs">
+      <DependentUpon>FuliaoLingliaoFenxi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\FuLiao\FuliaoLingliaoFenxi.aspx.designer.cs">
+      <DependentUpon>FuliaoLingliaoFenxi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\FuLiao\K3FuliaoLingliao.aspx.cs">
+      <DependentUpon>K3FuliaoLingliao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\FuLiao\K3FuliaoLingliao.aspx.designer.cs">
+      <DependentUpon>K3FuliaoLingliao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\FuLiao\K3RukuJineZoushi.aspx.cs">
+      <DependentUpon>K3RukuJineZoushi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\FuLiao\K3RukuJineZoushi.aspx.designer.cs">
+      <DependentUpon>K3RukuJineZoushi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\FuLiao\K3WaigouRuku.aspx.cs">
+      <DependentUpon>K3WaigouRuku.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\FuLiao\K3WaigouRuku.aspx.designer.cs">
+      <DependentUpon>K3WaigouRuku.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login\Login.aspx.designer.cs">
+    <Compile Include="WebPage\Login\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebMain.aspx.cs">
@@ -125,33 +265,89 @@
     </Compile>
     <Compile Include="App_Code\MySqlDbHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User\ChangePassword.aspx.cs">
+    <Compile Include="WebPage\ShengchanJIhua\ShengChanBaogongDanWeiRuku.aspx.cs">
+      <DependentUpon>ShengChanBaogongDanWeiRuku.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ShengchanJIhua\ShengChanBaogongDanWeiRuku.aspx.designer.cs">
+      <DependentUpon>ShengChanBaogongDanWeiRuku.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\User\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User\ChangePassword.aspx.designer.cs">
+    <Compile Include="WebPage\User\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\FanKui.aspx.cs">
+    <Compile Include="WebPage\User\FanKui.aspx.cs">
       <DependentUpon>FanKui.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User\FanKui.aspx.designer.cs">
+    <Compile Include="WebPage\User\FanKui.aspx.designer.cs">
       <DependentUpon>FanKui.aspx</DependentUpon>
     </Compile>
-    <Compile Include="YuanZhi\yuanzhiKucunMingxi.aspx.cs">
-      <DependentUpon>yuanzhiKucunMingxi.aspx</DependentUpon>
+    <Compile Include="WebPage\WuliaoJihua.aspx.cs">
+      <DependentUpon>WuliaoJihua.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="YuanZhi\yuanzhiKucunMingxi.aspx.designer.cs">
-      <DependentUpon>yuanzhiKucunMingxi.aspx</DependentUpon>
+    <Compile Include="WebPage\WuliaoJihua.aspx.designer.cs">
+      <DependentUpon>WuliaoJihua.aspx</DependentUpon>
     </Compile>
-    <Compile Include="YuanZhi\yuanzhi2.aspx.cs">
-      <DependentUpon>yuanzhi2.aspx</DependentUpon>
+    <Compile Include="WebPage\YuanZhi\YuanzhiFeileiHuizong.aspx.cs">
+      <DependentUpon>YuanzhiFeileiHuizong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="YuanZhi\yuanzhi2.aspx.designer.cs">
-      <DependentUpon>yuanzhi2.aspx</DependentUpon>
+    <Compile Include="WebPage\YuanZhi\YuanzhiFeileiHuizong.aspx.designer.cs">
+      <DependentUpon>YuanzhiFeileiHuizong.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiGeleiZhanbi.aspx.cs">
+      <DependentUpon>YuanzhiGeleiZhanbi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiGeleiZhanbi.aspx.designer.cs">
+      <DependentUpon>YuanzhiGeleiZhanbi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiKucunFenlei.aspx.cs">
+      <DependentUpon>YuanzhiKucunFenlei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiKucunFenlei.aspx.designer.cs">
+      <DependentUpon>YuanzhiKucunFenlei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiKucunMingxi.aspx.cs">
+      <DependentUpon>YuanzhiKucunMingxi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiKucunMingxi.aspx.designer.cs">
+      <DependentUpon>YuanzhiKucunMingxi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiBeiliaoJihua.aspx.cs">
+      <DependentUpon>YuanzhiBeiliaoJihua.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiBeiliaoJihua.aspx.designer.cs">
+      <DependentUpon>YuanzhiBeiliaoJihua.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiLast180daysDemand.aspx.cs">
+      <DependentUpon>YuanzhiLast180daysDemand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiLast180daysDemand.aspx.designer.cs">
+      <DependentUpon>YuanzhiLast180daysDemand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiPinpaiFenlei.aspx.cs">
+      <DependentUpon>YuanzhiPinpaiFenlei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiPinpaiFenlei.aspx.designer.cs">
+      <DependentUpon>YuanzhiPinpaiFenlei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiUVHebingFenlei.aspx.cs">
+      <DependentUpon>YuanzhiUVHebingFenlei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiUVHebingFenlei.aspx.designer.cs">
+      <DependentUpon>YuanzhiUVHebingFenlei.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

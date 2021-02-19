@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="yuanzhi2.aspx.cs" Inherits="工作数据分析Web_FineUI.YuanZhi.yuanzhi2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WuliaoJihua.aspx.cs" Inherits="工作数据分析Web_FineUI.WebPage.WuliaoJihua" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>原纸2
+        <div>
         </div>
     </form>
 </body>

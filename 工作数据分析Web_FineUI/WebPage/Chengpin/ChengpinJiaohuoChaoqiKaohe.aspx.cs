@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace 工作数据分析Web_FineUI.YuanZhi
+namespace 工作数据分析Web_FineUI.WebPage.Chengpin
 {
-    public partial class yuanzhi2 : System.Web.UI.Page
+    public partial class ChengpinJiaohuoChaoqiKaohe : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
