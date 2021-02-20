@@ -5,10 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>辅料领料分析</title>
 </head>
 <body>
     <form id="form1" runat="server">
+        <%=Page.Title+" "+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")%>
         <table style="border-style: double; border-color: #0000FF" >
         <tr>
             <td>
@@ -37,12 +38,12 @@
         </tr>
     </table>
     <br />
+        <asp:GridView ID="GridView2" runat="server" Caption="各部门领料概况">
+        </asp:GridView>
     <asp:GridView ID="GridView1" runat="server" Caption="辅料领料明细" CaptionAlign="Top">
     </asp:GridView>
     
         <br />
-        <asp:GridView ID="GridView2" runat="server" Caption="各部门领料概况">
-        </asp:GridView>
     </form>
 </body>
 </html>

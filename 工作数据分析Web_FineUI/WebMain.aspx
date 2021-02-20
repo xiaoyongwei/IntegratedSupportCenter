@@ -7,11 +7,12 @@
     <title></title>
 </head>
 <body>
-    
-   
-    
+
+
+
     <form id="form1" runat="server">
-        <asp:Label ID="userName" runat="server">欢迎您:XXX,</asp:Label><asp:LinkButton runat="server" ID="changePassword">[注销]</asp:LinkButton>
+        <asp:Label ID="userName" runat="server">欢迎您:XXX,</asp:Label>
+        <asp:LinkButton runat="server" ID="changePassword">[注销]</asp:LinkButton>
         <f:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></f:PageManager>
         <f:RegionPanel ID="RegionPanel1" IsFluid="true" CssClass="blockpanel" ShowBorder="false" runat="server" Margin="5px">
             <Regions>
@@ -29,14 +30,14 @@
                                             </Listeners>--%>
                                         </f:Tree>
                                     </Items>
-                                </f:AccordionPane> 
-                                
+                                </f:AccordionPane>
+
                             </Panes>
                         </f:Accordion>
                     </Items>
                 </f:Region>
-                <f:Region ID="Region3" ShowHeader="false" EnableIFrame="true" 
-                   IFrameUrl="~/About.aspx"
+                <f:Region ID="Region3" ShowHeader="false" EnableIFrame="true"
+                    IFrameUrl="~/About.aspx"
                     IFrameName="accordionmainframe" Position="Center" runat="server">
                 </f:Region>
             </Regions>

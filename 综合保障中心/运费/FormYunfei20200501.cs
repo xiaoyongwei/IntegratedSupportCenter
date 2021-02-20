@@ -390,5 +390,22 @@ namespace 综合保障中心
         {
             TongjiYunfei();
         }
+
+        private void 全部2次堆码ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            double areaSum = 0;
+            foreach (DataGridViewRow item in dgvYunfei.Rows)
+            {
+                areaSum += Convert.ToDouble(item.Cells[ColumnSjmj.Index].Value);
+            }
+            dgv2ci.Rows.Clear();
+            if (areaSum>0)
+            {
+                int rowIndex = dgv2ci.Rows.Add();
+                dgv2ci.Rows[rowIndex].Cells[ColumnDmpf.Index].Value = areaSum;
+                dgc2ci_CellEndEdit(this, new DataGridViewCellEventArgs(0,rowIndex));
+            }
+           
+        }
     }
 }

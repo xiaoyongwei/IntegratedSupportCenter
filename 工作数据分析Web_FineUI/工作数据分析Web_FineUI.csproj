@@ -95,7 +95,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="building.aspx" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="WebPage\building.aspx" />
     <Content Include="WebPage\Chengpin\ChengpinChaoDingdanRuku.aspx" />
     <Content Include="WebPage\Chengpin\ChengpinChurukuYiChang.aspx" />
     <Content Include="WebPage\Chengpin\ChengpinFahuoAnRiqi.aspx" />
@@ -117,7 +118,7 @@
     <Content Include="WebPage\User\ChangePassword.aspx" />
     <Content Include="WebPage\User\FanKui.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebPage\WuliaoJihua.aspx" />
+    <Content Include="WebPage\WuLiao\WuliaoJihua.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiFeileiHuizong.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiGeleiZhanbi.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiKucunFenlei.aspx" />
@@ -137,11 +138,18 @@
     </Compile>
     <Compile Include="App_Code\My.cs" />
     <Compile Include="App_Code\OracleHelper.cs" />
-    <Compile Include="building.aspx.cs">
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\building.aspx.cs">
       <DependentUpon>building.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="building.aspx.designer.cs">
+    <Compile Include="WebPage\building.aspx.designer.cs">
       <DependentUpon>building.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPage\Chengpin\ChengpinChaoDingdanRuku.aspx.cs">
@@ -286,11 +294,11 @@
     <Compile Include="WebPage\User\FanKui.aspx.designer.cs">
       <DependentUpon>FanKui.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebPage\WuliaoJihua.aspx.cs">
+    <Compile Include="WebPage\WuLiao\WuliaoJihua.aspx.cs">
       <DependentUpon>WuliaoJihua.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPage\WuliaoJihua.aspx.designer.cs">
+    <Compile Include="WebPage\WuLiao\WuliaoJihua.aspx.designer.cs">
       <DependentUpon>WuliaoJihua.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPage\YuanZhi\YuanzhiFeileiHuizong.aspx.cs">

@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvYunfei = new System.Windows.Forms.DataGridView();
             this.ColumnBaodi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,12 +54,13 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgv2ci = new System.Windows.Forms.DataGridView();
-            this.ColumnDmpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDmf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conMs2ci = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonClearAll = new System.Windows.Forms.Button();
             this.textBoxHuizong = new System.Windows.Forms.TextBox();
+            this.全部2次堆码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ColumnDmpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDmf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvYunfei)).BeginInit();
             this.conMsSonghuo.SuspendLayout();
@@ -101,32 +102,32 @@
             // 
             // ColumnBaodi
             // 
-            dataGridViewCellStyle17.Format = "N3";
-            dataGridViewCellStyle17.NullValue = "0";
-            this.ColumnBaodi.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Format = "N3";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.ColumnBaodi.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColumnBaodi.HeaderText = "保底";
             this.ColumnBaodi.Name = "ColumnBaodi";
             // 
             // ColumnDqyf
             // 
-            dataGridViewCellStyle18.Format = "N3";
-            dataGridViewCellStyle18.NullValue = "0";
-            this.ColumnDqyf.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Format = "N3";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.ColumnDqyf.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnDqyf.HeaderText = "地区运费";
             this.ColumnDqyf.Name = "ColumnDqyf";
             // 
             // ColumnSjmj
             // 
-            dataGridViewCellStyle19.Format = "C3";
-            dataGridViewCellStyle19.NullValue = "0";
-            this.ColumnSjmj.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Format = "C3";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.ColumnSjmj.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColumnSjmj.HeaderText = "实际面积";
             this.ColumnSjmj.Name = "ColumnSjmj";
             // 
             // ColumnShyf
             // 
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.ColumnShyf.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ColumnShyf.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColumnShyf.HeaderText = "送货运费";
             this.ColumnShyf.Name = "ColumnShyf";
             this.ColumnShyf.ReadOnly = true;
@@ -185,18 +186,18 @@
             // 
             // ColumnPcjl
             // 
-            dataGridViewCellStyle21.Format = "N2";
-            dataGridViewCellStyle21.NullValue = "0";
-            this.ColumnPcjl.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = "0";
+            this.ColumnPcjl.DefaultCellStyle = dataGridViewCellStyle5;
             this.ColumnPcjl.HeaderText = "拼车距离";
             this.ColumnPcjl.Name = "ColumnPcjl";
             // 
             // ColumnPcyf
             // 
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle22.Format = "N2";
-            dataGridViewCellStyle22.NullValue = "0";
-            this.ColumnPcyf.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.ColumnPcyf.DefaultCellStyle = dataGridViewCellStyle6;
             this.ColumnPcyf.HeaderText = "拼车运费";
             this.ColumnPcyf.Name = "ColumnPcyf";
             this.ColumnPcyf.ReadOnly = true;
@@ -242,35 +243,18 @@
             this.dgv2ci.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgc2ci_CellEndEdit);
             this.dgv2ci.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgv2ci_RowsRemoved);
             // 
-            // ColumnDmpf
-            // 
-            dataGridViewCellStyle23.Format = "N2";
-            dataGridViewCellStyle23.NullValue = "0";
-            this.ColumnDmpf.DefaultCellStyle = dataGridViewCellStyle23;
-            this.ColumnDmpf.HeaderText = "堆码平方";
-            this.ColumnDmpf.Name = "ColumnDmpf";
-            // 
-            // ColumnDmf
-            // 
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle24.Format = "N2";
-            dataGridViewCellStyle24.NullValue = "0";
-            this.ColumnDmf.DefaultCellStyle = dataGridViewCellStyle24;
-            this.ColumnDmf.HeaderText = "堆码费";
-            this.ColumnDmf.Name = "ColumnDmf";
-            this.ColumnDmf.ReadOnly = true;
-            // 
             // conMs2ci
             // 
             this.conMs2ci.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem5});
+            this.toolStripMenuItem5,
+            this.全部2次堆码ToolStripMenuItem});
             this.conMs2ci.Name = "conMsSonghuo";
-            this.conMs2ci.Size = new System.Drawing.Size(101, 26);
+            this.conMs2ci.Size = new System.Drawing.Size(144, 48);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(100, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(143, 22);
             this.toolStripMenuItem5.Text = "清除";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
@@ -292,6 +276,30 @@
             this.textBoxHuizong.ReadOnly = true;
             this.textBoxHuizong.Size = new System.Drawing.Size(362, 21);
             this.textBoxHuizong.TabIndex = 12;
+            // 
+            // 全部2次堆码ToolStripMenuItem
+            // 
+            this.全部2次堆码ToolStripMenuItem.Name = "全部2次堆码ToolStripMenuItem";
+            this.全部2次堆码ToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.全部2次堆码ToolStripMenuItem.Text = "全部2次堆码";
+            this.全部2次堆码ToolStripMenuItem.Click += new System.EventHandler(this.全部2次堆码ToolStripMenuItem_Click);
+            // 
+            // ColumnDmpf
+            // 
+            dataGridViewCellStyle7.NullValue = "0";
+            this.ColumnDmpf.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ColumnDmpf.HeaderText = "堆码平方";
+            this.ColumnDmpf.Name = "ColumnDmpf";
+            // 
+            // ColumnDmf
+            // 
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = "0";
+            this.ColumnDmf.DefaultCellStyle = dataGridViewCellStyle8;
+            this.ColumnDmf.HeaderText = "堆码费";
+            this.ColumnDmf.Name = "ColumnDmf";
+            this.ColumnDmf.ReadOnly = true;
             // 
             // FormYunfei20200501
             // 
@@ -343,12 +351,13 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ContextMenuStrip conMs2ci;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDmpf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDmf;
         private System.Windows.Forms.TextBox textBoxHuizong;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBaodi;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDqyf;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSjmj;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnShyf;
+        private System.Windows.Forms.ToolStripMenuItem 全部2次堆码ToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDmpf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDmf;
     }
 }

@@ -52,6 +52,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
          <table class="auto-style7">
         <tr>
             <td class="auto-style1">日期:</td>

@@ -8,6 +8,7 @@ using System.Data;
 using 工作数据分析Web_FineUI.App_Code;
 using System.Web;
 using System.Web.UI.WebControls;
+using System.Web.UI;
 
 /// <summary>
 ///My 的摘要说明
@@ -78,10 +79,23 @@ public static class My
         return MySqlDbHelper.ExecuteSqlTran(sqlList);
     }
 
-    internal static void DownloadExcel(HttpResponse response, GridView gridView1, string v)
+    internal static void DownloadExcel(HttpResponse response, GridView gridView1, string excelFileName)
     {
-        throw new NotImplementedException();
+        response.ClearContent();
+        response.AddHeader("content-disposition", "attachment; filename="+excelFileName+".xls");
+        response.ContentType = "application/vnd.ms-excel";
+        response.ContentEncoding = System.Text.Encoding.UTF8;
+
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter htw = new HtmlTextWriter(sw);
+        gridView1.RenderControl(htw);
+
+        response.Write(sw.ToString());
+        response.End();
     }
+
+
+
 
     public static DataTable Table_deletezero(DataTable dt)
     {

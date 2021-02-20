@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -67,6 +68,12 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
         protected void Button1_Click(object sender, EventArgs e)
         {
             Search();
+        }
+
+        protected void ButtonDownload_Click(object sender, EventArgs e)
+        {
+            My.DownloadExcel(Response, GridView1, "发货概况");
+            My.DownloadExcel(Response, GridView2, "发货明细");
         }
     }
 }
