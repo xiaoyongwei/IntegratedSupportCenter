@@ -9,6 +9,7 @@ using 工作数据分析Web_FineUI.App_Code;
 using System.Web;
 using System.Web.UI.WebControls;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 
 /// <summary>
 ///My 的摘要说明
@@ -95,6 +96,20 @@ public static class My
     }
 
 
+internal static void DownloadExcel(HttpResponse response, HtmlGenericControl htmlControl, string excelFileName)
+    {
+        response.ClearContent();
+        response.AddHeader("content-disposition", "attachment; filename="+excelFileName+".xls");
+        response.ContentType = "application/vnd.ms-excel";
+        response.ContentEncoding = System.Text.Encoding.UTF8;
+
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter htw = new HtmlTextWriter(sw);
+        htmlControl.RenderControl(htw);
+
+        response.Write(sw.ToString());
+        response.End();
+    }
 
 
     public static DataTable Table_deletezero(DataTable dt)

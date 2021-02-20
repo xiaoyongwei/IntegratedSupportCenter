@@ -23,9 +23,14 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
             {
                 this.TextBoxDateS.Text = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd");
                 this.TextBoxDateE.Text = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd");
+                
             }
 
             Search();
+        }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
         }
 
         private void Search()
@@ -72,8 +77,7 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
 
         protected void ButtonDownload_Click(object sender, EventArgs e)
         {
-            My.DownloadExcel(Response, GridView1, "发货概况");
-            My.DownloadExcel(Response, GridView2, "发货明细");
+            My.DownloadExcel(Response, DivExport, "发货数据" + this.TextBoxDateS.Text + "_" + this.TextBoxDateE.Text);
         }
     }
 }

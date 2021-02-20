@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\inetpub\工作数据分析</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="About.aspx">
+      <publishTime>02/05/2021 14:31:29</publishTime>
+    </File>
+    <File Include="bin/FineUIPro.dll">
+      <publishTime>10/10/2020 09:47:12</publishTime>
+    </File>
+    <File Include="bin/Ionic.Zip.dll">
+      <publishTime>07/05/2020 20:10:02</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>09/05/2018 16:10:50</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>07/05/2020 20:10:02</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>11/09/2019 00:56:44</publishTime>
+    </File>
+    <File Include="bin/NPOI.dll">
+      <publishTime>07/05/2020 20:10:02</publishTime>
+    </File>
+    <File Include="bin/NPOI.OOXML.dll">
+      <publishTime>07/05/2020 20:10:02</publishTime>
+    </File>
+    <File Include="bin/NPOI.OpenXml4Net.dll">
+      <publishTime>07/05/2020 20:10:02</publishTime>
+    </File>
+    <File Include="bin/NPOI.OpenXmlFormats.dll">
+      <publishTime>12/23/2020 13:11:15</publishTime>
+    </File>
+    <File Include="bin/Oracle.ManagedDataAccess.dll">
+      <publishTime>05/30/2020 21:29:14</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/工作数据分析Web_FineUI.dll">
+      <publishTime>02/20/2021 18:15:38</publishTime>
+    </File>
+    <File Include="bin/工作数据分析Web_FineUI.pdb">
+      <publishTime>02/20/2021 18:15:38</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>02/20/2021 18:15:40</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/20/2021 18:15:39</publishTime>
+    </File>
+    <File Include="WebForm1.aspx">
+      <publishTime>02/20/2021 15:50:34</publishTime>
+    </File>
+    <File Include="WebMain.aspx">
+      <publishTime>02/20/2021 15:48:40</publishTime>
+    </File>
+    <File Include="WebPage/building.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/Chengpin/ChengpinChaoDingdanRuku.aspx">
+      <publishTime>02/20/2021 16:23:51</publishTime>
+    </File>
+    <File Include="WebPage/Chengpin/ChengpinChurukuYiChang.aspx">
+      <publishTime>02/20/2021 16:23:51</publishTime>
+    </File>
+    <File Include="WebPage/Chengpin/ChengpinFahuoAnRiqi.aspx">
+      <publishTime>02/20/2021 17:52:17</publishTime>
+    </File>
+    <File Include="WebPage/Chengpin/ChengpinJiaohuoChaoqiKaohe.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/Chengpin/ChengpinKucunHuibao.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/Chengpin/ChengpinKucunMingxi.aspx">
+      <publishTime>02/20/2021 16:23:51</publishTime>
+    </File>
+    <File Include="WebPage/Chengpin/ChengpinRukuAnRiqi.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/Chengpin/ChengpinTiqianRuku.aspx">
+      <publishTime>02/20/2021 16:22:46</publishTime>
+    </File>
+    <File Include="WebPage/Chengpin/ChengpinTuihuoBufu.aspx">
+      <publishTime>02/20/2021 16:22:59</publishTime>
+    </File>
+    <File Include="WebPage/FuLiao/FuliaoBeiliao.aspx">
+      <publishTime>02/20/2021 16:23:50</publishTime>
+    </File>
+    <File Include="WebPage/FuLiao/FuliaoJishiKucun.aspx">
+      <publishTime>02/20/2021 16:23:48</publishTime>
+    </File>
+    <File Include="WebPage/FuLiao/FuliaoLingliaoFenxi.aspx">
+      <publishTime>02/20/2021 16:23:50</publishTime>
+    </File>
+    <File Include="WebPage/FuLiao/K3FuliaoLingliao.aspx">
+      <publishTime>02/20/2021 16:25:56</publishTime>
+    </File>
+    <File Include="WebPage/FuLiao/K3RukuJineZoushi.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/FuLiao/K3WaigouRuku.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/Login/Login.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/ShengchanJIhua/ShengChanBaogongDanWeiRuku.aspx">
+      <publishTime>02/20/2021 16:24:33</publishTime>
+    </File>
+    <File Include="WebPage/User/ChangePassword.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/User/FanKui.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/WuLiao/WuliaoJihua.aspx">
+      <publishTime>02/20/2021 16:25:56</publishTime>
+    </File>
+    <File Include="WebPage/YuanZhi/YuanzhiBeiliaoJihua.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/YuanZhi/YuanzhiFeileiHuizong.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/YuanZhi/YuanzhiGeleiZhanbi.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/YuanZhi/YuanzhiKucunFenlei.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/YuanZhi/YuanzhiKucunMingxi.aspx">
+      <publishTime>02/20/2021 15:57:38</publishTime>
+    </File>
+    <File Include="WebPage/YuanZhi/YuanzhiLast180daysDemand.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/YuanZhi/YuanzhiPinpaiFenlei.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+    <File Include="WebPage/YuanZhi/YuanzhiUVHebingFenlei.aspx">
+      <publishTime>02/20/2021 10:10:22</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

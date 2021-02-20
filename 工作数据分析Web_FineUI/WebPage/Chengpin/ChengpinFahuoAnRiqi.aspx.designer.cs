@@ -51,6 +51,24 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
+        /// ButtonDownload 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDownload;
+
+        /// <summary>
+        /// DivExport 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivExport;
+
+        /// <summary>
         /// GridView1 控件。
         /// </summary>
         /// <remarks>
