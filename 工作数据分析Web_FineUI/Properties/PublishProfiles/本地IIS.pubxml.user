@@ -119,16 +119,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/27/2016 21:50:24</publishTime>
     </File>
     <File Include="bin/工作数据分析Web_FineUI.dll">
-      <publishTime>02/20/2021 18:15:38</publishTime>
+      <publishTime>02/21/2021 15:44:52</publishTime>
     </File>
     <File Include="bin/工作数据分析Web_FineUI.pdb">
-      <publishTime>02/20/2021 18:15:38</publishTime>
+      <publishTime>02/21/2021 15:44:52</publishTime>
+    </File>
+    <File Include="default.aspx">
+      <publishTime>02/21/2021 15:07:40</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>02/20/2021 18:15:40</publishTime>
+      <publishTime>02/21/2021 15:44:54</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/20/2021 18:15:39</publishTime>
+      <publishTime>02/21/2021 15:44:52</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>02/20/2021 15:50:34</publishTime>
@@ -185,7 +188,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/20/2021 10:10:22</publishTime>
     </File>
     <File Include="WebPage/Login/Login.aspx">
-      <publishTime>02/20/2021 10:10:22</publishTime>
+      <publishTime>02/21/2021 13:52:01</publishTime>
     </File>
     <File Include="WebPage/ShengchanJIhua/ShengChanBaogongDanWeiRuku.aspx">
       <publishTime>02/20/2021 16:24:33</publishTime>
@@ -196,8 +199,26 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="WebPage/User/FanKui.aspx">
       <publishTime>02/20/2021 10:10:22</publishTime>
     </File>
+    <File Include="WebPage/User/Zhuxiao.aspx">
+      <publishTime>02/21/2021 14:42:56</publishTime>
+    </File>
+    <File Include="WebPage/WuLiao/WuliaoFumo.aspx">
+      <publishTime>02/21/2021 15:26:36</publishTime>
+    </File>
+    <File Include="WebPage/WuLiao/WuliaoGuoyou.aspx">
+      <publishTime>02/21/2021 14:51:48</publishTime>
+    </File>
     <File Include="WebPage/WuLiao/WuliaoJihua.aspx">
       <publishTime>02/20/2021 16:25:56</publishTime>
+    </File>
+    <File Include="WebPage/WuLiao/WuliaoShuaizhi.aspx">
+      <publishTime>02/21/2021 15:17:59</publishTime>
+    </File>
+    <File Include="WebPage/WuLiao/WuliaoTeshuGongyi.aspx">
+      <publishTime>02/21/2021 15:30:34</publishTime>
+    </File>
+    <File Include="WebPage/Xiangpian/XiangpianDangqianPaicheng.aspx">
+      <publishTime>02/21/2021 14:57:21</publishTime>
     </File>
     <File Include="WebPage/YuanZhi/YuanzhiBeiliaoJihua.aspx">
       <publishTime>02/20/2021 10:10:22</publishTime>
