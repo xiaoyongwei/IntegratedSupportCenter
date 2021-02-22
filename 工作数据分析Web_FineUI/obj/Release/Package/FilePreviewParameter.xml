@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="工作数据分析" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Administrator\\Documents\\GitHub\\IntegratedSupportCenter\\工作数据分析Web_FineUI\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Administrator\\Documents\\GitHub\\IntegratedSupportCenter\\工作数据分析Web_FineUI\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+</parameters>

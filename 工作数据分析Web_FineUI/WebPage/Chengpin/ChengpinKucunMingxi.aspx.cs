@@ -11,7 +11,7 @@ namespace 工作数据分析Web_FineUI.Chengpin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+            My.IsSession(Session, Response);
 
             GridView1.Caption = "彩盒库存明细";
 

@@ -14,6 +14,8 @@ namespace 工作数据分析Web_FineUI.YuanZhi
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            My.IsSession(Session, Response);
+
             DataTable dt = MySqlDbHelper.ExecuteDataTable("CALL `slbz`.`二期原纸仓库各类占比`");
             DataTable dt_temp = dt.Clone();
             foreach (DataColumn dc in dt_temp.Columns)

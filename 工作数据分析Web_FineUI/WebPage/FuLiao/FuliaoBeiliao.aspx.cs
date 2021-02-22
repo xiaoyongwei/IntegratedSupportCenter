@@ -12,7 +12,7 @@ namespace 工作数据分析Web_FineUI.FuLiao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            My.IsSession(Session, Response);
 
             GridView1.Caption = "辅料备料技术分析(10天安全库存)";
 

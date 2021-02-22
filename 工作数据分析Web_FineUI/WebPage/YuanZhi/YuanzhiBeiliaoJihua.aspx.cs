@@ -13,6 +13,9 @@ namespace 工作数据分析Web_FineUI.YuanZhi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session, Response);
+
+
             DataSet ds = MySqlDbHelper.ExecuteDataSet("CALL `slbz`.`原纸备料计划1`();");
             ds = My.Dst_zero(ds);
 

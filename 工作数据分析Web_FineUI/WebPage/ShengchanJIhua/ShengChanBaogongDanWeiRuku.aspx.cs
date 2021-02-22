@@ -11,6 +11,8 @@ namespace 工作数据分析Web_FineUI.WebPage.ShengchanJIhua
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session, Response);
+
             this.GridView1.DataSource = My.GetSqlTxt_Datatable("报工但未入库");
             this.GridView1.DataBind();
 

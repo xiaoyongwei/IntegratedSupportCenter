@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using System.Web.SessionState;
 
 /// <summary>
 ///My 的摘要说明
@@ -282,6 +283,20 @@ internal static void DownloadExcel(HttpResponse response, HtmlGenericControl htm
         CryptoStream cs = new CryptoStream(ms, encrypto, CryptoStreamMode.Read);
         StreamReader strd = new StreamReader(cs, Encoding.Default);
         return strd.ReadToEnd();
+    }
+
+    internal static bool IsSession(HttpSessionState session, HttpResponse response)
+    {
+        if (session["username"] == null || string.IsNullOrWhiteSpace(session["username"].ToString()))
+        {
+            session.Abandon();
+            response.Redirect("~/WebPage/Login/Login.aspx");
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
     #endregion
 

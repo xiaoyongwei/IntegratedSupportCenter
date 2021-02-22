@@ -13,6 +13,8 @@ namespace 工作数据分析Web_FineUI.YuanZhi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session, Response);
+
             DataTable dt = new DataTable();
             //A类纸
             dt = MySqlDbHelper.ExecuteDataTable("CALL `slbz`.`二期原纸仓库库存明细分类汇总`('A')");

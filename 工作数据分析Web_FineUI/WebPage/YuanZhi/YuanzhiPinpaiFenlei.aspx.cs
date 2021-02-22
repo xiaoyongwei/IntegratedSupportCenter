@@ -12,6 +12,8 @@ namespace 工作数据分析Web_FineUI.YuanZhi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session, Response);
+
             GridView1.Caption = MySqlDbHelper.ExecuteScalar(
                 "SELECT CONCAT('总库存:',cast(sum(库存)/1000 as char),'吨,件数:',cast(count(批号)as char),'件')" +
                 "	FROM `slbz`.`二期原纸仓库即时库存`").ToString();

@@ -12,6 +12,8 @@ namespace 工作数据分析Web_FineUI.YuanZhi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session, Response);
+
             this.GridView1.Caption = "近180天白板纸需求汇总，平均每月需求"+
                 OracleHelper.ExecuteScalar(MySqlDbHelper.ExecuteScalar(
                 "SELECT `SQL语句`FROM `slbz`.`系统_易捷oracle语句`where 名称='原纸需求每月吨数'").ToString())
