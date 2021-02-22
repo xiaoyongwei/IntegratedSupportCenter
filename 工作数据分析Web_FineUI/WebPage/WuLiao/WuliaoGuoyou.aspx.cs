@@ -12,6 +12,13 @@ namespace 工作数据分析Web_FineUI.WebPage.WuLiao
         protected void Page_Load(object sender, EventArgs e)
         {
             My.IsSession(Session, Response);
+
+            this.GridView1.Caption = "未过油明细";
+            this.GridView2.Caption = "未过油总结";
+            this.GridView1.DataSource = My.GetSqlTxt_Datatable("未过油明细");
+            this.GridView1.DataBind();
+            this.GridView2.DataSource = My.GetSqlTxt_Datatable("未过油总结");
+            this.GridView2.DataBind();
         }
     }
 }

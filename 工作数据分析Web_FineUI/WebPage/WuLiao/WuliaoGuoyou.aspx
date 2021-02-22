@@ -9,8 +9,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+       <asp:Panel ID="Panel1" runat="server" ScrollBars="Horizontal">
+            <asp:GridView ID="GridView1" runat="server" CaptionAlign="Top" CellPadding="1" CellSpacing="1">
+            </asp:GridView>
+            <br />
+            <asp:GridView ID="GridView2" runat="server" CaptionAlign="Top" CellPadding="1" CellSpacing="1">
+            </asp:GridView>
+        </asp:Panel>
     </form>
 </body>
 </html>
