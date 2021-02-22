@@ -14,13 +14,14 @@
         <asp:Label ID="userName" runat="server">欢迎您:XXX,</asp:Label>
         <asp:LinkButton runat="server" ID="changePassword">[注销]</asp:LinkButton>
         <f:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" runat="server"></f:PageManager>
+        <p>asdfasd</p>
         <f:RegionPanel ID="RegionPanel1" IsFluid="true" CssClass="blockpanel" ShowBorder="false" runat="server" Margin="5px">
             <Regions>
                 <f:Region ID="Region2" RegionSplit="true" RegionSplitHeaderClass="false" RegionPosition="Left" Width="200px" ShowHeader="false"
                     Title="目录" EnableCollapse="false" Layout="Fit" runat="server">
                     <Items>
                         <f:Accordion runat="server" ShowBorder="false" ShowHeader="false" ShowCollapseTool="true">
-                            <Panes>
+                            <Panes>                                
                                 <f:AccordionPane runat="server" Title="工作台" IconUrl="~/res/images/16/1.png" BodyPadding="2px 5px"
                                     Layout="Fit">
                                     <Items>
