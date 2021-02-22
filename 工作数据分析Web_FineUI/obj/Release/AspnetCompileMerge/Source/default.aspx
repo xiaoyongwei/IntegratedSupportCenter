@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title></title>
+    <title>工作数据分析</title>
 </head>
 <body>
 

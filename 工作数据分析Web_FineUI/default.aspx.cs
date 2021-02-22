@@ -26,7 +26,7 @@ namespace 工作数据分析Web_FineUI
 
                 ResolveTreeNode(treeWork.Nodes);
             }
-            Title = DateTime.Now.ToString();
+            
         }
 
         private void ResolveTreeNode(TreeNodeCollection nodes)
