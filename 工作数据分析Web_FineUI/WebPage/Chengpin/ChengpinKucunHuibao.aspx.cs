@@ -12,6 +12,8 @@ namespace 工作数据分析Web_FineUI.Chengpin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session, Response);
+
             if (My.更新成品库存())
             {
                 //开始分配
@@ -97,10 +99,25 @@ namespace 工作数据分析Web_FineUI.Chengpin
                 + "FROM `slbz`.`二期彩盒库存明细` where `业务归属`= '二期')");
                 GridView1_2qi.DataBind();
                 #endregion
+
+
+
+                GridViewKucunMingxi.Caption = "彩盒库存明细";
+
+                this.GridViewKucunMingxi.DataSource = My.GetSqlTxt_Datatable("彩盒库存明细");
+                this.GridViewKucunMingxi.DataBind();
             }
             else
             {
             }
+        }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
+        protected void ButtonDownload_Click(object sender, EventArgs e)
+        {
+            My.DownloadExcel(Response, divExport, "温森二期未发完货彩盒库存-截止" + DateTime.Now.ToString("yyyy年MM月dd日"));
         }
     }
 }

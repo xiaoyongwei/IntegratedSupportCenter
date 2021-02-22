@@ -13,6 +13,9 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session, Response);
+
+
             //1.读取15天内的瓦片完成情况(总表,包含后续工序和入库,2列)
             //2.读取20天内纸板入库情况
             //3.删除已经入库的工单

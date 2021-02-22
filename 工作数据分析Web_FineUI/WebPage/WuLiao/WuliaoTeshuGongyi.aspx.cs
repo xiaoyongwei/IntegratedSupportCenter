@@ -11,6 +11,9 @@ namespace 工作数据分析Web_FineUI.WebPage.WuLiao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session, Response);
+
+
             GridView1.Caption = "特殊工艺订单";
 
             this.GridView1.DataSource = My.GetSqlTxt_Datatable("特殊工艺订单");

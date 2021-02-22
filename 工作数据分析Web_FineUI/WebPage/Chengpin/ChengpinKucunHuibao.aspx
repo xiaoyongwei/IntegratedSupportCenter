@@ -9,7 +9,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-         <table>
+        <asp:Button ID="ButtonDownload" runat="server" Text="导出为Excel文件" OnClick="ButtonDownload_Click" />
+         <br /><br />
+        <div runat="server" id="divExport"><table>
         <tr>
             <td>
                 <asp:GridView ID="GridView1_1qi" runat="server" Caption="未发货彩盒库存(1期)">
@@ -26,7 +28,13 @@
             </td>
         </tr>        
     </table>
+
+        <br />
+        <br />
+        <br />
                
+        <asp:GridView ID="GridViewKucunMingxi" runat="server"></asp:GridView>
+        </div>
           <%-- <br />
                 <asp:GridView ID="GridView1_0_7" runat="server" Caption="0-7天库存情况(1期)">
                 </asp:GridView>

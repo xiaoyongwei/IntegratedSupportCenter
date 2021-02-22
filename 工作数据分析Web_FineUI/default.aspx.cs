@@ -7,15 +7,11 @@ namespace 工作数据分析Web_FineUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["username"]==null||string.IsNullOrWhiteSpace(Session["username"].ToString()))
-            {
-                Session.Abandon();
-                Response.Redirect("~/WebPage/Login/Login.aspx");
-            }
-            else
-            {
+
+            My.IsSession(Session, Response);
+
                 Workbench.Title = "欢迎:" + Session["username"];
-            }
+           
 
 
             if (!IsPostBack)

@@ -11,6 +11,7 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session, Response);
 
             this.GridView1.DataSource = My.GetSqlTxt_Datatable("纸板出库分析");
             this.GridView1.DataBind();

@@ -13,7 +13,7 @@ namespace 工作数据分析Web_FineUI.FuLiao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            My.IsSession(Session, Response);
         }
 
         protected void ButtonRestart_Click(object sender, EventArgs e)

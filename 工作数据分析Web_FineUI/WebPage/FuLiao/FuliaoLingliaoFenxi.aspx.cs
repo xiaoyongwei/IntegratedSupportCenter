@@ -13,6 +13,9 @@ namespace 工作数据分析Web_FineUI.FuLiao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session, Response);
+
+
             this.TextBox_S.Text = DateTime.Now.AddDays(-30).ToString("yyyy-MM-dd");
             this.TextBox_E.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }

@@ -11,6 +11,8 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session, Response);
+
             this.GridView1.Caption = "提前入库明细";
             this.GridView1.DataSource = My.GetSqlTxt_Datatable("提前入库明细");
             this.GridView1.DataBind();

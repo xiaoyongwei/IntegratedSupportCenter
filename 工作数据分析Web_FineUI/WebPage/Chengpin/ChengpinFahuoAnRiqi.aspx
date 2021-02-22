@@ -21,6 +21,7 @@
         <div id="DivExport" runat="server">
             <asp:GridView ID="GridView1" runat="server">
             </asp:GridView>
+            <br />
             <asp:GridView ID="GridView2" runat="server">
             </asp:GridView>
         </div>

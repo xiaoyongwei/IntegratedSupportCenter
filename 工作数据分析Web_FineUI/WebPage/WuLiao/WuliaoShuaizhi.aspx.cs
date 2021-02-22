@@ -11,6 +11,8 @@ namespace 工作数据分析Web_FineUI.WebPage.WuLiao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session, Response);
+
             this.GridView1.Caption = "未甩纸明细";
             this.GridView2.Caption = "未甩纸总结";
             this.GridView1.DataSource = My.GetSqlTxt_Datatable("未甩纸明细");
