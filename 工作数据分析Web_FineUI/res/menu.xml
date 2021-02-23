@@ -83,6 +83,8 @@
     </TreeNode>
     <TreeNode Text="过油需求" NavigateUrl="~/WebPage/WuLiao/WuliaoGuoyou.aspx" >
     </TreeNode>
+     <TreeNode Text="特殊工艺" NavigateUrl="~/WebPage/WuLiao/WuliaoTeshuGongyi.aspx" >
+    </TreeNode>
   </TreeNode>
   
   <TreeNode Text="箱片备料" >
