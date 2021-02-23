@@ -3,6 +3,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <div runat="server" align="left" >
     <asp:TextBox ID="TextBoxDateS" runat="server"></asp:TextBox>
     -&gt;<asp:TextBox ID="TextBoxDateE" runat="server"></asp:TextBox>
 &nbsp;<%-- <asp:TextBox ID="TextBoxDateS" runat="server"></asp:TextBox>
@@ -12,7 +13,10 @@
     <br />
     <asp:GridView ID="GridView1" runat="server">
     </asp:GridView>
+    <asp:Label ID="Label1" runat="server" Text="Label" style="font-size:16px" ></asp:Label>
+    <br />
+    <br />
     <asp:GridView ID="GridView2" runat="server">
     </asp:GridView>
-    
+   </div>
 </asp:Content>

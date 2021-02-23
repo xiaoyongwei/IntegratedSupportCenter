@@ -38,11 +38,14 @@ public class My
         return ds;
     }
 
+    public static string GetSqlTxt(string mingCheng)
+    {
+        return MySqlDbHelper.ExecuteScalar("SELECT `SQL语句` FROM  `slbz`.`系统_易捷oracle语句`where 名称='" + mingCheng + "'").ToString();
+    }
+
     public static DataTable GetSqlTxt_Datatable(string mingCheng)
     {
-        return OracleHelper.ExecuteDataTable(CommandType.Text,
-                 MySqlDbHelper.ExecuteScalar("SELECT `SQL语句` FROM  `slbz`.`系统_易捷oracle语句`where 名称='"+ mingCheng + "'").ToString()
-                 , null);
+        return OracleHelper.ExecuteDataTable(CommandType.Text, GetSqlTxt(mingCheng), null);
     }
 
     public static bool 更新成品库存()

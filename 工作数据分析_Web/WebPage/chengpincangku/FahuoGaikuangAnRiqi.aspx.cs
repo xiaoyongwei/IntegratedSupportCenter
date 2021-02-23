@@ -31,10 +31,7 @@ public partial class WebPage_FahuoGaikuangAnRiqi : System.Web.UI.Page
 
     private void Search()
     {
-        string sqlTemplate = new StreamReader(
-                new FileStream(
-                  Server.MapPath("~\\sqltxt\\发货明细12部.txt"),
-                    FileMode.Open, FileAccess.Read, FileShare.Read)).ReadToEnd();
+        string sqlTemplate = My.GetSqlTxt("发货明细");
 
 
         if (string.IsNullOrWhiteSpace(this.TextBoxDateS.Text))
@@ -66,6 +63,13 @@ public partial class WebPage_FahuoGaikuangAnRiqi : System.Web.UI.Page
         GridView2.Caption = this.TextBoxDateS.Text + "到" + this.TextBoxDateE.Text + "_发货明细";
         GridView2.DataBind();
         dt_mingxi.TableName = "发货明细";
+
+        Label1.Text = OracleHelper.ExecuteScalar(
+            "select '库存:'||round(sum(面积))||'平方, '||round(sum(金额))||'元' from(select t.accamt as 金额,round(t.invnum * t.acreage) as 面积"
+            + " from v_bcdt_ct t where t.objtyp = 'CL'   and t.orgcde = 'KS03'   and t.clientid = 'KS' group by t.objtyp,"
+            + "t.orgcde, t.clntnme, t.serial, t.mkpcde, t.ptdate, t.shdate, t.clntcde, t.specs, t.clientid, t.prdnme, t.sitloc,"
+            + "t.invnum, t.prices, t.accamt, t.acreage, t.crrcde, t.matcde, t.remark)aa").ToString();
+
 
         this.ButtonDownLoad.Enabled = this.TextBoxDateE.Text.Equals(this.TextBoxDateS.Text);
         this.ButtonDownLoad.Visible = this.Button1.Enabled;

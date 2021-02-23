@@ -27,10 +27,7 @@ public partial class WebPage_RukuGaikuangAnRiqi : System.Web.UI.Page
 
     private void Search()
     {
-        string sqlTemplate = new StreamReader(
-                new FileStream(
-                  Server.MapPath("~\\sqltxt\\入库明细.txt"),
-                    FileMode.Open, FileAccess.Read, FileShare.Read)).ReadToEnd();
+        string sqlTemplate = My.GetSqlTxt("入库明细2");
 
 
         if (string.IsNullOrWhiteSpace(this.TextBoxDateS.Text))

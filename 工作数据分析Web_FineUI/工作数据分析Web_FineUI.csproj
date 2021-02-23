@@ -3031,6 +3031,7 @@
     <Content Include="WebPage\YuanZhi\YuanzhiLast180daysDemand.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiPinpaiFenlei.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiUVHebingFenlei.aspx" />
+    <Content Include="WebUserControl\UserControlKucun.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -3326,6 +3327,13 @@
     </Compile>
     <Compile Include="WebPage\YuanZhi\YuanzhiUVHebingFenlei.aspx.designer.cs">
       <DependentUpon>YuanzhiUVHebingFenlei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl\UserControlKucun.ascx.cs">
+      <DependentUpon>UserControlKucun.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl\UserControlKucun.ascx.designer.cs">
+      <DependentUpon>UserControlKucun.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
