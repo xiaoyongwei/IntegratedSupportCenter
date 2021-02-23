@@ -3018,6 +3018,7 @@
     <Content Include="WebPage\WuLiao\WuliaoJihua.aspx" />
     <Content Include="WebPage\WuLiao\WuliaoShuaizhi.aspx" />
     <Content Include="WebPage\WuLiao\WuliaoTeshuGongyi.aspx" />
+    <Content Include="WebPage\Wuliu\WuliuHuidan.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianChukuFenxi.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianDangqianPaicheng.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianDangqianKucun.aspx" />
@@ -3236,6 +3237,13 @@
     </Compile>
     <Compile Include="WebPage\WuLiao\WuliaoTeshuGongyi.aspx.designer.cs">
       <DependentUpon>WuliaoTeshuGongyi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Wuliu\WuliuHuidan.aspx.cs">
+      <DependentUpon>WuliuHuidan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Wuliu\WuliuHuidan.aspx.designer.cs">
+      <DependentUpon>WuliuHuidan.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPage\Xiangpian\XiangpianChukuFenxi.aspx.cs">
       <DependentUpon>XiangpianChukuFenxi.aspx</DependentUpon>
