@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>过油需求</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -17,5 +17,8 @@
             </asp:GridView>
         </asp:Panel>
     </form>
+    <br />
+    红外油-耐磨水性光油
+    紫外油-UV光油
 </body>
 </html>

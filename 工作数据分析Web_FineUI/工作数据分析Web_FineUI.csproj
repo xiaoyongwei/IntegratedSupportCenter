@@ -3338,6 +3338,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Properties\PublishProfiles\本地IIS.pubxml" />
     <Content Include="res\images\logo\logo.psd" />
     <Content Include="res\images\logo\logo_127.psd" />

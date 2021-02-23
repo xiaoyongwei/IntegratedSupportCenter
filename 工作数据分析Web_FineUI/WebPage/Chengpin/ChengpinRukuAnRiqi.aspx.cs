@@ -27,10 +27,13 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
 
             Search();
         }
-
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
         private void Search()
         {
-            string sqlTemplate = My.GetSqlTxt("入库明细2");
+            string sqlTemplate = My.GetSqlString("入库明细2");
 
 
             if (string.IsNullOrWhiteSpace(this.TextBoxDateS.Text))

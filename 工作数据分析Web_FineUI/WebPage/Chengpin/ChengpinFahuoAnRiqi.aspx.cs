@@ -38,7 +38,7 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
 
         private void Search()
         {
-            string sqlTemplate = My.GetSqlTxt("发货明细");
+            string sqlTemplate = My.GetSqlString("发货明细");
 
 
             if (string.IsNullOrWhiteSpace(this.TextBoxDateS.Text))
@@ -72,11 +72,19 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
             dt_mingxi.TableName = "发货明细";
 
 
-            Label1.Text = OracleHelper.ExecuteScalar(
-            "select '库存:'||round(sum(面积))||'平方, '||round(sum(金额))||'元' from(select t.accamt as 金额,round(t.invnum * t.acreage) as 面积"
+            LabelKucun.Text = OracleHelper.ExecuteScalar(
+            "select '库存面积:'||round(sum(面积))||'平方,库存金额:'||round(sum(金额))||'元' from(select t.accamt as 金额,round(t.invnum * t.acreage) as 面积"
             + " from v_bcdt_ct t where t.objtyp = 'CL'   and t.orgcde = 'KS03'   and t.clientid = 'KS' group by t.objtyp,"
             + "t.orgcde, t.clntnme, t.serial, t.mkpcde, t.ptdate, t.shdate, t.clntcde, t.specs, t.clientid, t.prdnme, t.sitloc,"
             + "t.invnum, t.prices, t.accamt, t.acreage, t.crrcde, t.matcde, t.remark)aa").ToString();
+
+            string[] dateArray = this.TextBoxDateE.Text.Split('-');
+
+            this.LabelLeijiFahuo.Text = OracleHelper.ExecuteScalar(string.Format("select '{0}年{1}月累计发货:'||round(sum(case t.ordtyp when 'CB' then " +
+                " round(nvl(t.pacreage,0),4) * t.ACCNUMR  else round(nvl(t.acreage,0),4) * t.ACCNUMR end) )  ||'平方,'||round(sum(case t.ordtyp  " +
+                " when 'CB' then round((t.ctinprice*round(t.pacreage,4) * t.ACCNUMR + nvl(t.dlvamt,0) + nvl(t.annamt,0) ),2)  else round(t.prices * t.accnumr,2) end ) )" +
+                "||'元。'from v_bcdx_ct t where t.objtyp='DL' and t.invtyp ='XD' and t.orgcde='KS03' and t.clientid='KS' and t.ordtyp='CL'  " +
+                "and to_char(ptdate,'yyyy-MM-dd') >= '{0}-{1}-00'  and to_char(ptdate,'yyyy-MM-dd') <= '{0}-{1}-99'",dateArray[0],dateArray[1])).ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
