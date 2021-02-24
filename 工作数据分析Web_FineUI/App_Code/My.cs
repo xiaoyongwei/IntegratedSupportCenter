@@ -285,6 +285,12 @@ internal static void DownloadExcel(HttpResponse response, HtmlGenericControl htm
         return strd.ReadToEnd();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="session"></param>
+    /// <param name="response"></param>
+    /// <returns>true表示登录状态,false表示非登录状态,需要重新登录</returns>
     internal static bool IsSession(HttpSessionState session, HttpResponse response)
     {
         if (session["username"] == null || string.IsNullOrWhiteSpace(session["username"].ToString()))

@@ -21,8 +21,6 @@
         <div id="DivExport" runat="server">
             <asp:GridView ID="GridView1" runat="server">
             </asp:GridView>
-            <asp:Label ID="LabelLeijiFahuo" runat="server" Text="本月累计发货" style="font-size:16px" ></asp:Label>
-            <br />
             <asp:Label ID="LabelKucun" runat="server" Text="成品库存" style="font-size:16px" ></asp:Label>
     <br />
     <br />
