@@ -9,7 +9,19 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        针对业务员超过交期的考核,并且汇总数据交于销售部核对后上交销售总监
+        <f:PageManager ID="PageManager1" runat="server"></f:PageManager>
+        <f:SimpleForm ID="SimpleForm1" IsFluid="true" CssClass="blockpanel" BodyPadding="10px" EnableCollapse="false"
+            Title="查询交货超期" runat="server">
+            <Items>
+                <f:DatePicker runat="server" Required="true" DateFormatString="yyyy-MM-dd" Label="时间点" EmptyText="请选择时间点"
+                    ID="DatePicker1" ShowRedStar="true"></f:DatePicker>
+                
+                <f:Button ID="btnSubmit" runat="server" ValidateForms="SimpleForm1" Text="查  询"
+                    OnClick="btnSubmit_Click">
+                </f:Button>
+            </Items>
+        </f:SimpleForm>
+       <asp:GridView ID="GridView1" runat="server"></asp:GridView>
     </form>
 </body>
 </html>

@@ -4,7 +4,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\inetpub\工作数据分析</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\inetpub\WorkData</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="About.aspx">
@@ -119,10 +119,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/27/2016 21:50:24</publishTime>
     </File>
     <File Include="bin/工作数据分析Web_FineUI.dll">
-      <publishTime>02/23/2021 21:04:08</publishTime>
+      <publishTime>02/24/2021 18:26:11</publishTime>
     </File>
     <File Include="bin/工作数据分析Web_FineUI.pdb">
-      <publishTime>02/23/2021 21:04:08</publishTime>
+      <publishTime>02/24/2021 18:26:11</publishTime>
     </File>
     <File Include="default.aspx">
       <publishTime>02/22/2021 07:45:48</publishTime>
@@ -8960,7 +8960,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/22/2014 21:30:40</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/23/2021 21:04:10</publishTime>
+      <publishTime>02/24/2021 18:53:03</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>02/20/2021 15:50:34</publishTime>
@@ -8978,7 +8978,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/20/2021 16:23:51</publishTime>
     </File>
     <File Include="WebPage/Chengpin/ChengpinFahuoAnRiqi.aspx">
-      <publishTime>02/23/2021 13:53:52</publishTime>
+      <publishTime>02/23/2021 21:05:04</publishTime>
     </File>
     <File Include="WebPage/Chengpin/ChengpinJiaohuoChaoqiKaohe.aspx">
       <publishTime>02/20/2021 10:10:22</publishTime>
@@ -9047,7 +9047,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/23/2021 12:53:36</publishTime>
     </File>
     <File Include="WebPage/Wuliu/WuliuHuidan.aspx">
-      <publishTime>02/23/2021 20:09:55</publishTime>
+      <publishTime>02/24/2021 17:51:17</publishTime>
     </File>
     <File Include="WebPage/Xiangpian/XiangpianChukuFenxi.aspx">
       <publishTime>02/22/2021 07:46:26</publishTime>

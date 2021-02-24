@@ -13,6 +13,8 @@ namespace 工作数据分析Web_FineUI.Chengpin
         {
             My.IsSession(Session, Response);
 
+          
+
             GridView1.Caption = "彩盒库存明细";
 
             this.GridView1.DataSource = My.GetSqlTxt_Datatable("彩盒库存明细");

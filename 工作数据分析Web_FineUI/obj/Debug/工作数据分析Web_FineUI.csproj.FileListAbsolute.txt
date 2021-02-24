@@ -87,3 +87,4 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分�
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.csproj.CopyComplete
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.dll
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.pdb
+C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.csprojAssemblyReference.cache

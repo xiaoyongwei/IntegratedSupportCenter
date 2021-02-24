@@ -17,6 +17,14 @@ using System.Web.SessionState;
 /// </summary>
 public static class My
 {
+    /// <summary>
+    /// 返回当前日期字符串
+    /// </summary>
+    /// <returns>格式是:年-月-日(yyyy-MM-dd)</returns>
+    public static string GetDatetimeNow_yyyMMdd()
+    {
+        return DateTime.Now.ToString("yyyy-MM-dd");
+    }
     public static DataSet Dst_zero(DataSet ds)
     {
         foreach (DataTable dt in ds.Tables)
