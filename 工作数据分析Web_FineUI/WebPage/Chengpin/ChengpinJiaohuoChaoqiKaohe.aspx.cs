@@ -11,9 +11,13 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            My.IsSession(Session, Response);
+           My.IsSession(Session, Response);
+            DatePicker1.SelectedDate = DateTime.Now;
         }
-
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             string rukuDatetime = DatePicker1.SelectedDate.Value.AddDays(-2).ToString("yyyy-MM-dd");
@@ -24,6 +28,11 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
                 My.GetSqlString("交货超期考核").Replace("*入库时间点*", rukuDatetime)
                 .Replace("*交期时间点*", jiaoqiDatetime));
             GridView1.DataBind();
+        }
+
+        protected void ButtonDownload_Click(object sender, EventArgs e)
+        {
+            My.DownloadExcel(Response, GridView1, GridView1.Caption);
         }
     }
 }

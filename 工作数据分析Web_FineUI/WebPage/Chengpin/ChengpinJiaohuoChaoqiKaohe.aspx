@@ -9,19 +9,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <f:PageManager ID="PageManager1" runat="server"></f:PageManager>
-        <f:SimpleForm ID="SimpleForm1" IsFluid="true" CssClass="blockpanel" BodyPadding="10px" EnableCollapse="false"
-            Title="查询交货超期" runat="server">
-            <Items>
+         <f:PageManager ID="PageManager1" runat="server" />
                 <f:DatePicker runat="server" Required="true" DateFormatString="yyyy-MM-dd" Label="时间点" EmptyText="请选择时间点"
                     ID="DatePicker1" ShowRedStar="true"></f:DatePicker>
-                
-                <f:Button ID="btnSubmit" runat="server" ValidateForms="SimpleForm1" Text="查  询"
-                    OnClick="btnSubmit_Click">
-                </f:Button>
-            </Items>
-        </f:SimpleForm>
-       <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+        <asp:Button ID="Button1" runat="server" Text="查  询" OnClick="btnSubmit_Click" />
+                <asp:Button  ID="ButtonDownload" runat="server" Text="导出Excel文件" OnClick="ButtonDownload_Click"/>
+         <asp:GridView ID="GridView1" runat="server"></asp:GridView>
     </form>
+   
 </body>
 </html>
