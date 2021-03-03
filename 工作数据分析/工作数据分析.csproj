@@ -64,22 +64,25 @@
       <HintPath>..\YBF\bin\Debug\Aspose.PDF.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Ionic.Zip">
-      <HintPath>D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\Ionic.Zip.dll</HintPath>
+      <HintPath>bin\Debug\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data">
-      <HintPath>C:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\Web_Publish\Bin\MySql.Data.dll</HintPath>
+      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="NPOI">
-      <HintPath>D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.dll</HintPath>
+      <HintPath>bin\Debug\NPOI.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OOXML">
-      <HintPath>D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.OOXML.dll</HintPath>
+      <HintPath>bin\Debug\NPOI.OOXML.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OpenXml4Net">
-      <HintPath>D:\Users\Administrator\Documents\Visual Studio 2010\Projects\SLBZ\YBF\bin\Debug\NPOI.OpenXml4Net.dll</HintPath>
+      <HintPath>bin\Debug\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>bin\Debug\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.19.8.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>

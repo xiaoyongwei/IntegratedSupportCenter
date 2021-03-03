@@ -32,14 +32,14 @@ namespace 工作数据分析.WinForm
         }
 
 
-        private void 从瓦片线载入数据ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("此过程需要5-10分钟,确定要加载吗?", "加载?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                BackupToMySQL();
-                My.ShowMessage("完成!\n" + DateTime.Now.ToString());
-            }
-        }
+        //private void 从瓦片线载入数据ToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if (MessageBox.Show("此过程需要5-10分钟,确定要加载吗?", "加载?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        //    {
+        //        BackupToMySQL();
+        //        My.ShowMessage("完成!\n" + DateTime.Now.ToString());
+        //    }
+        //}
 
 
        
@@ -160,6 +160,9 @@ namespace 工作数据分析.WinForm
             List<string> sqlList = new List<string>();
             foreach (DataRow row in dt.Rows)
             {
+                string beizhu = row["备注"].ToString();
+                
+
                 string sql = "INSERT INTO [dangqianpaicheng]([订单号],[客户],[楞型],[订单数]"
                 + ",[宽度],[长度],[材质],[门幅],[序号],[备注],[生产线])VALUES("
                 + "'" + row["订单号"].ToString() + "',"
@@ -171,7 +174,7 @@ namespace 工作数据分析.WinForm
                 + "'" + row["材质"].ToString() + "',"
                 + "'" + row["门幅"].ToString() + "',"
                 + "'" + row["序号"].ToString() + "',"
-                + "'" + row["备注"].ToString() + "',"
+                + "'" +( beizhu.Length>11?beizhu.Substring(0,10):beizhu) + "',"
                 + "'" + zhibanxian + "');";
                 sqlList.Add(sql);
             }
@@ -231,15 +234,7 @@ namespace 工作数据分析.WinForm
                 this.dtPicker_s.Value = DateTime.Now.AddDays(-30);
                 this.dtPicker_e.Value = DateTime.Now;
                 this.自动刷新ToolStripMenuItem.Checked = true;
-            if (SQLiteDbHelper_ZBX.ExecuteScalar("SELECT [Value]FROM [setting]where key='备份到云'").ToString()=="1")
-            {
-                timerBackupSQLiteToMySQL.Enabled = true;
-                timerBackupSQLiteToMySQL.Interval = 10 * 60 * 1000;//10分钟
-            }
-            else
-            {
-                timerBackupSQLiteToMySQL.Enabled = false;
-            }
+            
                 GetZbxToSQLite();                        
                 InitShowData();
            
@@ -654,32 +649,32 @@ namespace 工作数据分析.WinForm
 
         }
 
-        private void timerMySQL_Tick(object sender, EventArgs e)
-        {
-            if (SQLiteDbHelper_ZBX.ExecuteScalar("SELECT [Value]FROM [setting]where key='备份到云'").ToString() == "1")
-            {
-                timerBackupSQLiteToMySQL.Enabled = true;
-                timerBackupSQLiteToMySQL.Interval = 10 * 60 * 1000;//10分钟
-                new Thread(new ThreadStart(BackupToMySQL)).Start();
-            }
-            else
-            {
-                timerBackupSQLiteToMySQL.Enabled = false; 
-            }
+        //private void timerMySQL_Tick(object sender, EventArgs e)
+        //{
+        //    if (SQLiteDbHelper_ZBX.ExecuteScalar("SELECT [Value]FROM [setting]where key='备份到云'").ToString() == "1")
+        //    {
+        //        timerBackupSQLiteToMySQL.Enabled = true;
+        //        timerBackupSQLiteToMySQL.Interval = 10 * 60 * 1000;//10分钟
+        //        new Thread(new ThreadStart(BackupToMySQL)).Start();
+        //    }
+        //    else
+        //    {
+        //        timerBackupSQLiteToMySQL.Enabled = false; 
+        //    }
 
             
-        }
+        //}
 
-        private void BackupToMySQL()
-        {
-            SubmitZhiBanXianPublishedMysql(
-               SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT * FROM [published] where  "
-               +"substr([结束时间],1,10) >= substr(datetime('now','localtime','-24 hours'),1,10) "
-               +"and substr([结束时间],1,10)<=substr(datetime('now','localtime'),1,10) and [工单号]like 'C%' order by [结束时间] desc"));
-            SubmitZhiBanXianCurrentMysql(SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT *FROM [dangqianpaicheng] "));
+        //private void BackupToMySQL()
+        //{
+        //    SubmitZhiBanXianPublishedMysql(
+        //       SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT * FROM [published] where  "
+        //       +"substr([结束时间],1,10) >= substr(datetime('now','localtime','-24 hours'),1,10) "
+        //       +"and substr([结束时间],1,10)<=substr(datetime('now','localtime'),1,10) and [工单号]like 'C%' order by [结束时间] desc"));
+        //    SubmitZhiBanXianCurrentMysql(SQLiteDbHelper_ZBX.ExecuteDataTable("SELECT *FROM [dangqianpaicheng] "));
 
 
-        }
+        //}
 
         private bool SubmitZhiBanXianCurrentMysql(DataTable dt)
         {
@@ -718,7 +713,7 @@ namespace 工作数据分析.WinForm
             }
             timerBackupZbxToSQLite.Enabled = 自动刷新ToolStripMenuItem.Checked;
             timerSQLiteToDgv.Enabled = 自动刷新ToolStripMenuItem.Checked;
-            timerBackupSQLiteToMySQL.Enabled = 自动刷新ToolStripMenuItem.Checked;
+            
         }
 
         private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -808,5 +803,7 @@ namespace 工作数据分析.WinForm
                 }
             }
         }
+
+       
     }
 }
