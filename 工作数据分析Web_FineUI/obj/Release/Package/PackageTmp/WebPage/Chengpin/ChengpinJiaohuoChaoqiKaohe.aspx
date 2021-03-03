@@ -9,7 +9,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        针对业务员超过交期的考核,并且汇总数据交于销售部核对后上交销售总监
+         <f:PageManager ID="PageManager1" runat="server" />
+                <f:DatePicker runat="server" Required="true" DateFormatString="yyyy-MM-dd" Label="时间点" EmptyText="请选择时间点"
+                    ID="DatePicker1" ShowRedStar="true"></f:DatePicker>
+        <asp:Button ID="Button1" runat="server" Text="查  询" OnClick="btnSubmit_Click" />
+                <asp:Button  ID="ButtonDownload" runat="server" Text="导出Excel文件" OnClick="ButtonDownload_Click"/>
+         <asp:GridView ID="GridView1" runat="server"></asp:GridView>
     </form>
+   
 </body>
 </html>

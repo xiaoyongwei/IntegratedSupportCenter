@@ -304,7 +304,9 @@ internal static void DownloadExcel(HttpResponse response, HtmlGenericControl htm
         if (session["username"] == null || string.IsNullOrWhiteSpace(session["username"].ToString()))
         {
             session.Abandon();
-            response.Redirect("~/WebPage/Login/Login.aspx");
+
+            //response.Redirect("~/WebPage/Login/Login.aspx");
+            response.Write("<script>window.top.location.href=\"/WebPage/Login/Login.aspx\";</script>");
             return false;
         }
         else
