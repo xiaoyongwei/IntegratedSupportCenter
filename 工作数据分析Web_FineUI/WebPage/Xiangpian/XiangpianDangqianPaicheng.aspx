@@ -9,10 +9,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
+         <f:PageManager ID="PageManager1" runat="server" />
         <asp:ScriptManager runat="server" ID="ScriptManager1">
     </asp:ScriptManager>    
             <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick">
     </asp:Timer>
+            <asp:Button ID="ButtonShowCaihe" runat="server" Text="查看彩盒排程" />
+&nbsp;
+        <asp:Button ID="ButtonShowAll" runat="server" Text="查看全部排程" />
+        <br />
+        <br />
             <asp:Label ID="Lable1" runat="server"></asp:Label>
             <table style="width: 100%;">
                 <tr>
@@ -48,6 +54,13 @@
                     </td>
                 </tr>
             </table>
+        
+        <f:Window ID="Window1"  runat="server" Hidden="true" 
+            IsModal="true" Target="Parent" EnableMaximize="true" EnableResize="true" 
+            Title="排程查看" CloseAction="HidePostBack"
+            EnableIFrame="true" Height="550px" Width="850px">
+        </f:Window>
     </form>
 </body>
+
 </html>

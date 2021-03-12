@@ -26,7 +26,7 @@ namespace 工作数据分析Web_FineUI.WebPage.Wuliu
 
         protected void ButtonDownload_Click(object sender, EventArgs e)
         {
-            My.DownloadExcel(Response, GridView1, "回单异常_" +My.GetDatetimeNow_yyyMMdd());
+            My.DownloadExcel(Response, GridView1, "回单异常" );
         }
     }
 }

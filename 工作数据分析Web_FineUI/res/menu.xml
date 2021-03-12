@@ -96,6 +96,8 @@
     </TreeNode>
     <TreeNode Text="当前库存" NavigateUrl="~/WebPage/Xiangpian/XiangpianDangqianKucun.aspx" >
     </TreeNode>
+    <TreeNode Text="当前库存1" NavigateUrl="~/WebPage/Xiangpian/XiangpianDangqianKucun1.aspx" >
+    </TreeNode>
   </TreeNode>
 
   <TreeNode Text="物流管理" >

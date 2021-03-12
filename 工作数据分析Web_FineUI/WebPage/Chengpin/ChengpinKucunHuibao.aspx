@@ -11,7 +11,8 @@
     <form id="form1" runat="server">
         <asp:Button ID="ButtonDownload" runat="server" Text="导出为Excel文件" OnClick="ButtonDownload_Click" />
          <br /><br />
-        <div runat="server" id="divExport"><table>
+        <div runat="server" id="divExport">
+            <table>
         <tr>
             <td>
                 <asp:GridView ID="GridView1_1qi" runat="server" Caption="未发货彩盒库存(1期)">

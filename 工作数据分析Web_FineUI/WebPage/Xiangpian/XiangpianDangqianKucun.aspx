@@ -9,6 +9,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
+         <asp:Button ID="ButtonDownload" runat="server" OnClick="ButtonDownload_Click" Text="下  载" />
+         <br />
          <asp:GridView ID="GridView1" runat="server" CaptionAlign="Top" CellPadding="1" CellSpacing="1"
             PageSize="500">
         </asp:GridView>
