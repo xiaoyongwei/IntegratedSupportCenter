@@ -15,6 +15,7 @@ namespace 工作数据分析Web_FineUI.WebPage.Wuliu
             {
                 GridView1.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT * FROM `slbz`.`送货回单情况` where `回单正常`<>'Y'ORDER BY `送货单号` DESC ");
                 GridView1.DataBind();
+
             }
         }
 
