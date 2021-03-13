@@ -3017,8 +3017,11 @@
     <Content Include="WebPage\WuLiao\WuliaoTeshuGongyi.aspx" />
     <Content Include="WebPage\Wuliu\WuliuHuidan.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianChukuFenxi.aspx" />
+    <Content Include="WebPage\Xiangpian\XiangpianDangqianKucun1.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianDangqianPaicheng.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianDangqianKucun.aspx" />
+    <Content Include="WebPage\Xiangpian\XiangpianDangqianPaichengAll.aspx" />
+    <Content Include="WebPage\Xiangpian\XiangpianDangqianPaichengCaihe.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianRukuFenxi.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianWancheng.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiFeileiHuizong.aspx" />
@@ -3249,6 +3252,13 @@
     <Compile Include="WebPage\Xiangpian\XiangpianChukuFenxi.aspx.designer.cs">
       <DependentUpon>XiangpianChukuFenxi.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebPage\Xiangpian\XiangpianDangqianKucun1.aspx.cs">
+      <DependentUpon>XiangpianDangqianKucun1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Xiangpian\XiangpianDangqianKucun1.aspx.designer.cs">
+      <DependentUpon>XiangpianDangqianKucun1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebPage\Xiangpian\XiangpianDangqianPaicheng.aspx.cs">
       <DependentUpon>XiangpianDangqianPaicheng.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3262,6 +3272,20 @@
     </Compile>
     <Compile Include="WebPage\Xiangpian\XiangpianDangqianKucun.aspx.designer.cs">
       <DependentUpon>XiangpianDangqianKucun.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Xiangpian\XiangpianDangqianPaichengAll.aspx.cs">
+      <DependentUpon>XiangpianDangqianPaichengAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Xiangpian\XiangpianDangqianPaichengAll.aspx.designer.cs">
+      <DependentUpon>XiangpianDangqianPaichengAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Xiangpian\XiangpianDangqianPaichengCaihe.aspx.cs">
+      <DependentUpon>XiangpianDangqianPaichengCaihe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Xiangpian\XiangpianDangqianPaichengCaihe.aspx.designer.cs">
+      <DependentUpon>XiangpianDangqianPaichengCaihe.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPage\Xiangpian\XiangpianRukuFenxi.aspx.cs">
       <DependentUpon>XiangpianRukuFenxi.aspx</DependentUpon>

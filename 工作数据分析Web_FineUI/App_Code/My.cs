@@ -89,10 +89,11 @@ public static class My
         return MySqlDbHelper.ExecuteSqlTran(sqlList);
     }
 
-    internal static void DownloadExcel(HttpResponse response, GridView gridView1, string excelFileName)
+    internal static void DownloadExcel(HttpResponse response, GridView gridView1, string excelFileName, bool addLastDateNow = false)
     {
         response.ClearContent();
-        response.AddHeader("content-disposition", "attachment; filename="+excelFileName+".xls");
+        response.AddHeader("content-disposition", "attachment; filename=" + excelFileName
+            + (addLastDateNow ? GetDatetimeNow_yyyMMdd() : "") + ".xls");
         response.ContentType = "application/vnd.ms-excel";
         response.ContentEncoding = System.Text.Encoding.UTF8;
 
@@ -105,10 +106,11 @@ public static class My
     }
 
 
-internal static void DownloadExcel(HttpResponse response, HtmlGenericControl htmlControl, string excelFileName)
+    internal static void DownloadExcel(HttpResponse response, HtmlGenericControl htmlControl, string excelFileName, bool addLastDateNow = false)
     {
         response.ClearContent();
-        response.AddHeader("content-disposition", "attachment; filename="+excelFileName+".xls");
+        response.AddHeader("content-disposition", "attachment; filename="+excelFileName
+             + (addLastDateNow ? GetDatetimeNow_yyyMMdd() : "") + ".xls");
         response.ContentType = "application/vnd.ms-excel";
         response.ContentEncoding = System.Text.Encoding.UTF8;
 

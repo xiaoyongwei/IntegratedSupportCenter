@@ -58,7 +58,7 @@ namespace 工作数据分析Web_FineUI.YuanZhi
         }
         protected void ButtonDownload_Click(object sender, EventArgs e)
         {
-            My.DownloadExcel(Response, GridView1, "原纸库存明细");
+            My.DownloadExcel(Response, GridView1, "原纸库存明细",true);
         }
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
