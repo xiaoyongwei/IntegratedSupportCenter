@@ -14,17 +14,16 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            My.IsSession(Session, Response);
-
-            if (!IsPostBack)
+            if (My.IsSession(Session, Response))
+            { InitShowData(); }
+            else
             {
-                ButtonShowCaihe.OnClientClick = Window1.GetShowReference("~/WebPage/Xiangpian/XiangpianDangqianPaichengCaihe.aspx", "彩盒排程");
-                ButtonShowAll.OnClientClick = Window1.GetShowReference("~/WebPage/Xiangpian/XiangpianDangqianPaichengAll.aspx", "全部排程");
-
+                Session.Abandon();
             }
 
+          
 
-            InitShowData();
+            
         }
         private void InitShowData()
         {
@@ -96,6 +95,16 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
         protected void Timer1_Tick(object sender, EventArgs e)
         {
             InitShowData();
+        }
+
+        protected void ButtonShowCaihe_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/WebPage/Xiangpian/XiangpianDangqianPaichengCaihe.aspx");
+        }
+
+        protected void ButtonShowAll_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/WebPage/Xiangpian/XiangpianDangqianPaichengAll.aspx");
         }
     }
 }

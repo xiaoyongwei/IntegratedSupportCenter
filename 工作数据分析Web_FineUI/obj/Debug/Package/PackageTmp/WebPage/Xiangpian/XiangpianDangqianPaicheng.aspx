@@ -5,18 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+<meta http-equiv="refresh" content="60"/>
+    <title>箱片排程</title>
 </head>
 <body>
     <form id="form1" runat="server">
-         <f:PageManager ID="PageManager1" runat="server" />
-        <asp:ScriptManager runat="server" ID="ScriptManager1">
-    </asp:ScriptManager>    
-            <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick">
-    </asp:Timer>
-            <asp:Button ID="ButtonShowCaihe" runat="server" Text="查看彩盒排程" />
+            <asp:Button ID="ButtonShowCaihe" runat="server" Text="查看彩盒排程" OnClick="ButtonShowCaihe_Click" />
 &nbsp;
-        <asp:Button ID="ButtonShowAll" runat="server" Text="查看全部排程" />
+        <asp:Button ID="ButtonShowAll" runat="server" Text="查看全部排程" OnClick="ButtonShowAll_Click" />
         <br />
         <br />
             <asp:Label ID="Lable1" runat="server"></asp:Label>
@@ -54,12 +50,6 @@
                     </td>
                 </tr>
             </table>
-        
-        <f:Window ID="Window1"  runat="server" Hidden="true" 
-            IsModal="true" Target="Parent" EnableMaximize="true" EnableResize="true" 
-            Title="排程查看" CloseAction="HidePostBack"
-            EnableIFrame="true" Height="550px" Width="850px">
-        </f:Window>
     </form>
 </body>
 

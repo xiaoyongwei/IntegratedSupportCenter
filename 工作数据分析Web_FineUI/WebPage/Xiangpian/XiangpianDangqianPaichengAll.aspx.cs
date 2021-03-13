@@ -12,6 +12,9 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            My.IsSession(Session,Response);
+
+
             GridView1.DataSource = MySqlDbHelper.ExecuteDataTable(
                 "SELECT *,round(订单数*宽度*长度/1000000)面积 FROM `slbz`.`瓦片当前排程` ");
             GridView1.DataBind();
