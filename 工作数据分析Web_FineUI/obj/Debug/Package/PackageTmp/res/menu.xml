@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Tree>
+  <TreeNode Text="主页" IconFont="_Home" NavigateUrl="~/About.aspx"> 
+  </TreeNode> 
+  
+  <TreeNode Text="用户" >
+    <TreeNode Text="注销退出" NavigateUrl="~/WebPage/User/Zhuxiao.aspx" /> 
+	<TreeNode Text="修改密码" NavigateUrl="~/User/ChangePassword.aspx" >
+      </TreeNode>
+      <TreeNode Text="用户反馈" NavigateUrl="~/User/FanKui.aspx" >
+      </TreeNode>
+	</TreeNode>
+  
+  
+  
+  <TreeNode Text="原纸仓库" IconFont="_Edit">   
+    <TreeNode Text="备料计划" NavigateUrl="~/WebPage/yuanzhi/yuanzhiBeiliaoJihua.aspx" >
+      </TreeNode>
+    <TreeNode Text="白板纸需求" NavigateUrl="~/WebPage/yuanzhi/yuanzhiLast180daysDemand.aspx" >
+    </TreeNode>
+      <TreeNode Text="库存明细" NavigateUrl="~/WebPage/yuanzhi/yuanzhiKucunMingxi.aspx" >
+      </TreeNode>
+      <TreeNode Text="库存分类" NavigateUrl="~/WebPage/yuanzhi/yuanzhiKucunFenlei.aspx" >
+      </TreeNode>
+	  <TreeNode Text="按品牌分类" NavigateUrl="~/WebPage/yuanzhi/yuanzhiPinpaiFenlei.aspx" >
+      </TreeNode>
+	  <TreeNode Text="UV合并分类" NavigateUrl="~/WebPage/yuanzhi/yuanzhiUVHebingFenlei.aspx" >
+      </TreeNode>
+	  <TreeNode Text="汇总分类" NavigateUrl="~/WebPage/yuanzhi/yuanzhiFeileiHuizong.aspx" >
+      </TreeNode>
+	  <TreeNode Text="各类占比" NavigateUrl="~/WebPage/yuanzhi/yuanzhiGeleiZhanbi.aspx" >
+      </TreeNode>
+	  <TreeNode Text="已订未到" NavigateUrl="~/WebPage/building.aspx" >
+      </TreeNode>
+    
+
+
+  </TreeNode>
+    <TreeNode Text="辅料仓库">
+      <TreeNode Text="辅料备料" NavigateUrl="~/WebPage/FuLiao/FuliaoBeiliao.aspx" >
+      </TreeNode>
+      <TreeNode Text="即时库存" NavigateUrl="~/WebPage/FuLiao/FuliaoJishiKucun.aspx" >
+      </TreeNode>
+      <TreeNode Text="外购入库" NavigateUrl="~/WebPage/FuLiao/K3WaigouRuku.aspx" >
+      </TreeNode>
+      <TreeNode Text="辅料领料" NavigateUrl="~/WebPage/FuLiao/K3FuliaoLingliao.aspx" >
+      </TreeNode>
+      <TreeNode Text="金额走势" NavigateUrl="~/WebPage/FuLiao/K3RukuJineZoushi.aspx" >
+      </TreeNode>
+      <TreeNode Text="领料分析" NavigateUrl="~/WebPage/FuLiao/FuliaoLingliaoFenxi.aspx" >
+      </TreeNode>      
+    </TreeNode>
+  
+  <TreeNode Text="成品仓库">
+    <TreeNode Text="彩盒库存明细" NavigateUrl="~/WebPage/Chengpin/ChengpinKucunMingxi.aspx" >
+    </TreeNode>
+    <TreeNode Text="彩盒库存汇报" NavigateUrl="~/WebPage/Chengpin/ChengpinKucunHuibao.aspx" >
+    </TreeNode>
+    <TreeNode Text="入库情况_日期" NavigateUrl="~/WebPage/Chengpin/ChengpinRukuAnRiqi.aspx" >
+    </TreeNode>
+    <TreeNode Text="发货情况_日期" NavigateUrl="~/WebPage/Chengpin/ChengpinFahuoAnRiqi.aspx" >
+    </TreeNode>
+    <TreeNode Text="出入库异常" NavigateUrl="~/WebPage/Chengpin/ChengpinChurukuYiChang.aspx" >
+    </TreeNode>
+    <TreeNode Text="报工但未入库" NavigateUrl="~/WebPage/ShengchanJihua/ShengChanBaogongDanWeiRuku.aspx" >
+    </TreeNode>
+    <TreeNode Text="超订单入库" NavigateUrl="~/WebPage/Chengpin/ChengpinChaoDingdanRuku.aspx" >
+    </TreeNode>
+    <TreeNode Text="提前入库" NavigateUrl="~/WebPage/Chengpin/ChengpinTiqianRuku.aspx" >
+    </TreeNode>
+    <TreeNode Text="退货不符查询" NavigateUrl="~/WebPage/Chengpin/ChengpinTuihuoBufu.aspx" >
+    </TreeNode>
+     <TreeNode Text="交货超期考核" NavigateUrl="~/WebPage/Chengpin/ChengpinJiaohuoChaoqiKaohe.aspx" >
+    </TreeNode>
+  </TreeNode>
+
+  <TreeNode Text="物料计划" >
+    <TreeNode Text="物料总需求" NavigateUrl="~/WebPage/WuLiao/WuliaoJihua.aspx" >
+    </TreeNode>
+    <TreeNode Text="甩纸需求" NavigateUrl="~/WebPage/WuLiao/WuliaoShuaizhi.aspx" >
+    </TreeNode>
+    <TreeNode Text="覆膜需求" NavigateUrl="~/WebPage/WuLiao/WuliaoFumo.aspx" >
+    </TreeNode>
+    <TreeNode Text="过油需求" NavigateUrl="~/WebPage/WuLiao/WuliaoGuoyou.aspx" >
+    </TreeNode>
+     <TreeNode Text="特殊工艺" NavigateUrl="~/WebPage/WuLiao/WuliaoTeshuGongyi.aspx" >
+    </TreeNode>
+  </TreeNode>
+  
+  <TreeNode Text="箱片备料" >
+    <TreeNode Text="当前排程" NavigateUrl="~/WebPage/Xiangpian/XiangpianDangqianPaicheng.aspx" >
+    </TreeNode>
+    <TreeNode Text="入库分析" NavigateUrl="~/WebPage/Xiangpian/XiangpianRukuFenxi.aspx" >
+    </TreeNode>
+    <TreeNode Text="出库分析" NavigateUrl="~/WebPage/Xiangpian/XiangpianChukuFenxi.aspx" >
+    </TreeNode>
+    <TreeNode Text="当前库存" NavigateUrl="~/WebPage/Xiangpian/XiangpianDangqianKucun.aspx" >
+    </TreeNode>
+    <TreeNode Text="当前库存1" NavigateUrl="~/WebPage/Xiangpian/XiangpianDangqianKucun1.aspx" >
+    </TreeNode>
+  </TreeNode>
+
+  <TreeNode Text="物流管理" >
+    <TreeNode Text="回单管理" NavigateUrl="~/WebPage/WuLiu/WuliuHuidan.aspx" >
+    </TreeNode>
+    
+  </TreeNode>
+  
+  
+  
+	
+	
+</Tree>
