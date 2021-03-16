@@ -21,5 +21,15 @@ namespace 工作数据分析Web_FineUI.YuanZhi
             GridView1.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT * FROM `slbz`.`二期原纸仓库库存明细(uv合并)_分类`");
             GridView1.DataBind();
         }
+
+        protected void ButtonDownload_Click(object sender, EventArgs e)
+        {
+            My.DownloadExcel(Response, DivExport, "原纸库存UV合并分类", true);
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
     }
 }

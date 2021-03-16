@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <%=Page.Title+" "+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")%>
+       
 
 
         建设中.

@@ -91,5 +91,16 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
 
 
         }
+
+
+        protected void ButtonDownload_Click(object sender, EventArgs e)
+        {
+            My.DownloadExcel(Response, GridView1, "箱片入库分析", true);
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
     }
 }

@@ -19,5 +19,15 @@ namespace 工作数据分析Web_FineUI.FuLiao
             GridView1.DataSource = MySqlDbHelper.ExecuteDataTable("CALL `slbz`.`辅料备料技术分析`();");
             GridView1.DataBind();
         }
+
+        protected void ButtonDownload_Click(object sender, EventArgs e)
+        {
+            My.DownloadExcel(Response, GridView1, "辅料备料技术分析", true);
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
     }
 }

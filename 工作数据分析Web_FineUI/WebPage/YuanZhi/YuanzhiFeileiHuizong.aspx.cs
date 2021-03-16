@@ -88,5 +88,14 @@ namespace 工作数据分析Web_FineUI.YuanZhi
                 this.GridViewB.DataBind();
             }
         }
+        protected void ButtonDownload_Click(object sender, EventArgs e)
+        {
+            My.DownloadExcel(Response, DivExport, "原纸分类汇总", true);
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
     }
 }

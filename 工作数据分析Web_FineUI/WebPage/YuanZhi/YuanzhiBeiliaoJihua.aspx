@@ -9,10 +9,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
+         
+        <div id ="DivExport" runat="server">
    <table style="width: 100%;">
         <tr>
             <td>
                
+         <asp:Button ID="ButtonDownload" runat="server" OnClick="ButtonDownload_Click" Text="下  载" />
+               <br />
             </td>
         </tr>
         <tr>
@@ -41,6 +45,7 @@
         </tr>
        
     </table>
+            </div>
         </form>
 </body>
 </html>

@@ -9,7 +9,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        
+            <asp:Button ID="ButtonDownload" runat="server" OnClick="ButtonDownload_Click" Text="下  载" />
+         <br />
+        <div id="DivExport" runat="server">
             <table style="width:100%" >              
                 <tr>
                     <td >
