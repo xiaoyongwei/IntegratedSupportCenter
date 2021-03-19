@@ -21,8 +21,10 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
             }
             else
             {
-                this.TextBoxDateS.Text = DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd");
-                this.TextBoxDateE.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                this.DatePickerS.SelectedDate= DateTime.Now.AddDays(-3);
+                this.DatePickerEnd.SelectedDate = DateTime.Now;
+                //this.TextBoxDateS.Text = DateTime.Now.AddDays(-3).ToString("yyyy-MM-dd");
+                //this.TextBoxDateE.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
 
             Search();
@@ -36,24 +38,40 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
             string sqlTemplate = My.GetSqlString("入库明细2");
 
 
-            if (string.IsNullOrWhiteSpace(this.TextBoxDateS.Text))
-            {
-                this.TextBoxDateS.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                this.TextBoxDateE.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            }
+            //if (string.IsNullOrWhiteSpace(this.TextBoxDateS.Text))
+            //{
+            //    this.TextBoxDateS.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            //    this.TextBoxDateE.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            //}
 
-            sqlTemplate = sqlTemplate.Replace("*开始时间*", TextBoxDateS.Text).Replace("*结束时间*", TextBoxDateE.Text);
+            //sqlTemplate = sqlTemplate.Replace("*开始时间*", TextBoxDateS.Text).Replace("*结束时间*", TextBoxDateE.Text);
+
+
+            //GridView1.DataSource = OracleHelper.ExecuteDataTable(
+            //    "select nvl(a.入库类型,'总计:')总计,sum(a.总面积)面积,sum(a.金额)金额 from(" + sqlTemplate
+            //    + ")a group by rollup( a.入库类型)");
+            //GridView1.Caption = this.TextBoxDateS.Text + "到" + this.TextBoxDateE.Text + "_入库概况";
+            //GridView1.DataBind();
+
+            //GridView2.DataSource = OracleHelper.ExecuteDataTable(sqlTemplate);
+            //GridView2.Caption = this.TextBoxDateS.Text + "到" + this.TextBoxDateE.Text + "_入库明细";
+            //GridView2.DataBind();
+
+
+            sqlTemplate = sqlTemplate.Replace("*开始时间*", this.DatePickerS.Text).Replace("*结束时间*", DatePickerEnd.Text);
 
 
             GridView1.DataSource = OracleHelper.ExecuteDataTable(
                 "select nvl(a.入库类型,'总计:')总计,sum(a.总面积)面积,sum(a.金额)金额 from(" + sqlTemplate
                 + ")a group by rollup( a.入库类型)");
-            GridView1.Caption = this.TextBoxDateS.Text + "到" + this.TextBoxDateE.Text + "_入库概况";
+            GridView1.Caption = this.DatePickerS.Text + "到" + this.DatePickerEnd.Text + "_入库概况";
             GridView1.DataBind();
 
             GridView2.DataSource = OracleHelper.ExecuteDataTable(sqlTemplate);
-            GridView2.Caption = this.TextBoxDateS.Text + "到" + this.TextBoxDateE.Text + "_入库明细";
+            GridView2.Caption = this.DatePickerS.Text + "到" + this.DatePickerEnd.Text + "_入库明细";
             GridView2.DataBind();
+
+
 
             Label1.Text = OracleHelper.ExecuteScalar(
             "select '库存:'||round(sum(面积))||'平方, '||round(sum(金额))||'元' from(select t.accamt as 金额,round(t.invnum * t.acreage) as 面积"
@@ -69,7 +87,7 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
 
         protected void ButtonDownload_Click(object sender, EventArgs e)
         {
-            My.DownloadExcel(Response, divExport, "入库数据" + this.TextBoxDateS.Text + "_" + this.TextBoxDateE.Text);
+            My.DownloadExcel(Response, divExport, "入库数据" + this.DatePickerS.Text + "_" + this.DatePickerEnd.Text);
         }
     }
 }

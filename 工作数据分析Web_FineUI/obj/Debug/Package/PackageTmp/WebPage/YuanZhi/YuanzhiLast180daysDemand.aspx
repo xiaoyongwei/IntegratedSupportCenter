@@ -9,11 +9,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:Button ID="ButtonDownload" runat="server" OnClick="ButtonDownload_Click" Text="下  载" />
+         <br />
+ <div id="DivExport" runat="server">
          <asp:GridView ID="GridView1" runat="server" CaptionAlign="Top" CellPadding="1" CellSpacing="1">
         </asp:GridView>
         <asp:GridView ID="GridView2" runat="server" CaptionAlign="Top" CellPadding="1" CellSpacing="1">
         </asp:GridView>
-      
+      </div>
     </form>
 </body>
 </html>

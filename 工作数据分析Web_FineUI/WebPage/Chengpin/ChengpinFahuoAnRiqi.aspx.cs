@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FineUIPro;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -20,16 +21,16 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
             {
                 if (Page.IsPostBack)
                 {
-
+                   
                 }
                 else
                 {
-                    this.TextBoxDateS.Text = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd");
-                    this.TextBoxDateE.Text = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd");
-
+                    this.DatePickerStart.SelectedDate = DateTime.Now;
+                    this.DatePickerEnd.SelectedDate = DateTime.Now;
+                    Search();
                 }
 
-                Search();
+               
             }
         }
         public override void VerifyRenderingInServerForm(Control control)
@@ -41,15 +42,15 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
         {
             string sqlTemplate = My.GetSqlString("发货明细");
 
-            if (string.IsNullOrWhiteSpace(this.TextBoxDateS.Text))
+            if (string.IsNullOrWhiteSpace(this.DatePickerStart.Text))
             {
-                this.TextBoxDateS.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                this.TextBoxDateE.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                this.DatePickerStart.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                this.DatePickerEnd.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
 
-            sqlTemplate = sqlTemplate.Replace("*开始时间*", TextBoxDateS.Text).Replace("*结束时间*", TextBoxDateE.Text);
+            sqlTemplate = sqlTemplate.Replace("*开始时间*", DatePickerStart.Text).Replace("*结束时间*", DatePickerEnd.Text);
 
-            GridView1.Caption = this.TextBoxDateS.Text + "到" + this.TextBoxDateE.Text + "_" +
+            GridView1.Caption = this.DatePickerStart.Text + "到" + this.DatePickerEnd.Text + "_" +
                 "发货统计";
             dt_huizong =
              OracleHelper.ExecuteDataTable(
@@ -69,9 +70,9 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
 
 
                 //只有开始时间和结束时间同一个月份才累计送货金额并且合并单元格
-                if (TextBoxDateS.Text.Substring(0,7).Equals(TextBoxDateE.Text.Substring(0, 7)))
+                if (DatePickerStart.Text.Substring(0,7).Equals(DatePickerEnd.Text.Substring(0, 7)))
                 {
-                    string[] dateArray = this.TextBoxDateE.Text.Split('-');
+                    string[] dateArray = this.DatePickerEnd.Text.Split('-');
                     DataTable tableLeiji = OracleHelper.ExecuteDataTable(string.Format("select round(sum(case t.ordtyp when 'CB' then round(nvl(t.pacreage,0),4) * t.ACCNUMR  " +
                        "else round(nvl(t.acreage,0),4) * t.ACCNUMR end) ) 平方,round(sum(case t.ordtyp when 'CB' then round((t.ctinprice*round(t.pacreage,4) * t.ACCNUMR +" +
                        " nvl(t.dlvamt,0) + nvl(t.annamt,0) ),2)  else round(t.prices * t.accnumr,2) end ) ) 金额 from v_bcdx_ct t where t.objtyp='DL' and t.invtyp ='XD' " +
@@ -99,8 +100,8 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
                     //合并单元格
                     GridView1.Rows[0].Cells[dt_huizong.Columns["本月累计送货面积"].Ordinal].RowSpan = GridView1.Rows.Count;
                     GridView1.Rows[0].Cells[dt_huizong.Columns["本月累计送货金额"].Ordinal].RowSpan = GridView1.Rows.Count;
-                    GridView1.Rows[0].Cells[dt_huizong.Columns["本月累计送货面积"].Ordinal].VerticalAlign = VerticalAlign.Middle;
-                    GridView1.Rows[0].Cells[dt_huizong.Columns["本月累计送货金额"].Ordinal].VerticalAlign = VerticalAlign.Middle;
+                    GridView1.Rows[0].Cells[dt_huizong.Columns["本月累计送货面积"].Ordinal].VerticalAlign = System.Web.UI.WebControls.VerticalAlign.Middle;
+                    GridView1.Rows[0].Cells[dt_huizong.Columns["本月累计送货金额"].Ordinal].VerticalAlign = System.Web.UI.WebControls.VerticalAlign.Middle;
                     GridView1.Rows[0].Cells[dt_huizong.Columns["本月累计送货面积"].Ordinal].HorizontalAlign = HorizontalAlign.Center;
                     GridView1.Rows[0].Cells[dt_huizong.Columns["本月累计送货金额"].Ordinal].HorizontalAlign = HorizontalAlign.Center;
                     ////删除多余列
@@ -112,7 +113,7 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
 
                 dt_mingxi = OracleHelper.ExecuteDataTable(sqlTemplate);
                 GridView2.DataSource = dt_mingxi;
-                GridView2.Caption = this.TextBoxDateS.Text + "到" + this.TextBoxDateE.Text + "_发货明细";
+                GridView2.Caption = this.DatePickerStart.Text + "到" + this.DatePickerEnd.Text + "_发货明细";
                 GridView2.DataBind();
                 dt_mingxi.TableName = "发货明细";
 
@@ -134,12 +135,25 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Search();
+            if (DatePickerEnd.SelectedDate<DatePickerStart.SelectedDate)
+            {
+                Alert alert = new Alert();
+                alert.Message = "开始就不能大于结束时间";
+                alert.Title = "错误";
+                alert.MessageBoxIcon = MessageBoxIcon.Error;
+                alert.Target = Target.Top;
+                alert.Show();
+            }
+            else
+            {
+                Search();
+            }
+            
         }
 
         protected void ButtonDownload_Click(object sender, EventArgs e)
         {
-            My.DownloadExcel(Response, DivExport, "发货数据" + this.TextBoxDateS.Text + "_" + this.TextBoxDateE.Text);
+            My.DownloadExcel(Response, DivExport, "发货数据" + this.DatePickerStart.Text + "_" + this.DatePickerEnd.Text);
         }
 
         

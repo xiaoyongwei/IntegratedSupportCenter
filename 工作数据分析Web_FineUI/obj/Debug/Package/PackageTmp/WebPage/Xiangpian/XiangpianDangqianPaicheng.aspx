@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-            <asp:Button ID="ButtonShowCaihe" runat="server" Text="查看彩盒排程" OnClick="ButtonShowCaihe_Click" />
+            <asp:Button ID="ButtonShowCaihe" runat="server" Text="查看彩盒排程" OnClick="ButtonShowCaihe_Click" OnClientClick="window.open(~/WebPage/Xiangpian/XiangpianDangqianPaichengCaihe.aspx);" />
 &nbsp;
         <asp:Button ID="ButtonShowAll" runat="server" Text="查看全部排程" OnClick="ButtonShowAll_Click" />
         <br />
