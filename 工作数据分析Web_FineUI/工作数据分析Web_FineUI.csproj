@@ -22,6 +22,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +42,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FineUIPro">
@@ -70,25 +73,26 @@
     <Reference Include="Oracle.ManagedDataAccess">
       <HintPath>..\工作数据分析\bin\Debug\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DataVisualization">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
@@ -3016,6 +3020,7 @@
     <Content Include="WebPage\WuLiao\WuliaoShuaizhi.aspx" />
     <Content Include="WebPage\WuLiao\WuliaoTeshuGongyi.aspx" />
     <Content Include="WebPage\Wuliu\WuliuHuidan.aspx" />
+    <Content Include="WebPage\Wuliu\WuliuTuopanJinchuPingdan.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianChukuFenxi.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianDangqianKucun1.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianDangqianPaicheng.aspx" />
@@ -3244,6 +3249,13 @@
     </Compile>
     <Compile Include="WebPage\Wuliu\WuliuHuidan.aspx.designer.cs">
       <DependentUpon>WuliuHuidan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Wuliu\WuliuTuopanJinchuPingdan.aspx.cs">
+      <DependentUpon>WuliuTuopanJinchuPingdan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Wuliu\WuliuTuopanJinchuPingdan.aspx.designer.cs">
+      <DependentUpon>WuliuTuopanJinchuPingdan.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPage\Xiangpian\XiangpianChukuFenxi.aspx.cs">
       <DependentUpon>XiangpianChukuFenxi.aspx</DependentUpon>
