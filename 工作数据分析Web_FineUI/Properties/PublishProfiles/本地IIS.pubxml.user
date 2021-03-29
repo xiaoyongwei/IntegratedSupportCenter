@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\WorkData</_PublishTargetUrl>
-    <History>True|2021-03-19T06:27:06.4889597Z;True|2021-03-13T21:47:24.5653268+08:00;False|2021-03-12T22:05:39.4245750+08:00;False|2021-03-05T17:26:49.1825144+08:00;False|2021-03-05T17:25:56.3249846+08:00;False|2021-03-05T17:25:13.8070239+08:00;</History>
+    <History>True|2021-03-29T14:05:57.3184781Z;True|2021-03-19T14:27:06.4889597+08:00;True|2021-03-13T21:47:24.5653268+08:00;False|2021-03-12T22:05:39.4245750+08:00;False|2021-03-05T17:26:49.1825144+08:00;False|2021-03-05T17:25:56.3249846+08:00;False|2021-03-05T17:25:13.8070239+08:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="About.aspx">
@@ -119,11 +119,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>02/24/2021 22:01:03</publishTime>
     </File>
+    <File Include="bin/System.Web.DataVisualization.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
     <File Include="bin/工作数据分析Web_FineUI.dll">
-      <publishTime>03/19/2021 15:05:50</publishTime>
+      <publishTime>03/29/2021 22:04:16</publishTime>
     </File>
     <File Include="bin/工作数据分析Web_FineUI.pdb">
-      <publishTime>03/19/2021 15:05:50</publishTime>
+      <publishTime>03/29/2021 22:04:16</publishTime>
     </File>
     <File Include="default.aspx">
       <publishTime>03/19/2021 14:43:37</publishTime>
@@ -8961,7 +8964,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/05/2021 18:35:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/12/2021 22:05:18</publishTime>
+      <publishTime>03/29/2021 22:04:50</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>02/20/2021 15:50:34</publishTime>
@@ -9049,6 +9052,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="WebPage/Wuliu/WuliuHuidan.aspx">
       <publishTime>03/05/2021 14:24:31</publishTime>
+    </File>
+    <File Include="WebPage/Wuliu/WuliuTuopanJinchuPingdan.aspx">
+      <publishTime>03/19/2021 21:20:44</publishTime>
     </File>
     <File Include="WebPage/Xiangpian/XiangpianChukuFenxi.aspx">
       <publishTime>03/16/2021 19:29:01</publishTime>
