@@ -19,5 +19,16 @@ namespace 工作数据分析Web_FineUI.FuLiao
             GridView1.DataSource = MySqlDbHelper.ExecuteDataTable("select * from `slbz`.`二期辅料仓库即时库存一览`;");
             GridView1.DataBind();
         }
+
+
+        protected void ButtonDownload_Click(object sender, EventArgs e)
+        {
+            My.DownloadExcel(Response, GridView1, "辅料即时库存", true);
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
     }
 }

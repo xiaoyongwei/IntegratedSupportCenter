@@ -35,5 +35,17 @@ namespace 工作数据分析Web_FineUI.YuanZhi
             GridView4.Caption = ds.Tables[6].Rows[0][0].ToString();
             GridView4.DataBind();
         }
+
+
+
+        protected void ButtonDownload_Click(object sender, EventArgs e)
+        {
+            My.DownloadExcel(Response, DivExport, "原纸备料计划", true);
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
     }
 }

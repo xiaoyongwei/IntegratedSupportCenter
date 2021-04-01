@@ -26,5 +26,15 @@ namespace 工作数据分析Web_FineUI.Chengpin
             + "t.orgcde, t.clntnme, t.serial, t.mkpcde, t.ptdate, t.shdate, t.clntcde, t.specs, t.clientid, t.prdnme, t.sitloc,"
             + "t.invnum, t.prices, t.accamt, t.acreage, t.crrcde, t.matcde, t.remark)aa").ToString();
         }
+
+        protected void ButtonDownload_Click(object sender, EventArgs e)
+        {
+            My.DownloadExcel(Response, GridView1, "彩盒库存明细", true);
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
     }
 }

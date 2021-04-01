@@ -21,10 +21,13 @@
                     <Items>
                         <f:Accordion runat="server" ShowBorder="false" ShowHeader="false" ShowCollapseTool="true">
                             <Panes>
-                                <f:AccordionPane runat="server" ID="Workbench" Title="工作台" IconUrl="~/res/images/16/1.png" BodyPadding="2px 5px"
-                                    Layout="Fit">
+                                <f:AccordionPane ID="Workbench" runat="server"   IconUrl="~/res/images/16/1.png"
+                                    Layout="Fit"
+                                    Title="工作台"
+                                    BodyPadding="2px 5px">
                                     <Items>
-                                        <f:Tree runat="server" ShowBorder="false" ShowHeader="false" ID="treeWork" EnableSingleClickExpand="true">
+                                        <f:Tree runat="server" ShowBorder="false" ShowHeader="false" ID="treeWork" EnableSingleClickExpand="true"
+                                           >
                                             <%-- <Listeners>
                                                 <f:Listener Event="nodeclick" Handler="onTreeNodeClick" />
                                             </Listeners>--%>

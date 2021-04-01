@@ -14,16 +14,16 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (My.IsSession(Session, Response))
-            { InitShowData(); }
-            else
-            {
-                Session.Abandon();
-            }
+            //if (My.IsSession(Session, Response))
+            //{ InitShowData(); }
+            //else
+            //{
+            //    Session.Abandon();
+            //}
 
-          
+            InitShowData();
 
-            
+
         }
         private void InitShowData()
         {

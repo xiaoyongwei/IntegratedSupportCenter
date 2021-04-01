@@ -7,11 +7,11 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace 工作数据分析Web_FineUI.WebPage.Chengpin
+namespace 工作数据分析Web_FineUI.WebPage.Wuliu
 {
 
 
-    public partial class ChengpinFahuoAnRiqi
+    public partial class WuliuTuopanJinchuPingdan
     {
 
         /// <summary>
@@ -24,40 +24,13 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// PageManager1 控件。
+        /// ButtonSave 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FineUIPro.PageManager PageManager1;
-
-        /// <summary>
-        /// DatePickerStart 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUIPro.DatePicker DatePickerStart;
-
-        /// <summary>
-        /// DatePickerEnd 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FineUIPro.DatePicker DatePickerEnd;
-
-        /// <summary>
-        /// Button1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button ButtonSave;
 
         /// <summary>
         /// ButtonDownload 控件。
@@ -69,39 +42,48 @@ namespace 工作数据分析Web_FineUI.WebPage.Chengpin
         protected global::System.Web.UI.WebControls.Button ButtonDownload;
 
         /// <summary>
-        /// DivExport 控件。
+        /// DropDownListSiji 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivExport;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListSiji;
 
         /// <summary>
-        /// GridView1 控件。
+        /// TextBoxKehu 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxKehu;
 
         /// <summary>
-        /// LabelKucun 控件。
+        /// DataPickerChu 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelKucun;
+        protected global::FineUIPro.DatePicker DataPickerChu;
 
         /// <summary>
-        /// GridView2 控件。
+        /// TextBoxDaichu 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDaichu;
+
+        /// <summary>
+        /// LabelBianhao 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelBianhao;
     }
 }

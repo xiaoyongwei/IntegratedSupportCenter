@@ -9,12 +9,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <%=Page.Title+" "+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")%>
-        <div> 
-            <br />
+       
+        <asp:Button ID="ButtonDownload" runat="server" OnClick="ButtonDownload_Click" Text="下  载" />
+         <br />
+
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <asp:GridView ID="GridView1" runat="server"></asp:GridView>
-        </div>
+    
     </form>
 </body>
 </html>

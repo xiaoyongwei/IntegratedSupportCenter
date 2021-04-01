@@ -13,8 +13,8 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable table = My.GetSqlTxt_Datatable("纸板库存情况");
-            //只保留库区,工单,客户3个列
-            string[] columnArray = { "库区", "生产单号", "客户" };
+            //只保留库区,工单,客户，数量 4个列
+            string[] columnArray = { "库区", "生产单号", "客户" ,"数量"};
 
             for (int i = table.Columns.Count - 1; i >= 0; i--)
             {

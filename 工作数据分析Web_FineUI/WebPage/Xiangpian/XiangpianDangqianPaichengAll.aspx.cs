@@ -12,7 +12,7 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            My.IsSession(Session,Response);
+           
 
 
             GridView1.DataSource = MySqlDbHelper.ExecuteDataTable(

@@ -27,7 +27,17 @@ namespace 工作数据分析Web_FineUI.YuanZhi
                 "SELECT `SQL语句`FROM `slbz`.`系统_易捷oracle语句`where 名称='涂布白板纸需求明细'").ToString());
             this.GridView2.DataBind();
 
-           
+        }
+
+
+        protected void ButtonDownload_Click(object sender, EventArgs e)
+        {
+            My.DownloadExcel(Response, DivExport, "涂布白板纸需求", true);
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
         }
     }
 }

@@ -9,8 +9,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:TextBox ID="TextBoxDateS" runat="server"></asp:TextBox>
-    -&gt;<asp:TextBox ID="TextBoxDateE" runat="server"></asp:TextBox>
+       <f:PageManager ID="PageManager1" runat="server" />
+        <f:DatePicker runat="server" Required="true" DateFormatString="yyyy-MM-dd" Label="开始日期" EmptyText="请选择开始日期"
+                    ID="DatePickerS" ShowRedStar="true">
+                </f:DatePicker>
+                <f:DatePicker ID="DatePickerEnd" Required="true" Readonly="false" CompareControl="DatePicker1" DateFormatString="yyyy-MM-dd"
+                    CompareOperator="GreaterThan" CompareMessage="结束日期应该大于开始日期" Label="结束日期"
+                    runat="server" ShowRedStar="true">
+                </f:DatePicker>
+       <%-- <asp:TextBox ID="TextBoxDateS" runat="server"></asp:TextBox>
+    -&gt;<asp:TextBox ID="TextBoxDateE" runat="server"></asp:TextBox>--%>
 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="确  认" />
     
     &nbsp;<asp:Button ID="ButtonDownload" runat="server" OnClick="ButtonDownload_Click" Text="导出为Excel" />
