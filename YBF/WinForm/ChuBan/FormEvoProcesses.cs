@@ -141,23 +141,23 @@ namespace YBF.WinForm.ChuBan
             //C:\Program Files (x86)\Kodak\Prinergy Evo 6.1.3.0\historical_data\processes
             //-3{printing-to-hires-file}.out.jtk
             // \\EvoServer\historical_data\processes
-            // /CPC_OutputDestination (\\\\printconsoletl0397\\PCHotFolders\\1180x1460)
-            // /CPC_OutputDestination (\\\\printconsoletl0397\\PCHotFolders\\785x1040)
-            // /CPC_OutputDestination (//printconsoletl0397/PCHotFolders/1180x1460)
-            // /CPC_OutputDestination (//printconsoletl0397/PCHotFolders/785x1040)
+            // /CPC_OutputDestination (\\\\192.168.110.33\\PCHotFolders\\1180x1460)
+            // /CPC_OutputDestination (\\\\192.168.110.33\\PCHotFolders\\785x1040)
+            // /CPC_OutputDestination (//192.168.110.33/PCHotFolders/1180x1460)
+            // /CPC_OutputDestination (//192.168.110.33/PCHotFolders/785x1040)
             // done
 
             DataTable dt_evo = new DataTable();
             try
             {
                 //***获取印能捷出版记录
-                string[] OutputDestinations ={"\\\\printconsoletl0397\\PCHotFolders\\1180x1460",
-                                        "\\\\printconsoletl0397\\PCHotFolders\\785x1040",
-                                        "//printconsoletl0397/PCHotFolders/1180x1460",
-                                        "//printconsoletl0397/PCHotFolders/785x1040"};
+                string[] OutputDestinations ={"\\\\192.168.110.33\\PCHotFolders\\1180x1460",
+                                        "\\\\192.168.110.33\\PCHotFolders\\785x1040",
+                                        "//192.168.110.33/PCHotFolders/1180x1460",
+                                        "//192.168.110.33/PCHotFolders/785x1040"};
                 List<EvoPrintingToDeviceProcessInfo> evoInfoList = new List<EvoPrintingToDeviceProcessInfo>();
                 foreach (string file in Directory.EnumerateFiles
-                    (@"\\EvoServer\historical_data\processes",
+                    (@"\\192.168.110.32\historical_data\processes",
                     "*-3{printing-to-hires-file}.out.jtk", SearchOption.AllDirectories))
                 {
                     EvoPrintingToDeviceProcessInfo evoInfo = new EvoPrintingToDeviceProcessInfo(file, "");
@@ -238,7 +238,7 @@ namespace YBF.WinForm.ChuBan
             try
             {
                 Directory.CreateDirectory("Temp");
-                File.Copy(@"\\printconsoletl0397\Kodak\PrintConsole5\\ProcessedQueue.xml", "Temp\\ProcessedQueue.xml", true);
+                File.Copy(@"\\192.168.110.33\Kodak\PrintConsole5\\ProcessedQueue.xml", "Temp\\ProcessedQueue.xml", true);
                 string fileName = "Temp\\ProcessedQueue.xml";
 
                 //设置读取xml文档的方式
