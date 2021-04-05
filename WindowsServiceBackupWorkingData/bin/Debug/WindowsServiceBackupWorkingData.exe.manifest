@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WindowsServiceBackupWorkingData.exe" size="93208">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WindowsServiceBackupWorkingData.exe" size="94232">
       <assemblyIdentity name="WindowsServiceBackupWorkingData" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FjCDtahDTVe+07HmwUkLh51TcKTz7/6jmnZmR2Agn/o=</dsig:DigestValue>
+        <dsig:DigestValue>rumHtxnBnJWlRP+J20mmLZDQ/R8i5/Vr0Qt9Qk4ArCc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

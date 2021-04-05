@@ -51,40 +51,22 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
         protected global::System.Web.UI.WebControls.Label Lable1;
 
         /// <summary>
-        /// Panel1 控件。
+        /// Panel0 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel Panel0;
 
         /// <summary>
-        /// GridView1800 控件。
+        /// GridViewDw2500 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1800;
-
-        /// <summary>
-        /// Panel4 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel4;
-
-        /// <summary>
-        /// GridView1800F 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1800F;
+        protected global::System.Web.UI.WebControls.GridView GridViewDw2500;
 
         /// <summary>
         /// Panel2 控件。

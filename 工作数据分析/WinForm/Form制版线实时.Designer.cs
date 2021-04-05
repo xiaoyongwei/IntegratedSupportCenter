@@ -43,11 +43,8 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.groupBox1800F = new System.Windows.Forms.GroupBox();
-            this.dgv1800F = new System.Windows.Forms.DataGridView();
-            this.groupBox1800E = new System.Windows.Forms.GroupBox();
-            this.dgv1800E = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvDw2500 = new System.Windows.Forms.DataGridView();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox2200 = new System.Windows.Forms.GroupBox();
             this.dgv2200 = new System.Windows.Forms.DataGridView();
@@ -80,14 +77,8 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
-            this.groupBox1800F.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv1800F)).BeginInit();
-            this.groupBox1800E.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv1800E)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDw2500)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -239,89 +230,42 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.splitContainer4);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox3);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer1.Size = new System.Drawing.Size(1222, 448);
-            this.splitContainer1.SplitterDistance = 606;
+            this.splitContainer1.SplitterDistance = 358;
             this.splitContainer1.TabIndex = 1;
             // 
-            // splitContainer4
+            // groupBox3
             // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer4.Name = "splitContainer4";
+            this.groupBox3.Controls.Add(this.dgvDw2500);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(358, 448);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "单瓦机2500";
             // 
-            // splitContainer4.Panel1
+            // dgvDw2500
             // 
-            this.splitContainer4.Panel1.Controls.Add(this.groupBox1800F);
-            // 
-            // splitContainer4.Panel2
-            // 
-            this.splitContainer4.Panel2.Controls.Add(this.groupBox1800E);
-            this.splitContainer4.Size = new System.Drawing.Size(606, 448);
-            this.splitContainer4.SplitterDistance = 314;
-            this.splitContainer4.TabIndex = 5;
-            // 
-            // groupBox1800F
-            // 
-            this.groupBox1800F.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1800F.Controls.Add(this.dgv1800F);
-            this.groupBox1800F.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1800F.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1800F.Name = "groupBox1800F";
-            this.groupBox1800F.Size = new System.Drawing.Size(314, 448);
-            this.groupBox1800F.TabIndex = 5;
-            this.groupBox1800F.TabStop = false;
-            this.groupBox1800F.Text = "1800F制版线";
-            // 
-            // dgv1800F
-            // 
-            this.dgv1800F.AllowUserToAddRows = false;
-            this.dgv1800F.AllowUserToDeleteRows = false;
-            this.dgv1800F.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv1800F.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgv1800F.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv1800F.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv1800F.Location = new System.Drawing.Point(3, 17);
-            this.dgv1800F.Name = "dgv1800F";
-            this.dgv1800F.ReadOnly = true;
-            this.dgv1800F.RowHeadersVisible = false;
-            this.dgv1800F.RowHeadersWidth = 51;
-            this.dgv1800F.RowTemplate.Height = 23;
-            this.dgv1800F.Size = new System.Drawing.Size(308, 428);
-            this.dgv1800F.TabIndex = 0;
-            // 
-            // groupBox1800E
-            // 
-            this.groupBox1800E.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1800E.Controls.Add(this.dgv1800E);
-            this.groupBox1800E.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1800E.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1800E.Name = "groupBox1800E";
-            this.groupBox1800E.Size = new System.Drawing.Size(288, 448);
-            this.groupBox1800E.TabIndex = 4;
-            this.groupBox1800E.TabStop = false;
-            this.groupBox1800E.Text = "1800E制版线";
-            // 
-            // dgv1800E
-            // 
-            this.dgv1800E.AllowUserToAddRows = false;
-            this.dgv1800E.AllowUserToDeleteRows = false;
-            this.dgv1800E.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv1800E.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgv1800E.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv1800E.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv1800E.Location = new System.Drawing.Point(3, 17);
-            this.dgv1800E.Name = "dgv1800E";
-            this.dgv1800E.ReadOnly = true;
-            this.dgv1800E.RowHeadersVisible = false;
-            this.dgv1800E.RowHeadersWidth = 51;
-            this.dgv1800E.RowTemplate.Height = 23;
-            this.dgv1800E.Size = new System.Drawing.Size(282, 428);
-            this.dgv1800E.TabIndex = 0;
+            this.dgvDw2500.AllowUserToAddRows = false;
+            this.dgvDw2500.AllowUserToDeleteRows = false;
+            this.dgvDw2500.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvDw2500.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvDw2500.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDw2500.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDw2500.Location = new System.Drawing.Point(3, 17);
+            this.dgvDw2500.Name = "dgvDw2500";
+            this.dgvDw2500.ReadOnly = true;
+            this.dgvDw2500.RowHeadersVisible = false;
+            this.dgvDw2500.RowHeadersWidth = 51;
+            this.dgvDw2500.RowTemplate.Height = 23;
+            this.dgvDw2500.Size = new System.Drawing.Size(352, 428);
+            this.dgvDw2500.TabIndex = 0;
             // 
             // splitContainer3
             // 
@@ -336,8 +280,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.groupBox2500);
-            this.splitContainer3.Size = new System.Drawing.Size(612, 448);
-            this.splitContainer3.SplitterDistance = 336;
+            this.splitContainer3.Size = new System.Drawing.Size(860, 448);
+            this.splitContainer3.SplitterDistance = 472;
             this.splitContainer3.TabIndex = 0;
             // 
             // groupBox2200
@@ -347,7 +291,7 @@
             this.groupBox2200.ForeColor = System.Drawing.Color.Black;
             this.groupBox2200.Location = new System.Drawing.Point(0, 0);
             this.groupBox2200.Name = "groupBox2200";
-            this.groupBox2200.Size = new System.Drawing.Size(336, 448);
+            this.groupBox2200.Size = new System.Drawing.Size(472, 448);
             this.groupBox2200.TabIndex = 3;
             this.groupBox2200.TabStop = false;
             this.groupBox2200.Text = "2200制版线";
@@ -366,7 +310,7 @@
             this.dgv2200.RowHeadersVisible = false;
             this.dgv2200.RowHeadersWidth = 51;
             this.dgv2200.RowTemplate.Height = 23;
-            this.dgv2200.Size = new System.Drawing.Size(330, 428);
+            this.dgv2200.Size = new System.Drawing.Size(466, 428);
             this.dgv2200.TabIndex = 0;
             // 
             // groupBox2500
@@ -375,7 +319,7 @@
             this.groupBox2500.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2500.Location = new System.Drawing.Point(0, 0);
             this.groupBox2500.Name = "groupBox2500";
-            this.groupBox2500.Size = new System.Drawing.Size(272, 448);
+            this.groupBox2500.Size = new System.Drawing.Size(384, 448);
             this.groupBox2500.TabIndex = 3;
             this.groupBox2500.TabStop = false;
             this.groupBox2500.Text = "2500制版线";
@@ -394,7 +338,7 @@
             this.dgv2500.RowHeadersVisible = false;
             this.dgv2500.RowHeadersWidth = 51;
             this.dgv2500.RowTemplate.Height = 23;
-            this.dgv2500.Size = new System.Drawing.Size(266, 428);
+            this.dgv2500.Size = new System.Drawing.Size(378, 428);
             this.dgv2500.TabIndex = 0;
             // 
             // groupBox2
@@ -575,14 +519,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
-            this.splitContainer4.ResumeLayout(false);
-            this.groupBox1800F.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv1800F)).EndInit();
-            this.groupBox1800E.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv1800E)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDw2500)).EndInit();
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
@@ -627,11 +565,6 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.SplitContainer splitContainer4;
-        private System.Windows.Forms.GroupBox groupBox1800F;
-        private System.Windows.Forms.DataGridView dgv1800F;
-        private System.Windows.Forms.GroupBox groupBox1800E;
-        private System.Windows.Forms.DataGridView dgv1800E;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.GroupBox groupBox2200;
         private System.Windows.Forms.DataGridView dgv2200;
@@ -642,5 +575,7 @@
         private System.Windows.Forms.ToolStripMenuItem 导出彩盒排程隔行ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 导出彩盒排程ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 导出全部排程ToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dgvDw2500;
     }
 }

@@ -18,7 +18,7 @@
             <asp:Label ID="Lable1" runat="server"></asp:Label>
             <table style="width: 100%;">
                 <tr>
-                    <td class="auto-style1">
+                    <%--<td class="auto-style1">
                         <asp:Panel ID="Panel1" runat="server" ScrollBars="Both" Height="500px" Width="100%">
                             <asp:GridView ID="GridView1800" runat="server" Caption="制版线1800" Font-Size="10pt">                               
                             </asp:GridView>
@@ -29,7 +29,14 @@
                             <asp:GridView ID="GridView1800F" runat="server" Caption="制版线1800F" Font-Size="10pt">                               
                             </asp:GridView>
                         </asp:Panel>
+                    </td>--%>
+                    <td class="auto-style1">
+                        <asp:Panel ID="Panel0" runat="server" ScrollBars="Both" Height="500px" Width="100%">
+                            <asp:GridView ID="GridViewDw2500" runat="server" Caption="单瓦机2500" Font-Size="10pt">
+                            </asp:GridView>
+                        </asp:Panel>
                     </td>
+
                     <td class="auto-style1">
                         <asp:Panel ID="Panel2" runat="server" ScrollBars="Both" Height="500px" Width="100%">
                             <asp:GridView ID="GridView2200" runat="server" Caption="制版线2200" Font-Size="10pt">

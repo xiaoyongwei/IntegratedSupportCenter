@@ -73,6 +73,27 @@ namespace WindowsServiceBackupWorkingData
                         WriteTxtLog("制版线1800F数据库连接失败!");
                     }
 
+                    //2.备份2500单瓦机的当前排程
+                    WriteTxtLog("开始备份单瓦机2500的当前排程");
+                    if (My.Ping(DataBaseList.IP_单瓦机) && SqlHelper.IsConnection(DataBaseList.ConnString_单瓦机))
+                    {
+                        DataBaseList.sql单瓦机2500 = new SqlHelper(DataBaseList.ConnString_单瓦机);
+                        if (SubmitZhiBanXianCurrentMysql(DataBaseList.sql单瓦机2500.Querytable(Resources.制版线当前排程2500), "单瓦机2500"))
+                        {
+                            WriteTxtLog("备份单瓦机2500当前排程情况成功!");
+                        }
+                        else
+                        {
+                            WriteTxtLog("备份单瓦机2500当前排程情况失败!");
+                        }
+
+                    }
+                    else
+                    {
+                        WriteTxtLog("单瓦机2500数据库连接失败!");
+                    }
+
+
                     //3.备份制版线2200的当前排程
                     WriteTxtLog("开始备份制版线2200的当前排程");
                     if (My.Ping(DataBaseList.IP_制版线2200) && SqlHelper.IsConnection(DataBaseList.ConnString_制版线2200))
@@ -141,6 +162,25 @@ namespace WindowsServiceBackupWorkingData
                     {
                         WriteTxtLog("制版线1800F数据库连接失败!");
                     }
+
+
+                    //8.备份单瓦机2500的完成记录
+                    WriteTxtLog("开始备份单瓦机2500的完成记录");
+                    if (DataBaseList.sql单瓦机2500 != null)
+                    {
+                        //获取最后备份时间
+                        string lastBackupTime = MySqlDbHelper.ExecuteScalar(
+                            "SELECT ifnull(date_sub(max(`结束时间`), interval 1 day),date_sub(now(), interval 1 day)) FROM `slbz`.`瓦片完成情况`where 瓦片线='单瓦机2500'").ToString();
+
+                        DataTable dt = DataBaseList.sql单瓦机2500.Querytable(Resources.制版线完工_2500.Replace("dateadd(dd,-30,GETDATE())", "'" + lastBackupTime + "'")
+                            .Replace("[瓦片线]='2.5米制版线'", "[瓦片线] = '单瓦机2500'"));
+                        WriteTxtLog(SubmitZhiBanXianPublishedMysql(dt) ? "备份单瓦机2500完成情况成功!" : "备份单瓦机2500完成情况失败!");
+                    }
+                    else
+                    {
+                        WriteTxtLog("单瓦机2500数据库连接失败!");
+                    }
+
 
                     //7.备份制版线2200的完成记录
                     WriteTxtLog("开始备份制版线2200的完成记录");

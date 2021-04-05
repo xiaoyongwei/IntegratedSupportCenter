@@ -27,15 +27,21 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
         }
         private void InitShowData()
         {
-            GridView1800.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT `订单号`,`客户`,`楞型`,`订单数`,`宽度`,`长度`,`材质`,`门幅`,`序号`,`备注` FROM  `slbz`.`瓦片当前排程` where 生产线='制版线1800' ORDER by 序号");
-            GridView1800.Caption = "制版线1800E-还剩" + MySqlDbHelper.ExecuteScalar("SELECT ifnull(round(sum(订单数*宽度*长度/1000000),0),0)FROM `slbz`.`瓦片当前排程` where 订单号 like'C2%' and 生产线='制版线1800'").ToString()
-                + "平方";
-            GridView1800.DataBind();
+            //GridView1800.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT `订单号`,`客户`,`楞型`,`订单数`,`宽度`,`长度`,`材质`,`门幅`,`序号`,`备注` FROM  `slbz`.`瓦片当前排程` where 生产线='制版线1800' ORDER by 序号");
+            //GridView1800.Caption = "制版线1800E-还剩" + MySqlDbHelper.ExecuteScalar("SELECT ifnull(round(sum(订单数*宽度*长度/1000000),0),0)FROM `slbz`.`瓦片当前排程` where 订单号 like'C2%' and 生产线='制版线1800'").ToString()
+            //    + "平方";
+            //GridView1800.DataBind();
 
-            GridView1800F.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT `订单号`,`客户`,`楞型`,`订单数`,`宽度`,`长度`,`材质`,`门幅`,`序号`,`备注` FROM  `slbz`.`瓦片当前排程` where 生产线='制版线1800F' ORDER by 序号");
-            GridView1800F.Caption = "制版线1800F-还剩" + MySqlDbHelper.ExecuteScalar("SELECT ifnull(round(sum(订单数*宽度*长度/1000000),0),0)FROM `slbz`.`瓦片当前排程` where 订单号 like'C2%' and 生产线='制版线1800F'").ToString()
+            //GridView1800F.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT `订单号`,`客户`,`楞型`,`订单数`,`宽度`,`长度`,`材质`,`门幅`,`序号`,`备注` FROM  `slbz`.`瓦片当前排程` where 生产线='制版线1800F' ORDER by 序号");
+            //GridView1800F.Caption = "制版线1800F-还剩" + MySqlDbHelper.ExecuteScalar("SELECT ifnull(round(sum(订单数*宽度*长度/1000000),0),0)FROM `slbz`.`瓦片当前排程` where 订单号 like'C2%' and 生产线='制版线1800F'").ToString()
+            //    + "平方";
+            //GridView1800F.DataBind();
+
+            GridViewDw2500.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT `订单号`,`客户`,`楞型`,`订单数`,`宽度`,`长度`,`材质`,`门幅`,`序号`,`备注` FROM  `slbz`.`瓦片当前排程` where 生产线='单瓦机2500' ORDER by 序号");
+            GridViewDw2500.Caption = "单瓦机2500-还剩" + MySqlDbHelper.ExecuteScalar("SELECT ifnull(round(sum(订单数*宽度*长度/1000000),0),0)FROM `slbz`.`瓦片当前排程` where 订单号 like'C2%' and 生产线='单瓦机2500'").ToString()
                 + "平方";
-            GridView1800F.DataBind();
+            GridViewDw2500.DataBind();
+
 
             GridView2200.DataSource = MySqlDbHelper.ExecuteDataTable("SELECT `订单号`,`客户`,`楞型`,`订单数`,`宽度`,`长度`,`材质`,`门幅`,`序号`,`备注` FROM  `slbz`.`瓦片当前排程` where 生产线='制版线2200' ORDER by 序号");
             GridView2200.Caption = "制版线2200-还剩" + MySqlDbHelper.ExecuteScalar("SELECT ifnull(round(sum(订单数*宽度*长度/1000000),0),0)FROM `slbz`.`瓦片当前排程` where 订单号 like'C2%' and 生产线='制版线2200'").ToString()
@@ -54,15 +60,9 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
             GridViewPublished.DataBind();
 
 
-            foreach (GridViewRow row in GridView1800.Rows)
-            {
-                if (Regex.IsMatch(row.Cells[0].Text, "^C\\d+", RegexOptions.IgnoreCase))
-                {
-                    row.BackColor = Color.Yellow;
-                }
-            }
+           
 
-            foreach (GridViewRow row in GridView1800F.Rows)
+            foreach (GridViewRow row in GridViewDw2500.Rows)
             {
                 if (Regex.IsMatch(row.Cells[0].Text, "^C\\d+", RegexOptions.IgnoreCase))
                 {

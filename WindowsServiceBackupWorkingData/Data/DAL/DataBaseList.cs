@@ -17,6 +17,9 @@ namespace 工作数据分析.Data.DAL
         public static string IP_制版线1800F = "128.1.50.96";
         public static string ConnString_制版线1800F = "Data Source=" + IP_制版线1800F + ";Initial Catalog=cimnc;User ID=sa;Password=sa;";
 
+        public static string IP_单瓦机 = "192.168.110.220";
+        public static string ConnString_单瓦机 = "Data Source=" + IP_单瓦机 + "\\JSDCS;Initial Catalog=test1;User ID=sa;Password=83360009;";
+
         public static string IP_制版线2200 = "128.1.50.235";
         public static string ConnString_制版线2200 = "Data Source=" + IP_制版线2200 + ";Initial Catalog=cimnc;User ID=sa;Password=sa;";
 
@@ -26,6 +29,7 @@ namespace 工作数据分析.Data.DAL
         public static SqlHelper sql财务;
         public static SqlHelper sql制版线1800;
         public static SqlHelper sql制版线1800F;
+        public static SqlHelper sql单瓦机2500;
         public static SqlHelper sql制版线2200;
         public static SqlHelper sql制版线2500;
 
@@ -36,6 +40,7 @@ namespace 工作数据分析.Data.DAL
             sql制版线1800F = null;
             sql制版线2200 = null;
             sql制版线2500 = null;
+            sql单瓦机2500 = null;
 
 
             if (My.Ping(IP_财务) && SqlHelper.IsConnection(ConnString_财务))
@@ -49,6 +54,10 @@ namespace 工作数据分析.Data.DAL
             if (My.Ping(IP_制版线1800F) && SqlHelper.IsConnection(ConnString_制版线1800F))
             {
                 sql制版线1800F = new SqlHelper(ConnString_制版线1800F);
+            }
+            if (My.Ping(IP_单瓦机) && SqlHelper.IsConnection(ConnString_单瓦机))
+            {
+                sql单瓦机2500 = new SqlHelper(ConnString_单瓦机);
             }
             if (My.Ping(IP_制版线2200) && SqlHelper.IsConnection(ConnString_制版线2200))
             {
