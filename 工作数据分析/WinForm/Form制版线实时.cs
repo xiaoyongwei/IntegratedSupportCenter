@@ -264,7 +264,7 @@ namespace 工作数据分析.WinForm
             //1.
             DateTime time =Convert.ToDateTime( SQLiteDbHelper_ZBX.ExecuteScalar("SELECT [LastBackupTime]FROM [SettingSystem]"));
             //2.
-            if ((DateTime.Now-time).TotalSeconds>50)//50秒
+            if ((DateTime.Now-time).TotalSeconds>60)//60秒
             {
                 //3.更新时间
                 SQLiteDbHelper_ZBX.ExecuteSqlTran("UPDATE [SettingSystem]SET [LastBackupTime] = datetime('now','localtime');");
@@ -675,7 +675,7 @@ namespace 工作数据分析.WinForm
         private void Form制版线实时_SizeChanged(object sender, EventArgs e)
         {
             splitContainer1.SplitterDistance = this.Width / 3;
-            splitContainer3.SplitterDistance = this.Width / 3*2;
+            splitContainer3.SplitterDistance = this.Width / 3;
 
 
         }
