@@ -88,7 +88,10 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
                 +",未排面积:"+My.GetSqlTxt_Datatable("箱片未排面积").Rows[0][0].ToString()
                 +"平方,已排未完成:"+ MySqlDbHelper .ExecuteScalar(
                     "SELECT ifnull(round(sum(订单数*宽度*长度/1000000),0),0)FROM `slbz`.`瓦片当前排程` where 订单号 like'C2%'").ToString()
-                    + "平方.";
+                    + "平方,今日已开箱片:"
+                    +MySqlDbHelper.ExecuteScalar("SELECT ifnull(round(sum(数量*长度*宽度/1000000)),0) FROM `slbz`.`瓦片完成情况`" +
+                    "where date_format(`结束时间`,'%Y-%m-%d')=date_format(now(),'%Y-%m-%d')and 工单号 like 'C2%'").ToString()
+                    +"平方.";
         }
 
 
