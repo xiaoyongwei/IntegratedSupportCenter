@@ -138,6 +138,12 @@
     <Compile Include="WinForm\ChengPin\Form选择入库类型.Designer.cs">
       <DependentUpon>Form选择入库类型.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\DataUpload\Form数据导入.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\DataUpload\Form数据导入.Designer.cs">
+      <DependentUpon>Form数据导入.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\FormShowData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\ChengPin\Form选择入库类型.resx">
       <DependentUpon>Form选择入库类型.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\DataUpload\Form数据导入.resx">
+      <DependentUpon>Form数据导入.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\FormShowData.resx">
       <DependentUpon>FormShowData.cs</DependentUpon>

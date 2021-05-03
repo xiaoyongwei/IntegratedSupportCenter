@@ -11,6 +11,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.SessionState;
+using NPOI.SS.UserModel;
+using NPOI.HSSF.UserModel;
 
 /// <summary>
 ///My 的摘要说明
@@ -180,6 +182,8 @@ public static class My
         return dt;
     }
 
+
+    
 
     public static string DataTableToHtml(DataTable dt,string idName)
     {

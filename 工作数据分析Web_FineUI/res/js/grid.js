@@ -25,7 +25,7 @@ function renderExpander(value, params) {
 }
 
 // 公共方法 - 显示通知框
-function showNotify(content) {
+function filePhoto(content) {
     // 消息正文可能会比较长，所以不显示前面的图标（messageIcon: ''）
     F.notify({
         message: content,

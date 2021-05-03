@@ -87,6 +87,7 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分�
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.dll
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.pdb
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.csprojAssemblyReference.cache
-C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.csprojAssemblyReference.cache
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\bin\System.Web.DataVisualization.dll
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\bin\System.Web.DataVisualization.dll
+C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析Web_FineUI\obj\Debug\工作数据分析Web_FineUI.csprojAssemblyReference.cache

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 工作数据分析.WinForm.ChengPin;
+using 工作数据分析.WinForm.DataUpload;
 
 namespace 工作数据分析
 {
@@ -24,6 +25,24 @@ namespace 工作数据分析
             rkfl.WindowState = FormWindowState.Maximized;
             rkfl.MdiParent = this;
             rkfl.Show();
+        }
+
+        private void 成品仓库ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 入库明细ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 数据导入ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form数据导入 sjdr = new Form数据导入();
+            sjdr.WindowState = FormWindowState.Maximized;
+            sjdr.MdiParent = this;
+            sjdr.Show();
         }
     }
 }

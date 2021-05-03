@@ -48,6 +48,10 @@
     <Reference Include="FineUIPro">
       <HintPath>D:\桌面\工作数据分析Web_FineUI\bin\FineUIPro.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Downloads\icsharpcode.sharpziplib\0.86.0.518\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip">
       <HintPath>..\工作数据分析\bin\Debug\Ionic.Zip.dll</HintPath>
     </Reference>
@@ -3001,6 +3005,7 @@
     <Content Include="WebPage\Chengpin\ChengpinRukuAnRiqi.aspx" />
     <Content Include="WebPage\Chengpin\ChengpinTiqianRuku.aspx" />
     <Content Include="WebPage\Chengpin\ChengpinTuihuoBufu.aspx" />
+    <Content Include="WebPage\DataImportOutport\DataImport.aspx" />
     <Content Include="WebPage\FuLiao\FuliaoBeiliao.aspx" />
     <Content Include="WebPage\FuLiao\FuliaoJishiKucun.aspx" />
     <Content Include="WebPage\FuLiao\FuliaoLingliaoFenxi.aspx" />
@@ -3028,6 +3033,7 @@
     <Content Include="WebPage\Xiangpian\XiangpianDangqianPaichengAll.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianDangqianPaichengCaihe.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianRukuFenxi.aspx" />
+    <Content Include="WebPage\Xiangpian\XiangpianRukuFenxi1.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianWancheng.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiFeileiHuizong.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiGeleiZhanbi.aspx" />
@@ -3047,6 +3053,7 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\ExcelHelper.cs" />
     <Compile Include="App_Code\My.cs" />
     <Compile Include="App_Code\OracleHelper.cs" />
     <Compile Include="App_Code\PageBase.cs">
@@ -3121,6 +3128,13 @@
     </Compile>
     <Compile Include="WebPage\Chengpin\ChengpinTuihuoBufu.aspx.designer.cs">
       <DependentUpon>ChengpinTuihuoBufu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\DataImportOutport\DataImport.aspx.cs">
+      <DependentUpon>DataImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\DataImportOutport\DataImport.aspx.designer.cs">
+      <DependentUpon>DataImport.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPage\FuLiao\FuliaoBeiliao.aspx.cs">
       <DependentUpon>FuliaoBeiliao.aspx</DependentUpon>
@@ -3305,6 +3319,13 @@
     </Compile>
     <Compile Include="WebPage\Xiangpian\XiangpianRukuFenxi.aspx.designer.cs">
       <DependentUpon>XiangpianRukuFenxi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Xiangpian\XiangpianRukuFenxi1.aspx.cs">
+      <DependentUpon>XiangpianRukuFenxi1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Xiangpian\XiangpianRukuFenxi1.aspx.designer.cs">
+      <DependentUpon>XiangpianRukuFenxi1.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPage\Xiangpian\XiangpianWancheng.aspx.cs">
       <DependentUpon>XiangpianWancheng.aspx</DependentUpon>
