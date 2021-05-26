@@ -57,6 +57,7 @@
             // dtpS
             // 
             this.dtpS.CustomFormat = "yyyy-MM-dd";
+            this.dtpS.Enabled = false;
             this.dtpS.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpS.Location = new System.Drawing.Point(77, 3);
             this.dtpS.Name = "dtpS";
@@ -66,6 +67,7 @@
             // dtpE
             // 
             this.dtpE.CustomFormat = "yyyy-MM-dd";
+            this.dtpE.Enabled = false;
             this.dtpE.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpE.Location = new System.Drawing.Point(77, 37);
             this.dtpE.Name = "dtpE";

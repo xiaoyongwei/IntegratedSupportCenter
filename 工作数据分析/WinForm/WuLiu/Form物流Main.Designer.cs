@@ -58,16 +58,17 @@
             this.运费结算ToolStripMenuItem.Name = "运费结算ToolStripMenuItem";
             this.运费结算ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.运费结算ToolStripMenuItem.Text = "运费结算";
+            this.运费结算ToolStripMenuItem.Visible = false;
             this.运费结算ToolStripMenuItem.Click += new System.EventHandler(this.运费结算ToolStripMenuItem_Click);
             // 
-            // Form物流Mian
+            // Form物流Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 584);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
-            this.Name = "Form物流Mian";
+            this.Name = "Form物流Main";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "物流";

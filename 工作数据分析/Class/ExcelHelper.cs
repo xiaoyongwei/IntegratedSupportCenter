@@ -217,7 +217,7 @@ namespace excelToTable_NPOI
                 else if (fileFullName.IndexOf(".xls") > 0) // 2003版本
                     workbook = new HSSFWorkbook(fs);
 
-                if (sheetName != null)
+                if (sheetName != null&&!string.IsNullOrEmpty(sheetName))
                 {
                     sheet = workbook.GetSheet(sheetName);
                 }
@@ -275,7 +275,7 @@ namespace excelToTable_NPOI
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 return null;
             }

@@ -90,8 +90,8 @@
   <TreeNode Text="箱片备料" >
     <TreeNode Text="当前排程" NavigateUrl="~/WebPage/Xiangpian/XiangpianDangqianPaicheng.aspx" >
     </TreeNode>
-    <TreeNode Text="入库分析" NavigateUrl="~/WebPage/Xiangpian/XiangpianRukuFenxi.aspx" >
-    </TreeNode>
+	<TreeNode Text="入库分析" NavigateUrl="~/WebPage/Xiangpian/XiangpianRukuFenxi.aspx" >
+    </TreeNode>	  
     <TreeNode Text="出库分析" NavigateUrl="~/WebPage/Xiangpian/XiangpianChukuFenxi.aspx" >
     </TreeNode>
     <TreeNode Text="当前库存" NavigateUrl="~/WebPage/Xiangpian/XiangpianDangqianKucun.aspx" >
