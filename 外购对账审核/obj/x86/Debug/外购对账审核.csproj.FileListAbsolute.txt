@@ -40,3 +40,26 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\外购对账审�
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.FormInputText.resources
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.csproj.CopyComplete
+D:\GitHub\IntegratedSupportCenter\外购对账审核\bin\Debug\外购对账审核.exe.config
+D:\GitHub\IntegratedSupportCenter\外购对账审核\bin\Debug\外购对账审核.exe
+D:\GitHub\IntegratedSupportCenter\外购对账审核\bin\Debug\外购对账审核.pdb
+D:\GitHub\IntegratedSupportCenter\外购对账审核\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\GitHub\IntegratedSupportCenter\外购对账审核\bin\Debug\Ionic.Zip.dll
+D:\GitHub\IntegratedSupportCenter\外购对账审核\bin\Debug\MySql.Data.dll
+D:\GitHub\IntegratedSupportCenter\外购对账审核\bin\Debug\NPOI.dll
+D:\GitHub\IntegratedSupportCenter\外购对账审核\bin\Debug\NPOI.OOXML.dll
+D:\GitHub\IntegratedSupportCenter\外购对账审核\bin\Debug\NPOI.OpenXml4Net.dll
+D:\GitHub\IntegratedSupportCenter\外购对账审核\bin\Debug\NPOI.OpenXmlFormats.dll
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.csprojAssemblyReference.cache
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.FormDuizhangbiao.resources
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.FormInputPassWord.resources
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.FormInputText.resources
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.FormLeixing.resources
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.FormMain.resources
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\纸箱纸板性能分析.WinForm.FormWeihu.resources
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.Properties.Resources.resources
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.csproj.GenerateResource.cache
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.csproj.CoreCompileInputs.cache
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.csproj.CopyComplete
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.exe
+D:\GitHub\IntegratedSupportCenter\外购对账审核\obj\x86\Debug\外购对账审核.pdb

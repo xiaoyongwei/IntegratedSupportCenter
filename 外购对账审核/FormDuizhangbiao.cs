@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using HandeJobManager.DAL;
 using 纸箱纸板性能分析.WinForm;
@@ -389,7 +390,7 @@ namespace 外购对账审核
 
                     }
                 }
-                if (SQLiteDbHelper.ExecuteSqlTran(sqlList))
+                if (SQLiteDbHelper.ExecuteSqlTran(sqlList)&&this.checkBoxShuaxin.Checked)
                 {
                     Search();
                 }
@@ -444,7 +445,7 @@ namespace 外购对账审核
 
                     }
                 }
-                if (SQLiteDbHelper.ExecuteSqlTran(sqlList))
+                if (SQLiteDbHelper.ExecuteSqlTran(sqlList) && this.checkBoxShuaxin.Checked)
                 {
                     Search();
                 }
@@ -516,7 +517,86 @@ namespace 外购对账审核
 
         private void 彩盒工单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            try
+            {
+                List<int> rowIndexList = new List<int>();
+                List<string> sqlList = new List<string>();
+                foreach (DataGridViewCell cell in dgv.SelectedCells)
+                {
+                    if (!rowIndexList.Contains(cell.RowIndex))
+                    {
+                        rowIndexList.Add(cell.RowIndex);
+                    }
+                }
 
+                foreach (int rowIndex in rowIndexList)
+                {
+
+                    Regex regex = new Regex(@"C\d{9}(\.\d+||-\d+)?");
+                    string cellValue = dgv["产品", rowIndex].ToString();
+
+                    if (regex.IsMatch(cellValue))
+                    {
+                        sqlList.Add(string.Format("update 外购记录 set 温森工单号='{0}' where 送货单='{1}' and 工单号='{2}'",
+                           regex.Match(cellValue).Value, My.GetCellDefault(dgv["送货单", rowIndex]), My.GetCellDefault(dgv_duizhang["工单号", rowIndex])));
+                    }
+                }
+                if (SQLiteDbHelper.ExecuteSqlTran(sqlList))
+                {
+                    Search();
+                }
+            }
+            catch (Exception ex)
+            {
+                My.ShowErrorMessage(ex.Message);
+            }
+        }
+
+        private void 刷新ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void 刷新ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<int> rowIndexList = new List<int>();
+                List<string> sqlList = new List<string>();
+                foreach (DataGridViewCell cell in dgv_duizhang.SelectedCells)
+                {
+                    if (!rowIndexList.Contains(cell.RowIndex))
+                    {
+                        rowIndexList.Add(cell.RowIndex);
+                    }
+                }
+
+                foreach (int rowIndex in rowIndexList)
+                {
+
+                    Regex regex = new Regex(@"(C||CL)\d{9}(\.\d+||-\d+)?");
+                    string cellValue = dgv_duizhang["产品", rowIndex].Value.ToString();
+
+                    if (regex.IsMatch(cellValue))
+                    {
+                        sqlList.Add(string.Format("update 外购记录 set 温森工单号='{0}' where 送货单='{1}' and 工单号='{2}'",
+                           regex.Match(cellValue).Value, My.GetCellDefault(dgv_duizhang["送货单", rowIndex]), My.GetCellDefault(dgv_duizhang["工单号", rowIndex])));
+                    }
+                }
+                if (SQLiteDbHelper.ExecuteSqlTran(sqlList))
+                {
+                    Search();
+                }
+            }
+            catch (Exception ex)
+            {
+                My.ShowErrorMessage(ex.Message);
+            }
         }
     }
 }
