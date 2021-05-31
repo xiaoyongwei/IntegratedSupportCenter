@@ -52,11 +52,11 @@ namespace 工作数据分析.WinForm.WuLiu.yunfei
             {
                 sqlList.Add(
                    string.Format(updateString
-                  , GetCellValueYunfei(row.Cells["运费"])
-                  , GetCellValueYunfei(row.Cells["ANNAMT"])
-                  , GetCellValueYunfei(row.Cells["补运费"])
-                   , GetCellValueYunfei(row.Cells["ANNAMT3"])
-                   , GetCellValueYunfei(row.Cells["备注"])
+                  , GetCellValueYunfeiInt(row.Cells["运费"])
+                  , GetCellValueYunfeiInt(row.Cells["ANNAMT"])
+                  , GetCellValueYunfeiInt(row.Cells["补运费"])
+                   , GetCellValueYunfeiInt(row.Cells["ANNAMT3"])
+                   , GetCellValueYunfeiStr(row.Cells["备注"])
                    , row.Cells["ID"].Value.ToString()
                    
                     ));
@@ -73,7 +73,15 @@ namespace 工作数据分析.WinForm.WuLiu.yunfei
             }
         }
 
-        private string GetCellValueYunfei(DataGridViewCell cell)
+
+        private string GetCellValueYunfeiStr(DataGridViewCell cell)
+        {
+            return cell.Value == null
+                   || string.IsNullOrWhiteSpace(cell.Value.ToString())
+                   ? "" : cell.Value.ToString();
+        }
+
+        private string GetCellValueYunfeiInt(DataGridViewCell cell)
         {
             return cell.Value == null
                    || string.IsNullOrWhiteSpace(cell.Value.ToString())

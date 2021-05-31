@@ -221,11 +221,11 @@ namespace 工作数据分析.WinForm.WuLiu
                 My.ShowErrorMessage("选择的数据里面包含了2个不同的司机!");
                 return;
             }
-            //输入运费,计算运费
-            if (new Form计算运费弹窗(GetSelectedAllID(), 1800,
-                   Convert.ToDouble(MySqlDbHelper.ExecuteScalar("SELECT 小车 FROM `slbz`.`客户对应区域运费表`where 客户 ='" + kehu + "'"))
-                   ).ShowDialog() == DialogResult.OK)
-            { InitDgv(); }
+            ////输入运费,计算运费
+            //if (new Form计算运费弹窗(GetSelectedAllID(), 1800,
+            //       Convert.ToDouble(MySqlDbHelper.ExecuteScalar("SELECT 小车 FROM `slbz`.`客户对应区域运费表`where 客户 ='" + kehu + "'"))
+            //       ).ShowDialog() == DialogResult.OK)
+            //{ InitDgv(); }
 
 
 

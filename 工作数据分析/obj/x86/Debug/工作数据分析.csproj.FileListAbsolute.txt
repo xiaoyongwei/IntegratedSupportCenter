@@ -129,3 +129,5 @@ C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\物流数据.pdb
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.WuLiu.yunfei.Form运费编辑.resources
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.AssemblyReference.cache
+D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csprojAssemblyReference.cache
+D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.WuLiu.yunfei.Form运费编辑.resources
