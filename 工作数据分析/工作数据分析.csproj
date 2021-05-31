@@ -322,6 +322,12 @@
     <Compile Include="WinForm\WuLiu\yunfei\Form运费结算.Designer.cs">
       <DependentUpon>Form运费结算.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForm\WuLiu\yunfei\Form运费编辑.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\WuLiu\yunfei\Form运费编辑.Designer.cs">
+      <DependentUpon>Form运费编辑.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -427,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\WuLiu\yunfei\Form运费结算.resx">
       <DependentUpon>Form运费结算.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\WuLiu\yunfei\Form运费编辑.resx">
+      <DependentUpon>Form运费编辑.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>

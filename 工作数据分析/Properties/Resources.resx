@@ -1336,34 +1336,70 @@ group by "送货时间","送货单号","客户简称","业务员","司机","排�
 ORDER BY "送货时间" DESC</value>
   </data>
   <data name="运费结算" xml:space="preserve">
-    <value>SELECT ID,to_char(ptdate,'yyyy-mm-dd HH24:MM:ss') 时间,"PAYSTS" 结算
-	,"DRIVER" 司机
-	,"LNCCDE" 车牌号
-	,nvl("DISTANCE",0) 距离
-	,"CLNTNME" 客户
-	,nvl("PLNCDE",' ') 装车单
-	,"PONO" 送货单
-	,(select nvl(sum(i.ratios * i.acreage * i.ACCNUMR),0) from v_bcdx_ct i where i.clientid = t.clientid and i.orgcde = t.orgcde
-          and i.PONO = t.pono) as 运费面积
-	,nvl("ACCAMT",0) 运费
-	,nvl("ANNAMT",0) 补运费			
-	,nvl("USMARK",' ') 备注
-	,t.ADDRESS 送货地址
-FROM "EJSH"."DLV_FARE" t
-WHERE   orgcde = 'KS03'
-	AND DRIVER IN (
-		'霍红海'
-		,'郑二毛'
-		,'郑荷伟'
-		,'娄绍勇'
-		,'周晓军'
-		,'郑华东'
-		,'杨冬冬'
-		,'董美枝'
+    <value>SELECT "ID"
+,"PAYSTS"结算
+,"PTDATE"打单时间	
+,"DISTANCE"里程
+,"USRNME"趟次	
+	,"LNCCDE"车牌号	
+	,"DRIVER"司机
+		,"PLNCDE"装车单号
+	,"PONO"送货单号
+	,(select i.smpnme
+          from pb_clnt i
+         where i.clientid = t.clientid
+           and i.orgcde = t.orgcde
+           and i.clntcde = t.clntcde) as 客户
+           ,(select round(sum(i.ratios * i.acreage * i.accnumr),2)
+          from v_pb_bcdx_ct i
+         where i.clientid = t.clientid
+           and i.orgcde = t.orgcde
+           and i.pono = t.pono) as 折算面积
+	,"ACCAMT"运费	
+	,"ANNAMT2"补运费
+	,"ANNAMT"
+	,"ANNAMT3"
+	,nvl("ACCAMT",0)+nvl("ANNAMT2",0)+nvl("ANNAMT",0)+nvl("ANNAMT3",0) 总运费
+	,"USMARK"备注
+	,(select i.usrnme
+          from sys_user i
+         where i.clientid = t.clientid
+           and i.orgcde = t.orgcde
+           and i.usrcde = t.audcde) as 结算人
+	,"PAYCDE"结算单号	
+	,(select round(sum(i.acreage * i.accnumr),2)
+          from v_pb_bcdx_ct i
+         where i.clientid = t.clientid
+           and i.orgcde = t.orgcde
+           and i.pono = t.pono) as 实际面积
+	,address 送货地点
+FROM "FERP"."DLV_FARE"t
+WHERE orgcde='03'  and CLIENTID='B0003'
+and (audcde in('13757643239','15858600750') or
+DRIVER IN (
+		 '郑荷伟'
+,'郑二毛'
+,'霍红海'
+,'周晓军'
+,'杨冬冬'
+,'娄绍勇'
+,'郑华东'
+,'赵庆余'
+,'石昆仑'
+,'罗正春'
+,'蔡林威'
+,'苏春峰'
+,'韩正群'
+,'颜颂军'
+,'陶明凯'
+,'林伟男'
 		,'颜海军.'
 		,'周晓军.'
-		,'陶明凯','韩正群','颜颂军'
-,'石昆仑','罗正春','蔡林威','杨旺丽','王巧芬'
-		)</value>
+		,'董美枝'
+		,'杨旺丽'
+		,'韩正龙'
+		,'王巧芬'
+		)
+)</value>
   </data>
 </root>
