@@ -1327,20 +1327,13 @@ where a.最早报工时间 &gt; a.最早入库操作时间
 ORDER BY a.最早入库操作时间 desc</value>
   </data>
   <data name="获取送货单回单信息" xml:space="preserve">
-    <value>select 送货日期,送货单号,客户简称,业务员,司机,操作人,SUM(a.金额)as 金额  from(select 
-to_char(t.ptdate,'yyyy-MM-dd') 送货日期
-,t.pono    送货单号
-,t.smpnme  客户简称
-,round(t.prices * t.accnumr,2)金额
-,t.agntnme    业务员
-,(select driver from dlv_auto where lnccde in (select lnccde from v_bcdx_ct b where b.id=t.id) and rownum = 1) 司机
-,t.usrnme 操作人
-from v_bcdx_ct t where t.objtyp='DL' and t.invtyp ='XD' and t.orgcde='KS03' and t.clientid='KS'
-  and to_char(ptdate,'yyyy-MM-dd') &gt;= '@starttime'
-  and to_char(ptdate,'yyyy-MM-dd') &lt;= '@endtime' 
-  and t.usrnme in('肖永卫','颜玲敏','应燕华','刘正利','董小浩','叶耀红'))a
-group by 送货日期,送货单号,客户简称,业务员,司机,操作人
-order by 送货日期,送货单号</value>
+    <value>SELECT to_char("送货时间",'yyyy-mm-dd') 送货日期,"送货单号","客户简称"
+	,sum("金额")金额,"业务员","司机","排车员"操作人	
+FROM "FERP"."V_DY_PB_BCDX_CT_DETI_RPT"
+WHERE "送货日期"&gt;='@starttime' and "送货日期"&lt;='@endtime' and
+"排车员"in('肖永卫','颜玲敏','应燕华','刘正利','董小浩','叶耀红')
+group by "送货时间","送货单号","客户简称","业务员","司机","排车员"
+ORDER BY "送货时间" DESC</value>
   </data>
   <data name="运费结算" xml:space="preserve">
     <value>SELECT ID,to_char(ptdate,'yyyy-mm-dd HH24:MM:ss') 时间,"PAYSTS" 结算

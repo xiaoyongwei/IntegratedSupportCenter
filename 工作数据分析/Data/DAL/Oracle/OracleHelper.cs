@@ -11,7 +11,9 @@ namespace 工作数据分析.Data.DAL.Oracle
     {
 
 
-        public static readonly string ConnectionString = "data source=db.21.ej-sh.net/dbms;user ID=ejsh;password=kuke.ejsh;";//定义连接数据库的字符串  
+        //public static readonly string ConnectionString = "data source=db.21.ej-sh.net/dbms;user ID=ejsh;password=kuke.ejsh;";//定义连接数据库的字符串  
+        
+        public static readonly string ConnectionString = "data source=fadb.21.ej-sh.net:1521/dbms;user ID=ferp;password=kuke.ferp;";//定义连接数据库的字符串  
 
 
 

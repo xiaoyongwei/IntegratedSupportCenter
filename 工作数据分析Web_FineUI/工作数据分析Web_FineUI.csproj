@@ -3033,7 +3033,6 @@
     <Content Include="WebPage\Xiangpian\XiangpianDangqianPaichengAll.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianDangqianPaichengCaihe.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianRukuFenxi.aspx" />
-    <Content Include="WebPage\Xiangpian\XiangpianRukuFenxi1.aspx" />
     <Content Include="WebPage\Xiangpian\XiangpianWancheng.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiFeileiHuizong.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiGeleiZhanbi.aspx" />
@@ -3319,13 +3318,6 @@
     </Compile>
     <Compile Include="WebPage\Xiangpian\XiangpianRukuFenxi.aspx.designer.cs">
       <DependentUpon>XiangpianRukuFenxi.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebPage\Xiangpian\XiangpianRukuFenxi1.aspx.cs">
-      <DependentUpon>XiangpianRukuFenxi1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebPage\Xiangpian\XiangpianRukuFenxi1.aspx.designer.cs">
-      <DependentUpon>XiangpianRukuFenxi1.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPage\Xiangpian\XiangpianWancheng.aspx.cs">
       <DependentUpon>XiangpianWancheng.aspx</DependentUpon>

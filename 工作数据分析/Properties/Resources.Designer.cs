@@ -505,7 +505,8 @@ namespace 工作数据分析.Properties {
         ///                        Length int,
         ///                        Qty int
         ///                        )
-        ///   insert into #OrderItemLines exec GetNoNomalLines         /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   insert into #OrderItemLines exec GetNoNomalLines 
+        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线当前排程2500 {
             get {
@@ -573,17 +574,13 @@ namespace 工作数据分析.Properties {
         }
         
         /// <summary>
-        ///   查找类似 select 送货日期,送货单号,客户简称,业务员,司机,操作人,SUM(a.金额)as 金额  from(select 
-        ///to_char(t.ptdate,&apos;yyyy-MM-dd&apos;) 送货日期
-        ///,t.pono    送货单号
-        ///,t.smpnme  客户简称
-        ///,round(t.prices * t.accnumr,2)金额
-        ///,t.agntnme    业务员
-        ///,(select driver from dlv_auto where lnccde in (select lnccde from v_bcdx_ct b where b.id=t.id) and rownum = 1) 司机
-        ///,t.usrnme 操作人
-        ///from v_bcdx_ct t where t.objtyp=&apos;DL&apos; and t.invtyp =&apos;XD&apos; and t.orgcde=&apos;KS03&apos; and t.clientid=&apos;KS&apos;
-        ///  and to_char(ptdate,&apos;yyyy-MM-dd&apos;) &gt;= &apos;@starttime&apos;
-        ///  and to_char(ptdate,&apos;yyyy-MM-dd&apos;) &lt;= &apos;@endtim [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   查找类似 SELECT to_char(&quot;送货时间&quot;,&apos;yyyy-mm-dd&apos;) 送货日期,&quot;送货单号&quot;,&quot;客户简称&quot;
+        ///	,sum(&quot;金额&quot;)金额,&quot;业务员&quot;,&quot;司机&quot;,&quot;排车员&quot;操作人	
+        ///FROM &quot;FERP&quot;.&quot;V_DY_PB_BCDX_CT_DETI_RPT&quot;
+        ///WHERE &quot;送货日期&quot;&gt;=&apos;@starttime&apos; and &quot;送货日期&quot;&lt;=&apos;@endtime&apos; and
+        ///&quot;排车员&quot;in(&apos;肖永卫&apos;,&apos;颜玲敏&apos;,&apos;应燕华&apos;,&apos;刘正利&apos;,&apos;董小浩&apos;,&apos;叶耀红&apos;)
+        ///group by &quot;送货时间&quot;,&quot;送货单号&quot;,&quot;客户简称&quot;,&quot;业务员&quot;,&quot;司机&quot;,&quot;排车员&quot;
+        ///ORDER BY &quot;送货时间&quot; DESC 的本地化字符串。
         /// </summary>
         internal static string 获取送货单回单信息 {
             get {

@@ -29,6 +29,9 @@
                 <f:FileUpload runat="server" ID="FileUploadChejianBaogongExcel" EmptyText="请选择上传的Excel" Label="车间报工" Required="false" ButtonIcon="Add"
                     ShowRedStar="false" AutoPostBack="true" OnFileSelected="FileUploadChejianBaogongExcel_FileSelected">
                 </f:FileUpload>
+                  <f:FileUpload runat="server" ID="FileUploadChengpinRukuExcel" EmptyText="请选择上传的Excel" Label="成品入库" Required="false" ButtonIcon="Add"
+                    ShowRedStar="false" AutoPostBack="true" OnFileSelected="FileUploadChengpinRukuExcel_FileSelected">
+                </f:FileUpload>
                 <%--<f:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" ValidateForms="SimpleForm1"
                     Text="提交">
                 </f:Button>--%>

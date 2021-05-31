@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,6 +14,8 @@ namespace 工作数据分析Web_FineUI.WebPage.DataImportOutport
 {
     public partial class DataImport : System.Web.UI.Page
     {
+        private StringBuilder sb = new StringBuilder();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //每次加载的时候删除超过24小时的上传的文件
@@ -76,6 +79,7 @@ namespace 工作数据分析Web_FineUI.WebPage.DataImportOutport
                     FileUploadZhibanRukuExcel.Reset();
 
                     ShowNotify("无效的文件类型！", MessageBoxIcon.Error);
+                   
                     return;
                 }
                 fileName = fileName.Replace(":", "_").Replace(" ", "_").Replace("\\", "_").Replace("/", "_");
@@ -104,6 +108,7 @@ namespace 工作数据分析Web_FineUI.WebPage.DataImportOutport
                 if (extension != ".xls" && extension != ".xlsx")
                 {
                     ShowNotify("不是Excel文件！", MessageBoxIcon.Error);
+                    
                     return;
                 }
                 if (!fileName.Contains("纸板入库明细"))
@@ -187,7 +192,7 @@ namespace 工作数据分析Web_FineUI.WebPage.DataImportOutport
 
                 if (table!=null&&table.Rows.Count > 0)
                 {
-                    //第一步情况表格
+                    //第一步清空表格
                     //第二步插入信息
 
                     string sqlInsertTemp = "INSERT INTO `slbz`.`纸板管理库存明细`" +
@@ -277,6 +282,11 @@ namespace 工作数据分析Web_FineUI.WebPage.DataImportOutport
                     File.Delete(Server.MapPath(fileFullName));
                 }
             }
+        }
+
+        protected void FileUploadChengpinRukuExcel_FileSelected(object sender, EventArgs e)
+        {
+
         }
     }
 }

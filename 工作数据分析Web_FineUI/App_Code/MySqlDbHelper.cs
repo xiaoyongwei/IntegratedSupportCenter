@@ -654,7 +654,7 @@ namespace 工作数据分析Web_FineUI.App_Code
                 tran.Commit();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 if (tran != null) tran.Rollback();
                 return false;
