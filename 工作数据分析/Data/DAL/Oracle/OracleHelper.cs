@@ -1,6 +1,8 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Threading;
 
 namespace 工作数据分析.Data.DAL.Oracle
 {
@@ -381,5 +383,85 @@ namespace 工作数据分析.Data.DAL.Oracle
 
             return ("%" + source + "%");
         }
+
+
+        #region 事务
+        /// <summary>    
+        /// 执行SQL语句，实现数据库事务。    
+        /// </summary>    
+        /// <param name="SQLString">SQL语句</param>        
+        public static bool ExecuteSqlTran(string SQLString)
+        {
+            List<string> sqllist = new List<string>();
+            sqllist.Add(SQLString);
+            return ExecuteSqlTran(sqllist);
+        }
+        /// <summary>    
+        /// 执行多条SQL语句，实现数据库事务。    
+        /// </summary>    
+        /// <param name="SQLStringList">多条SQL语句</param>        
+        public static bool ExecuteSqlTran(List<string> SQLStringList)
+        {
+            if (SQLStringList.Count <= 0)
+            {
+                return false;
+            }
+            int num = 0;
+            while (!ExecuteSqlTran_Ex(SQLStringList))
+            {
+                if (num++ <5)
+                {
+                    //"失败,1秒后重试!"
+                    Thread.Sleep(1000);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+        /// <summary>
+        /// 执行事务，返回True或False
+        /// </summary>
+        /// <param name="Sqlstr">sql语句</param>
+        /// <returns></returns>
+        private static bool ExecuteSqlTran_Ex(List<string> sqlList)
+        {
+            OracleConnection conn = null;//连接
+            OracleTransaction tran = null;//事务
+            try
+            {
+                conn = new OracleConnection(ConnectionString);
+                conn.Open();
+                tran = conn.BeginTransaction();//先实例SqlTransaction类，使用这个事务使用的是con 这个连接，使用BeginTransaction这个方法来开始执行这个事务
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.Transaction = tran;
+
+                foreach (string item in sqlList)
+                {
+                    cmd.CommandText = item;
+                    cmd.ExecuteNonQuery();
+
+                }
+                tran.Commit();
+                return true;
+            }
+            catch
+            {
+                if (tran != null) tran.Rollback();
+                return false;
+            }
+            finally
+            {
+                if (conn != null) conn.Dispose();
+                if (tran != null) tran.Dispose();
+            }
+
+        }
+        #endregion
     }
 }

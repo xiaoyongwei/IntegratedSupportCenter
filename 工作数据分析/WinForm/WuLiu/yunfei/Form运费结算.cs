@@ -53,8 +53,8 @@ namespace 工作数据分析.WinForm.WuLiu
             string SQL = Resources.运费结算 + " and to_char(ptdate, 'yyyy-mm-dd') >='" + dtpS.Value.ToString("yyyy-MM-dd")
                 + "' and to_char(ptdate, 'yyyy-mm-dd') <='" + dtpE.Value.ToString("yyyy-MM-dd") + "'"
                 + (this.comboBoxYfjs.Text == "已结算" ? " and PAYSTS='Y' " : (this.comboBoxYfjs.Text == "未结算" ? " and ( PAYSTS != 'Y' OR PAYSTS IS null )  " : ""))
-                + (string.IsNullOrEmpty(this.textBoxSearch.Text) ? "" : string.Format(" and (DRIVER like '%{0}%' OR CLNTNME like '%{0}%' OR PLNCDE like '%{0}%' OR PONO like '%{0}%') ", this.textBoxSearch.Text.Trim()))
-                + " ORDER BY CREATED desc";
+                + (string.IsNullOrEmpty(this.textBoxSearch.Text) ? "" : string.Format(" and (DRIVER like '%{0}%'  OR PLNCDE like '%{0}%' OR PONO like '%{0}%') ", this.textBoxSearch.Text.Trim()))
+                + " ORDER BY PTDATE desc";
 
             dgv.DataSource = OracleHelper.ExecuteDataTable(SQL);
         }
@@ -221,41 +221,48 @@ namespace 工作数据分析.WinForm.WuLiu
                 My.ShowErrorMessage("选择的数据里面包含了2个不同的司机!");
                 return;
             }
-
-            //判断客户是否都存在于可以自动计算的表格里 
-            foreach (string item in GetSelectedAllID())
-            {
-                if (!MySqlDbHelper.ExecuteReader("SELECT 客户 FROM  `slbz`.`物流_客户地区对应表` WHERE 客户='" + GetCustomer(item) + "'").Read())
-                {
-                    My.ShowErrorMessage("客户不在可以自动计算运费的清单里面!");
-                    return;
-                }
-            }
-
-
-            //获取面积最大的客户
-            string SQL = "select 客户 from (select 客户 from(SELECT 客户,sum(运费面积)面积 FROM (SELECT CLNTNME 客户 "
-                + ",(select nvl(sum(i.ratios * i.acreage * i.ACCNUMR), 0) from v_bcdx_ct i where i.clientid = t.clientid and i.orgcde = t.orgcde "
-                + "  and i.PONO = t.pono) as 运费面积 "
-                + "FROM EJSH.DLV_FARE t "
-                + "WHERE id IN(" + GetIdIn() + "))a GROUP BY 客户)b order by b.面积 desc)c where rownum = 1 ";
-            string kehu = OracleHelper.ExecuteScalar(SQL).ToString();
-            //获取司机(根据司机来判断大车和小车)
-            string siji = OracleHelper.ExecuteScalar("SELECT DRIVER  FROM EJSH.DLV_FARE WHERE  id =" + GetSelectedID()).ToString();
-            if (siji == "董美枝" || siji == "周晓军.")//大车
-            {
-                if (new Form计算运费弹窗(GetSelectedAllID(), 3000,
-                    Convert.ToDouble(MySqlDbHelper.ExecuteScalar("SELECT 大车 FROM `slbz`.`客户对应区域运费表`where 客户 ='" + kehu + "'"))
-                    ).ShowDialog() == DialogResult.OK)
-                { InitDgv(); }
-            }
-            else//小车
-            {
-                if (new Form计算运费弹窗(GetSelectedAllID(), 1800,
+            //输入运费,计算运费
+            if (new Form计算运费弹窗(GetSelectedAllID(), 1800,
                    Convert.ToDouble(MySqlDbHelper.ExecuteScalar("SELECT 小车 FROM `slbz`.`客户对应区域运费表`where 客户 ='" + kehu + "'"))
                    ).ShowDialog() == DialogResult.OK)
-                { InitDgv(); }
-            }
+            { InitDgv(); }
+
+
+
+            ////判断客户是否都存在于可以自动计算的表格里 
+            //foreach (string item in GetSelectedAllID())
+            //{
+            //    if (!MySqlDbHelper.ExecuteReader("SELECT 客户 FROM  `slbz`.`物流_客户地区对应表` WHERE 客户='" + GetCustomer(item) + "'").Read())
+            //    {
+            //        My.ShowErrorMessage("客户不在可以自动计算运费的清单里面!");
+            //        return;
+            //    }
+            //}
+
+
+            ////获取面积最大的客户
+            //string SQL = "select 客户 from (select 客户 from(SELECT 客户,sum(运费面积)面积 FROM (SELECT CLNTNME 客户 "
+            //    + ",(select nvl(sum(i.ratios * i.acreage * i.ACCNUMR), 0) from v_bcdx_ct i where i.clientid = t.clientid and i.orgcde = t.orgcde "
+            //    + "  and i.PONO = t.pono) as 运费面积 "
+            //    + "FROM EJSH.DLV_FARE t "
+            //    + "WHERE id IN(" + GetIdIn() + "))a GROUP BY 客户)b order by b.面积 desc)c where rownum = 1 ";
+            //string kehu = OracleHelper.ExecuteScalar(SQL).ToString();
+            ////获取司机(根据司机来判断大车和小车)
+            //string siji = OracleHelper.ExecuteScalar("SELECT DRIVER  FROM EJSH.DLV_FARE WHERE  id =" + GetSelectedID()).ToString();
+            //if (siji == "董美枝" || siji == "周晓军.")//大车
+            //{
+            //    if (new Form计算运费弹窗(GetSelectedAllID(), 3000,
+            //        Convert.ToDouble(MySqlDbHelper.ExecuteScalar("SELECT 大车 FROM `slbz`.`客户对应区域运费表`where 客户 ='" + kehu + "'"))
+            //        ).ShowDialog() == DialogResult.OK)
+            //    { InitDgv(); }
+            //}
+            //else//小车
+            //{
+            //    if (new Form计算运费弹窗(GetSelectedAllID(), 1800,
+            //       Convert.ToDouble(MySqlDbHelper.ExecuteScalar("SELECT 小车 FROM `slbz`.`客户对应区域运费表`where 客户 ='" + kehu + "'"))
+            //       ).ShowDialog() == DialogResult.OK)
+            //    { InitDgv(); }
+            //}
         }
 
         private void 文信1区2区拼车ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -284,6 +291,30 @@ namespace 工作数据分析.WinForm.WuLiu
         private void 导出PDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void 编辑ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string ids = "";
+            List<string> rowList = new List<string>();
+            foreach (DataGridViewCell cell in dgv.SelectedCells)
+            {
+                string id = dgv["ID", cell.RowIndex].Value.ToString();
+                if (!rowList.Contains(id))
+                {
+                    rowList.Add(id);
+                    ids += (id + ",");
+                }
+            }
+            if (!string.IsNullOrWhiteSpace(ids))
+            {
+                ids += "0";
+            }
+
+            if (new Form运费编辑(ids).ShowDialog() == DialogResult.OK)
+            {
+                InitDgv();
+            }
         }
     }
 }

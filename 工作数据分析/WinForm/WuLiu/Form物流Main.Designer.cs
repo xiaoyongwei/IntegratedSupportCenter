@@ -37,37 +37,38 @@
             // menuStrip1
             // 
             this.menuStrip1.AllowMerge = false;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.回单管理ToolStripMenuItem,
             this.运费结算ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1002, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1336, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 回单管理ToolStripMenuItem
             // 
             this.回单管理ToolStripMenuItem.Name = "回单管理ToolStripMenuItem";
-            this.回单管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.回单管理ToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.回单管理ToolStripMenuItem.Text = "回单管理";
             this.回单管理ToolStripMenuItem.Click += new System.EventHandler(this.回单管理ToolStripMenuItem_Click);
             // 
             // 运费结算ToolStripMenuItem
             // 
             this.运费结算ToolStripMenuItem.Name = "运费结算ToolStripMenuItem";
-            this.运费结算ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.运费结算ToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.运费结算ToolStripMenuItem.Text = "运费结算";
-            this.运费结算ToolStripMenuItem.Visible = false;
             this.运费结算ToolStripMenuItem.Click += new System.EventHandler(this.运费结算ToolStripMenuItem_Click);
             // 
             // Form物流Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 584);
+            this.ClientSize = new System.Drawing.Size(1336, 730);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form物流Main";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
