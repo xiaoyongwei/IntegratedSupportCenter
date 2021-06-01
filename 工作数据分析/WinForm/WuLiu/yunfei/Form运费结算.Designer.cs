@@ -39,6 +39,7 @@
             this.dgv = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.结算审核ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动计算运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.手动计算运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.拼车距离ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +53,6 @@
             this.清零补运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.为此客户设置地区ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看客户区域对应表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.结算审核ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -169,6 +169,12 @@
             this.编辑ToolStripMenuItem.Text = "编辑";
             this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.编辑ToolStripMenuItem_Click);
             // 
+            // 结算审核ToolStripMenuItem
+            // 
+            this.结算审核ToolStripMenuItem.Name = "结算审核ToolStripMenuItem";
+            this.结算审核ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.结算审核ToolStripMenuItem.Text = "结算审核";
+            // 
             // 自动计算运费ToolStripMenuItem
             // 
             this.自动计算运费ToolStripMenuItem.Enabled = false;
@@ -219,7 +225,6 @@
             // 
             // 导出数据ToolStripMenuItem
             // 
-            this.导出数据ToolStripMenuItem.Enabled = false;
             this.导出数据ToolStripMenuItem.Name = "导出数据ToolStripMenuItem";
             this.导出数据ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.导出数据ToolStripMenuItem.Text = "导出数据";
@@ -272,12 +277,6 @@
             this.查看客户区域对应表ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.查看客户区域对应表ToolStripMenuItem.Text = "查看客户区域对应表";
             this.查看客户区域对应表ToolStripMenuItem.Click += new System.EventHandler(this.查看客户区域对应表ToolStripMenuItem_Click);
-            // 
-            // 结算审核ToolStripMenuItem
-            // 
-            this.结算审核ToolStripMenuItem.Name = "结算审核ToolStripMenuItem";
-            this.结算审核ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.结算审核ToolStripMenuItem.Text = "结算审核";
             // 
             // Form运费结算
             // 
