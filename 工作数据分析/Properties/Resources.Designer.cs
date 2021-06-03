@@ -505,8 +505,7 @@ namespace 工作数据分析.Properties {
         ///                        Length int,
         ///                        Qty int
         ///                        )
-        ///   insert into #OrderItemLines exec GetNoNomalLines 
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   insert into #OrderItemLines exec GetNoNomalLines         /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线当前排程2500 {
             get {
@@ -592,9 +591,6 @@ namespace 工作数据分析.Properties {
         ///   查找类似 SELECT &quot;ID&quot;
         ///,&quot;PAYSTS&quot;结算
         ///,&quot;PTDATE&quot;打单时间	
-        ///,&quot;DISTANCE&quot;里程
-        ///,&quot;USRNME&quot;趟次	
-        ///	,&quot;LNCCDE&quot;车牌号	
         ///	,&quot;DRIVER&quot;司机
         ///		,&quot;PLNCDE&quot;装车单号
         ///	,&quot;PONO&quot;送货单号
@@ -607,7 +603,10 @@ namespace 工作数据分析.Properties {
         ///          from v_pb_bcdx_ct i
         ///         where i.clientid = t.clientid
         ///           and i.orgcde = t.orgcde
-        ///           and i.pono = t.pono) as 折算面 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///           and i.pono = t.pono) as 折算面积
+        ///	,&quot;ACCAMT&quot;运费	
+        ///	,&quot;ANNAMT2&quot;补运费
+        ///	,&quot;ANNAMT&quot;        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 运费结算 {
             get {

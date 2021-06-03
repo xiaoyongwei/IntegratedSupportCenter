@@ -1339,9 +1339,6 @@ ORDER BY "送货时间" DESC</value>
     <value>SELECT "ID"
 ,"PAYSTS"结算
 ,"PTDATE"打单时间	
-,"DISTANCE"里程
-,"USRNME"趟次	
-	,"LNCCDE"车牌号	
 	,"DRIVER"司机
 		,"PLNCDE"装车单号
 	,"PONO"送货单号
@@ -1359,8 +1356,13 @@ ORDER BY "送货时间" DESC</value>
 	,"ANNAMT2"补运费
 	,"ANNAMT"
 	,"ANNAMT3"
-	,nvl("ACCAMT",0)+nvl("ANNAMT2",0)+nvl("ANNAMT",0)+nvl("ANNAMT3",0) 总运费
+	,CNTAMT
+	,BASAMT
+	,nvl("ACCAMT",0)+nvl("ANNAMT2",0)+nvl("ANNAMT",0)+nvl("ANNAMT3",0)+nvl("CNTAMT",0)+nvl("BASAMT",0) 总运费
 	,"USMARK"备注
+,"DISTANCE"里程
+,"USRNME"趟次	
+	,"LNCCDE"车牌号	
 	,(select i.usrnme
           from sys_user i
          where i.clientid = t.clientid
@@ -1392,7 +1394,7 @@ DRIVER IN (
 ,'韩正群'
 ,'颜颂军'
 ,'陶明凯'
-,'林伟男'
+,'林伟男','货拉拉','天津满运'
 		,'颜海军.'
 		,'周晓军.'
 		,'董美枝'

@@ -39,7 +39,6 @@
             this.dgv = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.结算审核ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动计算运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.手动计算运费ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.拼车距离ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,16 +64,18 @@
             "全部",
             "已结算",
             "未结算"});
-            this.comboBoxYfjs.Location = new System.Drawing.Point(228, 7);
+            this.comboBoxYfjs.Location = new System.Drawing.Point(304, 9);
+            this.comboBoxYfjs.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxYfjs.Name = "comboBoxYfjs";
-            this.comboBoxYfjs.Size = new System.Drawing.Size(90, 20);
+            this.comboBoxYfjs.Size = new System.Drawing.Size(119, 23);
             this.comboBoxYfjs.TabIndex = 15;
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(523, 3);
+            this.buttonSearch.Location = new System.Drawing.Point(697, 4);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(45, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(60, 29);
             this.buttonSearch.TabIndex = 13;
             this.buttonSearch.Text = "搜索";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -82,26 +83,29 @@
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(374, 4);
+            this.textBoxSearch.Location = new System.Drawing.Point(499, 5);
+            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(143, 21);
+            this.textBoxSearch.Size = new System.Drawing.Size(189, 25);
             this.textBoxSearch.TabIndex = 12;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(333, 10);
+            this.label2.Location = new System.Drawing.Point(444, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 12);
+            this.label2.Size = new System.Drawing.Size(45, 15);
             this.label2.TabIndex = 11;
             this.label2.Text = "搜索:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(108, 12);
+            this.label1.Location = new System.Drawing.Point(144, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 12);
+            this.label1.Size = new System.Drawing.Size(23, 15);
             this.label1.TabIndex = 10;
             this.label1.Text = "->";
             // 
@@ -109,18 +113,20 @@
             // 
             this.dtpE.CustomFormat = "yyyy-MM-dd";
             this.dtpE.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpE.Location = new System.Drawing.Point(131, 6);
+            this.dtpE.Location = new System.Drawing.Point(175, 8);
+            this.dtpE.Margin = new System.Windows.Forms.Padding(4);
             this.dtpE.Name = "dtpE";
-            this.dtpE.Size = new System.Drawing.Size(91, 21);
+            this.dtpE.Size = new System.Drawing.Size(120, 25);
             this.dtpE.TabIndex = 8;
             // 
             // dtpS
             // 
             this.dtpS.CustomFormat = "yyyy-MM-dd";
             this.dtpS.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpS.Location = new System.Drawing.Point(9, 6);
+            this.dtpS.Location = new System.Drawing.Point(12, 8);
+            this.dtpS.Margin = new System.Windows.Forms.Padding(4);
             this.dtpS.Name = "dtpS";
-            this.dtpS.Size = new System.Drawing.Size(93, 21);
+            this.dtpS.Size = new System.Drawing.Size(123, 25);
             this.dtpS.TabIndex = 9;
             // 
             // dgv
@@ -135,13 +141,14 @@
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.ContextMenuStrip = this.contextMenuStrip1;
             this.dgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.dgv.Location = new System.Drawing.Point(0, 36);
+            this.dgv.Location = new System.Drawing.Point(0, 45);
+            this.dgv.Margin = new System.Windows.Forms.Padding(4);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersVisible = false;
             this.dgv.RowHeadersWidth = 51;
             this.dgv.RowTemplate.Height = 23;
-            this.dgv.Size = new System.Drawing.Size(799, 414);
+            this.dgv.Size = new System.Drawing.Size(1065, 518);
             this.dgv.TabIndex = 16;
             // 
             // contextMenuStrip1
@@ -149,7 +156,6 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.编辑ToolStripMenuItem,
-            this.结算审核ToolStripMenuItem,
             this.自动计算运费ToolStripMenuItem,
             this.手动计算运费ToolStripMenuItem,
             this.拼车距离ToolStripMenuItem,
@@ -160,34 +166,27 @@
             this.导出PDFToolStripMenuItem,
             this.更多ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(163, 246);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 272);
             // 
             // 编辑ToolStripMenuItem
             // 
             this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.编辑ToolStripMenuItem.Text = "编辑";
             this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.编辑ToolStripMenuItem_Click);
-            // 
-            // 结算审核ToolStripMenuItem
-            // 
-            this.结算审核ToolStripMenuItem.Name = "结算审核ToolStripMenuItem";
-            this.结算审核ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.结算审核ToolStripMenuItem.Text = "结算审核";
             // 
             // 自动计算运费ToolStripMenuItem
             // 
             this.自动计算运费ToolStripMenuItem.Enabled = false;
             this.自动计算运费ToolStripMenuItem.Name = "自动计算运费ToolStripMenuItem";
-            this.自动计算运费ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.自动计算运费ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.自动计算运费ToolStripMenuItem.Text = "自动计算运费";
             this.自动计算运费ToolStripMenuItem.Click += new System.EventHandler(this.自动计算运费ToolStripMenuItem_Click);
             // 
             // 手动计算运费ToolStripMenuItem
             // 
-            this.手动计算运费ToolStripMenuItem.Enabled = false;
             this.手动计算运费ToolStripMenuItem.Name = "手动计算运费ToolStripMenuItem";
-            this.手动计算运费ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.手动计算运费ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.手动计算运费ToolStripMenuItem.Text = "手动计算运费";
             this.手动计算运费ToolStripMenuItem.Click += new System.EventHandler(this.计算运费ToolStripMenuItem_Click);
             // 
@@ -195,7 +194,7 @@
             // 
             this.拼车距离ToolStripMenuItem.Enabled = false;
             this.拼车距离ToolStripMenuItem.Name = "拼车距离ToolStripMenuItem";
-            this.拼车距离ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.拼车距离ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.拼车距离ToolStripMenuItem.Text = "拼车距离";
             this.拼车距离ToolStripMenuItem.Click += new System.EventHandler(this.拼车距离ToolStripMenuItem_Click);
             // 
@@ -203,7 +202,7 @@
             // 
             this.文信1区2区拼车ToolStripMenuItem.Enabled = false;
             this.文信1区2区拼车ToolStripMenuItem.Name = "文信1区2区拼车ToolStripMenuItem";
-            this.文信1区2区拼车ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.文信1区2区拼车ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.文信1区2区拼车ToolStripMenuItem.Text = "文信1区2区拼车";
             this.文信1区2区拼车ToolStripMenuItem.Click += new System.EventHandler(this.文信1区2区拼车ToolStripMenuItem_Click);
             // 
@@ -211,7 +210,7 @@
             // 
             this.二次堆码ToolStripMenuItem.Enabled = false;
             this.二次堆码ToolStripMenuItem.Name = "二次堆码ToolStripMenuItem";
-            this.二次堆码ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.二次堆码ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.二次堆码ToolStripMenuItem.Text = "二次堆码";
             this.二次堆码ToolStripMenuItem.Click += new System.EventHandler(this.二次堆码ToolStripMenuItem_Click);
             // 
@@ -219,14 +218,14 @@
             // 
             this.平方运费ToolStripMenuItem.Enabled = false;
             this.平方运费ToolStripMenuItem.Name = "平方运费ToolStripMenuItem";
-            this.平方运费ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.平方运费ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.平方运费ToolStripMenuItem.Text = "平方/运费";
             this.平方运费ToolStripMenuItem.Click += new System.EventHandler(this.平方运费ToolStripMenuItem_Click);
             // 
             // 导出数据ToolStripMenuItem
             // 
             this.导出数据ToolStripMenuItem.Name = "导出数据ToolStripMenuItem";
-            this.导出数据ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.导出数据ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.导出数据ToolStripMenuItem.Text = "导出数据";
             this.导出数据ToolStripMenuItem.Click += new System.EventHandler(this.导出数据ToolStripMenuItem_Click);
             // 
@@ -234,7 +233,7 @@
             // 
             this.导出PDFToolStripMenuItem.Enabled = false;
             this.导出PDFToolStripMenuItem.Name = "导出PDFToolStripMenuItem";
-            this.导出PDFToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.导出PDFToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.导出PDFToolStripMenuItem.Text = "导出PDF";
             this.导出PDFToolStripMenuItem.Click += new System.EventHandler(this.导出PDFToolStripMenuItem_Click);
             // 
@@ -247,42 +246,42 @@
             this.查看客户区域对应表ToolStripMenuItem});
             this.更多ToolStripMenuItem.Enabled = false;
             this.更多ToolStripMenuItem.Name = "更多ToolStripMenuItem";
-            this.更多ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.更多ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.更多ToolStripMenuItem.Text = "更多";
             // 
             // 清零运费ToolStripMenuItem
             // 
             this.清零运费ToolStripMenuItem.Name = "清零运费ToolStripMenuItem";
-            this.清零运费ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.清零运费ToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.清零运费ToolStripMenuItem.Text = "清零运费";
             this.清零运费ToolStripMenuItem.Click += new System.EventHandler(this.清零运费ToolStripMenuItem_Click);
             // 
             // 清零补运费ToolStripMenuItem
             // 
             this.清零补运费ToolStripMenuItem.Name = "清零补运费ToolStripMenuItem";
-            this.清零补运费ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.清零补运费ToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.清零补运费ToolStripMenuItem.Text = "清零补运费";
             this.清零补运费ToolStripMenuItem.Click += new System.EventHandler(this.清零补运费ToolStripMenuItem_Click);
             // 
             // 为此客户设置地区ToolStripMenuItem
             // 
             this.为此客户设置地区ToolStripMenuItem.Name = "为此客户设置地区ToolStripMenuItem";
-            this.为此客户设置地区ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.为此客户设置地区ToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.为此客户设置地区ToolStripMenuItem.Text = "为此客户设置地区";
             this.为此客户设置地区ToolStripMenuItem.Click += new System.EventHandler(this.为此客户设置地区ToolStripMenuItem_Click);
             // 
             // 查看客户区域对应表ToolStripMenuItem
             // 
             this.查看客户区域对应表ToolStripMenuItem.Name = "查看客户区域对应表ToolStripMenuItem";
-            this.查看客户区域对应表ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.查看客户区域对应表ToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.查看客户区域对应表ToolStripMenuItem.Text = "查看客户区域对应表";
             this.查看客户区域对应表ToolStripMenuItem.Click += new System.EventHandler(this.查看客户区域对应表ToolStripMenuItem_Click);
             // 
             // Form运费结算
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 562);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.comboBoxYfjs);
             this.Controls.Add(this.buttonSearch);
@@ -291,6 +290,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpE);
             this.Controls.Add(this.dtpS);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form运费结算";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -328,6 +328,5 @@
         private System.Windows.Forms.ToolStripMenuItem 文信1区2区拼车ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 导出PDFToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 结算审核ToolStripMenuItem;
     }
 }

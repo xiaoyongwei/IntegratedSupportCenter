@@ -83,6 +83,22 @@ namespace 工作数据分析.WinForm.WuLiu
             return ponoList;
         }
 
+        /// <summary>
+        /// 返回选中的ID的列表字符串      类似   1,2,3,4    没有引号
+        /// 
+        /// </summary>
+        /// <param name="IDList"></param>
+        /// <returns></returns>
+        private string GetSelectedAllIDString(List<string> IDList)
+        {
+            string idIn = "";
+            foreach (string id in IDList)
+            {
+                idIn += (id + ",");
+            }
+           return idIn = idIn.TrimEnd(',');
+        }
+
         private void SetErCiDuiMa(string ID)
         {
             string erciduima = "SELECT round((select nvl(sum(i.ratios * i.acreage * i.ACCNUMR),0) from v_bcdx_ct i where i.clientid = t.clientid and i.orgcde = t.orgcde"
@@ -316,5 +332,7 @@ namespace 工作数据分析.WinForm.WuLiu
                 InitDgv();
             }
         }
+
+       
     }
 }
