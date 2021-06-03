@@ -505,7 +505,8 @@ namespace 工作数据分析.Properties {
         ///                        Length int,
         ///                        Qty int
         ///                        )
-        ///   insert into #OrderItemLines exec GetNoNomalLines         /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   insert into #OrderItemLines exec GetNoNomalLines 
+        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线当前排程2500 {
             get {

@@ -158,7 +158,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ZNCC+ispfZEdX1rgRbTPd8TzSZU=</dsig:DigestValue>
+        <dsig:DigestValue>iMaMhp0a0o03lIIBysGcXMUt4Q4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -180,22 +180,22 @@
       <dsig:DigestValue>Pq2pvFtO5ZVpA3JGmSXwIPLt/UQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="YBF.exe.config" size="391">
+  <file name="YBF.exe.config" size="402">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>g/QkcSV2Hwe+RsmH2eE/QXad7+U=</dsig:DigestValue>
+      <dsig:DigestValue>I/K6TQcztGmL6iu5mL7EjdBn3CM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="笔记.txt" size="603">
+  <file name="笔记.txt" size="616">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>JzPxv2FbWJz8AtJhpmiODnRgAvA=</dsig:DigestValue>
+      <dsig:DigestValue>QXsoKVWZD6Yv0LViFf8HGKsHzFM=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
