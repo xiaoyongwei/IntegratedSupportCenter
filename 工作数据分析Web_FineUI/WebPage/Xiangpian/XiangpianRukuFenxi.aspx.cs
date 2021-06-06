@@ -28,7 +28,7 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
 
             //1.读取15天内的瓦片完成情况(总表,包含后续工序和入库,2列)
             string sqlStrTemp = "SELECT trim(`工单号`)'工单号',`客户名`,`楞型`,`数量`,DATE_FORMAT(`结束时间`,'%Y-%m-%d %H:%i:%s')结束时间," +
-                " '' as '后续工序','' as '成品入库' FROM `slbz`.`瓦片完成情况` where (工单号 like'C2%' OR 工单号 like'CL2%') and 结束时间>= " +
+                " '' as '后续工序','' as '成品入库' FROM `slbz`.`瓦片完成情况` where (工单号 like'C2%' OR 工单号 like'CL2%' OR 工单号 like'L2%') and 结束时间>= " +
                 "date_format(date_add(now(),  interval - 15 day), '%Y-%m-%d')  order BY `结束时间` desc";
             DataTable dt = MySqlDbHelper.ExecuteDataTable(sqlStrTemp);
             //2.读取20天内纸板入库情况

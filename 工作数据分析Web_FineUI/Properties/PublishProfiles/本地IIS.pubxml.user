@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\WorkData</_PublishTargetUrl>
-    <History>True|2021-06-03T00:07:30.8132055Z;True|2021-06-03T07:46:47.1832055+08:00;True|2021-06-03T07:44:19.4412055+08:00;True|2021-06-02T09:37:10.6942055+08:00;True|2021-05-26T21:58:07.4928082+08:00;True|2021-05-26T12:52:50.4848082+08:00;True|2021-05-26T11:13:53.8558082+08:00;True|2021-03-29T22:05:57.3184781+08:00;True|2021-03-19T14:27:06.4889597+08:00;True|2021-03-13T21:47:24.5653268+08:00;False|2021-03-12T22:05:39.4245750+08:00;False|2021-03-05T17:26:49.1825144+08:00;False|2021-03-05T17:25:56.3249846+08:00;False|2021-03-05T17:25:13.8070239+08:00;</History>
+    <History>True|2021-06-04T23:26:28.1444064Z;False|2021-06-05T07:26:02.7104064+08:00;True|2021-06-03T08:07:30.8132055+08:00;True|2021-06-03T07:46:47.1832055+08:00;True|2021-06-03T07:44:19.4412055+08:00;True|2021-06-02T09:37:10.6942055+08:00;True|2021-05-26T21:58:07.4928082+08:00;True|2021-05-26T12:52:50.4848082+08:00;True|2021-05-26T11:13:53.8558082+08:00;True|2021-03-29T22:05:57.3184781+08:00;True|2021-03-19T14:27:06.4889597+08:00;True|2021-03-13T21:47:24.5653268+08:00;False|2021-03-12T22:05:39.4245750+08:00;False|2021-03-05T17:26:49.1825144+08:00;False|2021-03-05T17:25:56.3249846+08:00;False|2021-03-05T17:25:13.8070239+08:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="About.aspx">
@@ -126,10 +126,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/26/2012 03:16:08</publishTime>
     </File>
     <File Include="bin/工作数据分析Web_FineUI.dll">
-      <publishTime>06/03/2021 08:07:22</publishTime>
+      <publishTime>06/05/2021 07:26:21</publishTime>
     </File>
     <File Include="bin/工作数据分析Web_FineUI.pdb">
-      <publishTime>06/03/2021 08:07:22</publishTime>
+      <publishTime>06/05/2021 07:26:21</publishTime>
     </File>
     <File Include="default.aspx">
       <publishTime>05/24/2021 13:09:09</publishTime>
@@ -8967,7 +8967,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/24/2021 13:09:12</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/02/2021 09:36:56</publishTime>
+      <publishTime>06/05/2021 07:25:54</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>02/20/2021 15:50:34</publishTime>

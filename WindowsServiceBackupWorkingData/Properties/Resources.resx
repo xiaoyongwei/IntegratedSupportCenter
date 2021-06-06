@@ -1023,7 +1023,6 @@ WHERE [finishdate] BETWEEN CONVERT(DATETIME,dateadd(dd,-30,GETDATE())) and CONVE
   </data>
   <data name="制版线完工_2500" xml:space="preserve">
     <value>select 
-DP.[Name] as GroupName,
 Item.Cust_OrderID,
 Cust.[Name] as CustomName,
 ORD.WEB,
@@ -1087,7 +1086,7 @@ and comord.OrderItemOrder_fID=ord.fid
 and comord.OrderItemOrderSN=ord.sn
 and item.Order_fID=Ord.fid
 and item.OrderSN=Ord.sn
-and  ComOrd.starttime between CONVERT(DATETIME,dateadd(dd,-30,GETDATE())) and CONVERT(DATETIME,GETDATE())
+and  ComOrd.endtime between *开始时间* and GETDATE()
 and ComOrd.Department_fid = Dp.fid
 and item.Custom_fID=Cust.FID
 and Mass.Flute_fid = F.fid
@@ -1096,12 +1095,12 @@ and Ord.PaperMassFlute_fid = F.fid
 and ComOrd.prodqty&gt;0 
 and ord.web&gt;0
 
-group by comOrd.OrderItemOrderSN,DP.[Name],Cust.[Name],ORD.WEB,F.[Name]
+group by comOrd.OrderItemOrderSN,DP.[Name],Cust.[Name],ORD.WEB,F.[Name]--comOrd.OrderItem_fID as OrdID
 ,Mass.fid,Item.Sec,Item.Length
 ,Item.qty
 ,Item.Width
 ,Item.Lines
-,Ord.Cust_SN 
+,Ord.Cust_SN --工号
 ,Ord.Remark 
 ,Ord.Cust_SchNo 
 ,Ord.Cust_ProdNo 
@@ -1112,8 +1111,8 @@ group by comOrd.OrderItemOrderSN,DP.[Name],Cust.[Name],ORD.WEB,F.[Name]
 ,Item.NextStation,
 Item.Cust_OrderID
 delete from #TmpR where Cust_OrderID is null or SN is null
-select Cust_OrderID as '工单号',CustomName'客户名',WEB'门幅',Flute'楞型',mass'材质',length'长度',
-secwidth'宽度',lines'压线',starttime'开始时间',endtime'结束时间',prodtime'生产时间',remark'备注',[瓦片线]='2.5米制版线',sec*planqty '数量' from #TmpR where Cust_OrderID like 'C%' order by endtime desc
+select Cust_OrderID AS '工单号',CustomName '客户名',flute'楞型',mass '材质',prodqty*sec '数量',Length '长度',secwidth '宽度'
+,lines '压线',web '门幅',CONVERT(varchar(20), starttime, 120)'开始时间',CONVERT(varchar(20), endtime, 120)'结束时间',prodtime'生产时间',remark'备注','瓦片线'='2.5米制版线' from #TmpR order by StartTime ,Cust_OrderID desc
 drop table #TmpR</value>
   </data>
   <data name="制版线当前排程2500" xml:space="preserve">

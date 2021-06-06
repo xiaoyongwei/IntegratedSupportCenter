@@ -138,7 +138,7 @@ namespace WindowsServiceBackupWorkingData
                     {
                         //获取最后备份时间
                         string lastBackupTime = MySqlDbHelper.ExecuteScalar(
-                            "SELECT date_sub(max(`结束时间`), interval 1 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='1.8米制版线'").ToString();
+                            "SELECT date_sub(max(`结束时间`), interval 3 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='1.8米制版线'").ToString();
 
                         DataTable dt = DataBaseList.sql制版线1800.Querytable(Resources.制版线完工_1800.Replace("dateadd(dd,-30,GETDATE())", "'" + lastBackupTime + "'"));
                         WriteTxtLog(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线1800完成情况成功!" : "备份制版线1800完成情况失败!");
@@ -170,9 +170,9 @@ namespace WindowsServiceBackupWorkingData
                     {
                         //获取最后备份时间
                         string lastBackupTime = MySqlDbHelper.ExecuteScalar(
-                            "SELECT ifnull(date_sub(max(`结束时间`), interval 1 day),date_sub(now(), interval 1 day)) FROM `slbz`.`瓦片完成情况`where 瓦片线='单瓦机2500'").ToString();
+                            "SELECT ifnull(date_sub(max(`结束时间`), interval 3 day),date_sub(now(), interval 3 day)) FROM `slbz`.`瓦片完成情况`where 瓦片线='单瓦机2500'").ToString();
 
-                        DataTable dt = DataBaseList.sql单瓦机2500.Querytable(Resources.制版线完工_2500.Replace("dateadd(dd,-30,GETDATE())", "'" + lastBackupTime + "'")
+                        DataTable dt = DataBaseList.sql单瓦机2500.Querytable(Resources.制版线完工_2500.Replace("*开始时间*", "'" + lastBackupTime + "'")
                             .Replace("[瓦片线]='2.5米制版线'", "[瓦片线] = '单瓦机2500'"));
                         WriteTxtLog(SubmitZhiBanXianPublishedMysql(dt) ? "备份单瓦机2500完成情况成功!" : "备份单瓦机2500完成情况失败!");
                     }
@@ -202,9 +202,9 @@ namespace WindowsServiceBackupWorkingData
                     {
                         //获取最后备份时间
                         string lastBackupTime = MySqlDbHelper.ExecuteScalar(
-                            "SELECT date_sub(max(`结束时间`), interval 1 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='2.5米制版线'").ToString();
+                            "SELECT date_sub(max(`结束时间`), interval 3 day) FROM `slbz`.`瓦片完成情况`where 瓦片线='2.5米制版线'").ToString();
 
-                        DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工_2500.Replace("dateadd(dd,-30,GETDATE())", "'" + lastBackupTime + "'"));
+                        DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工_2500.Replace("*开始时间*", "'" + lastBackupTime + "'"));
                         WriteTxtLog(SubmitZhiBanXianPublishedMysql(dt) ? "备份制版线2500完成情况成功!" : "备份制版线2500完成情况失败!");
                     }
                     else

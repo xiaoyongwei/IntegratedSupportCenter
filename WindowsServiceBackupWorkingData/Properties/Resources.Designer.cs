@@ -283,7 +283,6 @@ namespace WindowsServiceBackupWorkingData.Properties {
         
         /// <summary>
         ///   查找类似 select 
-        ///DP.[Name] as GroupName,
         ///Item.Cust_OrderID,
         ///Cust.[Name] as CustomName,
         ///ORD.WEB,
@@ -298,7 +297,7 @@ namespace WindowsServiceBackupWorkingData.Properties {
         ///max(ComOrd.EndTime) as EndTime,
         ///CONVERT(VARCHAR(11),dateadd(ss,datediff(ss,min(ComOrd.StartTime),max(ComOrd.EndTime)),&apos;00:00:00&apos;),108) as ProdTime,
         ///sum(ComOrd.StopTimes) as StopTimes,--停车次数
-        ///su [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///sum(ComOrd.StopTime) as Sto [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 制版线完工_2500 {
             get {

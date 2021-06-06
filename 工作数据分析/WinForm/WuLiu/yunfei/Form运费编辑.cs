@@ -46,7 +46,7 @@ namespace 工作数据分析.WinForm.WuLiu.yunfei
         {
             string updateString =
             "UPDATE FERP.DLV_FARE SET ACCAMT ={0},ANNAMT ={1},ANNAMT2 ={2}," +
-            "ANNAMT3 ={3},CNTAMT='{4}',BASAMT='{5}',USMARK ='{6}'	WHERE ID={7} ";
+            "ANNAMT3 ={3},CNTAMT={4},BASAMT={5},USMARK ='{6}'	WHERE ID={7} ";
             List<string> sqlList = new List<string>();
             foreach (DataGridViewRow row in dgv.Rows)
             {
