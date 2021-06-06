@@ -85,7 +85,7 @@ namespace 工作数据分析Web_FineUI.WebPage.Xiangpian
                 }
             }
             this.Lable1.Text = "数据更新时间:" + App_Code.MySqlDbHelper.ExecuteScalar("SELECT `Value`FROM `slbz`.`settingall`where `key`='制版线当前排程更新时间'")
-                //+",未排面积:"+My.GetSqlTxt_Datatable("箱片未排面积").Rows[0][0].ToString()+"平方,"
+                +",未排面积:"+My.GetSqlTxt_Datatable("箱片未排面积").Rows[0][0].ToString()+"平方,"
                 + "已排未完成:" + MySqlDbHelper .ExecuteScalar(
                     "SELECT ifnull(round(sum(订单数*宽度*长度/1000000),0),0)FROM `slbz`.`瓦片当前排程` where (`订单号` like'C2%' OR `订单号` like'CL2%'  OR `订单号` like'L2%') ").ToString()
                     + "平方,今日已开箱片:"

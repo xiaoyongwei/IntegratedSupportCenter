@@ -173,7 +173,7 @@ namespace WindowsServiceBackupWorkingData
                             "SELECT ifnull(date_sub(max(`结束时间`), interval 3 day),date_sub(now(), interval 3 day)) FROM `slbz`.`瓦片完成情况`where 瓦片线='单瓦机2500'").ToString();
 
                         DataTable dt = DataBaseList.sql单瓦机2500.Querytable(Resources.制版线完工_2500.Replace("*开始时间*", "'" + lastBackupTime + "'")
-                            .Replace("[瓦片线]='2.5米制版线'", "[瓦片线] = '单瓦机2500'"));
+                            .Replace("'瓦片线'='2.5米制版线'", "'瓦片线' = '单瓦机2500'"));
                         WriteTxtLog(SubmitZhiBanXianPublishedMysql(dt) ? "备份单瓦机2500完成情况成功!" : "备份单瓦机2500完成情况失败!");
                     }
                     else
