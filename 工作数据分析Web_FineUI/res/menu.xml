@@ -16,6 +16,8 @@
   <TreeNode Text="原纸仓库" IconFont="_Edit">   
     <TreeNode Text="备料计划" NavigateUrl="~/WebPage/yuanzhi/yuanzhiBeiliaoJihua.aspx" >
       </TreeNode>
+    <TreeNode Text="进纸需求" NavigateUrl="~/WebPage/yuanzhi/YuanzhiJinzhiXuqiu.aspx" >
+      </TreeNode>
     <TreeNode Text="白板纸需求" NavigateUrl="~/WebPage/yuanzhi/yuanzhiLast180daysDemand.aspx" >
     </TreeNode>
       <TreeNode Text="库存明细" NavigateUrl="~/WebPage/yuanzhi/yuanzhiKucunMingxi.aspx" >

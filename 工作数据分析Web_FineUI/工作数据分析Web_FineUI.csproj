@@ -3036,6 +3036,7 @@
     <Content Include="WebPage\Xiangpian\XiangpianWancheng.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiFeileiHuizong.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiGeleiZhanbi.aspx" />
+    <Content Include="WebPage\YuanZhi\YuanzhiJinzhiXuqiu.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiKucunFenlei.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiKucunMingxi.aspx" />
     <Content Include="WebPage\YuanZhi\YuanzhiBeiliaoJihua.aspx" />
@@ -3339,6 +3340,13 @@
     </Compile>
     <Compile Include="WebPage\YuanZhi\YuanzhiGeleiZhanbi.aspx.designer.cs">
       <DependentUpon>YuanzhiGeleiZhanbi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiJinzhiXuqiu.aspx.cs">
+      <DependentUpon>YuanzhiJinzhiXuqiu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\YuanZhi\YuanzhiJinzhiXuqiu.aspx.designer.cs">
+      <DependentUpon>YuanzhiJinzhiXuqiu.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPage\YuanZhi\YuanzhiKucunFenlei.aspx.cs">
       <DependentUpon>YuanzhiKucunFenlei.aspx</DependentUpon>
