@@ -57,13 +57,13 @@ namespace 工作数据分析.WinForm
             {
             }
         }
-        private void Get2500制版线完成信息1天()
+        private void Get2500制版线完成信息3天()
         {
             try
             {
                 if (DataBaseList.sql制版线2500 != null)
                 {
-                    DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500当天1);
+                    DataTable dt = DataBaseList.sql制版线2500.Querytable(Resources.制版线完工2500_3天);
                     SubmitZhiBanXianSQLite(dt);
                 }
             }
@@ -366,19 +366,19 @@ namespace 工作数据分析.WinForm
             //Get1800制版线完成信息1天();
             //Get1800F制版线完成信息1天();
             Get2200制版线完成信息1天();
-            Get2500制版线完成信息1天();
-            Get单瓦机2500完成信息1天();
+            Get2500制版线完成信息3天();
+            Get单瓦机2500完成信息3天();
             //开始压缩数据库
             SQLiteDbHelper_ZBX.ExecuteZip();
         }
 
-        private void Get单瓦机2500完成信息1天()
+        private void Get单瓦机2500完成信息3天()
         {
             try
             {
                 if (DataBaseList.sql单瓦机2500 != null)
                 {
-                    DataTable dt = DataBaseList.sql单瓦机2500.Querytable(Resources.制版线完工2500当天1.Replace("[瓦片线]='2.5米制版线'", "[瓦片线]='单瓦机2500'"));
+                    DataTable dt = DataBaseList.sql单瓦机2500.Querytable(Resources.制版线完工2500_3天.Replace("'瓦片线'='2.5米制版线'", "'瓦片线'='单瓦机2500'"));
                     SubmitZhiBanXianSQLite(dt);
                 }
             }

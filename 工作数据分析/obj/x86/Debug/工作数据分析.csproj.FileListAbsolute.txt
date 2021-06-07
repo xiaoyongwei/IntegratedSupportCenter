@@ -78,8 +78,6 @@ C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分�
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csprojAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\物流数据.exe
 C:\Users\Administrator\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\物流数据.pdb
-D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.exe.config
-D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.exe
 D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\Aspose.PDF.dll
 D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\Oracle.ManagedDataAccess.dll
 D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.FormMain.resources
@@ -118,9 +116,6 @@ D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据�
 D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.GenerateResource.cache
 D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.CoreCompileInputs.cache
 D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.CopyComplete
-D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\物流数据.exe
-D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\物流数据.pdb
-D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.pdb
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.exe.config
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.exe
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.pdb
@@ -131,3 +126,8 @@ C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.AssemblyReference.cache
 D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csprojAssemblyReference.cache
 D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.WuLiu.yunfei.Form运费编辑.resources
+D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\制版线实时查询.exe.config
+D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\制版线实时查询.exe
+D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\制版线实时查询.pdb
+D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\制版线实时查询.exe
+D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\制版线实时查询.pdb
