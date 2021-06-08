@@ -124,10 +124,9 @@ C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\物流数据.pdb
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.WuLiu.yunfei.Form运费编辑.resources
 C:\Users\xywabc\Documents\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.AssemblyReference.cache
-D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csprojAssemblyReference.cache
 D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.WinForm.WuLiu.yunfei.Form运费编辑.resources
-D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\制版线实时查询.exe.config
-D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\制版线实时查询.exe
-D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\制版线实时查询.pdb
-D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\制版线实时查询.exe
-D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\制版线实时查询.pdb
+D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.exe.config
+D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.exe
+D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.pdb
+D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\物流数据.exe
+D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\物流数据.pdb
