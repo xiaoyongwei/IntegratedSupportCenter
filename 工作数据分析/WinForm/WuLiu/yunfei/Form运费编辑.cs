@@ -44,6 +44,8 @@ namespace 工作数据分析.WinForm.WuLiu.yunfei
 
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            dgv.EndEdit();
+
             string updateString =
             "UPDATE FERP.DLV_FARE SET ACCAMT ={0},ANNAMT ={1},ANNAMT2 ={2}," +
             "ANNAMT3 ={3},CNTAMT={4},BASAMT={5},USMARK ='{6}'	WHERE ID={7} ";
@@ -57,7 +59,7 @@ namespace 工作数据分析.WinForm.WuLiu.yunfei
                   , GetCellValueYunfeiInt(row.Cells["补运费"])
                    , GetCellValueYunfeiInt(row.Cells["ANNAMT3"])
                    , GetCellValueYunfeiInt(row.Cells["CNTAMT"])
-                   , GetCellValueYunfeiInt(row.Cells["BASAMT"])
+                   , GetCellValueYunfeiInt(row.Cells["保底运费"])
                    , GetCellValueYunfeiStr(row.Cells["备注"])
                    , row.Cells["ID"].Value.ToString()
                    

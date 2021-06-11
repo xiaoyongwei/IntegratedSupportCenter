@@ -603,8 +603,7 @@ namespace 工作数据分析.Properties {
         ///           and i.orgcde = t.orgcde
         ///           and i.pono = t.pono) as 折算面积
         ///	,&quot;ACCAMT&quot;运费	
-        ///	,&quot;ANNAMT2&quot;补运费
-        ///	,&quot;ANNAMT&quot;        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///              ,BASAMT 保底运费        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string 运费结算 {
             get {

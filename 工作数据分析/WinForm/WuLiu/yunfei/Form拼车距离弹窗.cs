@@ -43,8 +43,8 @@ namespace 工作数据分析.WinForm.WuLiu.yunfei
         /// </summary>
         private bool SetPinCheFei(double km)
         {
-            string SQL = string.Format("UPDATE EJSH.DLV_FARE "
-            + " SET ANNAMT = NVL(ANNAMT, 0) + (case when {0} > 5 then round(20 + ({0} - 5) * 2,2) ELSE 20 End) "
+            string SQL = string.Format("UPDATE FERP.DLV_FARE "
+            + " SET ANNAMT2 = NVL(ANNAMT2, 0) + (case when {0} > 5 then round(20 + ({0} - 5) * 2,2) ELSE 20 End) "
             + " ,USMARK = USMARK || '{2}拼车距离{0}km+' || (case when {0} > 5 then round(20 + ({0} - 5) * 2,2) ELSE 20 End)|| ',' "
             + " WHERE PAYSTS = 'N' AND(usmark NOT like '%拼车%' OR USMARK IS null)   and ID = {1}", km, ID, this.textBoxMiaosu.Text.Trim());
 

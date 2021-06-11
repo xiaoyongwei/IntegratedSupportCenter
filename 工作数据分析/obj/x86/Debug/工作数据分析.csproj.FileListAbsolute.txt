@@ -130,3 +130,4 @@ D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.exe
 D:\GitHub\IntegratedSupportCenter\工作数据分析\bin\Debug\物流数据.pdb
 D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\物流数据.exe
 D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\物流数据.pdb
+D:\GitHub\IntegratedSupportCenter\工作数据分析\obj\x86\Debug\工作数据分析.csproj.AssemblyReference.cache

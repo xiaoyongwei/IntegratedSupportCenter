@@ -1351,11 +1351,11 @@ ORDER BY "送货时间" DESC</value>
            and i.orgcde = t.orgcde
            and i.pono = t.pono) as 折算面积
 	,"ACCAMT"运费	
+              ,BASAMT 保底运费
 	,"ANNAMT2"补运费
 	,"ANNAMT"
 	,"ANNAMT3"
-	,CNTAMT
-	,BASAMT
+	,CNTAMT	
 	,nvl("ACCAMT",0)+nvl("ANNAMT2",0)+nvl("ANNAMT",0)+nvl("ANNAMT3",0)+nvl("CNTAMT",0)+nvl("BASAMT",0) 总运费
 	,"USMARK"备注
 ,"DISTANCE"里程

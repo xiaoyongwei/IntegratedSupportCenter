@@ -102,10 +102,10 @@ namespace 工作数据分析.WinForm.WuLiu
         private void SetErCiDuiMa(string ID)
         {
             string erciduima = "SELECT round((select nvl(sum(i.ratios * i.acreage * i.ACCNUMR),0) from v_bcdx_ct i where i.clientid = t.clientid and i.orgcde = t.orgcde"
-          + " and i.PONO = t.pono)*0.011,2)  FROM EJSH.DLV_FARE t WHERE ID = " + ID;
+          + " and i.PONO = t.pono)*0.011,2)  FROM FERP.DLV_FARE t WHERE ID = " + ID;
 
-            string sql = "UPDATE \"EJSH\".\"DLV_FARE\" SET \"ANNAMT\" = NVL(\"ANNAMT\",0)+("
-                + erciduima + ") ,\"USMARK\" = \"USMARK\"||'二次堆码+'||(" + erciduima + ")||',' WHERE PAYSTS='N' and (USMARK not like '%二次堆码%' OR USMARK IS null)and \"ID\" =" + ID;
+            string sql = "UPDATE FERP.DLV_FARE SET ANNAMT2 = NVL(ANNAMT2,0)+("
+                + erciduima + ") ,USMARK = USMARK||'二次堆码+'||(" + erciduima + ")||',' WHERE PAYSTS='N' and (USMARK not like '%二次堆码%' OR USMARK IS null)and ID =" + ID;
 
             if (
             OracleHelper.ExecuteNonQuery(sql) > 0)
@@ -298,7 +298,7 @@ namespace 工作数据分析.WinForm.WuLiu
         /// </summary>
         private bool SetPinCheWenXin()
         {
-            string SQL = "UPDATE EJSH.DLV_FARE  SET ANNAMT = NVL(ANNAMT, 0) + 20  ,USMARK = USMARK || '1区2区拼车+20,'  "
+            string SQL = "UPDATE FERP.DLV_FARE  SET ANNAMT2 = NVL(ANNAMT2, 0) + 20  ,USMARK = USMARK || '文信12区拼车+20,'  "
                 +"WHERE PAYSTS = 'N' AND(usmark NOT like '%拼车%' OR USMARK IS null)   and ID = "+ GetSelectedID();
 
             return OracleHelper.ExecuteNonQuery(SQL) > 0;

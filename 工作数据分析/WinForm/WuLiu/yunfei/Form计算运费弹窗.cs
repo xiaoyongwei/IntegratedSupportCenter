@@ -55,7 +55,7 @@ namespace 工作数据分析.WinForm.WuLiu
 
                 zongYunfei = Math.Round(zongYunfei, 4);
 
-                string SQL = string.Format("UPDATE FERP.DLV_FARE t SET ACCAMT =round( (select nvl(sum(i.ratios * i.acreage * i.ACCNUMR),0) from FERP.v_pb_bcdx_ct i " +
+                string SQL = string.Format("UPDATE FERP.DLV_FARE t SET BASAMT=round( (select nvl(sum(i.ratios * i.acreage * i.ACCNUMR),0) from FERP.v_pb_bcdx_ct i " +
                 "where i.clientid = t.clientid and i.orgcde = t.orgcde and i.PONO = t.pono)/ {0} * {1},2) WHERE PAYSTS = 'N' and ID in({2}) "
                 , sumAreas, zongYunfei, idIn);
                 if (OracleHelper.ExecuteNonQuery(SQL) > 0)
